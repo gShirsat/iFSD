@@ -1,0 +1,109 @@
+<!-- Strainer Pop Up -->
+<div class="strainerPopUp popUp" id="strainerPopupId" style="display:none;">
+    <div class="header col-md-12 col-sm-12 col-xs-12">
+        <h3 class="pull-left popTitle"></h3>
+        <i class="pull-right">X</i>
+    </div>
+    <div class="body col-md-12 col-sm-12 col-xs-12 tableScroller">
+        <ul class="nav nav-tabs col-md-12 col-sm-12 col-xs-12 iFSDTab margin0">
+            <li class="active">
+                <a href="#">Input</a>
+            </li>
+            <li>
+                <a href="#">Output</a>
+            </li>
+            <li>
+                <a href="#">Note</a>
+            </li>
+            <li>
+                <a href="#">Documentation</a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="Input tabDiv genericSrollBox">
+            <table class="table table-bordered margin0 tableScroller" id="Input">
+                <tbody>
+                    <tr>
+                        <td width="25%">Application</td>
+                        <td align="left">
+                            <select id="applicationId">
+                                <option value="Non MBR">Non MBR</option>
+                                <option value="MBR">MBR</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr id="feedwaterFilter">
+                        <td width="25%">Feed Water</td>
+                        <td>
+                            <select id="feedWaterId">
+                                <option value="Surface Water" id="0">Surface Water</option>
+                                <option id="1">Ground Water</option>
+                                <option id="2">Secondary Effluent</option>
+                                <option id="3">Sea Water</option>
+                                <option id="4">Settled Water</option>
+                                <option id="5">Filtered Water</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="25%">Recovery</td>
+                        <td align="left">
+                            <input type="number" name="recoveryId" />
+                        </td>
+                        <td>%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+
+
+        <div class="Output tabDiv dispNone genericSrollBox">
+            <table class="table table-bordered margin0 tableScroller" id="Input">
+                <tbody>
+                    <tr>
+                        <td width="25%">Maximum screen opening size</td>
+                        <td contenteditable="false" id="ototalfeedFlow"></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="Note tabDiv dispNone genericSrollBox">
+            <p class="mB5">
+                <strong>Please add Note:</strong>
+            </p>
+            <textarea class="sf_Note" rows="4" cols="50" name="sf_Note"></textarea>
+        </div>
+        <div class="Documentation tabDiv dispNone genericSrollBox">
+            <p class="text-justify">
+				Number of streams required to execute the unitop<br>
+				Input-   1 Stream<br>
+				Output - 2 Stream<br>
+				<br><br>
+                ZeeWeed systems require prescreens in order to remove solids that can damage membrane fibers if allowed into the membrane
+                train. Providing and maintaining proper screening is required for the purpose of warranty. Prescreening requirements
+                for ZW systems depend on application and membrane product.
+                <br> All pre screens must be mesh, punched hole or disc filter type with a stated opening size in all dimensions
+                at or below the value specified by the tool. Wedge wire material or slot opening is not acceptable.
+                <br> Selected screen should not have areas where internal bypassing is possible or a design that is susceptible
+                to bypass.
+                <br> Guidelines for prescreening for non MBR ZW membrane products and applications
+                <br> • All ZeeWeed ultrafiltration membranes and applications require the use of a 500 micron or less screen
+                size (100 micron for SeaWater applications). Guidelines for prescreening for MBR ZW membrane products and
+                applications
+                <br> • Minimum screening requirement is less than 200 micron mesh or punched hole screens
+                <br> • Strongly recommended t is less than 100 micron mesh or punched hole screens
+                <br> Note: For details, kindly refer Tech notes GPM-36-0704-1, GPM-76-1204-1
+            </p>
+        </div>
+
+
+        <div class="footer col-md-12 col-sm-12 col-xs-12">
+            <div class="popUpTabError"></div>
+            <button type="button" class="btn updateBtn" id="blueButton">Update</button>
+            <button type="button" class="btn cancelBtn" id="blueButton">Cancel</button>
+        </div>
+        <div class="clearfix"></div>
+    </div>

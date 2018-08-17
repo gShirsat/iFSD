@@ -1,0 +1,834 @@
+<div class="filterspopUp popUp" id="filtersPopUpId" style="display:none;">
+    <div class="header col-md-12 col-sm-12 col-xs-12">
+        <h3 class="pull-left popTitle"></h3>
+        <i class="pull-right">X</i>
+    </div>
+    <div class="body col-md-12 col-sm-12 col-xs-12 tableScroller">
+        <ul class="nav nav-tabs col-md-12 col-sm-12 col-xs-12 iFSDTab margin0">
+            <li class="active">
+                <a href="#">Input</a>
+            </li>
+            <li>
+                <a href="#">Output</a>
+            </li>
+            <li>
+                <a href="#">Note</a>
+            </li>
+            <li>
+                <a href="#">Documentation</a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="Input tabDiv genericSrollBox">
+            <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                <tbody>
+                    <tr>
+                        <td>Filter Type
+                            <select id="filterType" name="filterType">
+                                <option value="Vertical Multimedia Filter">Vertical Multimedia Filter</option>
+                                <option value="Horizontal Multimedia Filter">Horizontal Multimedia Filter</option>
+                                <option value="Activated Carbon Filter">Activated Carbon Filter</option>
+                                <option value="Greensand Filter">Greensand Filter</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="filters_One">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#filters_collapseOne" aria-expanded="true" aria-controls="filters_collapseOne">
+                                Unit Configuration
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="filters_collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="filters_One">
+                        <div class="panel-body">
+                            <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                                <tbody>
+                                    <tr>
+                                        <td unitType="Volume Flow" width="50%">Total Design Flow Rate (Optional) </td>
+                                        <td width="25%">
+                                            <input type="text" name="designFlowRate" min="0" />
+                                        </td>
+                                        <td id="designFlowRate1" width="20%">gpm</td>
+                                    </tr>
+                                    <tr>
+                                        <td unitType="Volume Flow" width="50%">Total Maximum Flow Rate (Optional) </td>
+                                        <td>
+                                            <input type="text" name="maxFlowRate" />
+                                        </td>
+                                        <td id="maxFlowRate1">gpm</td>
+                                    </tr>
+                                    <tr>
+                                        <td unitType="-" width="50%">Total number of installed unit(s)</td>
+                                        <td>
+                                            <input type="text" name="installedUnits" value="1" />
+                                        </td>
+                                        <td id="installedUnits1"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%">Unit(s) in service, normally</td>
+                                        <td>
+                                            <input type="text" name="unitsInService" value="1" />
+                                        </td>
+                                        <td id="unitsInService1"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="filters_Two">
+                        <h4 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#filters_collapseTwo" aria-expanded="false" aria-controls="filters_collapseTwo">
+                                Operating Conditions/Parameters
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="filters_collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="filters_Two">
+                        <div class="panel-body">
+                            <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                                <tbody>
+                                    <tr id="loadingRateFilter">
+                                        <td unitType="Loading Rate" width="50%">
+										<span class="w80">Loading Rate</span>
+										<div class="tooltip_iFSD">
+											<span class="glyphicon glyphicon-info-sign"></span>
+										  <span class="tooltiptext_iFSD">
+											With coagulant, loading rate could range from 1.5 -2.5 kg/m3
+										  </span>
+										</div>
+										</td>
+                                        <td>
+                                            <input type="text" name="loadingRate" value="2">
+                                        </td>
+                                        <td id="loadingRate1">mg/L</td>
+                                    </tr>
+                                    <tr id="inletSldFilter">
+                                        <td width="50%">Inlet Total Suspended Solids</td>
+                                        <td>
+                                            <input type="text" name="inletSolids" value="" />
+                                        </td>
+                                        <td id="inletSolids1">mg/L</td>
+                                    </tr>
+                                    <tr id="organicCbnFilter">
+                                        <td width="50%">Inlet Total Organic Carbon, Optional</td>
+                                        <td>
+                                            <input type="text" name="inletTotalCarbon" value="" />
+                                        </td>
+                                        <td id="inletTotalCarbon1">mg/L</td>
+                                    </tr>
+                                    <tr id="inletChlFilter">
+                                        <td width="50%">Inlet Chlorine, Optional</td>
+                                        <td>
+                                            <input type="text" name="inletChlorine" value="" />
+                                        </td>
+                                        <td id="inletChlorine1">mg/L</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%">Media Bed Freeboard </td>
+                                        <td>
+                                            <input type="text" name="mediaBed" value="" />
+                                        </td>
+                                        <td id="mediaBed1">%</td>
+                                    </tr>
+                                    <tr>
+                                        <td unitType="Temperature" width="50%">Back wash Temp, High </td>
+                                        <td>
+                                            <input type="text" name="backWashTemphigh" value="" />
+                                        </td>
+                                        <td id="backWashTemphigh1">deg F</td>
+                                    </tr>
+                                    <tr>
+                                        <td unitType="Temperature" width="50%">Back wash Temp, Low </td>
+                                        <td>
+                                            <input type="text" name="backWashTempLow" value="" />
+                                        </td>
+                                        <td id="backWashTempLow1">deg F</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%">Post back wash rinse </td>
+                                        <td>
+                                            <select name="postBackWash">
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </td>
+                                        <td id="postBackWash1"></td>
+                                    </tr>
+                                    <tr id="airScourShow">
+                                        <td width="50%">Air Scour </td>
+                                        <td>
+                                            <select name="airScourId">
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </td>
+                                        <td id="airScourId1"></td>
+                                    </tr>
+                                    <tr id="subSurfaceWashShow">
+                                        <td width="50%">Sub surface wash </td>
+                                        <td>
+                                            <select name="subSurfaceWashId">
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </td>
+                                        <td id="subSurfaceWashId1"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="filters_Three">
+                        <h4 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#filters_collapseThree" aria-expanded="false"
+                                aria-controls="filters_collapseThree">
+                                Vessel Design Parameters
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="filters_collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="filters_Three">
+                        <div class="panel-body">
+                            <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                                <tbody>
+                                    <tr>
+                                        <td unitType="Pressure" width="40%">Design Pressure </td>
+                                        <td>
+                                            <input type="text" name="designPressure" value="" />
+                                        </td>
+                                        <td id="designPressure1" width="23%">psig</td>
+                                    </tr>
+                                    <tr>
+                                        <td >Corrosion allowance, (Optional) </td>
+                                        <td>
+                                            <input type="text" name="corrosionAllowance" value="0" />
+                                        </td>
+                                        <td id="corrosionAllowance1">1/16th of an inch</td>
+                                    </tr>
+                                    <tr>
+                                        <td >Choice of lining </td>
+                                        <td>
+                                            <select name="choiceLining" class="w100">
+                                                <option value="Plasite">Plasite</option>
+                                                <option value="3/16 Rubber">3/16" Rubber</option>
+                                                <option value="1/4 Rubber">1/4" Rubber</option>
+                                                <option value="None">None</option>
+                                            </select>
+                                        </td>
+                                        <td id="choiceLining1"></td>
+                                    </tr>
+                                    <tr>
+                                        <td unitType="Length" >Outer Diameter </td>
+                                        <td>
+                                            <input type="text" name="outerDia" value="" />
+                                        </td>
+                                        <td id="outerDia1">in</td>
+                                    </tr>
+
+                                    <tr id="tanLgthFilter">
+                                        <td unitType="Length" >Tan length </td>
+                                        <td>
+                                            <input type="text" name="tanLength" value="" />
+                                        </td>
+                                        <td id="tanLength1">in</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td >Head Type </td>
+                                        <td>
+                                            <select name="headType" class="w100">
+                                                <option value="ASME F&D">ASME F&D</option>
+                                                <option value="ASME 2:1 Semi - elliptical">ASME 2:1 Semi - elliptical</option>
+                                            </select>
+                                        </td>
+                                        <td id="headType1"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="filters_Four">
+                        <h4 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#filters_collapseFour" aria-expanded="false" aria-controls="filters_collapseFour">
+                                Filter Media
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="filters_collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="filters_Four">
+                        <div class="panel-body">
+                            <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                                <tbody>
+                                    <tr id="sandDepthFilter">
+                                        <td width="50%" unitType="Length">Sand Depth </td>
+                                        <td>
+                                            <input type="text" name="sandDepthId" value="" />
+                                        </td>
+                                        <td id="sandDepthId1">m</td>
+                                    </tr>
+                                    <tr id="anthraDepthFilter">
+                                        <td width="50%" unitType="Length">Anthracite Depth </td>
+                                        <td>
+                                            <input type="text" name="anthraId" value="" />
+                                        </td>
+                                        <td id="anthraId1">m</td>
+                                    </tr>
+                                    <tr id="garnetDepthFilter">
+                                        <td unitType="Length" width="50%">Garnet Depth </td>
+                                        <td>
+                                            <input type="text" name="garnetId" value="" />
+                                        </td>
+                                        <td id="garnetId1">m</td>
+                                    </tr>
+                                    <tr id="subFillFilter">
+                                        <td width="50%">Sub Fill Type </td>
+                                        <td>
+                                            <select name="subFillTypeId">
+                                                <option value="Carbon">Carbon</option>
+                                                <option value="Sand">Sand</option>
+                                            </select>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr id="greenSandFilter">
+                                        <td width="50%">Green Sand Load </td>
+                                        <td>
+                                            <input type="text" name="greenSandLoadId" value="" />
+                                        </td>
+                                        <td>ppm Fe+Mn</td>
+                                    </tr>
+
+                                    <tr id="anthraDepFilter">
+                                        <td width="50%">Anthracite Cap </td>
+                                        <td>
+                                            <select name="anthraciteCapId">
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="filters_Five">
+                        <h4 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#filters_collapseFive" aria-expanded="false" aria-controls="filters_collapseFive">
+                                Vessel Design Check
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="filters_collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="filters_Five">
+                        <div class="panel-body">
+                            <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                                <tbody>
+                                    <tr>
+                                        <td width="50%">Shell Joint efficiency</td>
+                                        <td>
+                                            <input type="text" name="shellJointEfficiency" value="0.85" class="inputWithDecimal" />
+                                        </td>
+                                        <td id="shellJointEfficiency1">(0-1)</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%">Head Joint efficiency</td>
+                                        <td>
+                                            <input type="text" name="headJointEfficiency" value="1" />
+                                        </td>
+                                        <td id="headJointEfficiency1">(0-1)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="filters_Six">
+                    <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#filters_collapseSix" aria-expanded="false" aria-controls="filters_collapseSix">
+                            Cleaning Sequence Details
+                        </a>
+                    </h4>
+                </div>
+                <div id="filters_collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="filters_Six">
+                    <div class="panel-body">
+                        <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                            <tbody>
+                                <tr>
+                                    <td unitType="Time" width="30%">Backwash Time (Optional)</td>
+                                    <td>
+                                        <input type="text" name="backWashTime" />
+                                    </td>
+                                    <td id="backWashTime1" width="20%"></td>
+                                </tr>
+                                <tr>
+                                    <td unitType="Time" width="30%">Drain Time (Optional)</td>
+                                    <td>
+                                        <input type="text" name="drainTime" />
+                                    </td>
+                                    <td id="drainTime1" width="20%"></td>
+
+                                </tr>
+                                <tr>
+                                    <td unitType="Time" width="30%">Refill Time (Optional)</td>
+                                    <td>
+                                        <input type="text" name="refillTime" />
+                                    </td>
+                                    <td id="refillTime1" width="20%"></td>
+                                </tr>
+                                <tr>
+                                    <td unitType="Time" width="30%">Rinse Time (Optional)</td>
+                                    <td>
+                                        <input type="text" name="rinseTime" />
+                                    </td>
+                                    <td id="rinseTime1" width="20%"></td>
+                                </tr>
+                                <tr>
+                                    <td unitType="Time" width="50%">Subsurface Wash Time (Optional)</td>
+                                    <td>
+                                        <input type="text" name="surfaceWashTime" />
+                                    </td>
+                                    <td id="surfaceWashTime1" width="20%"></td>
+                                </tr>
+								<tr>
+                                    <td unitType="Time" width="50%">Air Scour Time (Optional)</td>
+                                    <td>
+                                        <input type="text" name="airScourTime" />
+                                    </td>
+                                    <td id="airScourTime1" width="20%"></td>
+                                </tr>
+                                <tr>
+                                    <td width="50%">Rinse flow to be maintained as service flow</td>
+                                    <td>
+                                        <select name="rinseServiceFlow">
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </td>
+                                    <td id="rinseServiceFlow1" width="20%"></td>
+                                </tr>
+                                <tr>
+                                    <td width="50%">Rinse water recycled to feed</td>
+                                    <td>
+                                        <select name="rinseFeedRecycle">
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </td>
+                                    <td id="rinseFeedRecycle1"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Output tabDiv dispNone genericSrollBox">
+	<div class="panel-group" id="accordionFO" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="ofilters_One">
+                <h4 class="panel-title">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordionFO" href="#ofilters_collapseOne" aria-expanded="false" aria-controls="ofilters_collapseOne">
+                        Vessel Data
+                    </a>
+                </h4>
+            </div>
+            <div id="ofilters_collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ofilters_One">
+                <div class="panel-body">
+                    <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                        <tbody>
+                            <tr>
+                                <td unitType="Length" width="45%">Diameter</td>
+                                <td contenteditable="false" name="diameter" width="25%">
+
+                                </td>
+                                <td id="diameter1">mm</td>
+                            </tr>
+                            <tr>
+                                <td width="45%" unitType="Length">Straight Shell Height</td>
+                                <td contenteditable="false" width="25%">
+                                </td>
+                                <td>mm</td>
+                            </tr>
+                            <tr>
+                                <td width="45%" unitType="Pressure">Vessel Design Pressure</td>
+                                <td name="vesselDesignP" contenteditable="false" width="25%">
+                                </td>
+                                <td id="vesselDesignP1">barg</td>
+                            </tr>
+                            <tr>
+                                <td width="45%" unitType="Pressure">Vessel Test Pressure</td>
+                                <td contenteditable="false" name="vesselTestP" width="25%">
+                                </td>
+                                <td id="vesselTestP1">barg</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="ofilters_Two">
+                <h4 class="panel-title">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordionFO" href="#ofilters_collapseTwo" aria-expanded="false" aria-controls="ofilters_collapseTwo">
+                        Media Data
+                    </a>
+                </h4>
+            </div>
+            <div id="ofilters_collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ofilters_Two">
+                <div class="panel-body">
+                    <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                        <tbody>
+                            <tr id="volAnthraShow">
+                                <td width="45%" unitType="Volume">Volume of Anthracite / Unit</td>
+                                <td contenteditable="false" name="volOfAnthracite" width="25%">
+                                </td>
+                                <td id="volOfAnthracite1">L</td>
+                            </tr>
+                            <tr id="anthraBedDepthSshow">
+                                <td width="45%" unitType="Length">Anthracite Bed Depth</td>
+                                <td contenteditable="false" width="25%">
+                                </td>
+                                <td id="anthraBedDepth1">mm</td>
+                            </tr>
+                            <tr id="volFilterSandShow">
+                                <td width="45%" unitType="Volume">Volume Of Filter Sand / Unit</td>
+                                <td contenteditable="false"  name="volOfFilterSand" width="25%">
+                                </td>
+                                <td id="volOfFilterSand1">L</td>
+                            </tr>
+                            <tr id="filterSandDepthShow">
+                                <td width="45%" unitType="Length">Filter Sand Bed Depth</td>
+                                <td contenteditable="false" name="filterSandBedDepth" width="25%">
+                                </td>
+                                <td id="filterSandBedDepth1">mm</td>
+                            </tr>
+                            <tr id="volGarnetShow">
+                                <td width="45%" unitType="Volume">Volume of Garnet/Unit</td>
+                                <td contenteditable="false" name="volBedDepth" width="25%">
+                                </td>
+                                <td id="filterSandBedDepth1">mm</td>
+                            </tr>
+                            <tr id="garnetBedDepthShow">
+                                <td width="45%" unitType="Length">Garnet Bed Depth</td>
+                                <td contenteditable="false" name="garnetBedDepth" width="25%">
+                                </td>
+                                <td id="garnetBedDepth1">mm</td>
+                            </tr>
+                            <tr id="volGreenSandShow">
+                                <td width="45%" unitType="Volume">Volume of Greensand/Unit</td>
+                                <td contenteditable="false" width="25%">
+                                </td>
+                                <td>L</td>
+                            </tr>
+                            <tr id="gsandandBedDepthShow">
+                                <td width="45%" unitType="Length">Greensand bed depth</td>
+                                <td contenteditable="false" width="25%">
+                                </td>
+                                <td>L</td>
+                            </tr>
+                            <tr id="volCarbonShow">
+                                <td width="45%" unitType="Volume">Volume of Carbon/Unit</td>
+                                <td contenteditable="false" width="25%">
+                                </td>
+                                <td>L</td>
+                            </tr>
+                            <tr id="carbonBedDepthShow">
+                                <td width="45%" unitType="Length">Carbon Bed Depth</td>
+                                <td contenteditable="false" width="25%">
+                                </td>
+                                <td>L</td>
+                            </tr>
+                            <tr id="sandSubfillShow">
+                                <td width="45%" unitType="Volume">Subfill Volume [to top of underdrain]</td>
+                                <td contenteditable="false" width="25%">
+                                </td>
+                                <td>L</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="ofilters_Three">
+                <h4 class="panel-title">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordionFO" href="#ofilters_collapseThree" aria-expanded="false"
+                        aria-controls="ofilters_collapseThree">
+                        Performance Data
+                    </a>
+                </h4>
+            </div>
+            <div id="ofilters_collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ofilters_Three">
+                <div class="panel-body">
+                    <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                        <tbody>
+                            <tr>
+                                <td unitType="Volume Flow" width="45%">Maximum Service Flowrate / Unit</td>
+                                <td name="serviceFlowRate" width="25%"></td>
+                                <td id="serviceFlowRate1">m3/h</td>
+                            </tr>
+                            <tr>
+                                <td unitType="Volume Flow" width="45%">Design Service Flowrate / Unit</td>
+                                <td width="25%"></td>
+                                <td id="serviceFlowRate1">m3/h</td>
+                            </tr>
+                            <tr>
+                                <td unitType="Flux" width="45%">Maximum Fluxrate</td>
+                                <td name="maxFluxRate" width="25%"></td>
+                                <td id="maxFluxRate1">gpm</td>
+                            </tr>
+                            <tr>
+                                <td unitType="Flux" width="45%">Design Fluxrate</td>
+                                <td name="maxFluxRate" width="25%"></td>
+                                <td>gpm</td>
+                            </tr>
+                            <tr>
+                                <td width="45%">Max Flow Rate/Media Volume</td>
+                               
+                                <td name="medVolume" width="25%"></td>
+                                <td>gpm/ft3</td>
+                            </tr>
+                            <tr>
+                                <td width="45%">Design Flow Rate/Media Volume</td>
+                                <td width="25%"></td>
+                                <td>gpm/ft3</td>
+                            </tr>
+                            <tr>
+                                <td width="45%">System Recovery</td>
+                                <td width="25%"></td>
+                                <td>%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="ofilters_Four">
+                <h4 class="panel-title">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordionFO" href="#ofilters_collapseFour" aria-expanded="false"
+                        aria-controls="ofilters_collapseFour">
+                        Cleaning Sequence
+                    </a>
+                </h4>
+            </div>
+            <div id="ofilters_collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ofilters_Four">
+                <div class="panel-body">
+                    <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                        <tbody>
+                            <tr id="drainDownFilter">
+                                <td unitType="Volume Flow" width="45%">Draindown Flow</td>
+                                <td name="drainDownFlow" contenteditable="false" width="25%"></td>
+                                <td  contenteditable="false"></td>
+                            </tr>
+                            <tr id="drainDownTimeFilter">
+                                <td unitType="Time" width="25%">Draindown Time</td>
+                                <td name="drainDownTime" contenteditable="false" width="25%"></td>
+                                <td id="drainDownTime1" width="25%" contenteditable="false"></td>
+                            </tr>
+                            <tr id="drainDownVolumeFilter">
+                                <td unitType="Volume" width="45%">Draindown Volume</td>
+                                <td name="drainDownVolume" contenteditable="false" width="25%"></td>
+                                <td id="drainDownVolume1" width="25%" contenteditable="false"></td>
+                            </tr>
+                            <tr id="airScourFlowFilter">
+                                <td width="45%">Air Scour Flow</td>
+                                <td contenteditable="false" width="25%"></td>
+                                <td width="25%" contenteditable="false">SCFM</td>
+                            </tr>
+                            <tr id="airScourTimeFilter">
+                                <td width="45%" unitType="Time" >Air Scour Time</td>
+                                <td contenteditable="false" width="25%"></td>
+                                <td width="25%" contenteditable="false"></td>
+                            </tr>
+                            <tr id="refillFlowFilter">
+                                <td width="45%" unitType="Volume Flow">Refill Flow</td>
+                                <td contenteditable="false" width="25%"></td>
+                                <td width="25%" contenteditable="false"></td>
+                            </tr>
+                            <tr id="refillTimeFilter">
+                                <td width="45%" unitType="Time">Refill Time</td>
+                                <td contenteditable="false" width="25%"></td>
+                                <td width="25%" contenteditable="false"></td>
+                            </tr>
+                            <tr id="subsurfaceWashFlowFilter">
+                                <td width="45%" unitType="Volume Flow">Subsurface Wash Flow</td>
+                                <td contenteditable="false" width="25%"></td>
+                                <td width="25%" contenteditable="false"></td>
+                            </tr>
+                            <tr id="subsurfaceWashTimeFilter">
+                                <td width="45%" unitType="Time">Subsurface Wash Time</td>
+                                <td contenteditable="false" width="25%"></td>
+                                <td width="25%" contenteditable="false"></td>
+                            </tr>
+                            <tr id="subsurfaceWashVolFilter">
+                                <td width="45%" unitType="Volume">Subsurface Wash Volume</td>
+                                <td contenteditable="false" width="25%"></td>
+                                <td width="25%" contenteditable="false"></td>
+                            </tr>
+                            <tr>
+                                <td width="45%" unitType="Volume Flow">Backwash Flow</td>
+                                <td contenteditable="false"></td>
+                                <td width="25%" contenteditable="false"></td>
+                            </tr>
+                            <tr>
+                                <td width="45%" unitType="Volume Flow">Backwash Time</td>
+                                <td contenteditable="false" width="25%"></td>
+                                <td width="25%" contenteditable="false"></td>
+                            </tr>
+                            <tr>
+                                <td width="45%" unitType="Volume">Backwash Volume</td>
+                                <td contenteditable="false" width="25%"></td>
+                                <td width="25%" contenteditable="false"></td>
+                            </tr>
+                            <tr>
+                                <td width="45%" unitType="Volume Flow">Rinse Flow</td>
+                                <td contenteditable="false" width="25%"></td>
+                                <td width="25%" contenteditable="false"></td>
+                            </tr>
+                            <tr>
+                                <td width="45%" unitType="Time">Rinse Time</td>
+                                <td contenteditable="false" width="25%"></td>
+                                <td width="25%" contenteditable="false"></td>
+                            </tr>
+                            <tr>
+                                <td width="45%" unitType="Volume">Rinse Volume</td>
+                                <td contenteditable="false" width="25%"></td>
+                                <td width="25%" contenteditable="false"></td>
+                            </tr>
+                            <tr>
+                                <td width="45%" unitType="Time">Total Time</td>
+                                <td contenteditable="false" width="25%"></td>
+                                <td width="25%" contenteditable="false"></td>
+                            </tr>
+                            <tr>
+                                <td width="45%" unitType="Volume">Total Volume</td>
+                                <td contenteditable="false" width="25%"></td>
+                                <td width="25%" contenteditable="false"></td>
+                            </tr>
+                            <tr>
+                                <td width="45%">Back Wash Frequency</td>
+                                <td contenteditable="false" width="25%"></td>
+                                <td width="25%" contenteditable="false">per day</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+	</div>
+    <div class="Note tabDiv dispNone genericSrollBox">
+        <p class="mB5">
+            <strong>Please add Note:</strong>
+        </p>
+        <textarea class="filters_Note" rows="4" cols="50" name="filters_Note"></textarea>
+    </div>
+    <div class="Documentation tabDiv dispNone genericSrollBox" style="overflow-y: auto">
+        <p class="text-justify">
+			Number of streams required to execute the unitop<br>
+				Input-   1 Stream<br>
+				Output - 2 Stream<br>
+				<br>
+            <ol>
+
+                <li>Back wash flux Calculation
+                    <br> Flux (gpm/ft2)= a+bT+cT2+dT3 where T is max back wash temperature in deg F
+                    <br> Assumption: Bed expansion is 30%
+                    <br> • Activated Carbon Filter, Greensand Filter (coefficients taken from GAC filter sizing spreadsheet)
+                    a = 4.649784, b = 0.035754, c = 0.001224, d = -3.54*10-6
+                    <br> • Vertical /Horizontal MMF
+                    <br> (coefficients taken from GAC filter sizing spreadsheet) a = 2.6229, b=0.18556, c= 0.00053 d= -2.53*10-6
+                    <br>
+                </li>
+                <li>Straight Shell Height Calculation
+                    <br> • Activated Carbon Filter
+                    <br> Activated carbon media volume in ft3 = Design flow per unit in gpm (To maintain design flow per unit
+                    media volume as unity)
+                    <br>Activated carbon bed height is calculated from media volume and volume of different vessel components
+                    SSH = CEILING(carbon media height*(1+freeboard/100),6)+6
+                    <br>• Greensand Filter
+                    <br> green sand media height is calculated from a look up table for Fe+Mn load vs green sand depth. anthracite
+                    cap height is 50% of filter area and filter area is calculated based on outer dia, shell thickness and
+                    lining thickness SSH = Max((CEILING(sum of media heights*(1+freeboard/100)-4,6)),60)
+                    <br>• Vertical MMF - Media heights (sand, garnet, anthracite) are user input SSH = CEILING(sum of media heights*(1+freeboard/100),6)+6
+                    <br>• Horizontal MMF – SSH = Tan length, where tan length is user input
+                </li>
+                <li>Media Volume Calculation
+                    <br>• Activated Carbon Filter Activated carbon media volume in ft3 = Design flow per unit in gpm (To maintain
+                    design flow per unit media volume as unity)
+                    <br>• Greensand Filter green sand volume = green sand depth *filter_area anthracite volume = filter area*0.5
+                    (If anthracite cap is yes)
+                    <br>• Vertical MMF – Cumulative volume is calculated by summing the volumes of different segments of shell.
+                    Partial volume of various media are calculated based on media depth from bottom
+                    <br>• Horizontal MMF – Anthracite volume = anthracite depth* filter cross sectional area Garnet volume =
+                    garnet depth* filter cross sectional area sand volume = sand depth* filter cross sectional area
+                </li>
+                <li>Filter Cross Sectional Area Calculation
+                    <br>• Activated Carbon Filter, Greensand Filter, vertical MMF in_shell_dia=outer_dia-2*(shellwall_thickness+lining_thickness)
+                    filter_area = (pi*0.25*in_shell_dia**2 )/144
+                    <br>• Horizontal MMF – in_head_dia = outer_dia-2*(headwall_thickness+lining_thickness) in_shell_dia=outer_dia-2*(shellwall_thickness+lining_thickness)
+                    horizontal_area = in_shell_dia*(in_head_dia*0.25+ (SSH-2*(shellwall_thickness+lining_thickness)))/144.
+                </li>
+                <li>Test Pressure = design pressure*1.3
+                </li>
+                <li>Cleaning Sequence Calculation
+                    <br>• Back wash flow (gpm) = back wash flux based on max temp* cross sectional area of filter
+                    <br>• Back wash time (in mins) = max(15, ceiling({(7.48*filter cross sectional area in ft2*Straight Shell
+                    Height in inches)/(12*backwash flow)},5)) Or User can specify the back wash time if they wish to and
+                    the user specified value will over ride the calculated time.
+                    <br>• Rinse flow (gpm) = round((max(design flowrate per unit*0.5,2*filter_area)/5),0) *5 {Note - The rinse
+                    flow rate should be at least 2 gpm/ ft2 of tank area, and can be as much higher as desired, up to the
+                    larger of the service flow rate or the backwash flow rate [limited by distribution design].
+                    <br>The standard approach used here is to calculate the rinse rate at 50% of the Design flow rate [or 2 gpm/
+                    ft2 of tank area, whichever is larger] as a compromise between a small rinse outlet valve and a short
+                    rinse time.”}
+                    <br>• Rinse time (mins) = max(5, ceiling({(7.48*filter_area in ft2*Straight Shell Height in inches)/(12*rinse
+                    flow)},5))
+                    <br>• Drain flow (gpm), If air scouring is on = round(4*filter_area/5,0)*5 …..
+                    <br> {Note - Drain flow calc is based on thumb rule of 4 gpm/ft2 .
+                    <br> If user specifies the drain down time, then drain down volume is calculated as per ancaster sizing calcs.
+                    Ancaster locates the drain down outlet 6” above the resting level of the media bed. The average flow
+                    (gpm) is the volume of the vessel above the drain down outlet divided by the 5 minute drain down time.
+                    The drain down line is sized for 12 ft/sec line velocity. From drain down volume and the user specified
+                    drain down time, drain down flow is calculated.}
+                    <br>• Drain time (mins), = ceiling((((7.48 cross sectional area of filter *(((Straight Shell Height-total
+                    bed depth)/12)-0.5)) + (0.1309* outer diameter of filter**3*7.48/1728))/drain_flow),1) Or User can specify
+                    the drain time if they wish to and the user specified value will over ride the calculated time.
+                    <br>• Air scour flow (gpm) = round(1*cross sectional area of filter*3/5,0)*5 Note : 3scm/ft2 • Air scour
+                    time (mins) =15 mins or User can specify the air scour time if they wish to and the user specified value
+                    will over ride set point of 15 mins.
+                    <br>• Refill flow (gpm) = Backwash flow • Refill time (mins), = drain down flow *5 / backwash flow {Note
+                    : The refill time exploits the proportionality of the drain down flow rate and the backwash flow rate,
+                    and the known drain down time. The drain down flow rate equals the volume to be drained divided by 5
+                    minutes. The refill step is that exact volume, except at the backwash flow rate.
+                    <br>Therefore, the refill time equals the refill flow rate divided by the backwash flow rate, with the resulting
+                    dimensionless value then multiplied by 5 minutes (the original drain down time).}
+                    <br>• Subsurface wash flow (gpm) = backwashflow
+                    <br>• Subsurface wash time (mins) =max(10, ceiling((7.48*(Straight shell height -total bed depth)*filter
+                    cross sectional area/(12*sub surface wash flow)),5)
+
+                </li>
+            </ol>
+        </p>
+    </div>
+    <div class="footer col-md-12 col-sm-12 col-xs-12">
+        <div class="popUpTabError"></div>
+        <button type="button" class="btn updateBtn" id="blueButton">Update</button>
+        <button type="button" class="btn cancelBtn" id="blueButton">Cancel</button>
+    </div>
+    <div class="clearfix"></div>
+</div>

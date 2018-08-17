@@ -1,0 +1,435 @@
+<div class="rLimestonePopup popUp" style="display:none;">
+<div class="header col-md-12 col-sm-12 col-xs-12"><h3 class="pull-left popTitle"></h3><i class="pull-right">X</i></div>
+<div class="body col-md-12 col-sm-12 col-xs-12 tableScroller">
+	<ul class="nav nav-tabs col-md-12 col-sm-12 col-xs-12 iFSDTab margin0">
+        <li class="active"><a href="#">Input</a></li>
+        <li><a href="#">Output</a></li>
+		<li><a href="#">Note</a></li>
+		<li><a href="#">Calculation</a></li>
+    </ul>
+	<div class="clearfix"></div>
+	<div class="Input tabDiv genericSrollBox">
+		
+		<table class="table table-bordered margin0 tableScroller" id="rLimeStoneInput">
+			<tbody>
+				<tr><td width="50%">Remineralization Bypass </td><td width="30%"><input type="number" name="remineralizationBypass" value=""/></td><td id="remineralizationBypass1" width="20%">% </td></tr>
+				<tr><td >Reactive CO2/H2SO4 </td><td><input type="number" name="reactiveCO2_H2SO4" value=""/></td><td id="reactiveCO2_H2SO41">% </td></tr>
+				<!-- <tr><td><strong>Dosage</strong></td><td></td><td></td></tr> -->
+				<tr><td >CO2 Stream 1A </td><td><input type="number" name="cO2Stream1A" value=""/></td><td id="cO2Stream1A1">ppm </td></tr>
+				<tr><td>CO2 Stream 1B </td><td><input type="number" name="cO2Stream1B" value=""/></td><td id="cO2Stream1B1">ppm </td></tr>
+				<tr><td>NaOH </td><td><input type="number" name="naOH" value=""/></td><td id="naOH1">ppm </td></tr>
+				<tr><td >H2SO4 </td><td><input type="number" name="h2SO4" value=""/></td><td id="h2SO41">ppm </td></tr>
+				<tr><td unitType="-">Remineralization Type </td><td>
+					<select class="w90" id="remineralizationType">
+						<option value="Gravity">Gravity</option>
+						<option value="Pressure">Pressure</option>
+					</select>
+				</td><td id="remineralizationType1">ppm </td></tr>
+			</tbody>
+		</table>
+		<table class="table table-bordered margin0 tableScroller rL_design" id="Gravity">
+			<tbody>
+				<tr><td width="50%" unitType="Length">Reactor Length</td><td width="30%"><input type="number" name="reactorLength" value="" min="1" max="500" class="maxNumber" /></td><td id="reactorLength1" width="20%">m</td></tr>
+				<tr><td unitType="Length">Reactor Width</td><td ><input type="number" name="reactorWidth" value="" /></td><td id="reactorWidth">m</td></tr>
+				<tr><td unitType="Length">Assumed Bed depth</td><td ><input type="number" name="assumedBeddepth" value="" /></td><td id="assumedBeddepth1">mm</td></tr>
+				<tr><td >Reduction in Finshed bed depth</td><td ><input type="number" name="reductionInFinshedBedDepth" value="" /></td><td id="reductionInFinshedBedDepth1">%</td></tr>
+				<tr><td unitType="-">Number of Spare Units (N + )</td><td ><input type="number" name="numberOfSpareUnitsN" value="" /></td><td id="numberOfSpareUnitsN1">Units</td></tr>
+				<tr><td >Assumed CaCO3 purity</td><td ><input type="number" name="assumedCaCO3Purity" value="" /></td><td id="assumedCaCO3Purity1">%</td></tr>
+				<!-- <tr><td unitType="-">Specific CaCO3 (100%) consumption</td><td ><input type="number" name="specificCaCO3100Consumption" value="" /></td><td>ppm</td></tr> -->
+				<tr><td unitType="Density">Assumed CaCO3 specific gravity</td><td ><input type="number" name="assumedCaCO3SpecificGravity" value="" /></td><td id="assumedCaCO3SpecificGravity1">ppm</td></tr>
+			</tbody>
+		</table>
+		<table class="table table-bordered margin0 tableScroller dispNone rL_design" id="Pressure">
+			<tbody>
+				<tr><td width="50%" unitType="Length">Vessel Diameter</td><td width="30%"><input type="number" name="pR_vesselDiameter" value="" min="1" max="500" class="maxNumber" /></td><td width="20%" id="pR_vesselDiameter1">m</td></tr>
+				<tr><td unitType="Length">Assumed Total Bed depth</td><td><input type="number" name="pR_assumedTotalBedDepth" value="" /></td><td id="pR_assumedTotalBedDepth1">mm</td></tr>
+				<tr><td >Reduction in Finshed bed depth</td><td ><input type="number" name="pR_reductionInFinshedBedDepth" value="" /></td><td id="pR_reductionInFinshedBedDepth1">%</td></tr>
+				<tr><td unitType="-">Number of Spare Units</td><td ><input type="number" name="pR_NumberOfSpareUnits" value="" /></td><td id="pR_NumberOfSpareUnits1">Units</td></tr>
+				<!-- <tr><td>Cold water Temperature</td><td ><input type="number" name="pR_coldWaterTemperature" value="" /></td><td>C</td></tr> -->
+				<tr><td>Assumed CaCO3 purity </td><td ><input type="number" name="pR_assumedCaCO3Purity" value="" /></td><td id="pR_assumedCaCO3Purity1">%</td></tr>
+				<!-- <tr><td unitType="-">Specific CaCO3 (100%) consumption </td><td ><input type="number" name="pR_specificCaCO3100Consumption" value="" /></td><td>ppm</td></tr> -->
+				<tr><td unitType="Density">Assumed CaCO3 specific gravity</td><td ><input type="number" name="pR_AssumedCaCO3SpecificGravity" value="" /></td><td id="pR_AssumedCaCO3SpecificGravity1">kg/m3</td></tr>
+			</tbody>
+		</table>
+					
+	</div>
+	<div class="Output tabDiv dispNone genericSrollBox">
+		<div class="panel-group" id="accordionDD" role="tablist" aria-multiselectable="true">
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingOneD">
+					 <h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordionDD" href="#collapseOneD" aria-expanded="true" aria-controls="collapseOne">
+						  Output
+						</a>
+					  </h4>
+				</div>
+				<div id="collapseOneD" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOneD">
+					<div class="panel-body">
+						<table class="table table-bordered margin0 tableScroller" id="Input">
+							<tbody>
+								<tr><td width="40%" unitType="Volume Flow">Flow Rate</td><td width="30%"></td><td>m3/hr</td></tr>
+								<tr><td unitType="Temperature">Temperature</td><td></td><td>°C</td></tr>
+								<tr><td >Na</td><td></td><td>ppm</td></tr>
+								<tr><td >K</td><td></td><td>ppm</td></tr>
+								<tr><td >Ca</td><td></td><td>ppm</td></tr>
+								<tr><td >Mg</td><td></td><td>ppm</td></tr>
+								<tr><td >HCO3</td><td></td><td>ppm</td></tr>
+								<tr><td >CO3</td><td></td><td>ppm</td></tr>
+								<tr><td >CO2</td><td></td><td>ppm</td></tr>
+								<tr><td >Cl</td><td></td><td>ppm</td></tr>
+								<tr><td >SO4</td><td></td><td>ppm</td></tr>
+								<tr><td >B</td><td></td><td>ppm</td></tr>
+								<tr><td >Hardness</td><td></td><td>ppm as CaCO3</td></tr>
+								<tr><td unitType="-">pH</td><td></td><td></td></tr>
+								<tr><td >Alkalinity</td><td></td><td>ppm as CaCO3</td></tr>
+								<tr><td unitType="-">LSI</td><td></td><td>ppm as CaCO3</td></tr>
+								<tr><td>Remineralization Bypass</td><td></td><td>%</td></tr>
+								<tr><td>Reactive CO2/H2SO4</td><td></td><td>%</td></tr>
+								<tr><td>CO2 Stream 1A</td><td></td><td>ppm</td></tr>
+								<tr><td>CO2 Stream 1B</td><td></td><td>ppm</td></tr>
+								<tr><td>NaOH</td><td></td><td>ppm</td></tr>
+								<tr><td>H2SO4</td><td></td><td>ppm</td></tr>
+								<tr><td>CaCO3 Consumption</td><td></td><td>ppm</td></tr>
+								<tr><td unitType="Mass Flow">CO2 Stream 1A Flow Rate</td><td></td><td>ppm</td></tr>
+								<tr><td unitType="Mass Flow">CO2 Stream 1B Flow Rate</td><td></td><td>ppm</td></tr>
+								<tr><td unitType="Mass Flow">NaOH Flow Rate</td><td></td><td>ppm</td></tr>
+								<tr><td unitType="Mass Flow">H2SO4 Flow Rate</td><td></td><td>ppm</td></tr>
+								<tr><td unitType="Mass Flow">CaCO3 Consumption Flow Rate</td><td></td><td>ppm</td></tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingTwoD">
+					 <h4 class="panel-title">
+						<a class="collapsed" data-toggle="collapse" data-parent="#accordionDD" href="#collapseTwoD" aria-expanded="false" aria-controls="collapseTwo">
+						  Remineralization Design
+						</a>
+					  </h4>
+				</div>
+				<div id="collapseTwoD" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwoD">
+					<div class="panel-body">
+						<table class="table table-bordered margin0 tableScroller rL_design Gravity" id="Input">
+							<tbody>
+								<tr><td width="40%"><strong>Remineralization Type </strong></td><td width="30%" class="rType">Gravity</td><td></td></tr>
+								<tr><td unitType="-">Number of Reactors</td><td></td><td></td></tr>
+								<tr><td unitType="Length">Reactor Length</td><td></td><td></td></tr>
+								<tr><td unitType="Length">Reactor Width</td><td></td><td></td></tr>
+								<tr><td unitType="Area">Area</td><td></td><td></td></tr>
+								<tr><td unitType="Length">Assumed Bed depth</td><td></td><td></td></tr>
+								<tr><td unitType="Length">Minimum Bed depth</td><td></td><td></td></tr>
+								<tr><td unitType="Volume">Useable Volume (with 5% wastage)</td><td></td><td></td></tr>
+								<tr><td unitType="Volume Flow">Flowrate N-Units in Operation</td><td></td><td></td></tr>
+								<tr><td >Velocity N-Units in Operation</td><td></td><td>m/hr</td></tr>
+								<tr><td unitType="Time">Contact Time N-Units in Operation</td><td></td><td></td></tr>
+								<tr><td unitType="Volume">Cleaning Volume</td><td></td><td></td></tr>
+								<tr><td unitType="Time">Cleaning Duration</td><td></td><td></td></tr>
+								<tr><td unitType="Volume Flow">CaCO3 Consumption/Reactor</td><td></td><td></td></tr>
+								<tr><td unitType="Time"># of Days Before filling</td><td></td><td></td></tr>
+								<tr><td unitType="Volume">Volume for each Reactor</td><td></td><td></td></tr>
+								<tr><td unitType="Volume">Treated Water Volume /Reactor/fill</td><td></td><td></td></tr>
+								<tr><td unitType="Volume">Total Volume for all Reactors</td><td></td><td></td></tr>
+								<tr><td unitType="Time">Average refill time</td><td></td><td></td></tr>
+								<tr><td unitType="Volume Flow">Average Volume required /Day</td><td></td><td></td></tr>
+							</tbody>
+						</table>
+						<table class="table table-bordered margin0 tableScroller dispNone rL_design Pressure" id="Input">
+							<tbody>
+								<tr><td width="40%"><strong>Remineralization Type  </strong></td><td width="30%" class="rType">Gravity</td><td></td></tr>
+								<tr><td unitType="-">Number of Reactors</td><td></td><td></td></tr>
+								<tr><td unitType="Length">Diameter of Pressure Vessel</td><td></td><td></td></tr>
+								<tr><td unitType="Area">Area</td><td></td><td></td></tr>
+								<tr><td unitType="Length">Assumed Bed depth</td><td></td><td></td></tr>
+								<tr><td unitType="Length">Minimum Bed depth</td><td></td><td></td></tr>
+								<tr><td unitType="Volume">Total bed Volume</td><td></td><td></td></tr>
+								<tr><td unitType="Volume">Refill Volume every Cycle</td><td></td><td></td></tr>
+								<tr><td unitType="Volume Flow">Flowrate N-Units in Operation</td><td></td><td></td></tr>
+								<tr><td >Velocity N-Units in Operation</td><td></td><td>m/hr</td></tr>
+								<tr><td unitType="Time">Contact Time N-Units in Operation</td><td></td><td></td></tr>
+								<tr><td unitType="Volume">Cleaning Volume</td><td></td><td></td></tr>
+								<tr><td unitType="Time">Cleaning Duration</td><td></td><td></td></tr>
+								<tr><td unitType="Volume Flow">CaCO3 Consumption/Reactor</td><td></td><td></td></tr>
+								<tr><td unitType="Time"># of Days Before filling</td><td></td><td></td></tr>
+								<tr><td unitType="Volume">Volume for each Reactor</td><td></td><td></td></tr>
+								<tr><td unitType="Volume">Treated Water Volume /Reactor/fill</td><td></td><td></td></tr>
+								<tr><td unitType="Volume">Total Volume for all Reactors</td><td></td><td></td></tr>
+								<tr><td unitType="Time">Average refill time</td><td></td><td></td></tr>
+								<tr><td unitType="Volume Flow">Average Volume required /Day</td><td></td><td></td></tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="Note tabDiv dispNone genericSrollBox">
+		<p class="mB5"><strong>Please add Note:</strong></p>
+		<textarea class="co2_Note" rows="4" cols="50" name="co2_Note"></textarea>
+	</div>
+	<div class="Calculation tabDiv dispNone genericSrollBox">
+		<div class="panel-group" id="accordionD" role="tablist" aria-multiselectable="true">
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingOne">
+					 <h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordionD" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						  Calculations
+						</a>
+					  </h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+					<div class="panel-body">
+						<!-- <p><strong>Calculations:</strong></p> -->
+						
+						Number of streams required to execute the unitop<br>
+							Input-   1 Stream<br>
+							Output - 1 Stream<br>
+							<br><br>
+							
+						<ul>
+							<li>Water composition on addition of chemicals</li>
+							<li>CaCO3 = Stream 2 Ca as CaCO3 - Stream 3 Ca as CaCO3</li>
+							<li>CO2 Consumption Stream 1a = Flow Rate stream 1a* CO2 stream 1a/1000</li>
+							<li>CO2 Consumption Stream 1b = Flow Rate stream 1b* CO2 stream 1b/1000</li>
+							<li>CaCO3 Consumption = CaCO3*Flow Rate stream 3/1000</li>
+							<li>H2SO4 Consumption = Flow Rate * H2SO4/1000</li>
+							<li>NaOH Consumption = Flow Rate * NaOH/1000</li>
+						</ul>
+						<br>
+						<p><strong>Design Guidelines:</strong></p>
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<td>Space Velocity</td>
+									<td>10</td>
+									<td>(m/hr)</td>
+								</tr>
+								<tr>
+									<td>Contact Time</td>
+									<td>7</td>
+									<td>(min)</td>
+								</tr>
+								<tr>
+									<td>Cleaning Flowrate (30-35 m/h 2BV)</td>
+									<td>35</td>
+									<td>(m/hr)</td>
+								</tr>
+								<tr>
+									<td>Duration of Cleaning flow at 35m/h</td>
+									<td>5</td>
+									<td>(min)</td>
+								</tr>
+								<tr>
+									<td>Minimum Bed depth</td>
+									<td>1500</td>
+									<td>(mm)</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingTwo">
+					 <h4 class="panel-title">
+						<a class="collapsed" data-toggle="collapse" data-parent="#accordionD" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+						  Gravity Remineralization Design
+						</a>
+					  </h4>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+					<div class="panel-body"> 
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<td>Flowrate through the Remin System:   From Remin- Calc sheet</td>
+									<td>(m3/h)</td>
+								</tr>
+								<tr>
+									<td>Reactor Area for one Unit = Reactor Length * Reactor Width</td>
+									<td>(m2)</td>
+								</tr>
+								<tr>
+									<td>Based on velocity Max flowrate/Unit = Round(Reactor Area for one Unit * Contact Time)</td>
+									<td>(m3/h)</td>
+								</tr>
+								<tr>
+									<td>Total Number of Units required  = Roundup(Flowrate through the Remin System / Based on velocity Max flowrate/Unit)</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Total Number of units provided = Total Number of Units required + Number of Spare Units</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Volume based on Minimum bed depth = Reactor Area for one Unit / Minimum Bed depth</td>
+									<td>(m3)</td>
+								</tr>
+								<tr>
+									<td>Velocity and  Contact Time Check (Velocity <= 10 m/hr and Contact Time >= 7 min)</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Velocity = Flowrate through the Remin System /Reactor Area for one Unit</td>
+									<td>(m/hr)</td>
+								</tr>
+								<tr>
+									<td>Contact Time = Volume based on Minimum bed depth*60 / Flowrate through the Remin System</td>
+									<td>(min)</td>
+								</tr>
+								<tr>
+									<td>CaCO3 Volume per Reactor for full bed depth = Reactor Area for one Unit*Bed depth assumed /1000</td>
+									<td>(m3)</td>
+								</tr>
+								<tr>
+									<td>CaCO3 Volume per Reactor for min bed depth = Reactor Area for one Unit*Min Bed depth assumed /1000</td>
+									<td>(m3)</td>
+								</tr>
+								<tr>
+									<td>Usable Volume = Reactor Area for one Unit*(Assumed Bed depth*Reduction in Finished bed depth -Minimum Bed depth)/1000  </td>
+									<td>(m3)</td>
+								</tr>
+								<tr>
+									<td>CaCO3 Consumption/Reactor@99% = Flowrate*Specific CaCO3 consumption/1000*24/Assumed CaCO3 specific gravity / Assumed CaCO3 purity</td>
+									<td>(m3/day)</td>
+								</tr>
+								<tr>
+									<td># of Days Before filling = Usable Volume / CaCO3 Consumption/Reactor@99%</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Volume for each Reactor = Reactor Area for one Unit*(Assumed Bed depth – Minimum Bed depth)/1000</td>
+									<td>(m3)</td>
+								</tr>
+								<tr>
+									<td>Treated Water Volume /Reactor = Flowrate* 24*# of Days Before filling</td>
+									<td>(m3/fill)</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingThree">
+					 <h4 class="panel-title">
+						<a class="collapsed" data-toggle="collapse" data-parent="#accordionD" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+						  Pressure Remineralization Design
+						</a>
+					  </h4>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+					<div class="panel-body">
+						<p><strong>Design Guidelines:</strong></p>						
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<td>Space Velocity</td>
+									<td>40</td>
+									<td>(m/hr)</td>
+								</tr>
+								<tr>
+									<td>Contact Time</td>
+									<td>6</td>
+									<td>(min)</td>
+								</tr>
+								<tr>
+									<td>Cleaning Flowrate (30-35 m/h 2BV)</td>
+									<td>35</td>
+									<td>(m/hr)</td>
+								</tr>
+								<tr>
+									<td>Duration of Cleaning flow at 35m/h</td>
+									<td>5</td>
+									<td>(min)</td>
+								</tr>
+								<tr>
+									<td>Bed depth consumed before refill</td>
+									<td>10</td>
+									<td>(%)</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><strong>Calculations:</strong></p>
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<td>Flowrate through the Remin System:   From Remin- Calc sheet</td>
+									<td>(m3/h)</td>
+								</tr>
+								<tr>
+									<td>Reactor Area for one Unit = pi/4*Vessel  Diameter^2*</td>
+									<td>(m2)</td>
+								</tr>
+								<tr>
+									<td>Based on min contact time flowrate/Unit = Round(Reactor Area for one Unit / Contact Time*60)</td>
+									<td>(m3/h)</td>
+								</tr>
+								<tr>
+									<td>Total Number of Units required  = Roundup(Flowrate through the Remin System / Based on min contact time flowrate/Unit ) </td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Total Number of units provided = Total Number of Units required + Number of Spare Units </td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>CaCO3 Volume per Reactor for full bed depth = Assumed Total Bed depth* Reactor Area for one Unit/1000</td>
+									<td>(m3)</td>
+								</tr>
+								<tr>
+									<td>Refill Volume = CaCO3 Volume per Reactor for full bed depth* Bed depth consumed before refill</td>
+									<td>(m3)</td>
+								</tr>
+								<tr>
+									<td>Volume based on total bed depth = Assumed Total Bed depth* Reactor Area for one Unit/1000</td>
+									<td>(m3)</td>
+								</tr>
+								<tr>
+									<td>Volume based on Minimum bed depth = Volume based on total bed depth - Refill Volume</td>
+									<td>(m3)</td>
+								</tr>
+								<tr>
+									<td>Velocity and  Contact Time Check (Velocity <= 40 m/hr and Contact Time >= 6 min)</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Velocity = Flowrate through the Remin System /Reactor Area for one Unit</td>
+									<td>(m/hr)</td>
+								</tr>
+								<tr>
+									<td>Contact Time = Volume based on Minimum bed depth*60 / Flowrate through the Remin System</td>
+									<td>(min)</td>
+								</tr>
+								<tr>
+									<td>CaCO3 Consumption/Reactor@99% = Flowrate*Specific CaCO3 consumption/1000*24/Assumed CaCO3 specific gravity / Assumed CaCO3 purity</td>
+									<td>(m3/day)</td>
+								</tr>
+								<tr>
+									<td># of Days Before filling = Refill Volume / CaCO3 Consumption/Reactor@99% </td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Volume for each Reactor = Refill Volume </td>
+									<td>(m3)</td>
+								</tr>
+								<tr>
+									<td>Treated Water Volume /Reactor = Flowrate* 24*# of Days Before filling </td>
+									<td>(m3/fill)</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+<div class="footer col-md-12 col-sm-12 col-xs-12">
+	<div class="popUpTabError"></div>
+	<button type="button" class="btn updateBtn" id="blueButton">Update</button>
+	<button type="button" class="btn cancelBtn" id="blueButton">Cancel</button>
+</div>
+</div>

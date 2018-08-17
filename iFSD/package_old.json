@@ -1,0 +1,18 @@
+{
+  "name": "nw-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "chromium-args": "--allow-file-access-from-files",
+  "window": {
+	"title": "FSD POC",
+	"toolbar": false,
+	"min_width":1025,
+	"min_height":700,
+	"frame": true,
+	"resizable": false
+  },
+  "webkit": {
+	"plugin":true
+  }
+}

@@ -1,0 +1,425 @@
+<!-- Ro Pop Up -->
+<div class="roPopUp popUp" id="roPopupId" style="display:none;">
+    <div class="header col-md-12 col-sm-12 col-xs-12">
+        <h3 class="pull-left popTitle"></h3>
+        <i class="pull-right">X</i>
+    </div>
+    <div class="body col-md-12 col-sm-12 col-xs-12 tableScroller">
+        <ul class="nav nav-tabs col-md-12 col-sm-12 col-xs-12 iFSDTab margin0">
+            <li class="active">
+                <a href="#">Input</a>
+            </li>
+            <li>
+                <a href="#">Output</a>
+            </li>
+            <li>
+                <a href="#">Note</a>
+            </li>
+            <li>
+                <a href="#">Documentation</a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="Input tabDiv genericSrollBox">
+			<div class="panel-group" id="accordionRO" role="tablist" aria-multiselectable="true">
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="ROA1">
+				  <h4 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordionRO" href="#collapseRO1" aria-expanded="true" aria-controls="collapseRO1">
+					  System Data
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseRO1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="ROA1">
+				  <div class="panel-body">
+					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+						<tbody>
+							<!--tr unitType="Volume Flow">
+								<td width="25%">Feed Flow Rate</td>
+								<td align="left">
+									<input type="number" name="roFeedFlowRate" value="">
+								</td>
+								<td>m3/hr</td>
+							</tr-->
+							<tr>
+								<td width="25%">System Recovery</td>
+								<td>
+									<input type="number" name="roRecovery" value="">
+								</td>
+								<td id="roRecovery1">%</td>
+							</tr>
+							<tr>
+								<td width="25%">Element Type</td>
+								<td>
+									<select name="elementType" id="elemType" class="w100">
+										<option value="BWRO">BWRO</option>
+										<option value="NF">NF</option>
+										<option value="SWRO">SWRO</option>
+									</select>
+
+								</td>
+								<td id="elementType1"></td>
+							</tr>
+							<tr>
+								<td width="45%">Elements Per Vessel</td>
+								<td>
+									<select name="roElementsPerVessel" class="w100">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+									</select>
+								</td>
+								<td id="roElementsPerVessel1"></td>
+							</tr>
+							<tr >
+								<td width="25%" unitType="Flux">Average Flux</td>
+								<td>
+									<input type="number" name="roFlux" value="">
+								</td>
+								<td id="roFlux1">lmh</td>
+							</tr>
+
+							<tr >
+								<td unitType="Area" width="25%">Element Area</td>
+								<td>
+									<input type="number" name="roElemArea" value="">
+								</td>
+								<td id="roElemArea1">lmh</td>
+							</tr>
+							<tr>
+								<td width="25%">Element Age</td>
+								<td>
+									<input type="number" name="roElemAge" value="">
+								</td>
+								<td id="roElemAge1">Years</td>
+							</tr>
+							<tr>
+								<td width="25%">Flux Annual percent change</td>
+								<td>
+									<input type="number" name="roFluxChange" value="">
+								</td>
+								<td id="roFluxChange1">%</td>
+							</tr>
+							<tr>
+								<td width="25%">Salt passage Annual percent change</td>
+								<td>
+									<input type="number" name="saltPassage" value="">
+								</td>
+								<td id="saltPassage1">%</td>
+							</tr>
+							<tr>
+								<td width="25%">Pump Efficiency</td>
+								<td>
+									<input type="number" name="pumpEfficiency" value="">
+								</td>
+								<td id="pumpEfficiency1">%</td>
+							</tr>
+						   
+						</tbody>
+					</table>
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="ROA2">
+				  <h4 class="panel-title">
+					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionRO" href="#collapseRO2" aria-expanded="false" aria-controls="collapseRO2">
+					  Ion Rejection
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseRO2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ROA2">
+				  <div class="panel-body">
+					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+						<tr>
+							<td>Ca</td>
+							<td width="25%">
+								<input type="number" name="rocaid" value="99"></input>
+							</td>
+							<td id="rocaid1">%</td>
+						</tr>
+						<tr>
+							<td>Mg</td>
+							<td width="25%">
+								<input type="number" name="romgid" value="99.1"></input>
+							</td>
+							<td id="romgid1">%</td>
+						</tr>
+						<tr>
+							<td>Na</td>
+							<td width="25%">
+								<input type="number" name="ronaid" value="99.1"></input>
+							</td>
+							<td id="ronaid1">%</td>
+						</tr>
+						<tr>
+							<td>K</td>
+							<td width="25%">
+								<input type="number" name="rokid" value="98.2" />
+							</td>
+							<td id="rokid1">%</td>
+						</tr>
+						<tr>
+							<td>NH4</td>
+							<td width="25%">
+								<input type="number" name="ronhid" value="81"></input>
+							</td>
+							<td id="ronhid1">%</td>
+						</tr>
+						<tr>
+							<td>Ba</td>
+							<td width="25%">
+								<input type="number" name="robaid" value="99"></input>
+							</td>
+							<td id="robaid1">%</td>
+						</tr>
+						<tr>
+							<td>Sr</td>
+							<td width="25%">
+								<input type="number" name="rosrId" value="99"></input>
+							</td>
+							<td id="rosrId1">%</td>
+						</tr>
+						<tr>
+							<td>Fe</td>
+							<td width="25%">
+								<input type="number" name="roFeId" value="99"></input>
+							</td>
+							<td id="roFeId1">%</td>
+						</tr>
+						<tr>
+							<td>Mn</td>
+							<td width="25%">
+								<input type="number" name="roMnId" value="6.91"></input>
+							</td>
+							<td id="roMnId1">%</td>
+						</tr>
+						<tr>
+							<td>SO4</td>
+							<td width="25%">
+								<input type="number" name="rosoId" value="99"></input>
+							</td>
+							<td id="rosoId1">%</td>
+						</tr>
+						<tr>
+							<td>Cl</td>
+							<td width="25%">
+								<input type="number" name="roclId" value="98.9"></input>
+							</td>
+							<td id="roclId1">%</td>
+						</tr>
+						<tr>
+							<td>F</td>
+							<td width="25%">
+								<input type="number" name="rofId" value="99.8">
+							</td>
+							<td id="rofId1">%</td>
+						</tr>
+						<tr>
+							<td>NO3</td>
+							<td width="25%">
+								<input type="number" name="ronoId" value="93">
+							</td>
+							<td id="ronoId1">%</td>
+						</tr>
+						<tr>
+							<td>Br</td>
+							<td width="25%">
+								<input type="number" name="roBrId" value="98.8">
+							</td>
+							<td id="roBrId1">%</td>
+						</tr>
+						<tr>
+							<td>PO4</td>
+							<td width="25%">
+								<input type="number" name="roPoId" value="99">
+							</td>
+							<td id="roPoId1">%</td>
+						</tr>
+						<tr>
+							<td>B</td>
+							<td width="25%">
+								<input type="number" name="roBId" value="50">
+							</td>
+							<td id="roBId1">%</td>
+						</tr>
+						<tr>
+							<td>Silica</td>
+							<td width="25%">
+								<input type="number" name="roSilicaId" value="98">
+							</td>
+							<td id="roSilicaId1">%</td>
+						</tr>
+						<tr>
+							<td>H2S</td>
+							<td width="25%">
+								<input type="number" name="rohsid" value="1">
+							</td>
+							<td id="rohsid1">%</td>
+						</tr>
+						<tr>
+							<td>HCO3</td>
+							<td width="25%">
+								<input type="number" name="rohcoId" value="98.4">
+							</td>
+							<td id="rohcoId1">%</td>
+						</tr>
+						<tr>
+							<td>CO2</td>
+							<td width="25%">
+								<input type="number" name="rohcotId" value="2">
+							</td>
+							<td id="rohcotId1">%</td>
+						</tr>
+						<tr>
+							<td>CO3</td>
+							<td width="25%">
+								<input type="number" name="rohcothId" value="99.9">
+							</td>
+							<td id="rohcothId1">%</td>
+						</tr>
+						</tbody>
+					</table>
+				  </div>
+				</div>
+			  </div>
+			</div>
+
+    </div>
+
+    <div class="Output tabDiv dispNone genericSrollBox">
+        <div class="panel-group" id="accordionRO_out" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="ro_One">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordionRO_out" href="#ro_collapseOne" aria-expanded="true" aria-controls="ro_One">
+                            System Data
+                        </a>
+                    </h4>
+                </div>
+                <div id="ro_collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="ro_One">
+                    <div class="panel-body">
+                        <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                            <tbody>
+                                <tr>
+                                    <td unitType="Volume Flow">Feed Flow Rate</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td  unitType="Volume Flow">Permeate Flow Rate</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td unitType="Volume Flow">Concentrate Flow Rate</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Feed TDS</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td>ppm</td>
+                                </tr>
+                                <tr>
+                                    <td>Permeate TDS</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td>ppm</td>
+                                </tr>
+                                <tr>
+                                    <td>Concentrate TDS</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td>ppm</td>
+                                </tr>
+                                <tr>
+                                    <td unitType="Pressure">Feed Pressure</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td>ppm</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="ro_Two">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse"  data-parent="#accordionRO_out" href="#ro_collapseTwo" aria-expanded="false" aria-controls="ro_Two">
+                            Array Data
+                        </a>
+                    </h4>
+                </div>
+                <div id="ro_collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="ro_Two">
+                    <div class="panel-body">
+                        <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                            <tbody>
+                                <tr>
+                                    <td>Pressure Vessels</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td contenteditable="false"></td>
+                                </tr>
+                                <tr>
+                                    <td contenteditable="false">Total Elements</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+            </div>
+
+            <div class="Note tabDiv dispNone genericSrollBox">
+                <p class="mB5">
+                    <strong>Please add Note:</strong>
+                </p>
+                <textarea class="ro_Note" rows="4" cols="50" name="ro_Note"></textarea>
+            </div>
+            <div class="Documentation tabDiv dispNone genericSrollBox">
+				
+                <p class="text-justify">
+				Number of streams required to execute the unitop<br>
+				Input-   1 Stream<br>
+				Output - 2 Stream<br>
+				<br>
+				
+				A,B Parameters for following membranes have been used for different element types
+                </p>
+                <ol>
+                    <li>SWRO – AD 400</li>
+                    <li>BWRO- AG8040</li>
+                    <li>NF- Duraslick DSL NF8040</li>
+                </ol>
+
+                <p class="text-justify"> A, B values are corrected for temperature, pressure, age of element.</p>
+                <p class="text-justify">Vessel dp calculation</p>
+                Average element recovery for TDS<10000 – 15%<br>
+                    Average element recovery for TDS>10000 – 7%<br>
+                    Lead element dp for TDS<10000 – 0.1 bar<br>
+                    Lead element dp for TDS>10000 – 0.35 bar
+                        <br>Total vessel dp = dp0+dp0(1-y)+dp0(1-y)2+dp0(1-y)3 +……….+dp0(1-y)n-1
+                        <br> Where dp0 = Lead element dp
+                        <br> y = average element recovery
+                        <br> n = no: of elements in a vessel
+                        <br><br> Assumption: - Pressure drop for an element is directly proportional to its feed flow
+                        <br>
+                        <p class="text-justify">The default ionic rejection values have been ascertained based on several winflows runs for the afore said elements across different feed TDS and recoveries.</p>
+
+            </div>
+
+
+            <div class="footer col-md-12 col-sm-12 col-xs-12">
+                <div class="popUpTabError"></div>
+                <button type="button" class="btn updateBtn" id="blueButton">Update</button>
+                <button type="button" class="btn cancelBtn" id="blueButton">Cancel</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>

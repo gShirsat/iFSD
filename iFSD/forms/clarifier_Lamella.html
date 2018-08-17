@@ -1,0 +1,193 @@
+<div class="cLamellaPopup popUp" style="display:none;">
+	<div class="header col-md-12 col-sm-12 col-xs-12"><h3 class="pull-left popTitle"></h3><i class="pull-right">X</i></div>
+	<div class="body col-md-12 col-sm-12 col-xs-12 tableScroller">
+		<ul class="nav nav-tabs col-md-12 col-sm-12 col-xs-12 iFSDTab margin0">
+			<li class="active"><a href="#">Input</a></li>
+			<li><a href="#">Output</a></li>
+			<li><a href="#">Note</a></li>
+			<li><a href="#">Calculation</a></li>
+		</ul>
+		<div class="clearfix"></div>
+		<div class="Input tabDiv genericSrollBox">
+
+			<table class="table table-bordered margin0 tableScroller" id="Input">
+				<tbody>
+					<!-- <tr><td unitType="Volume Flow" width="50%">Clarifier Product Flow Rate</td><td width="25%"><input type="number" name="clarifierProductFlowRate" value="" /></td><td id="clarifierProductFlowRate1" width="20%">m3/hr</td></tr> -->
+					<tr><td width="50%">Clarifier Sludge Blowdown </td><td width="25%"><input type="number" name="clarifierSludgeBlowdown" value="" /></td><td id="clarifierSludgeBlowdown1" width="20%">%</td></tr>
+					<!-- <tr><td unitType="-">Feed TSS</td><td><input type="number" name="feedTSS" value="" /></td><td id="feedTSS1">ppm </td></tr>
+					<tr><td unitType="-">Color (C.U.) - Estimated value </td><td><input type="number" name="colorCUEstimatedvalue" value=""/></td><td>Color (C.U.) </td></tr> -->
+					<tr><td unitType="-">Chemical Selection </td><td>
+						<select class="w90" name="chemicalSelection" id="chemicalSelection">
+							<option>Al2(SO4)3</option>
+							<option>PAC</option>
+							<option>FeCl3</option>
+							<option>Cationic Polymer</option>
+						</select>
+					</td><td id="chemicalSelection1"> </td>
+					</tr>
+					<tr><td ><span class="pull-left">Kg dry sludge/kg &nbsp;</span> <span class="selectedChemical pull-left">Al2(SO4)3</span> <span class="pull-left">&nbsp; coagulant</span></td><td><input type="number" name="kgDrysludge" value=""/></td><td id="kgDrysludge1">%</td></tr>
+					<tr><td>% of Sludge as fixed soils </td><td><input type="number" name="ofSludgeasfixedsoils" value=""/></td><td id="ofSludgeasfixedsoils1">%</td></tr>
+					<tr><td unitType="-">Fixed Soil Specific Gravity</td><td><input type="number" name="fixedSoilSpecificGravity" value=""/></td><td id="fixedSoilSpecificGravity1">C</td></tr>
+					<tr><td unitType="-">Volatile Soil Specific Gravity</td><td><input type="number" name="volatileSoilSpecificGravity" value=""/></td><td id="volatileSoilSpecificGravity1">C</td></tr>
+					<tr><td unitType="Length">Clarifier Diameter</td><td><input type="number" name="clarifierDiameter" value=""/></td><td id="clarifierDiameter1">ppm</td></tr>
+					<tr><td unitType="Length">Clarifier Active Depth</td><td><input type="number" name="clarifierActiveDepth" value=""/></td><td id="clarifierActiveDepth1">ppm</td></tr>
+					<tr><td >Clarifier Flocculation Zone Area to total Area (%) </td><td><input type="number" name="clarifierFlocculationZoneArea" value=""/></td><td id="clarifierFlocculationZoneArea1">%</td></tr>
+				</tbody>
+			</table>
+
+		</div>
+		<div class="Output tabDiv dispNone genericSrollBox">
+			<table class="table table-bordered margin0 tableScroller" id="Input">
+				<tbody>
+					<tr><td >Process Parameters:</td><td width="30%"></td><td></td></tr>
+					<tr><td unitType="Volume Flow">RW Clarifier Feed Flowrate</td><td width="30%"><span class="output_RWClarifierFeedFlowrate twoDecimalOut"></span></td><td>m3/hr</td></tr>
+					<tr><td unitType="Volume Flow">Clarifier Product Flow Rate</td><td><span class="output_ClarifierProductFlowRate twoDecimalOut"></span></td><td>m3/hr</td></tr>
+					<tr><td unitType="Volume Flow">RW Clarifier Blowdown Flowrate</td><td><span class="output_RWClarifierBlowdownFlowrate twoDecimalOut"></span></td><td>m3/hr</td></tr>
+					<tr><td unitType="Volume Flow"><span class="selectedChemical pull-left">Al2(SO4)3</span>  <span class="pull-left">&nbsp; Dosage</span></td><td><span class="output_Al2SO43Dosage twoDecimalOut"></span></td><td>m3/hr</td></tr>
+					<tr><td><strong>Solid Contact Clarifier Design</strong></td><td></td><td></td></tr>
+					<tr><td unitType="Flux">Hydraulic Surface Loading Rate-Based on Product Flow Rate</td><td><span class="output_HSLRB_ProductFlowRate twoDecimalOut"></span></td><td>gpm/ft2</td></tr>
+					<tr><td unitType="Flux">Hydraulic Surface Loading Rate-Based on Feed Flow Rate</td><td><span class="output_HSLRB_FeedFlowRate twoDecimalOut"></span></td><td>gpm/ft2</td></tr>
+					<tr><td unitType="Length">Clarifier Diameter</td><td><span class="output_ClarifierDiameter twoDecimalOut"></span></td><td>m</td></tr>
+					<tr><td>Clarifier Flocculation Zone Area to total Area (%)</td><td><span class="output_ClarifierFlocculationZoneAreaToTotalArea twoDecimalOut"></span></td><td>%</td></tr>
+					<tr><td unitType="Length">Clarifier Active Depth</td><td><span class="output_ClarifierActiveDepth twoDecimalOut"></span></td><td>m</td></tr>
+					<tr><td unitType="Time">Flocculation Zone HRT</td><td><span class="output_FlocculationZoneHRT twoDecimalOut"></span></td><td>min</td></tr>
+					<tr><td unitType="Time">Total HRT</td><td><span class="output_TotalHRT twoDecimalOut"></span></td><td>min</td></tr>
+					<tr><td unitType="Length">Flocculator Cylinder Diameter</td><td><span class="output_FlocculatorCylinderDiameter"></span></td><td>m</td></tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="Note tabDiv dispNone genericSrollBox">
+			<p class="mB5"><strong>Please add Note:</strong></p>
+			<textarea class="co2_Note" rows="4" cols="50" name="co2_Note"></textarea>
+		</div>
+		<div class="Calculation tabDiv dispNone genericSrollBox">
+			
+			<div class="panel-group" id="accordionD1" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingOne1">
+						 <h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordionD1" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
+							  Inputs
+							</a>
+						  </h4>
+					</div>
+					<div id="collapseOne1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne1">
+						<div class="panel-body">
+							<ul>
+								<li>Clarifier Feed Flow Rate</li>
+								<li>Clarifier Sludge Blowdown</li>
+								<li>Feed TSS</li>
+								<li>Color (C.U.) - Estimated value</li>
+								<li>Chemical Selection (Al2(SO4)3 / PAC / FeCl3/Cationic Polymer)</li>
+								<li>Kg dry sludge/kg Al2(SO4)3 coagulant</li>
+								<li>% of Sludge as fixed soils</li>
+								<li>Fixed Soil Specific Gravity</li>
+								<li>Volatile Soil Specific Gravity</li>
+								<li>Clarifier Diameter</li>
+								<li>Clarifier Active Depth</li>
+								<li>Clarifier Flocculation Zone Area to total Area (%)</li>
+							</ul>
+
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingTwo2">
+						 <h4 class="panel-title">
+							<a class="collapsed" data-toggle="collapse" data-parent="#accordionD1" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
+							  Calculations
+							</a>
+						  </h4>
+					</div>
+					<div id="collapseTwo2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo2">
+						<div class="panel-body">
+							Number of streams required to execute the unitop<br>
+							Input-   1 Stream<br>
+							Output - 2 Stream<br>
+							<br><br>
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<td>Clarifier Blowdown Concentration = Clarifier Sludge Blowdown / 100.0*1000000.0</td>
+										<td>ppm</td>
+									</tr>
+									<tr>
+										<td>C.F. = clarifier_blowdown_concentration/Feed TSS</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Turbidity = Feed TSS /2.0</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td><strong>Chemical Dosage</strong></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Al2(SO4)3 = (color*0.5)+(turbidity*0.025)</td>
+										<td>ppm</td>
+									</tr>
+									<tr>
+										<td>FeCl3 = ((color*0.5)+(turbidity*0.025))*0.42 </td>
+										<td>ppm</td>
+									</tr>
+									<tr>
+										<td>PAC = (color*0.5)+(turbidity*0.025))*0.42 </td>
+										<td>ppm</td>
+									</tr>
+									<tr>
+										<td>Cationic Polymer = ((color*0.5)+(turbidity*0.025))*0.333</td>
+										<td>ppm</td>
+									</tr>
+									<tr>
+										<td><strong>Sludge Generation</strong></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Total Incoming Solids  = Feed TSS + (Chemical Dosage*Kg dry sludge/kg coagulant)</td>
+										<td>ppm</td>
+									</tr>
+									<tr>
+										<td>Clarified Water Solids Load (100% Dry Solids) = Clarifier Product Flow Rate* Total Incoming Solids*24/1000 </td>
+										<td>kg/day</td>
+									</tr>
+									<tr>
+										<td>Blowdown Solids Load (100% Dry Solids) = Clarifier Blowdown Flow Rate* Total Incoming Solids*24/1000</td>
+										<td>kg/day</td>
+									</tr>
+									<tr>
+										<td>Total Incoming Water Solids Load (100% Dry Solids) = Clarified Water Solids Load + Blowdown Solids Load</td>
+										<td>kg/day</td>
+									</tr>
+									<tr>
+										<td>Adjusted Clarifier Blowdown TSS</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td><strong>Solid Contact Clarifier Design</strong></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Hydraulic Surface Loading Rate-Based on Product Flow Rate = Clarifier Product Flow Rate/Clarification Zone Surface Area</td>
+										<td>(gpm/ft2)</td>
+									</tr>
+									<tr>
+										<td>Hydraulic Surface Loading Rate-Based on Feed Flow Rate = Clarifier FeedFlow Rate /Clarification Zone Surface Area</td>
+										<td>(gpm/ft2)</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<div class="footer col-md-12 col-sm-12 col-xs-12">
+		<div class="popUpTabError"></div>
+		<button type="button" class="btn updateBtn" id="blueButton">Update</button>
+		<button type="button" class="btn cancelBtn" id="blueButton">Cancel</button>
+	</div>
+	<div class="clearfix"></div>
+</div>

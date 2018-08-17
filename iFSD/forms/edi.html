@@ -1,0 +1,486 @@
+<!-- EDI Pop Up -->
+<div class="ediPopUp popUp" id="ediPopupId" style="display:none;">
+    <div class="header col-md-12 col-sm-12 col-xs-12">
+        <h3 class="pull-left popTitle"></h3>
+        <i class="pull-right">X</i>
+    </div>
+    <div class="body col-md-12 col-sm-12 col-xs-12 tableScroller">
+        <ul class="nav nav-tabs col-md-12 col-sm-12 col-xs-12 iFSDTab margin0">
+            <li class="active">
+                <a href="#">Input</a>
+            </li>
+            <li>
+                <a href="#">Output</a>
+            </li>
+            <li>
+                <a href="#">Note</a>
+            </li>
+            <li>
+                <a href="#">Documentation</a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="Input tabDiv genericSrollBox">
+            <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                <tbody>
+                    <tr>
+                        <td> Model Type
+                            <select name="edimodeltype" id="modeltype">
+                                <option value="E-cell">E-cell</option>
+                                <option value="MK-3">MK-3</option>
+                                <option value="MK-3PharmaHT">MK-3PharmaHT</option>
+                                <option value="MK-3 MiniHT Pharmaceutical">MK-3 MiniHT Pharmaceutical</option>
+                                <option value="MK-3 MiniHT Industrial">MK-3 MiniHT Industrial</option>
+                            </select>
+                        </td>
+						<td id="edimodeltype1"> </td>
+                    </tr>
+                    <tr>
+                        <td width="25%">Co- Current Flow</td>
+                        <td align="left">
+                            <input type="checkbox" name="coCurrentY" id="coCurrentY" value="0" class="co">
+                        </td>
+						
+                    </tr>
+                    <tr>
+                        <td width="25%">RO permeate softening</td>
+                        <td align="left">
+                            <input type="checkbox" name="roPerY" id="roPerY" value="0" class="ro">
+                        </td>
+						
+                    </tr>
+                    <tr id="xStackY">
+                        <td width="25%">3X-HH Stack</td>
+                        <td align="left">
+                            <input type="checkbox" name="hhstack" id="hhstack" value="0" class="3x">
+                        </td>
+						
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="edi_One">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#edi_collapseOne" aria-expanded="true" aria-controls="edi_collapseOne">
+                                Feed Water Analysis
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="edi_collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="edi_One">
+                        <div class="panel-body">
+                            <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                                <tr>
+                                    <td>Ca2+</td>
+                                    <td width="25%">
+                                        <input type="number" name="feedwcaid" value="0.01"></input>
+                                    </td>
+                                    <td>
+                                        <select name="feedwca" id="feedwcaId">
+                                            <option value="0">ppm as ion</option>
+                                            <option value="1">ppm as CaCO3</option>
+                                            <option value="2">meq/L</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Mg2+</td>
+                                    <td width="25%">
+                                        <input type="number" name="feedwmgid" value="0.01"></input>
+                                    </td>
+                                    <td>
+                                        <select name="feedwmg">
+                                            <option value="0">ppm as ion</option>
+                                            <option value="1">ppm as CaCO3</option>
+                                            <option value="2">meq/L</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Na+</td>
+                                    <td width="25%">
+                                        <input type="number" name="feedwnaid" value="6.44"></input>
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option value="0">ppm as ion</option>
+                                            <option value="1">ppm as CaCO3</option>
+                                            <option value="2">meq/L</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>K+</td>
+                                    <td width="25%">
+                                        <input type="number" name="feedwkid" value=0.08/>
+                                    </td>
+                                    <td>
+                                        <select name="feedwk">
+                                            <option value="0">ppm as ion</option>
+                                            <option value="1">ppm as CaCO3</option>
+                                            <option value="2">meq/L</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>NH4+</td>
+                                    <td width="25%">
+                                        <input type="number" name="feedwnhid" value="0.01"></input>
+                                    </td>
+                                    <td>
+                                        <select name="feedwnh">
+                                            <option value="0">ppm as ion</option>
+                                            <option value="1">ppm as CaCO3</option>
+                                            <option value="2">meq/L</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ba2+</td>
+                                    <td width="25%">
+                                        <input type="number" name="feedwbaid" value="0"></input>
+                                    </td>
+                                    <td>
+                                        <select name="feedwba" id="feedwbaId">
+                                            <option value="0">ppm as ion</option>
+                                            <option value="1">ppm as CaCO3</option>
+                                            <option value="2">meq/L</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Sr2+</td>
+                                    <td width="25%">
+                                        <input type="number" name="feedwsrId" value="0"></input>
+                                    </td>
+                                    <td>
+                                        <select name="feedwsr">
+                                            <option value="0">ppm as ion</option>
+                                            <option value="1">ppm as CaCO3</option>
+                                            <option value="2">meq/L</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>CO32-</td>
+                                    <td width="25%">
+                                        <input type="number" name="feedwcoId" value="0"></input>
+                                    </td>
+                                    <td>
+                                        <select name="feedwco">
+                                            <option value="0">ppm as ion</option>
+                                            <option value="1">ppm as CaCO3</option>
+                                            <option value="2">meq/L</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>HCO3-</td>
+                                    <td width="25%">
+                                        <input type="number" name="feedwhcoId" value="6.91"></input>
+                                    </td>
+                                    <td>
+                                        <select name="feedwhco">
+                                            <option value="0">ppm as ion</option>
+                                            <option value="1">ppm as CaCO3</option>
+                                            <option value="2">meq/L</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>SO42-</td>
+                                    <td width="25%">
+                                        <input type="number" name="feedwsoId" value="0.21"></input>
+                                    </td>
+                                    <td>
+                                        <select name="feedwso">
+                                            <option value="0">ppm as ion</option>
+                                            <option value="1">ppm as CaCO3</option>
+                                            <option value="2">meq/L</option>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>CL-</td>
+                                    <td width="25%">
+                                        <input type="number" name="feedwclId" value="5.3"></input>
+                                    </td>
+                                    <td>
+                                        <select name="feedwcl">
+                                            <option value="0">ppm as ion</option>
+                                            <option value="1">ppm as CaCO3</option>
+                                            <option value="2">meq/L</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>F-</td>
+                                    <td width="25%">
+                                        <input type="number" name="feedwfId" value="0.02">
+                                    </td>
+                                    <td>
+                                        <select name="feedwf">
+                                            <option value="0">ppm as ion</option>
+                                            <option value="1">ppm as CaCO3</option>
+                                            <option value="2">meq/L</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>NO3-</td>
+                                    <td width="25%">
+                                        <input type="number" name="feedwnoId" value="0.91">
+                                    </td>
+                                    <td>
+                                        <select name="feedwno">
+                                            <option value="0">ppm as ion</option>
+                                            <option value="1">ppm as CaCO3</option>
+                                            <option value="2">meq/L</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>SiO2</td>
+                                    <td width="25%">
+                                        <input type="number" name="feedwsiId" value="0.91">
+                                    </td>
+                                    <td>
+                                        <select name="feedwsi" id="feedwsiId">
+                                            <option value="0">ppm as ion</option>
+                                            <option value="1">ppm as CaCO3</option>
+                                            <option value="2">meq/L</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>pH</td>
+                                    <td width="25%">
+                                        <input type="number" name="feedphiId" value="6.467686">
+                                    </td>
+                                    <td>
+                                        <select id="feedph">
+                                            <option value="0">pH</option>
+                                            <option value="1">Co2</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div-->
+
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="edi_Two">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#edi_collapseTwo" aria-expanded="true" aria-controls="edi_collapseTwo">
+                                    System Parameters
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="edi_collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="edi_Two">
+                            <div class="panel-body">
+                                <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                                    <tbody>
+                                        <tr>
+                                            <td unitType="Resistivity">Target Resistivity</td>
+                                            <td>
+                                                <input type="number" name="stargetSenId" value="">
+                                            </td>
+                                            <td id="stargetSenId1"></td>
+                                        </tr>
+                                        <!-- <tr>
+                                            <td unitType="Volume Flow">Product Flow</td>
+                                            <td>
+                                                <input type="number" name="sProdFlowId" value="40">
+                                            </td>
+                                            <td id="sProdFlowId1">ppm</td>
+                                        </tr> -->
+                                        <tr>
+                                            <td unitType="Volume Flow">Flow per stack</td>
+                                            <td>
+                                                <input type="number" name="sFlowPerStackId" class="fiveDecimal" value="">
+                                            </td>
+                                            <td id="sFlowPerStackId1">ppm</td>
+                                        </tr>
+                                        <tr>
+                                            <td unitType="Temperature">Temperature</td>
+                                            <td>
+                                                <input type="number" name="stempId" value="">
+                                            </td>
+                                            <td id="stempId1">C</td>
+                                        </tr>
+                                        <tr id="targetSilicaShow">
+                                            <td >Target Silica</td>
+                                            <td width="25%">
+                                                <select name="stargetSilicaId">
+                                                    <option> </option>
+                                                    <option>5</option>
+                                                    <option>10</option>
+                                                    <option>20</option>
+                                                </select>
+                                            </td>
+                                            <td id="stargetSilicaId1">ppb SiO2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rectifier efficiency</td>
+                                            <td>
+                                                <input type="number" name="srectifierEffId" value="70">
+                                            </td>
+                                            <td id="srectifierEffId1">%</td>
+                                        </tr>
+                                        <tr>
+                                            <td unitType="">Rectifier DC output</td>
+                                            <td>
+                                                <select name="srectifierDCId" id="srectifierDC">
+                                                    <option value="400 V">400 V</option>
+                                                    <option value="250 V">250 V</option>
+                                                    <option value="300 V">300 V</option>
+                                                    <option value="150 V">150 V</option>
+                                                </select>
+                                            </td>
+                                            <td id="srectifierDCId1"></td>
+                                        </tr>
+                                        <tr>
+                                            <td unitType="Pressure">Feed Pressure</td>
+                                            <td>
+                                                <input type="number" name="sFeedpressureId" value="">
+                                            </td>
+                                            <td id="sFeedpressureId1">C</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="Output tabDiv dispNone genericSrollBox">
+            <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                <tbody>
+                    <tr>
+                        <td width="45%"  unitType="Volume Flow">Product Flow Rate</td>
+                        <td contenteditable="false"></td>
+                        <td width="20%">gpm or m3/hr</td>
+                    </tr>
+                    <tr>
+                        <td width="45%"  unitType="Resistivity">Product Resistivity</td>
+                        <td contenteditable="false"></td>
+                        <td width="25%">Mohm.cm</td>
+                    </tr>
+                    <tr id="oproductSilica">
+                        <td width="45%" >Product Silica guarantee level</td>
+                        <td contenteditable="false"></td>
+                        <TD width="25%">ppb SiO2</TD>
+                    </tr>
+                    <tr id="opredSilica">
+                        <td width="45%">Predicted Silica product</td>
+                        <td contenteditable="false"></td>
+                        <TD width="25%">ppb SiO2</TD>
+                    </tr>
+                    <tr id="opredMaxSodium">
+                        <td width="45%" >Predicted Max product sodium</td>
+                        <td contenteditable="false"></td>
+                        <td width="25%">ppb</td>
+                    </tr>
+                    <tr id="opredMaxprodChloride">
+                        <td width="45%">Predicted Max product chloride</td>
+                        <td contenteditable="false"></td>
+                        <td width="25%">ppb</td>
+                    </tr>
+                    <tr id="opredMaxProdSul">
+                        <td width="45%">Predicted Max product sulfate</td>
+                        <td contenteditable="false"></td>
+                        <td width="25%">ppb</td>
+                    </tr>
+                    <tr id="omaxAlloRecovery">
+                        <td width="45%" >Maximum Allowable Recovery</td>
+                        <td contenteditable="false"></td>
+                        <td>%</td>
+                    </tr>
+                    <tr id="noOfEcellStacks">
+                        <td width="45%">No: of E-cell Stacks</td>
+                        <td contenteditable="false"></td>
+                    </tr>
+                    <tr id="ocurrent">
+                        <td width="45%" unitType="Current">Current</td>
+                        <td contenteditable="false"></td>
+                        <td width="25%">Amps</td>
+                    </tr>
+                    <tr id="ovoltage" >
+                        <td width="45%" unitType="Voltage">Voltage</td>
+                        <td contenteditable="false"></td>
+                        <td width="25%">Volts</td>
+                    </tr>
+                    <tr id="odcPower">
+                        <td width="45%" unitType="DC Power">DC power</td>
+                        <td contenteditable="false"></td>
+                        <td width="25%">kW</td>
+                    </tr>
+                    <tr id="oacPower">
+                        <td width="45%" unitType="AC Power">AC power consumption</td>
+                        <td contenteditable="false"></td>
+                        <td width="25%">kW</td>
+                    </tr>
+                    <tr id="oacEnergy">
+                        <td width="45%" unitType="AC Energy">AC energy</td>
+                        <td contenteditable="false"></td>
+                        <td width="25%">kWh/ 1000 gal or kWh /m3</td>
+                    </tr>
+                    <tr id="ofeedPressure" >
+                        <td width="45%" unitType="Pressure">Feed pressure</td>
+                        <td contenteditable="false"></td>
+                        <td width="25%">bar,psi</td>
+                    </tr>
+                    <tr id="opredProdOutlet">
+                        <td width="45%"  unitType="Pressure">Predicted Product outlet pressure</td>
+                        <td contenteditable="false"></td>
+                        <td width="25%">bar,psi</td>
+                    </tr>
+                    <tr id="orefeedInlet" >
+                        <td width="45%" unitType="Volume Flow" width="25%">Feed Inlet</td>
+                        <td contenteditable="false"></td>
+                        <td width="25%">gpm or m3/hr</td>
+                    </tr>
+                    <tr id="oConcentrateBleed" >
+                        <td width="45%" unitType="Volume Flow">Concentrate Bleed</td>
+                        <td contenteditable="false"></td>
+                        <td width="25%">gpm or m3/hr</td>
+                    </tr>
+                    <tr id="oelectrodeBleed">
+                        <td width="45%" unitType="Volume Flow">Electrode Bleed</td>
+                        <td contenteditable="false"></td>
+                        <td width="25%">gpm or m3/hr</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="Note tabDiv dispNone genericSrollBox">
+        <p class="mB5">
+            <strong>Please add Note:</strong>
+        </p>
+        <textarea class="edi_Note" rows="4" cols="50" name="edi_Note"></textarea>
+    </div>
+    <div class="Documentation tabDiv dispNone genericSrollBox">
+        <p class="text-justify">
+		Number of streams required to execute the unitop<br>
+				Input-   1 Stream<br>
+				Output - 2 Stream<br>
+				<br><br>
+		EDI module is built on basis of E-cell Process Calculation Spreadsheet (E-Calc 4.0.5d)
+        </p>
+        <ol>
+            <li>The composition of product stream is fixed at the max predicted ion compositions for given resistivity. The predictions
+                are based on guaranteed product water resistivity.</li>
+            <li>Waste stream flow is calculated as sum of concentrate bleed and electrode bleed streams</li>
+        </ol>
+    </div>
+    <div class="footer col-md-12 col-sm-12 col-xs-12">
+        <div class="popUpTabError"></div>
+        <button type="button" class="btn updateBtn" id="blueButton">Update</button>
+        <button type="button" class="btn cancelBtn" id="blueButton">Cancel</button>
+    </div>
+    <div class="clearfix"></div>
+</div>

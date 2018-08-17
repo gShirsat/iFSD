@@ -1,0 +1,1259 @@
+{
+  "Feed": {
+    "Properties": [
+      {
+        "ID": "FP1",
+        "Property": "Feed Flow Rate",
+        "DefaultValue": 100,
+        "Type": "Input",
+        "Tab": 1
+      },
+      {
+        "ID": "FP2",
+        "Property": "Total Akalinity(ppm CaCO3)",
+        "DefaultValue": 120,
+        "Type": "Input",
+        "Tab": 1
+      },
+      {
+        "ID": "FP3",
+        "Property": "TDS(mg/l)",
+        "DefaultValue": 25,
+        "Type": "Input",
+        "Tab": 1
+      },
+      {
+        "ID": "FP4",
+        "Property": "pH",
+        "DefaultValue": 7,
+        "Type": "Input",
+        "Tab": 1
+      },
+      {
+        "ID": "FP5",
+        "Property": "Temperature(C)",
+        "DefaultValue": 25,
+        "Type": "Input",
+        "Tab": 1
+      },
+      {
+        "ID": "FP6",
+        "Property": "SDI",
+        "DefaultValue": 4,
+        "Type": "Input",
+        "Tab": 1
+      },
+      {
+        "ID": "FI1",
+        "Property": "Calcium (Ca)",
+        "DefaultValue": 408,
+        "Type": "Input",
+        "Tab": 2,
+        "used":true
+      },
+      {
+        "ID": "FI2",
+        "Property": "Magnesium (Mg)",
+        "DefaultValue": 150,
+        "Type": "Input",
+        "Tab": 2,
+        "used":true
+      },
+      {
+        "ID": "FI3",
+        "Property": "Sodium (Na)",
+        "DefaultValue": 130,
+        "Type": "Input",
+        "Tab": 2,
+        "used":true
+      },
+      {
+        "ID": "FI4",
+        "Property": "Potassium (K)",
+        "DefaultValue": 120,
+        "Type": "Input",
+        "Tab": 2,
+        "used":true
+      },
+      {
+        "ID": "FI5",
+        "Property": "Ammonia - N (NH4)",
+        "DefaultValue": 10,
+        "Type": "Input",
+        "Tab": 2,
+        "used":true
+      },
+      {
+        "ID": "FI6",
+        "Property": "Barium (Ba)",
+        "DefaultValue": 5,
+        "Type": "Input",
+        "Tab": 2,
+        "used":true
+      },
+      {
+        "ID": "FI7",
+        "Property": "Strontium (Sr)",
+        "DefaultValue": 121,
+        "Type": "Input",
+        "Tab": 2,
+        "used":true
+      },
+      {
+        "ID": "FI8",
+        "Property": "Iron (Fe)",
+        "DefaultValue": 12,
+        "Type": "Input",
+        "Tab": 2,
+        "used":true
+      },
+      {
+        "ID": "FI9",
+        "Property": "Manganese (Mn)",
+        "DefaultValue": 4,
+        "Type": "Input",
+        "Tab": 2,
+        "used":true
+      },
+      {
+        "ID": "FI10",
+        "Property": "Total Cations",
+        "DefaultValue": 0,
+        "Type": "Output",
+        "Tab": 2
+      },
+	  {
+        "ID": "FI11",
+        "Property": "Copper (Cu)",
+        "DefaultValue": 0,
+        "Type": "Input",
+        "Tab": 2
+      },
+	  {
+        "ID": "FI12",
+        "Property": "Aluminium (Al)",
+        "DefaultValue": 0,
+        "Type": "Input",
+        "Tab": 2
+      },
+      {
+        "ID": "FI13",
+        "Property": "Sulfate (SO4)",
+        "DefaultValue": 352,
+        "Type": "Input",
+        "Tab": 2,
+        "used":true
+      },
+      {
+        "ID": "FI14",
+        "Property": "Chloride (Cl)",
+        "DefaultValue": 123,
+        "Type": "Input",
+        "Tab": 2,
+        "used":true
+      },
+      {
+        "ID": "FI15",
+        "Property": "Fluoride (F)",
+        "DefaultValue": 4,
+        "Type": "Input",
+        "Tab": 2,
+        "used":true
+      },
+      {
+        "ID": "FI16",
+        "Property": "Nitrate (NO3)",
+        "DefaultValue": 12,
+        "Type": "Input",
+        "Tab": 2,
+        "used":true
+      },
+      {
+        "ID": "FI17",
+        "Property": "Bromide (Br)",
+        "DefaultValue": 55,
+        "Type": "Input",
+        "Tab": 2,
+        "used":true
+      },
+      {
+        "ID": "FI18",
+        "Property": "Phosphate (PO4)",
+        "DefaultValue": 12,
+        "Type": "Input",
+        "Tab": 2,
+        "used":true
+      },
+      {
+        "ID": "FI19",
+        "Property": "Boron (B)",
+        "DefaultValue": 55,
+        "Type": "Input",
+        "Tab": 2,
+        "used":true
+      },
+      {
+        "ID": "FI20",
+        "Property": "Silica (SiO2)",
+        "DefaultValue": 13,
+        "Type": "Input",
+        "Tab": 2,
+        "used":true
+      },
+      {
+        "ID": "FI21",
+        "Property": "Hydrogen Sulfide (H2S)",
+        "DefaultValue": 21,
+        "Type": "Input",
+        "Tab": 2
+      },
+      {
+        "ID": "FI22",
+        "Property": "Bicarbonate (HCO3)",
+        "DefaultValue": 12,
+        "Type": "Input",
+        "Tab": 2
+      },
+      {
+        "ID": "FI23",
+        "Property": "Carbon Dioxide (CO2)",
+        "DefaultValue": 34,
+        "Type": "Input",
+        "Tab": 2
+      },
+      {
+        "ID": "FI24",
+        "Property": "Carbonate (CO3)",
+        "DefaultValue": 14,
+        "Type": "Input",
+        "Tab": 2
+      },
+      {
+        "ID": "FI25",
+        "Property": "Total Anions",
+        "DefaultValue": 0,
+        "Type": "Input",
+        "Tab": 2
+      },
+      {
+        "ID": "FS1",
+        "Property": "BaSO4",
+        "DefaultValue": "0.00 %",
+        "Type": "Output",
+        "Tab": 3
+      },
+      {
+        "ID": "FS2",
+        "Property": "CaF2",
+        "DefaultValue": "0.00 %",
+        "Type": "Output",
+        "Tab": 3
+      },
+      {
+        "ID": "FS3",
+        "Property": "CaSO4",
+        "DefaultValue": "0.00 %",
+        "Type": "Output",
+        "Tab": 3
+      },
+      {
+        "ID": "FS4",
+        "Property": "SiO2",
+        "DefaultValue": "0.00 %",
+        "Type": "Output",
+        "Tab": 3
+      },
+      {
+        "ID": "FS5",
+        "Property": "SrSO4",
+        "DefaultValue": "0.00 %",
+        "Type": "Output",
+        "Tab": 3
+      },
+      {
+        "ID": "FS6",
+        "Property": "Struvite",
+        "DefaultValue": "0.00 %",
+        "Type": "Output",
+        "Tab": 3
+      },
+      {
+        "ID": "FS7",
+        "Property": "LSI",
+        "DefaultValue": "0.00",
+        "Type": "Output",
+        "Tab": 3
+      },
+      {
+        "ID": "FS8",
+        "Property": "Stiff-Davis index",
+        "DefaultValue": "0.00",
+        "Type": "Output",
+        "Tab": 3
+      },
+      {
+        "ID": "FS10",
+        "Property": "Osmotic Pressure",
+        "DefaultValue": "0.00 psi",
+        "Type": "Output",
+        "Tab": 3
+      },
+      {
+        "ID": "FS11",
+        "Property": "Conductivity at 25C",
+        "DefaultValue": "0.00 &mu;S/cm",
+        "Type": "Output",
+        "Tab": 3
+      },
+      {
+        "ID": "FS12",
+        "Property": "Density",
+        "DefaultValue": "0.00 kg/m3",
+        "Type": "Output",
+        "Tab": 3
+      },
+      {
+        "ID": "RF1",
+        "Property": "Raw Feed",
+        "DefaultValue": 0,
+        "Type": "Output",
+        "Tab": 4
+      }
+    ]
+  },
+  "Pump": {
+    "Properties": [
+      {
+        "ID": "P1",
+        "Property": "Inlet Pressure, bar",
+        "DefaultValue": 0,
+        "Type": "Input",
+        "Tab":1
+      },
+      {
+        "ID": "P2",
+        "Property": "Discharge Pressure, bar",
+        "DefaultValue": 0,
+        "Type": "Input",
+        "Tab":1
+      },
+      {
+        "ID": "P3",
+        "Property": "Pump Efficiency, %",
+        "DefaultValue": 89,
+        "Type": "Input",
+        "Tab":1
+      },
+      {
+        "ID": "P4",
+        "Property": "Motor Efficiency, %",
+        "DefaultValue": 96,
+        "Type": "Input",
+        "Tab":1
+      },
+      {
+        "ID": "P5",
+        "Property": "VFD Efficiency, %",
+        "DefaultValue": 97,
+        "Type": "Input",
+        "Tab":1
+      },
+      {
+        "ID": "P6",
+        "Property": "Power, kW",
+        "DefaultValue": 0,
+        "Type": "Output",
+        "Tab":2
+      },
+      {
+        "ID": "P7",
+        "Property": "Energy Consumption (kWhr/m3)",
+        "DefaultValue": 0,
+        "Type": "Output",
+        "Tab":2
+      }
+    ]
+  },
+  "UF": {
+    "Properties": [
+      {
+        "ID": "U1",
+        "Property": "System",
+        "DefaultValue": 0,
+        "Type": "Input"
+      }
+    ]
+  },
+  "MMF": {
+    "Properties": [
+      {
+        "ID": "MM1",
+        "Property": "Flux (lmh)",
+        "DefaultValue": 0,
+        "Type": "Input",
+		"Tab":1
+      },
+      {
+        "ID": "MM2",
+        "Property": "Area (ft2)",
+        "DefaultValue": 0,
+        "Type": "Input",
+		"Tab":1
+      },
+      {
+        "ID": "MM3",
+        "Property": "Recovery",
+        "DefaultValue": 0,
+        "Type": "Input",
+		"Tab":1
+      },
+      {
+        "ID": "MM22",
+        "Property": "Recovery %",
+        "DefaultValue": 98,
+        "Type": "Input"
+      },
+      {
+        "ID": "MMF1",
+        "Property": "Flow Rate",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "MMF2",
+        "Property": "TDS",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "MMF22",
+        "Property": "Temperature",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "MMP1",
+        "Property": "Flow Rate",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "MMP2",
+        "Property": "TDS",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "MMP22",
+        "Property": "Temperature",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "MMC1",
+        "Property": "Flow Rate",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "MMC2",
+        "Property": "TDS",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "MMC22",
+        "Property": "Temperature",
+        "DefaultValue": 0,
+        "Type": "Output"
+      }
+    ]
+  },
+  "CF": {
+    "Properties": [
+      {
+        "ID": "C1",
+        "Property": "Flux (lmh)",
+        "DefaultValue": 0,
+        "Type": "Input",
+		"Tab":1
+      },
+      {
+        "ID": "C2",
+        "Property": "Area (ft2)",
+        "DefaultValue": 0,
+        "Type": "Input",
+		"Tab":1
+      },
+      {
+        "ID": "C3",
+        "Property": "Recovery",
+        "DefaultValue": 0,
+        "Type": "Input",
+		"Tab":1
+      },
+      {
+        "ID": "C22",
+        "Property": "Recovery %",
+        "DefaultValue": 100,
+        "Type": "Input"
+      },
+      {
+        "ID": "CF1",
+        "Property": "Flow Rate",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "CF2",
+        "Property": "TDS",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "CF22",
+        "Property": "Temperature",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "CP1",
+        "Property": "Flow Rate",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "CP2",
+        "Property": "TDS",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "CP22",
+        "Property": "Temperature",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "CC1",
+        "Property": "Flow Rate",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "CC2",
+        "Property": "TDS",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "CC22",
+        "Property": "Temperature",
+        "DefaultValue": 0,
+        "Type": "Output"
+      }
+    ]
+  },
+  "RO": {
+    "Properties": [
+      {
+        "ID": "R1",
+        "Property": "Flux (lmh)",
+        "DefaultValue": 0,
+        "Type": "Input",
+		"Tab":1
+      },
+      {
+        "ID": "R2",
+        "Property": "Area (ft2)",
+        "DefaultValue": 0,
+        "Type": "Input",
+		"Tab":1
+      },
+      {
+        "ID": "R3",
+        "Property": "Recovery",
+        "DefaultValue": 0,
+        "Type": "Input",
+		"Tab":1
+      },
+      {
+        "ID": "R4",
+        "Property": "Alkalinity",
+        "DefaultValue": 0,
+        "Type": "Input",
+		"Tab":2
+      },
+      {
+        "ID": "R5",
+        "Property": "Calcium (Ca)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		"Tab":2
+      },
+      {
+        "ID": "R6",
+        "Property": "Magnesium (Mg)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		"Tab":2
+      },
+      {
+        "ID": "R7",
+        "Property": "Sodium (Na)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		"Tab":2
+      },
+      {
+        "ID": "R8",
+        "Property": "Potassium (K)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		"Tab":2
+      },
+      {
+        "ID": "R9",
+        "Property": "Ammonia - N (NH4)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		    "Tab":2
+      },
+      {
+        "ID": "R10",
+        "Property": "Barium (Ba)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		"Tab":2
+      },
+      {
+        "ID": "R11",
+        "Property": "Strontium (Sr)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		"Tab":2
+      },
+      {
+        "ID": "R12",
+        "Property": "Iron (Fe)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		"Tab":2
+      },
+      {
+        "ID": "R13",
+        "Property": "Manganese (Mn)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		"Tab":2
+      },
+      {
+        "ID": "R14",
+        "Property": "Sulfate (SO4)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		"Tab":2
+      },
+      {
+        "ID": "R15",
+        "Property": "Chloride (Cl)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		"Tab":2
+      },
+      {
+        "ID": "R16",
+        "Property": "Fluoride (F)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		"Tab":2
+      },
+      {
+        "ID": "R17",
+        "Property": "Nitrate (NO3)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		"Tab":2
+      },
+      {
+        "ID": "R18",
+        "Property": "Bromide (Br)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		"Tab":2
+      },
+      {
+        "ID": "R19",
+        "Property": "Phosphate (PO4)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		"Tab":2
+      },
+      {
+        "ID": "R20",
+        "Property": "Boron (B)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		"Tab":2
+      },
+      {
+        "ID": "R21",
+        "Property": "Silica (SiO2)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		    "Tab":2
+      },
+      {
+        "ID": "R22",
+        "Property": "Hydrogen Sulfide (H2S)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		    "Tab":2
+      },
+      {
+        "ID": "R23",
+        "Property": "Bicarbonate (HCO3)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		    "Tab":2
+      },
+      {
+        "ID": "R24",
+        "Property": "Carbon Dioxide (CO2)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		    "Tab":2
+      },
+      {
+        "ID": "R25",
+        "Property": "Carbonate (CO3)",
+        "DefaultValue": 99,
+        "Type": "Input",
+		    "Tab":2
+      },
+      {
+        "ID": "R26",
+        "Property": "Recovery %",
+        "DefaultValue": 70,
+        "Type": "Input"
+      },
+      {
+        "ID": "R27",
+        "Property": "Rejection %",
+        "DefaultValue": 99,
+        "Type": "Input"
+      },
+      {
+        "ID": "RF1",
+        "Property": "Flow Rate",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF2",
+        "Property": "TDS",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF3",
+        "Property": "Alkalinity",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF4",
+        "Property": "Calcium (Ca)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF5",
+        "Property": "Magnesium (Mg)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF6",
+        "Property": "Sodium (Na)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF7",
+        "Property": "Potassium (K)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF8",
+        "Property": "Ammonia - N (NH4)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF9",
+        "Property": "Barium (Ba)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF10",
+        "Property": "Strontium (Sr)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF11",
+        "Property": "Iron (Fe)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF12",
+        "Property": "Manganese (Mn)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF13",
+        "Property": "Sulfate (SO4)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF14",
+        "Property": "Chloride (Cl)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF15",
+        "Property": "Fluoride (F)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF16",
+        "Property": "Nitrate (NO3)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF17",
+        "Property": "Bromide (Br)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF18",
+        "Property": "Phosphate (PO4)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF19",
+        "Property": "Boron (B)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF20",
+        "Property": "Silica (SiO2)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF21",
+        "Property": "Hydrogen Sulfide (H2S)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF22",
+        "Property": "Bicarbonate (HCO3)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF23",
+        "Property": "Carbon Dioxide (CO2)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF24",
+        "Property": "Carbonate (CO3)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF25",
+        "Property": "pH",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RF26",
+        "Property": "Temperature",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP1",
+        "Property": "Flow Rate",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP2",
+        "Property": "TDS",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP3",
+        "Property": "Alkalinity",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP4",
+        "Property": "Calcium (Ca)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP5",
+        "Property": "Magnesium (Mg)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP6",
+        "Property": "Sodium (Na)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP7",
+        "Property": "Potassium (K)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP8",
+        "Property": "Ammonia - N (NH4)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP9",
+        "Property": "Barium (Ba)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP10",
+        "Property": "Strontium (Sr)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP11",
+        "Property": "Iron (Fe)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP12",
+        "Property": "Manganese (Mn)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP13",
+        "Property": "Sulfate (SO4)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP14",
+        "Property": "Chloride (Cl)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP15",
+        "Property": "Fluoride (F)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP16",
+        "Property": "Nitrate (NO3)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP17",
+        "Property": "Bromide (Br)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP18",
+        "Property": "Phosphate (PO4)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP19",
+        "Property": "Boron (B)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP20",
+        "Property": "Silica (SiO2)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP21",
+        "Property": "Hydrogen Sulfide (H2S)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP22",
+        "Property": "Bicarbonate (HCO3)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP23",
+        "Property": "Carbon Dioxide (CO2)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP24",
+        "Property": "Carbonate (CO3)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP25",
+        "Property": "pH",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RP26",
+        "Property": "Temperature",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC1",
+        "Property": "Flow Rate",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC2",
+        "Property": "TDS",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC3",
+        "Property": "Alkalinity",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC4",
+        "Property": "Calcium (Ca)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC5",
+        "Property": "Magnesium (Mg)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC6",
+        "Property": "Sodium (Na)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC7",
+        "Property": "Potassium (K)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC8",
+        "Property": "Ammonia - N (NH4)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC9",
+        "Property": "Barium (Ba)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC10",
+        "Property": "Strontium (Sr)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC11",
+        "Property": "Iron (Fe)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC12",
+        "Property": "Manganese (Mn)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC13",
+        "Property": "Sulfate (SO4)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC14",
+        "Property": "Chloride (Cl)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC15",
+        "Property": "Fluoride (F)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC16",
+        "Property": "Nitrate (NO3)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC17",
+        "Property": "Bromide (Br)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC18",
+        "Property": "Phosphate (PO4)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC19",
+        "Property": "Boron (B)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC20",
+        "Property": "Silica (SiO2)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC21",
+        "Property": "Hydrogen Sulfide (H2S)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC22",
+        "Property": "Bicarbonate (HCO3)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC23",
+        "Property": "Carbon Dioxide (CO2)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC24",
+        "Property": "Carbonate (CO3)",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC25",
+        "Property": "pH",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "RC26",
+        "Property": "Temperature",
+        "DefaultValue": 0,
+        "Type": "Output"
+      }
+    ]
+  },
+  "Splitter": {
+    "Properties": [
+      {
+        "ID": "S1",
+        "Property": "Stream 1 Percentage",
+        "DefaultValue": 100,
+        "Type": "Input"
+      },
+      {
+        "ID": "S2",
+        "Property": "Recycle",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },
+      {
+        "ID": "S3",
+        "Property": "ConcOut",
+        "DefaultValue": 0,
+        "Type": "Output"
+      }
+    ]
+  },
+  "Mixer": {
+    "Properties": [
+      {
+        "ID": "M1",
+        "Property": "FlowIn",
+        "DefaultValue": 0,
+        "Type": "Input"
+      },
+      {
+        "ID": "M2",
+        "Property": "FlowOut",
+        "DefaultValue": 0,
+        "Type": "Output"
+      },{
+        "ID": "M3",
+        "Property": "Recycle",
+        "DefaultValue": 0,
+        "Type": "Input"
+      }
+    ]
+  }
+}

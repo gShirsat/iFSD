@@ -1,0 +1,29 @@
+ div.settings_MB,  div.settings_TI, div.settings_RM {padding-left:0px; background-color: rgb(214,214,214);padding-right:0px;position: absolute; z-index: 9999;
+ border:1px solid rgb(183,183,183);}
+
+.settings_MB, .settings_TI, .settings_RM{
+    width: 30%;
+    left: 35%;
+    top: 27%;
+}
+
+#Flow, #Ions{
+
+    color: #5c5f63;
+    font-size: 12px;
+    line-height: 1;
+    padding: 2px 4px;
+}
+
+
+#iterLabel
+{
+    font-size: 11px;
+}
+
+#sidebar ul li ul li a { cursor: pointer; }
+
+.settingScroll {
+    overflow: auto;
+    height: 150px;
+}

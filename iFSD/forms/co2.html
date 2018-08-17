@@ -1,0 +1,266 @@
+<div class="co2Popup popUp" style="display:none;">
+	<div class="header col-md-12 col-sm-12 col-xs-12"><h3 class="pull-left popTitle"></h3><i class="pull-right">X</i></div>
+	<div class="body col-md-12 col-sm-12 col-xs-12 tableScroller">
+		<ul class="nav nav-tabs col-md-12 col-sm-12 col-xs-12 iFSDTab margin0">
+			<li class="active"><a href="#">Input</a></li>
+			<li><a href="#" class="out">Output</a></li>
+			<li><a href="#">Note</a></li>
+			<li><a href="#">Calculation</a></li>
+		</ul>
+		<div class="clearfix"></div>
+		<div class="Input tabDiv genericSrollBox">
+			<div class="panel-group" id="accordionA" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="co2_One">
+						 <h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordionA" href="#co2_collapseOne" aria-expanded="true" aria-controls="co2_collapseOne">
+								Process Parameters
+							</a>
+						  </h4>
+					</div>
+					<div id="co2_collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="co2_One">
+						<div class="panel-body">
+							<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+								<tbody>
+									<!-- <tr><td width="50%" unitType="Volume Flow">Design Flow Rate </td><td width="25%"><input type="number" name="designFlowRate" value="1200" /></td><td width="20%" id="designFlowRate1">gal/sec</td></tr> -->
+									<tr><td unitType="Volume Flow">Normal Flow Rate</td><td ><input type="number" name="normalFlowRate" class="twoDecimal" /></td><td id="normalFlowRate1">gal/min</td></tr>
+									<!-- <tr><td >CO2 Concentration In</td><td><input type="number" name="cO2ConcentrationIn" value="40" class="twoDecimal" /></td><td id="cO2ConcentrationIn1">ppm as CO2</td></tr> -->
+									<tr><td>CO2 Concentration Out </td><td><input type="number" name="cO2ConcentrationOut" value="5" class="twoDecimal"/></td><td id="cO2ConcentrationOut1">ppm as CO2</td></tr>
+									<!-- <tr><td unitType="Temperature">Water min Temperature </td><td><input type="number" name="waterMinTemperature" value="1.7" /></td> <td id="waterMinTemperature1">C</td></tr> -->
+									<tr><td unitType="Flux">Liquid Loading Rate </td><td><input type="number" name="liquidLoadingRate" value="36" class="fiveDecimal"/></td><td id="liquidLoadingRate1">gal/sqft-min</td></tr>
+									<tr><td unitType="Time">Clearwell Retention Time </td><td><input type="number" name="clearwellRetentionTime" value="3" class="twoDecimal" /></td><td id="clearwellRetentionTime1">C</td></tr>
+									<tr><td unitType="-">Turndown Ratio</td><td><input type="number" name="turndownRatio" value="5"/></td><td id="turndownRatio1">C</td></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="co2_Three">
+						 <h4 class="panel-title">
+							<a class="collapsed" data-toggle="collapse" data-parent="#accordionA" href="#co2_collapseThree" aria-expanded="false" aria-controls="co2_collapseThree">
+							  Tower Dimensions
+							</a>
+						  </h4>
+					</div>
+					<div id="co2_collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="co2_Three">
+						<div class="panel-body">
+							<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+								<tbody>
+									<tr><td unitType="Length" width="50%">Tower Height </td><td width="25%"><input type="number" name="towerHeight" value="" class="twoDecimal" /></td><td id="towerHeight1">C</td></tr>
+									<tr><td unitType="Length">Clearwell Height </td><td><input type="number" name="clearwellHeight" value="" class="twoDecimal" /></td><td id="clearwellHeight1">C</td></tr>
+									<tr><td unitType="Length">Packing Support Grating Height </td><td><input type="number" name="packingSupportGratingHeight" value="" class="twoDecimal" /></td><td id="packingSupportGratingHeight1">C</td></tr>
+									<tr><td unitType="Length">Overflow Nozzle Diameter </td><td><input type="number" name="overflowNozzleDiameter" value="" class="twoDecimal"/></td><td id="overflowNozzleDiameter1">C</td></tr>
+									<!-- <tr><td>Demister Height </td><td><input type="number" name="demisterHeight" value="0.7"/></td><td id="demisterHeight1">C</td></tr> -->
+									<tr><td unitType="Length">Inlet Header Distributor Size </td><td><input type="number" name="inletHeaderDistributorSize" value="" class="twoDecimal"/></td><td id="inletHeaderDistributorSize1">C</td></tr>
+									<tr><td unitType="Length">Spray Nozzle Height </td><td><input type="number" name="sprayNozzleHeight" value="" class="twoDecimal"/></td><td id="sprayNozzleHeight1">C</td></tr>
+									<tr><td>Fan Size </td><td><input type="number" name="fanSize" value="" class="twoDecimal"/></td><td id="fanSize1">(cuft/min)/(gal/min)</td></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="co2_Two">
+						 <h4 class="panel-title">
+							<a class="collapsed" data-toggle="collapse" data-parent="#accordionA" href="#co2_collapseTwo" aria-expanded="false" aria-controls="co2_collapseTwo">
+							  4th degree polynomial coefficient (Jaeger Tri-Packs)
+							</a>
+						  </h4>
+					</div>
+					<div id="co2_collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="co2_Two">
+						<div class="panel-body">
+							<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+								<tbody>
+									<!-- <tr><td ><strong>4th degree polynomial coefficient  (Jaeger Tri-Packs)</strong></td><td width="25%"></td><td></td></tr> -->
+									<tr><td unitType="-" width="50%">a </td><td width="25%"><input type="number" name="a" value="26.92" class="sixDecimal" /></td><td id="a1">C</td></tr>
+									<tr><td unitType="-">b </td><td><input type="number" name="b" value="-0.61" class="sixDecimal" /></td><td id="b1">C</td></tr>
+									<tr><td unitType="-">c </td><td><input type="number" name="c" value="0.029" class="sixDecimal" /></td><td id="c1">C</td></tr>
+									<tr><td unitType="-">d </td><td><input type="number" name="d" value="-0.0008" class="sixDecimal"/></td><td id="d1">C</td></tr>
+									<tr><td unitType="-">e </td><td><input type="number" name="e" value="0.000008" class="sixDecimal" /></td><td id="e1">C</td></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="Output tabDiv dispNone genericSrollBox">
+			
+			<div class="panel-group" id="accordionAOut" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="co2_One_out">
+						 <h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordionAOut" href="#co2_collapseOne_out" aria-expanded="true" aria-controls="co2_collapseOne">
+								Vessel Data
+							</a>
+						  </h4>
+					</div>
+					<div id="co2_collapseOne_out" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="co2_One_out">
+						<div class="panel-body">
+							<table class="table table-bordered margin0 tableScroller outputTable" id="Input">
+								<tbody>
+								<tr><td unitType="Length">Tower Diameter</td><td width="30%"><span class="output_TowerDiameter twoDecimalOut"></span></td><td>(gpm)</td></tr>
+								<tr><td unitType="Length">Tower Height</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>(gpm)</td></tr>
+								<tr><td unitType="Length">Clearwell Diameter</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>(gpm)</td></tr>
+								<tr><td unitType="Length">Clearwell Height</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>(gpm)</td></tr>
+								<tr><td unitType="Length">Tower + Clearwell Height</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>(gpm)</td></tr>
+								<tr><td unitType="Length">Overall Height [indoors]</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>(gpm)</td></tr>
+								<tr><td unitType="Length">Overall Height [outdoors]</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>(gpm)</td></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="co2_Two_out">
+						 <h4 class="panel-title">
+							<a class="collapsed" data-toggle="collapse" data-parent="#accordionAOut" href="#co2_collapseTwo_out" aria-expanded="false" aria-controls="co2_collapseTwo_out">
+							 Packing Data
+							</a>
+						  </h4>
+					</div>
+					<div id="co2_collapseTwo_out" class="panel-collapse collapse" role="tabpanel" aria-labelledby="co2_Two_out">
+						<div class="panel-body">
+							<table class="table table-bordered margin0 tableScroller outputTable" id="Input">
+								<tbody>
+								<tr><td unitType="Volume">Packing Volume</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>(gpm)</td></tr>
+								<tr><td unitType="Length">Packing Depth</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>(gpm)</td></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="co2_Three_out">
+						 <h4 class="panel-title">
+							<a class="collapsed" data-toggle="collapse" data-parent="#accordionAOut" href="#co2_collapseThree_out" aria-expanded="false" aria-controls="co2_collapseThree_out">
+							  Performance Data
+							</a>
+						  </h4>
+					</div>
+					<div id="co2_collapseThree_out" class="panel-collapse collapse" role="tabpanel" aria-labelledby="co2_Three_out">
+						<div class="panel-body">
+							<table class="table table-bordered margin0 tableScroller outputTable" id="Input">
+								<tbody>
+								<tr><td unitType="Volume Flow">Design Flow</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>(gpm)</td></tr>
+								<tr><td unitType="Volume Flow">Normal Flow</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>(gpm)</td></tr>
+								<tr><td unitType="Flux">Design Flux</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>(gpm)</td></tr>
+								<tr><td unitType="Flux">Normal Flux</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>(gpm)</td></tr>
+								<tr><td unitType="Volume">Clearwell Usable Capacity</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>(gpm)</td></tr>
+								<tr><td unitType="Length">Clearwell Usable Depth</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>(gpm)</td></tr>
+								<tr><td>Influent CO2 ppm as CaCO3</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>ppm as CaCO3</td></tr>
+								<tr><td>Influent CO2 ppm as CO2</td><td width="30%"><span class="output_TowerHeight"></span></td><td>ppm as CO2</td></tr>
+								<tr><td>Effluent CO2 ppm as CaCO3</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>ppm as CaCO3</td></tr>
+								<tr><td>Effluent CO2 ppm as CO2</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>ppm as CO2</td></tr>
+								<tr><td unitType="Temperature">Design [Minimum] Water Temperature</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>(gpm)</td></tr>
+								<tr><td unitType="Volume Flow">Recommended Fan Size</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>(gpm)</td></tr>
+								<tr><td >Fan Size per Flow Rate</td><td width="30%"><span class="output_TowerHeight twoDecimalOut"></span></td><td>(cuft/min)/(gal/min)</td></tr>
+							</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+					
+					
+					
+				
+		</div>
+		<div class="Note tabDiv dispNone genericSrollBox">
+			<p class="mB5"><strong>Please add Note:</strong></p>
+			<textarea class="co2_Note" rows="4" cols="50" name="co2_Note"></textarea>
+		</div>
+		<div class="Calculation tabDiv dispNone genericSrollBox">
+			<div class="panel-group" id="accordionD1CO2" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingOne1CO2">
+						 <h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordionD1CO2" href="#collapseOne1CO2" aria-expanded="true" aria-controls="collapseOne1CO2">
+							  CO2 Stripper Calculations 
+							</a>
+						  </h4>
+					</div>
+					<div id="collapseOne1CO2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne1CO2">
+						<div class="panel-body">
+							<p><strong>Calculations</strong></p>
+							Number of streams required to execute the unitop<br>
+							Input-   1 Stream<br>
+							Output - 1 Stream<br>
+							<br><br>
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<td>Column Diameter = 4/pi*((Flow Rate / Liquid Loading Rate)0.5)*12 </td>
+										<td>(inch)</td>
+									</tr>
+									<tr>
+										<td>NTU = log(CO2 Concentration In / CO2 Concentration Out) </td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>HTU = a+bT+cT2+dT3 +eT4 </td>
+										<td>(inch)</td>
+									</tr>
+									<tr>
+										<td>Packing Height = 1.25*NTU*HTU </td>
+										<td>(inch)</td>
+									</tr>
+								</tbody>
+							</table>
+							<p><strong>PRO-FDD Diameter selection which satisfies below criteria:</strong></p>
+							<ul>
+								<li>Min Flow Rate < Design Flow Rate < Max Flow Rate</li>
+								<li>Column Clearwell Retention Time > Clearwell Retention Time </li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingTwo2CO2">
+						 <h4 class="panel-title">
+							<a class="collapsed" data-toggle="collapse" data-parent="#accordionD1CO2" href="#collapseTwo2CO2" aria-expanded="false" aria-controls="collapseTwo2CO2">
+							  FDD Sizing Calculations
+							</a>
+						  </h4>
+					</div>
+					<div id="collapseTwo2CO2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo2CO2">
+						<div class="panel-body"> 
+							<ul>
+								<li>Column Min Flow Rate = Column Max Flow Rate / Turn Down Ratio</li>
+								<li>Column Max Flow Rate is specific for different column diameter based on 36 gpm/ft2 </li>
+								<li>Clearwell Volume = ((Clearwell Height – Clearwell Freeboard)/12)*(pi/4)*((Clearwell Dia/12) 2 )*7.48 </li>
+								<li>Clearwell Diameter  = Tower Diameter  </li>
+								<li>Tower Height = 120”  (Standard Height) </li>
+								<li>Clearwell Height = 180”          (Standard Height) </li>
+								<li>Clearwell Freeboard = Packing Support Grating Height + Air Inlet Duct Height  + Overflow Nozzle Height + Min. Liquid Height </li>
+								<li>Packing Support Grating Height = 1.5”              (Default or we can give option to input value) </li>
+								<li>Air Inlet Duct/Vent Height:     (Height is specific for different Column diameters. Available form GRD 2000 Standard Fan assembly Workbook)</li>
+								<li>Overflow Nozzle Height = Overflow Nozzle Diameter + 3”</li>
+								<li>Overflow Nozzle Diameter = Input Value</li>
+								<li>Min. Liquid Height = 2*Suction Nozzle Clearance</li>
+								<li>Suction Nozzle Clearance = 4” for PRO-FDD 36,48,60,72 & 6” for PRO-FDD 84,96,108,120,132,144</li>
+								<li>Packing Height = Tower Height – Tower Freeboard</li>
+								<li>Tower Freeboard = Demister Height + Inlet Header Height + Spray Cone Height + Spray Nozzle Height</li>
+								<li>Demister Height  = Input Value</li>
+								<li>Inlet Header Distributor Size = Input Value</li>
+								<li>Inlet Header Height = Lookup (Inlet Header Distributor Size from FRP ID & FRP OG table)</li>
+								<li>Spray Cone Height = Tan(30*pi/180)*Tower Diameter/2</li>
+								<li>Spray Nozzle Height = 5.9”   (Default from Bete Catalog or we can give option to input value)</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<!--  -->
+		</div>
+	</div>
+	<div class="footer col-md-12 col-sm-12 col-xs-12">
+		<div class="popUpTabError"></div>
+		<button type="button" class="btn updateBtn" id="blueButton">Update</button>
+		<button type="button" class="btn cancelBtn" id="blueButton">Cancel</button>
+	</div>
+	<div class="clearfix"></div>
+</div>

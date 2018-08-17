@@ -1,0 +1,1160 @@
+<!-- ION EXCHANGER MIX BED-->
+<div class="ixMixBedPopUp popUp" id="ixMixBedPopUpId" style="display:none;">
+    <div class="header col-md-12 col-sm-12 col-xs-12">
+        <h3 class="pull-left popTitle"></h3>
+        <i class="pull-right">X</i>
+    </div>
+    <div class="body col-md-12 col-sm-12 col-xs-12 tableScroller">
+        <ul class="nav nav-tabs col-md-12 col-sm-12 col-xs-12 iFSDTab margin0">
+            <li class="active">
+                <a href="#">Input</a>
+            </li>
+            <li>
+                <a href="#">Output</a>
+            </li>
+            <li>
+                <a href="#">Note</a>
+            </li>
+            <li>
+                <a href="#">Documentation</a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="Input tabDiv genericSrollBox">		
+			<div class="panel-group" id="accordionMix" role="tablist" aria-multiselectable="true">
+			  <!-- <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingOneMix">
+				  <h4 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordionMix" href="#collapseOneMix" aria-expanded="true" aria-controls="collapseOneMIx">
+					   Anions
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseOneMix" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOneMix">
+				  <div class="panel-body">
+					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+						<tr>
+							<td>HCO3</td>
+							<td>
+								<input type="number" name="ixmhco" value="10">
+							</td>
+							<td id="ixmhco1">ppm as CaCO3</td>
+						</tr>
+						<tr>
+							<td>SO4</td>
+							<td>
+								<input type="number" name="ixmso" value="10">
+							</td>
+							<td>ppm as CaCO3</td>
+						</tr>
+						<tr>
+							<td>F</td>
+							<td>
+								<input type="number" name="ixmcl" value="0">
+							</td>
+							<td>ppm as CaCO3</td>
+						</tr>
+						<tr>
+							<td>NO3</td>
+							<td>
+								<input type="number" name="ixmno" value="0">
+							</td>
+							<td>ppm as CaCO3</td>
+						</tr>
+						<tr>
+							<td>CO2</td>
+							<td>
+								<input type="number" name="ixmco" value="10">
+							</td>
+							<td>ppm as CaCO3</td>
+						</tr>
+						<tr>
+							<td>SIO2</td>
+							<td>
+								<input type="number" name="ixmsio" value="10">
+							</td>
+							<td>ppm as CaCO3</td>
+						</tr>
+
+					</table>
+				  </div>
+				</div>
+			  </div> -->
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingTwoMix">
+				  <h4 class="panel-title">
+					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionMix" href="#collapseTwoMix" aria-expanded="false" aria-controls="collapseTwoMIx">
+					  Resin Types
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseTwoMix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwoMix">
+				  <div class="panel-body">
+					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+						<tr>
+							<td>Cation</td>
+							<td>
+								<input type="text" name="ixmhcation" class="alphaNumTxt" value="">
+							</td>
+							<td id="ixmhcation1"></td>
+						</tr>
+
+						<tr>
+							<td>Anion</td>
+							<td>
+								<input type="text" name="ixmhcanion" class="alphaNumTxt" value="">
+							</td>
+							<td id="ixmhcanion1"></td>
+							</tr>
+								<tr>
+									<td>Inert</td>
+									<td>
+										<select name="ixminert">
+											<option value="Yes">Yes</option>
+											<option value="No">No</option>
+										</select>
+									</td>
+									<td id="ixminert1"></td>
+								</tr>
+
+					</table>
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingThreeMix">
+				  <h4 class="panel-title">
+					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionMix" href="#collapseThreeMix" aria-expanded="false" aria-controls="collapseThreeMix">
+					  Resin Data
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseThreeMix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThreeMix">
+				  <div class="panel-body">       
+					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+						<tr>
+							<td>SAC Unit Leakage</td>
+							<td>
+								<input type="number" name="ixmSAC" value="">
+							</td>
+							<td id="ixmSAC1">ppm</td>
+						</tr>
+						<tr>
+							<td>SBA Unit Leakage</td>
+							<td>
+								<input type="number" name="ixmSBA" value="">
+							</td>
+							<td id="ixmSBA1">ppm</td>
+						</tr>
+
+						<tr>
+							<td>Cation Exchange Capacity</td>
+							<td>
+								<input type="number" name="ixmCatEx" value="">
+							</td>
+							<td id="ixmCatEx1">kgr/ft3</td>
+						</tr>
+						<tr>
+							<td>Anion Exchange Capacity</td>
+							<td>
+								<input type="number" name="ixmAnEx" value="">
+							</td>
+							<td id="ixmAnEx1">kgr/ft3</td>
+						</tr>
+					</table>
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="heading4Mix">
+				  <h4 class="panel-title">
+					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionMix" href="#collapse4Mix" aria-expanded="false" aria-controls="collapse4Mix">
+					  Dosage Requirements 
+					</a>
+				  </h4>
+				</div>
+				<div id="collapse4Mix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4Mix">
+				  <div class="panel-body">
+				   <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+						<tr>
+							<td unitType="Loading Rate">Acid dosage</td>
+							<td>
+								<input type="number" name="ixmAcid" value="">
+							</td>
+							<td id="ixmAcid1">lb/ft3</td>
+						</tr>
+						<tr>
+							<td unitType="Loading Rate">Caustic dosage</td>
+							<td>
+								<input type="number" name="ixmCaustic" value="">
+							</td>
+							<td id="ixmCaustic1">lb/ft3</td>
+						</tr>
+					</table>
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="heading5Mix">
+				  <h4 class="panel-title">
+					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionMix" href="#collapse5Mix" aria-expanded="false" aria-controls="collapse5Mix">
+					   Chemical Injection Selection Chart
+					</a>
+				  </h4>
+				</div>
+				<div id="collapse5Mix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5Mix">
+				  <div class="panel-body">
+					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+						<tr>
+							<td>Acid Type</td>
+							<td>
+								<select id="ixm_acidType" name="ixm_acidType">
+									<option value="H2SO4">H2SO4</option>
+									<option value="HCl">HCl</option>
+								</select>
+							</td>
+							<td id="ixm_acidType1"></td>
+						</tr>
+						<tr>
+							<td>Acid Concentration</td>
+							<td>
+								<input type="number" name="ixmAcidCon" value="" id="ixmAcidCon">
+							</td>
+							<td id="ixmAcidCon1">%</td>
+						</tr>
+
+
+						<tr>
+							<td>Acid Step1</td>
+							<td>
+								<input type="number" name="ixmStep1" value="">
+							</td>
+							<td id="ixmStep11">%</td>
+						</tr>
+
+						<tr>
+							<td>Acid Step2</td>
+							<td>
+								<input type="number" name="ixmStep2" value="">
+							</td>
+							<td id="ixmStep21">%</td>
+						</tr>
+
+						<tr>
+							<td>Concentric Caustic</td>
+							<td>
+								<input type="number" name="ixmConcCaustic" value="" id="ixmConcCausticId">
+							</td>
+							<td id="ixmConcCaustic1">%</td>
+						</tr>
+
+						</tr>
+
+						<tr>
+							<td>Dilute Caustic</td>
+							<td>
+								<input type="number" name="ixmDiluteCaustic" value="">
+							</td>
+							<td id="ixmDiluteCaustic1">%</td>
+						</tr>
+					</table>
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="heading6Mix">
+				  <h4 class="panel-title">
+					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionMix" href="#collapse6Mix" aria-expanded="false" aria-controls="collapse6Mix">
+					  ThroughPut
+					</a>
+				  </h4>
+				</div>
+				<div id="collapse6Mix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading6Mix">
+				  <div class="panel-body">
+					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+						<tr>
+							<td unitType="Volume Flow">Normal Flow Rate</td>
+							<td>
+								<input type="number" name="imxflowRate" value="" id="imxflowRate">
+
+							</td>
+							<td id="imxflowRate1">gpm</td>
+						</tr>
+						<tr>
+							<td unitType="Time">Run Length</td>
+							<td>
+								<input type="number" name="ixmRunLength" value="">
+							</td>
+							<td id="ixmRunLength1">hr</td>
+						</tr>
+
+
+						<tr>
+							<td>Use Gross Flow as Service Flow</td>
+							<td>
+								<select name="ixmGrossFlow">
+									<option value="Yes">Yes</option>
+									<option value="No">No</option>
+								</select>
+							</td>
+							<td id="ixmGrossFlow1"></td>
+						</tr>
+					</table>
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="heading7Mix">
+				  <h4 class="panel-title">
+					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionMix" href="#collapse7Mix" aria-expanded="false" aria-controls="collapse7Mix">
+					  Options
+					</a>
+				  </h4>
+				</div>
+				<div id="collapse7Mix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading7Mix">
+				  <div class="panel-body">
+					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+						<tr>
+							<td>Recycle Mix Bed</td>
+							<td>
+								<select name="ixmRecycleMixBed">
+									<option value="Yes">Yes</option>
+									<option value="No">No</option>
+								</select>
+							</td>
+							<td id="ixmRecycleMixBed1"></td>
+						</tr>
+						<tr>
+							<td>Inert Resins</td>
+							<td>
+								<select name="ixmInsertResins">
+									<option value="Yes">Yes</option>
+									<option value="No">No</option>
+								</select>
+							</td>
+							<td id="ixmInsertResins1"></td>
+						</tr>
+						<tr>
+							<td>Ambersep Resins</td>
+							<td>
+								<select name="ixmAmberstepResins">
+									<option value="Yes">Yes</option>
+									<option value="No">No</option>
+								</select>
+							</td>
+							<td id="ixmAmberstepResins1"></td>
+						</tr>
+						<tr>
+							<td>Backwash Source</td>
+							<td>
+								<select name="ixmBackwashSource">
+									<option value="Influent">Influent</option>
+									<option value="Effluent">Effluent</option>
+								</select>
+							</td>
+							<td id="ixmBackwashSource"></td>
+						</tr>
+						<tr>
+							<td>Heated Caustic</td>
+							<td>
+								<select name="ixmHeatedCaustics">
+									<option value="Yes">Yes</option>
+									<option value="No">No</option>
+								</select>
+							</td>
+							<td id="ixmHeatedCaustics1"></td>
+						</tr>
+						<tr>
+							<td>Underdrain Type</td>
+							<td>
+								<select name="ixmUnderdrainType">
+									<option value="Flat Strainer Plate">Flat Strainer Plate</option>
+									<option value="Dished False Bottom">Dished False Bottom</option>
+								</select>
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td unitType="Length">Lining Thickness</td>
+							<td>
+								<input type="number" name="ixmLiningThickness" value="">
+							</td>
+							<td id="ixmLiningThickness1">inch</td>
+						</tr>
+					</table>
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="heading8Mix">
+				  <h4 class="panel-title">
+					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionMix" href="#collapse8Mix" aria-expanded="false" aria-controls="collapse8Mix">
+					  Bed Depth
+					</a>
+				  </h4>
+				</div>
+				<div id="collapse8Mix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading8Mix">
+				  <div class="panel-body">
+					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+						<tr>
+							<td unitType="Length">Force bed depth Cation </td>
+
+							<td>
+								<input type="number" name="ixmForceBedDepth" value="">
+							</td>
+							<td id="ixmForceBedDepth1">inch</td>
+						</tr>
+						<tr>
+							<td unitType="Length">Force bed depth Anion </td>
+							<td>
+								<input type="number" name="ixmForceBedAnion" value="">
+							</td>
+							<td id="ixmForceBedAnion1">inch</td>
+						</tr>
+					</table>
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="heading9Mix">
+				  <h4 class="panel-title">
+					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionMix" href="#collapse9Mix" aria-expanded="false" aria-controls="collapse9Mix">
+					  Vessel Data
+					</a>
+				  </h4>
+				</div>
+				<div id="collapse9Mix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading9Mix">
+				  <div class="panel-body">
+					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+						<tr>
+							<td unitType="Length">MB Diameter</td>
+							<td>
+								<input type="number" name="ixmMBDiameter" value="">
+							</td>
+							<td id="ixmMBDiameter1">inch</td>
+						</tr>
+						<tr>
+							<td>MB Freeboard</td>
+							<td>
+								<input type="number" name="ixmMBFreeboard" value="">
+							</td>
+							<td>%</td>
+						</tr>
+						<tr>
+							<td unitType="Pressure">Design Pressure</td>
+							<td>
+								<input type="number" name="ixmDesignPressure" value="">
+							</td>
+							<td id="ixmMBFreeboard1">psig</td>
+						</tr>
+					</table>
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="heading10Mix">
+				  <h4 class="panel-title">
+					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionMix" href="#collapse10Mix" aria-expanded="false" aria-controls="collapse10Mix">
+					  Backwash
+					</a>
+				  </h4>
+				</div>
+				<div id="collapse10Mix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading10Mix">
+				  <div class="panel-body">
+					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+						<tr>
+							<td unitType="Temperature">Resin high temperature</td>
+							<td>
+								<input type="number" name="ixmResinHighTemp" value="">
+							</td>
+							<td id="ixmResinHighTemp1">oF</td>
+						</tr>
+						<tr>
+							<td unitType="Temperature">Regen temperature</td>
+							<td>
+								<input type="number" name="ixmRegenHighTemp" value="">
+							</td>
+							<td>oF</td>
+						</tr>
+						<tr>
+							<td>a</td>
+							<td>
+								<input type="number" name="ixmbackWashA" class="sixDecimal" value="1.23">
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>b</td>
+							<td>
+								<input type="number" name="ixmbackWashB" class="sixDecimal" value="0.02">
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>c</td>
+							<td>
+								<input type="number" name="ixmbackWashC" class="sixDecimal" value="0.00">
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>d</td>
+							<td>
+								<input type="number" name="ixmbackWashD" class="sixDecimal" value="-1.79">
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Slow BW [w/ classify] % </td>
+							<td>
+								<input type="number" name="ixmSlowBW" value="">
+							</td>
+							<td>%</td>
+						</tr>
+						<tr>
+							<td>Slow [w/o classify] & Classify BW %  </td>
+							<td>
+								<input type="number" name="ixmSlowWO" value="">
+							</td>
+							<td>%</td>
+						</tr>
+					</table>
+				  </div>
+				</div>
+			  </div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="heading11Mix">
+					  <h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionMix" href="#collapse11Mix" aria-expanded="false" aria-controls="collapse11Mix">
+						  Mixed Bed Regeneration Sequence Calculations
+						</a>
+					  </h4>
+					</div>
+					<div id="collapse11Mix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading11Mix">
+					  <div class="panel-body">
+						<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+							<tr>
+								<td>Acid injection flow</td>
+								<td>
+									<input type="number" name="ixmAcidInjectionflow" value="">
+								</td>
+								<td>gpm/ft3</td>
+							</tr>
+							<tr>
+								<td>Caustic injection flow</td>
+								<td>
+									<input type="number" name="ixmCausticInjection" value="">
+								</td>
+								<td>gpm/ft3</td>
+							</tr>
+						</table>
+					  </div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="heading12Mix">
+					  <h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionMix" href="#collapse12Mix" aria-expanded="false" aria-controls="collapse12Mix">
+						   Final Rinse
+						</a>
+					  </h4>
+					</div>
+					<div id="collapse12Mix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading12Mix">
+					  <div class="panel-body">
+						<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+							<tr>
+								<td>Use service flow for rinse ?</td>
+								<td>
+									<select name="ixmServiceFlowRinse">
+										<option value="Yes">Yes</option>
+										<option value="No">No</option>
+									</select>
+								</td>
+							</tr>
+						</table>
+					  </div>
+					</div>
+				</div>
+			</div>
+
+
+    </div>
+
+    <div class="Output tabDiv dispNone genericSrollBox">
+		<div class="panel-group" id="accordionIXOUT" role="tablist" aria-multiselectable="true">
+		  <div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="IXOut1">
+			  <h4 class="panel-title">
+				<a role="button" data-toggle="collapse" data-parent="#accordionIXOUT" href="#collapseIXO1" aria-expanded="true" aria-controls="collapseIXO1">
+				  Vessel Data
+				</a>
+			  </h4>
+			</div>
+			<div id="collapseIXO1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="IXOut1">
+			  <div class="panel-body">
+				<table class="table table-bordered margin0 tableScroller inputTable" id="Output">
+					<tbody>
+						<tr>
+							<td width="25%" unitType="Length">Diameter</td>
+							<td id="vesselDiaId" contenteditable="false"></td>
+							<td width="25%" id="vesselDiaId1">inch</td>
+						</tr <tr>
+						<td width="25%" unitType="Length">Straight Shell Height</td>
+						<td id="straightShellHeight" contenteditable="false"></td>
+						<td width="25%">inch</td>
+						</tr>
+
+						<tr>
+							<td width="25%" unitType="Pressure">Vessel Design Pressure</td>
+							<td id="vesselDesignPressure" contenteditable="false"></td>
+							<td width="25%">psig</td>
+						</tr>
+					</tbody>
+				</table>
+			  </div>
+			</div>
+		  </div>
+		  <div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="IXOut2">
+			  <h4 class="panel-title">
+				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionIXOUT" href="#collapseIXO2" aria-expanded="false" aria-controls="collapseIXO2">
+				  Resin Type
+				</a>
+			  </h4>
+			</div>
+			<div id="collapseIXO2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="IXOut2">
+			  <div class="panel-body">
+				<table class="table table-bordered margin0 tableScroller inputTable" id="Output">
+					<tbody>
+						<tr>
+							<td width="25%" unitType="-">Cation</td>
+							<td contenteditable="false" id="resinCationId"></td>
+							<td width="25%"></td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="-">Anion</td>
+							<td contenteditable="false" id="resinAnionId"></td>
+							<td width="25%"></td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="-">Inert</td>
+							<td contenteditable="false" id="resinInertId"></td>
+							<td width="25%"></td>
+						</tr>
+				</table>
+			  </div>
+			</div>
+		  </div>
+		  <div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="IXOut3">
+			  <h4 class="panel-title">
+				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionIXOUT" href="#collapseIXO3" aria-expanded="false" aria-controls="collapseIXO3">
+				  Resin Data
+				</a>
+			  </h4>
+			</div>
+			<div id="collapseIXO3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="IXOut3">
+			  <div class="panel-body">
+				 <table class="table table-bordered margin0 tableScroller inputTable" id="Output">
+					<tbody>
+						<tr>
+							<td width="25%" unitType="Volume">Cation Resin Volume / Unit
+							</td>
+							<td id="cationResinVolumeId" contenteditable="false"></td>
+							<td width="25%">cuft</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Anion Resin Volume / Unit
+							</td>
+							<td id="anionResinVolumeId" contenteditable="false"></td>
+							<td width="25%">cuft</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Inert Resin Volume / Unit
+							</td>
+							<td id="inertResinVolumeId" contenteditable="false"></td>
+							<td width="25%">cuft</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Length">Resin Bed Depth - Total
+							</td>
+							<td id="resinBedDepth" contenteditable="false"></td>
+							<td width="25%">in</td>
+						</tr>
+
+						<tr>
+							<td width="25%" unitType="Density">Cation Dosage - 100% <span id="acidTypeLinked"></span></td>
+							<td id="cationExchangeCapId" contenteditable="false"></td>
+							<td width="25%">lb/cuft</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Density">Anion Dosage - 100% NaOH<span class="acidTypeSelected"></span></td>
+							<td id="anionDosage" contenteditable="false"></td>
+							<td width="25%">lb/cuft</td>
+						</tr>
+						<tr>
+							<td width="25%" >Cation Exchange Capacity</td>
+							<td id="cationExchangeCapId" contenteditable="false"></td>
+							<td width="25%">kgr/ft3</td>
+						</tr>
+
+						<tr>
+							<td width="25%">Anion Exchange Capacity</td>
+							<td id="anionExchangeCapId" contenteditable="false"></td>
+							<td width="25%">kgr/ft3</td>
+						</tr>
+					</tbody>
+				</table>
+			  </div>
+			</div>
+		  </div>
+		  <div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="IXOut4">
+			  <h4 class="panel-title">
+				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionIXOUT" href="#collapseIXO4" aria-expanded="false" aria-controls="collapseIXO4">
+				 Performance Data
+				</a>
+			  </h4>
+			</div>
+			<div id="collapseIXO4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="IXOut4">
+			  <div class="panel-body">
+				<table class="table table-bordered margin0 tableScroller inputTable" id="Output">
+					<tbody>
+						<tr>
+							<td width="25%" unitType="Volume Flow">Design Flow Rate
+							</td>
+							<td id="serviceFlowUnit" contenteditable="false"></td>
+							<td width="25%">gal/min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume Flow">Normal Flow Rate
+							</td>
+							<td id="normalFlowUnit" contenteditable="false"></td>
+							<td width="25%">gal/min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Time">Run Time Between Regenerations at Design Flow Rate
+							</td>
+							<td id="runTimeBetweenRegen" contenteditable="false"></td>
+							<td width="25%">hr</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Time">Run Time Between Regenerations at Normal Flow Rate
+							</td>
+							<td id="runTimeBetweenNormalRegen" contenteditable="false"></td>
+							<td width="25%">hr</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Gross Throughput
+							</td>
+							<td id="grossThroughput" contenteditable="false"></td>
+							<td width="25%">gal</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Net Throughput
+							</td>
+							<td id="netThroughput" contenteditable="false"></td>
+							<td width="25%">gal</td>
+						</tr>
+						<tr>
+							<td width="25%" >Cation Influent Load
+							</td>
+							<td id="cationInfluenceLoad" contenteditable="false"></td>
+							<td width="25%">ppm as CaCO3</td>
+						</tr>
+						<tr>
+							<td width="25%">Anion Influent Load
+							</td>
+							<td id="cationInfluenceLoad" contenteditable="false"></td>
+							<td width="25%">ppm as CaCO3</td>
+						</tr>
+						<tr>
+							<td width="25%" >Cation Exchange Capacity / Regeneration</td>
+							<td id="anionExchangeCapId" contenteditable="false"></td>
+							<td width="25%">kilograins</td>
+						</tr>
+						<tr>
+							<td width="25%" >Anion Exchange Capacity / Regeneration</td>
+							<td id="anionExchangeCapId" contenteditable="false"></td>
+							<td width="25%">kilograins</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Flux">Design Flux Rate</td>
+							<td id="designFluxRate" contenteditable="false"></td>
+							<td width="25%">gal/sqft-min</td>
+						</tr <tr>
+						<td width="25%" unitType="Flux">Normal Flux Rate</td>
+						<td id="designFluxRate" contenteditable="false"></td>
+						<td width="25%">gal/sqft-min</td>
+						</tr>
+						<tr>
+							<td width="25%" >Design Flowrate / Resin Volume</td>
+							<td id="designFluxRateRasin" contenteditable="false"></td>
+							<td width="25%">gpm/ft3</td>
+						</tr>
+						<tr>
+							<td width="25%" >Normal Flowrate / Resin Volume </td>
+							<td id="normalFluxRateResin" contenteditable="false"></td>
+							<td width="25%">gpm/ft3</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Mass">Acid Dosage / Regeneration 100% <span id="linkAcidType2"></span> </td>
+							<td id="acidDosageRegen" contenteditable="false"></td>
+							<td width="25%">lbs</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Acid Dosage / Regeneration <span id="linkAcidType3"></span></td>
+							<td id="acidDosageregen" contenteditable="false"></td>
+							<td width="25%">gal</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Mass">Caustic Dosage / Regeneration 100% NaOH</td>
+							<td id="causticDosageRegen" contenteditable="false"></td>
+							<td width="25%">lbs</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Caustic Dosage / Regeneration <span id="causticLinkId2"></span> NaOH</td>
+							<td id="causticDosageRegen" contenteditable="false"></td>
+							<td width="25%">gal</td>
+						</tr>
+					</tbody>
+				</table>
+			  </div>
+			</div>
+		  </div>
+		  <div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="IXOut5">
+			  <h4 class="panel-title">
+				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionIXOUT" href="#collapseIXO5" aria-expanded="false" aria-controls="collapseIXO5">
+				  Regeneration Sequence
+				</a>
+			  </h4>
+			</div>
+			<div id="collapseIXO5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="IXOut5">
+			  <div class="panel-body">
+				<table class="table table-bordered margin0 tableScroller inputTable" id="Output">
+					<tbody>
+						<tr>
+							<td width="25%" unitType="Temperature">Backwash Temperature</td>
+							<td id="obackwasTemp" contenteditable="false"></td>
+							<td width="25%">F</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Temperature">Preheat Temperature</td>
+							<td id="obPreheatTemp" contenteditable="false"></td>
+							<td width="25%">F</td>
+						</tr>
+						<tr>
+						<td width="25%" unitType="Volume Flow">Fast Backwash Flow</td>
+						<td id="fastBackWashFlow" contenteditable="false"></td>
+						<td width="25%">gal/min</td>
+						</tr>
+						<tr>
+						<td width="25%" unitType="Volume Flow">Slow Backwash Flow</td>
+						<td id="slowBackWashFlow" contenteditable="false"></td>
+						<td width="25%">%</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume Flow">Classify Backwash Flow</td>
+							<td id="slowBackWashFlow" contenteditable="false"></td>
+							<td width="25%">%</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume Flow">Preheat Block Flow</td>
+							<td id="preheatBlockFlow" contenteditable="false"></td>
+							<td width="25%">gal/min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume Flow">Acid Injection Step 1 Flow</td>
+							<td id="acidInjectionStep" contenteditable="false"></td>
+							<td width="25%">gpm/ft3</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume Flow">Acid Injection Step 2 Flow</td>
+							<td id="acidInjectionStep2" contenteditable="false"></td>
+							<td width="25%">gpm/ft3</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume Flow">Acid Displacement / Rinse Flow</td>
+							<td id="acidDisplacement" contenteditable="false"></td>
+							<td width="25%">gal/min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume Flow">Acid Displacement / Rinse Flow</td>
+							<td id="acidDisplacement" contenteditable="false"></td>
+							<td width="25%">gal/min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume Flow">Caustic Preheat Flow</td>
+							<td id="causticPreheatFlow" contenteditable="false"></td>
+							<td width="25%">gal/min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume Flow">Caustic Injection Flow</td>
+							<td id="causticInjectionFlow" contenteditable="false"></td>
+							<td width="25%">gpm/ft3</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume Flow">Caustic Displacement Flow</td>
+							<td id="causticDisplacementFlow" contenteditable="false"></td>
+							<td width="25%">gal/min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume Flow">Caustic Displacement Flow</td>
+							<td id="causticDisplacementFlow" contenteditable="false"></td>
+							<td width="25%">gal/min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume Flow">Caustic Rinse Flow</td>
+							<td id="causticRinseFlow" contenteditable="false"></td>
+							<td width="25%">gal/min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume Flow">Full Bed Rinse Flow</td>
+							<td id="fullBedRinse" contenteditable="false"></td>
+							<td width="25%">gal/min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume Flow">Drain Down Flow</td>
+							<td id="drainDownFlow" contenteditable="false"></td>
+							<td width="25%">gal/min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume Flow">Air Mix Flow</td>
+							<td id="airMixFlow" contenteditable="false"></td>
+							<td width="25%">gal/min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume Flow">Fast Fill Flow</td>
+							<td id="fastFillFlow" contenteditable="false"></td>
+							<td width="25%">gal/min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume Flow">Final Rinse Flow</td>
+							<td id="finalRinseFlo" contenteditable="false"></td>
+							<td width="25%">gal/min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume Flow">Recycle Flow</td>
+							<td id="recycleFlow" contenteditable="false"></td>
+							<td width="25%">gal/min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Time">Fast Backwash Time</td>
+							<td id="fastBackWash" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Time">Slow Backwash Time</td>
+							<td id="slowBackWashTime" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+						<td width="25%" unitType="Time">Classify Backwash Time</td>
+						<td id="classifyBackWashTime" contenteditable="false"></td>
+						<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Time">Settle Time</td>
+							<td id="settleTime" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Time">Preheat Block Time</td>
+							<td id="preheatBlockTime" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Time">Acid Injection Step 1 Time</td>
+							<td id="acidInjectionStep1" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Time">Acid Injection Step 2 Time</td>
+							<td id="acidInjectionStep2" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Time">Acid Displacement / Rinse Time</td>
+							<td id="acidDisplacementRinseTime" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Time">Caustic Preheat Time</td>
+							<td id="causticPreheatTime" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Time">Caustic Injection Time</td>
+							<td id="causticInjectionTime" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Time">Caustic Displacement Time</td>
+							<td id="causticDisplacementTime" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Time">Caustic Rinse Time</td>
+							<td id="causticRinseTime" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Time">Full Bed Rinse Time</td>
+							<td id="fullBedRinseTime" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						
+						       
+						<tr>
+						<td width="25%" unitType="Time">Drain Down Time</td>
+						<td id="drainDownTime" contenteditable="false"></td>
+						<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Time">Air Mix Time</td>
+							<td id="airMixTime" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Time">Fast Fill Time</td>
+							<td id="fastFillTime" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Time">Final Rinse Time</td>
+							<td id="finalRinseTime" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Time">Recycle Time</td>
+							<td id="recycleTime" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Fast Backwash Volume</td>
+							<td id="fastBackBashVolume" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Slow Backwash Volume</td>
+							<td id="slowBackBashVolume" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Classify Backwash Volume</td>
+							<td id="classifyBackBashVolume" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Preheat Block Volume</td>
+							<td id="preheatBlockVolume" contenteditable="false"></td>
+							<td width="25%">gal</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Acid Injection Step 1 Volume</td>
+							<td id="acidInjectionStep" contenteditable="false"></td>
+							<td width="25%">gal</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Acid Injection Step 2 Volume</td>
+							<td id="acidInjectionStep2" contenteditable="false"></td>
+							<td width="25%">gal</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Acid Displacement / Rinse Volume</td>
+							<td id="acidDisplacementVolume" contenteditable="false"></td>
+							<td width="25%">gal</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Caustic Preheat Volume</td>
+							<td id="causticPreheatVolume" contenteditable="false"></td>
+							<td width="25%">gal</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Caustic Injection Volume</td>
+							<td id="causticInjectionVolume" contenteditable="false"></td>
+							<td width="25%">gal</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Caustic Displacement Volume</td>
+							<td id="causticDisplacementVolume" contenteditable="false"></td>
+							<td width="25%">gal</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Caustic Rinse Volume</td>
+							<td id="causticRinseVolume" contenteditable="false"></td>
+							<td width="25%">gal</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Full Bed Rinse Volume</td>
+							<td id="fullBedRinseVolume" contenteditable="false"></td>
+							<td width="25%">gal</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Drain Down Volume</td>
+							<td id="fullBedRinseVolume" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Final Rinse Volume</td>
+							<td id="finalRinseVolume" contenteditable="false"></td>
+							<td width="25%">gal</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Time">Regeneration Time</td>
+							<td id="regenTime" contenteditable="false"></td>
+							<td width="25%">min</td>
+						</tr>
+						<tr>
+							<td width="25%" unitType="Volume">Regeneration Volume</td>
+							<td id="regenVolume" contenteditable="false"></td>
+							<td width="25%">gal/ft3</td>
+						</tr>
+					</tbody>
+				</table>
+			  </div>
+			</div>
+		  </div>
+
+		</div>
+	</div>	
+
+                    <div class="Note tabDiv dispNone genericSrollBox">
+                        <p class="mB5">
+                            <strong>Please add Note:</strong>
+                        </p>
+                        <textarea class="ixm_Note" rows="4" cols="50" name="ixm_Note"></textarea>
+                    </div>
+                    <div class="Documentation tabDiv dispNone genericSrollBox">
+                        <p class="text-justify">
+						Number of streams required to execute the unitop<br>
+						Input-   1 Stream<br>
+						Output - 1 Stream<br>
+						<br><br>
+						<!-- Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
+                            type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                            but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised
+                            in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                            with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
+                        <ol>
+                            <li>Lorem Ipsum is simply dummy text</li>
+                            <li>Lorem Ipsum is simply dummy text</li>
+                            <li>Lorem Ipsum is simply dummy text</li>
+                            <li>Lorem Ipsum is simply dummy text</li>
+                        </ol> -->
+                    </div>
+
+
+
+
+
+                    <div class="footer col-md-12 col-sm-12 col-xs-12">
+                        <div class="popUpTabError"></div>
+                        <button type="button" class="btn updateBtn" id="blueButton">Update</button>
+                        <button type="button" class="btn cancelBtn" id="blueButton">Cancel</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>

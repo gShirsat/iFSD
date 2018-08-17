@@ -1,0 +1,76 @@
+<div class="tankSplitterPopup popUp" style="display:none;">
+	<div class="header col-md-12 col-sm-12 col-xs-12"><h3 class="pull-left popTitle"></h3><i class="pull-right">X</i></div>
+	<div class="body col-md-12 col-sm-12 col-xs-12 tableScroller">
+		<ul class="nav nav-tabs col-md-12 col-sm-12 col-xs-12 iFSDTab margin0">
+			<li class="active"><a href="#">Input</a></li>
+			<li><a href="#">Output</a></li>
+			<li><a href="#">Note</a></li>
+			<li><a href="#">Calculation</a></li>
+		</ul>
+		<div class="clearfix"></div>
+		<div class="Input tabDiv genericSrollBox">
+			<div class="panel-group" id="accordionF" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="splitter_One">
+						 <h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordionF" href="#splitter_collapseOne" aria-expanded="true" aria-controls="splitter_collapseOne">
+							  Ion Input
+							</a>
+						  </h4>
+					</div>
+					<div id="splitter_collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="splitter_One">
+						<div class="panel-body">
+							<table class="table table-bordered margin0 tableScroller" id="tankSplitterTable">
+								<tbody>
+									<tr><td width="50%" unitType="-">Number of outlet streams</td><td width="25%"><input type="number" name="tank_numberOfOutletStreams" disabled value="" /></td><td width="20%" id="numberOfOutletStreams1">m3/hr</td></tr>
+									<tr><td></td><td></td><td></td></tr>
+									<tr><td><strong>Define Split Fraction</strong></td><td></td><td></td></tr>
+									
+									<tr><td><strong>Stream Name</strong></td><td><strong>Split Fraction</strong></td><td></td></tr>
+									<!-- <tr><td unitType="-">Stream1</td><td><input class="splitterStream" type="number" name="stream1" value="" /></td><td id="stream11">C</td></tr>
+									<tr><td unitType="-">Stream2</td><td><input class="splitterStream" type="number" name="stream2" value="" /></td><td id="stream21">ppm</td></tr>
+									<tr><td unitType="-">Stream3</td><td><input class="splitterStreamTotal" type="number" name="stream3" value="" disabled /></td><td> </td></tr> -->
+								</tbody>
+							</table>
+							
+							<div class="panel panel-default notePanel">
+							  <div class="panel-body">
+								<div><strong>Note:</strong></div>
+								<ol>
+									<li>Read the stream names from connection</li>
+									<li>Allow user to enter split fraction till second last entry and last entry will be (1- sum of all previous entries): Last entry may not be last row in the table</li>
+								</ol>
+							  </div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="Output tabDiv dispNone genericSrollBox">
+			<table class="table table-bordered margin0 tableScroller" id="Input">
+				<tbody>
+					<tr><td unitType="-">RW Clarifier Feed Flowrate</td><td width="30%"><span class="output_RWClarifierFeedFlowrate"></span></td><td>m3/hr</td></tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="Note tabDiv dispNone genericSrollBox">
+			<p class="mB5"><strong>Please add Note:</strong></p>
+			<textarea class="co2_Note" rows="4" cols="50" name="co2_Note"></textarea>
+		</div>
+		<div class="Calculation tabDiv dispNone genericSrollBox">
+			<p class="text-justify">
+			Number of streams required to execute the unitop<br>
+			Input-   1 Stream<br>
+			Output - 1 Stream<br>
+			<br><br>
+		</div>
+	</div>
+	<div class="footer col-md-12 col-sm-12 col-xs-12">
+		<div class="popUpTabError"></div>
+		<button type="button" class="btn updateBtn" id="blueButton">Update</button>
+		<button type="button" class="btn cancelBtn" id="blueButton">Cancel</button>
+	</div>
+	<div class="clearfix"></div>
+</div>

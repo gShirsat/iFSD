@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>IFSD</title>
+<link rel="shortcut icon"  type="image/png" href="images/suez1.ico">
+<link rel="stylesheet" href="css/iids.css" type="text/css"/>
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+<link rel="stylesheet" href="css/index.css" type="text/css"/>
+<link rel="stylesheet" href="css/settings.css" type="text/css"/>
+<link rel="stylesheet" href="css/sidebar.css" type="text/css"/>
+<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css"/>
+
+<!-- <style>
+.box { background-color:#222; height:200px; width:300px; color:#fff; text-align:center; line-height:200px; margin-top:150px;}
+.ui-rotatable-handle { background-color:red;}
+</style> -->
+</head>
+<body>
+<!--Header starts -->
+<!-- 
+<div class="navbar navbar-static-top templatecontainer">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="brand" href="#"><span class="geLogo"></span><span class="logoText">GE Power &amp; Water<small><i>powered by</i> GE Water &amp; Process Technologies</small></span></a>
+		</div>
+	</div>	
+</div> -->
+
+<div class="container-fluid border_bottom">
+		
+	<ul class="nav nav-tabs home-menu">
+		<li><img src="images/suez.png" class="suezLogo_nav"></li>
+		<!-- <li class="active"><a data-toggle="tab" href="#home">Home</a></li> -->		
+		<li><a data-toggle="tab" href="#view">View</a></li>
+		<li><a data-toggle="tab" href="#edit">Edit</a></li>
+		<!-- <li><a data-toggle="tab" href="#view">Display</a></li> -->
+		<li class="active"><a data-toggle="tab" href="#reports">Reports</a></li>
+	</ul>
+	<div class="tab-content sub-item-bar" id="sub-menu-bar">
+		<div id="view" class="tab-pane fade">
+			<div class="reports">
+				<div class="icons">
+					<a href="#" class="slideMenu">
+						<span class="icons_img withoutTxt"><img src="../images/slide-menu.png" ></span>
+						<span class="clearfix"></span>
+					</a>
+					<div class="clearfix"></div>
+				</div>
+				<div class="groupName">Slide Menu </div>
+			</div>
+			<div class="reports">
+				<div class="icons">
+					<a href="#">
+						<span class="icons_img withoutTxt"><img src="../images/design-details.png" ></span>
+						<span class="clearfix"></span>
+					</a>
+					<div class="clearfix"></div>
+				</div>
+				<div class="groupName">Design Details </div>
+			</div>
+			<div class="reports">
+				<div class="icons">
+					<a href="#" class="projectDetails">
+						<span class="icons_img withoutTxt"><img src="../images/project-details.png" ></span>
+						<span class="clearfix"></span>
+					</a>
+					<div class="clearfix"></div>
+				</div>
+				<div class="groupName">Project Details </div>
+			</div>
+			<div class="reports">
+				<div class="icons">
+					<a href="#" class="massBalance_link">
+						<span class="icons_img withoutTxt"><img src="../images/mass-balance.png" ></span>
+						<span class="clearfix"></span>
+					</a>
+					<div class="clearfix"></div>
+				</div>
+				<div class="groupName">Mass Balance </div>
+			</div>			
+			<div class="reports">
+				<div class="icons">
+					<a href="#" class="canvas_Link">
+						<span class="icons_img withoutTxt"><img src="../images/canvas.png" ></span>
+						<span class="clearfix"></span>
+					</a>
+					<div class="clearfix"></div>
+				</div>
+				<div class="groupName">Canvas </div>
+			</div>
+		</div>
+		<div id="edit" class="tab-pane fade">
+			<div class="reports">
+				<div class="icons">
+					<a href="#" class="slideMenu">
+						<span class="icons_img withoutTxt"><img src="../images/slide-menu.png" ></span>
+						<span class="clearfix"></span>
+					</a>
+					<div class="clearfix"></div>
+				</div>
+				<div class="groupName">Slide Menu </div>
+			</div>
+			<div class="reports">
+				<div class="icons">
+					<a href="#">
+						<span class="icons_img"><img src="../images/Units.png" ></span>
+						<span class="iconLinkName"></span>
+						<span class="clearfix"></span>
+					</a>
+					<div class="clearfix"></div>
+				</div>
+				<div class="groupName">Units </div>
+			</div>
+			<div class="reports">
+				<div class="icons">
+					<a href="#" class="massBalance_link">
+						<span class="icons_img withoutTxt"><img src="../images/mass-balance.png" ></span>
+						<span class="clearfix"></span>
+					</a>
+					<div class="clearfix"></div>
+				</div>
+				<div class="groupName">Mass Balance </div>
+			</div>
+			<div class="reports">
+				<div class="icons">
+					<a href="#" class="canvas_Link">
+						<span class="icons_img withoutTxt"><img src="../images/canvas.png" ></span>
+						<span class="clearfix"></span>
+					</a>
+					<div class="clearfix"></div>
+				</div>
+				<div class="groupName">Canvas </div>
+			</div>
+		</div>
+		<div id="reports" class="tab-pane fade in active">
+			<div class="reports">
+				<div class="icons">
+					<a href="#" class="slideMenu">
+						<span class="icons_img withoutTxt"><img src="../images/slide-menu.png" ></span>
+						<span class="clearfix"></span>
+					</a>
+					<div class="clearfix"></div>
+				</div>
+				<div class="groupName">Slide Menu </div>
+			</div>
+			<div class="reports">
+				<div class="icons">
+					<a href="#">
+						<span class="icons_img"><img src="../images/pdf.png" ></span>
+						<span class="iconLinkName">PDF</span>
+						<span class="clearfix"></span>
+					</a>
+					<a href="#">
+						<span class="icons_img"><img src="../images/excel.png" ></span>
+						<span class="iconLinkName">Excel</span>
+						<span class="clearfix"></span>
+					</a>
+					<div class="clearfix"></div>
+				</div>
+				<div class="groupName">Download Mass Balance</div>
+			</div>
+			<div class="reports">
+				<div class="icons">
+					<a href="#">
+						<span class="icons_img"><img src="../images/pdf.png" ></span>
+						<span class="iconLinkName">PDF</span>
+						<span class="clearfix"></span>
+					</a>
+					<div class="clearfix"></div>
+				</div>
+				<div class="groupName">Print Canvas </div>
+			</div>
+			<div class="reports">
+				<div class="icons">
+					<a href="#">
+						<span class="icons_img"><img src="../images/pdf.png" ></span>
+						<span class="iconLinkName">PDF</span>
+						<span class="clearfix"></span>
+					</a>
+					<a href="#" id="pdfReport">
+						<span class="icons_img"><img src="../images/excel.png" ></span>
+						<span class="iconLinkName">Excel</span>
+						<span class="clearfix"></span>
+					</a>
+					<div class="clearfix"></div>
+				</div>
+				<div class="groupName">Design DataSheets </div>
+			</div>
+			<div class="reports">
+				<div class="icons">
+					<a href="#" class="massBalance_link">
+						<span class="icons_img withoutTxt"><img src="../images/mass-balance.png" ></span>
+						<span class="clearfix"></span>
+					</a>
+					<div class="clearfix"></div>
+				</div>
+				<div class="groupName">Mass Balance </div>
+			</div>
+			<div class="reports">
+				<div class="icons">
+					<a href="#" class="canvas_Link">
+						<span class="icons_img withoutTxt"><img src="../images/canvas.png" ></span>
+						<span class="clearfix"></span>
+					</a>
+					<div class="clearfix"></div>
+				</div>
+				<div class="groupName">Canvas </div>
+			</div>
+		</div>
+	</div>
+	<div class="fixedButtons">
+		<ul class="list-inline">
+			<li>
+				<a href="#" id="newFileBtnFromApp">
+					<label for="">
+						<span class="glyphicon glyphicon glyphicon-file"></span>
+						<span class="fBtnName">New</span>
+					</label>					
+				</a>
+			</li>
+			<li>
+				<a href="#" id="loaddiv"><!-- -->
+					<label for="load">
+						<span class="glyphicon glyphicon-folder-open"></span>
+						<span class="fBtnName">Open</span>
+					</label>					
+					
+					<input type="file" name="files" id="load" class="dispNone" />
+				</a>
+			</li>
+			
+			<li>
+				<a href="#" id="savediv">
+					<span class="glyphicon glyphicon-floppy-disk"></span>
+					<span class="fBtnName">Save</span>
+				</a>
+				<a type="hidden" id="save"></a>
+			</li>
+			<!-- <li>
+				<a href="#">
+					<span class="glyphicon glyphicon-cloud-upload"></span>
+					<span class="fBtnName">Upload</span>
+				</a>
+			</li> -->
+			<li>
+				<a href="#" id="executeBtn">
+
+                           <span class="glyphicon glyphicon-play"></span>
+
+                           <span class="fBtnName">Execute</span>
+
+                     </a>
+			</li>
+		</ul>
+	</div>  
+	<input type="file" id="pdfExport" class="dispNone" nwsaveas="iFSDSheet.xlsx" accept=".xlsx"/>
+	<input type="file" id="openFileInput"/>
+<!-- <div class="suezLogo"><img src="images/suez.png"></div> -->
+
+
+</div>
+<!-- <div class="row mL0R0">
+	<div class="col-md-2 pL0R0">
+		
+	</div>
+	<div class="col-md-10 pL0R0"> -->
+<div class="wrapper">
+	<!-- <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+		<i class="glyphicon glyphicon-chevron-left"></i>
+	</button> -->
+	<nav id="sidebar">
+		
+		<div class="sidebarHeader">
+			<span class="glyphicon glyphicon-backward leftArrow"></span>
+		</div>
+		<ul class="list-unstyled components">
+			<!-- <li>
+				<a href="#fileSubmenu" data-toggle="collapse" aria-expanded="false">
+					<span class="glyphicon glyphicon-home"></span>
+					<span class="linkName">Home</span>
+				</a>
+				<ul class="collapse list-unstyled" id="fileSubmenu">
+					<li><a href="#">file 1</a></li>
+					<li><a href="#">file 2</a></li>
+					<li><a href="#">file 3</a></li>
+				</ul>
+			</li> -->
+			<li class="">
+				<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
+					<span class="glyphicon glyphicon-list-alt"></span>
+					<span class="linkName">Unit Operation</span>
+				</a>
+				<ul class="collapse list-unstyled" id="homeSubmenu">
+					<!-- <li><a data-toggle="tab" href="#Biological" class="noArrow">Biological</a></li> -->
+					<li><a data-toggle="tab" href="#Clarifier">Clarifiers & Separator </a></li>
+					<!-- <li><a data-toggle="tab" href="#Thermal">Thermal</a></li> -->
+					<li><a data-toggle="tab" href="#Filters">Filters</a></li>
+					<li><a data-toggle="tab" href="#Ion">Ion Exchange</a></li>
+					<li><a data-toggle="tab" href="#membrane">Membrane Filtration</a></li>
+					<li><a data-toggle="tab" href="#Stripper">Stripper</a></li>
+					<li><a data-toggle="tab" href="#Generic">Tanks</a></li>
+					<li><a data-toggle="tab" href="#eD">ED</a></li>
+					<li><a data-toggle="tab" href="#Remin">Remineralization</a></li>
+					<!-- <li class="addArrow">
+						<a href="#genericSub" data-toggle="collapse" aria-expanded="false">Generic</a>
+						<ul class="collapse list-unstyled" id="genericSub">
+							<li><a data-toggle="tab" href="#Generic">Other</a></li>
+							<li><a data-toggle="tab" href="#Remin">Remineralization</a></li>
+						</ul>
+					</li> -->
+					<li><a data-toggle="tab" href="#Mixer">Mixer & Splitter</a></li>					
+				</ul>
+			</li>
+			<!-- <li>
+				<a href="#">
+					<span class="glyphicon glyphicon-picture"></span>
+					<span class="linkName">Report</span>
+				</a>
+			</li> -->
+			<li>
+				<a href="#SettingsSubMenu" data-toggle="collapse" aria-expanded="false">
+					<span class="glyphicon glyphicon-cog"></span>
+					<span class="linkName">Settings</span>
+				</a>
+				<ul class="collapse list-unstyled" id="SettingsSubMenu">
+					<li>
+						<a herf="#" class="s_mb">Mass Balance </a>
+						<a herf="#" class="s_ti">Tolerance</a>
+						<a  herf="#" class = "s_rm">Recycle</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#helpSubmenu" data-toggle="collapse" aria-expanded="false">
+					<span class="glyphicon glyphicon-user"></span>
+					<span class="linkName">Help</span>
+				</a>
+				<ul class="collapse list-unstyled" id="helpSubmenu">
+					<li>
+						<a href="mailto:govinda.chaudhari@suez.com;sudhanshu.kashyap@suez.com;sheril.mathew@suez.com?subject=iFSD Admin">Contact </a>
+						<a href="#">User Manual</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="mailto:govinda.chaudhari@suez.com;sudhanshu.kashyap@suez.com;sheril.mathew@suez.com?subject=iFSD_FeedBack&cc=nick.antonopoulos@suez.com">
+					<span class="glyphicon glyphicon-envelope"></span>
+					<span class="linkName">Feedback</span>
+				</a>
+			</li>
+		</ul>
+		<span class="versionLabel">Version:0.1-alpha-13/08/2018</span>
+	</nav>
+	<div id="content">
+		<!-- <div id="progress" style="display:none">
+			<div id="progressbar">10%</div>
+		</div> -->
+		
+		<div class="fsdPageTab" id="canvasTab">
+			<div class="loadUnitops">
+				<div class="tab-content loadSubMenu sub-item-bar" id="sub-menu-bar">
+					<!-- Biological -->
+					<div id="Biological" class="tab-pane fade">
+						<div class="designDiv">
+						  <div>
+							<img title="BAF" class="passDiv" src="images/biological_unitop.png">
+						  </div>
+						  <div>
+							<h4 class="mT4">BAF</h4>
+						  </div>
+						</div>
+						<div class="designDiv">
+						  <div>
+							<img title="IFAS" class="passDiv"src="images/biological_unitop.png">
+						  </div>
+						  <div>
+							<h4 class="mT4">IFAS</h4>
+						  </div>
+						</div>
+						<div class="designDiv">
+						  <div>
+							<img title="MBBR" class="passDiv"src="images/biological_unitop.png">
+						  </div>
+						  <div>
+							<h4 class="mT4">MBBR</h4>
+						  </div>
+						</div>
+						<div class="designDiv">
+						  <div>
+							<img title="MBR" class="passDiv"src="images/biological_unitop.png">
+						  </div>
+						  <div>
+							<h4 class="mT4">MBR</h4>
+						  </div>
+						</div>
+					</div>
+					<!-- Clarifier -->
+					<div id="Clarifier" class="tab-pane fade">
+						<!-- <div class="designDiv">
+						  <div>
+							<img title="DAF" class="passDiv" src="images/unitop_svg/clarifier_DAF_01.svg">
+						  </div>
+						  <div>
+							<h4>DAF</h4>
+						  </div>
+						</div> -->
+						<div class="designDiv">
+						  <div>
+							<img title="Lamella" class="passDiv"src="images/unitop_svg/clarifier_Lamella02.svg">
+						  </div>
+						  <div>
+							<h4>Lamella</h4>
+						  </div>
+						</div>
+
+						<div class="designDiv">
+							<div>
+							<img title="DensaDeg" class="passDiv"src="images/unitop_svg/clarifier_Lamella02.svg">
+							</div>
+							<div>
+							<h4>DensaDeg</h4>
+							</div>
+						</div>
+
+
+						<!-- <div class="designDiv">
+						  <div>
+							<img title="Solid Contact" class="passDiv"src="images/unitop_svg/clarifier_DAF_01.svg">
+						  </div>
+						  <div>
+							<h4 class="mT4">SC</h4>
+						  </div>
+						</div>
+						<div class="designDiv">
+						  <div>
+							<img title="Densadeg XRC" class="passDiv"src="images/unitop_svg/clarifier_DAF_01.svg">
+						  </div>
+						  <div>
+							<h4>SC(XRC)</h4>
+						  </div>
+						</div>
+						<div class="designDiv">
+						  <div>
+							<img title="OWS-API" class="passDiv"src="images/unitop_svg/Saperators_01.svg">
+						  </div>
+						  <div>
+							<h4>OWS-API</h4>
+						  </div>
+						</div> -->
+					</div>
+					<!-- Thermal -->
+					<div id="Thermal" class="tab-pane fade ">
+						<div class="designDiv">
+						  <div>
+							<img title="Crystallizer" class="passDiv" src="images/unitop_svg/Thermal_01.svg">
+						  </div>
+						  <div>
+							<h4>Crystallizer</h4>
+						  </div>
+						</div>
+						<div class="designDiv">
+						  <div>
+							<img title="Evaporator-BC" class="passDiv" src="images/biological_unitop.png">
+						  </div>
+						  <div>
+							<h4>Evap(BC)</h4>
+						  </div>
+						</div>
+					</div>
+						<!-- Filters -->
+							<div id="Filters" class="tab-pane fade in active">
+								<!--<div class="designDiv">
+								  <div>
+									<img title="ABW" class="passDiv" src="images/unitop_svg/Filters_01.svg">
+								  </div>
+								  <div>
+									<h4>ABW</h4>
+								  </div>
+								</div>
+								 <div class="designDiv">
+								  <div>
+									<img title="GAC" class="passDiv" src="images/unitop_svg/Filters_01.svg">
+								  </div>
+								  <div>
+									<h4>GAC</h4>
+								  </div>
+								</div> -->
+								<div class="designDiv">
+								  <div>
+									<img title="Cartridge Filter" class="passDiv" src="images/unitop_svg/cartridge_filtre.svg">
+								  </div>
+								  <div>
+									<h4>CF</h4>
+								  </div>
+								</div>
+								<!-- <div class="designDiv">
+								  <div>
+									<img title="DMF" class="passDiv" src="images/unitop_svg/Filters_01.svg">
+								  </div>
+								  <div>
+									<h4>DMF</h4>
+								  </div>
+								</div> -->
+								<!-- <div class="designDiv">
+								  <div>
+									<img title="FiltraFast" class="passDiv" src="images/unitop_svg/Filters_01.svg">
+								  </div>
+								  <div>
+									<h4>FF</h4>
+								  </div>
+								</div> -->
+								<!-- <div class="designDiv">
+								  <div>
+									<img title="Greensand(GSF)" class="passDiv" src="images/unitop_svg/Filters_01.svg">
+								  </div>
+								  <div>
+									<h4>GSF</h4>
+								  </div>
+								</div> -->
+								<div class="designDiv">
+								  <div>
+									<img title="Media Filter" class="passDiv" src="images/unitop_svg/media_Filter.svg">
+								  </div>
+								  <div>
+									<h4>MF</h4>
+								  </div>
+								</div>
+								<div class="designDiv">
+								  <div>
+									<img title="Strainer Filter" class="passDiv" src="images/unitop_svg/SF.svg">
+								  </div>
+								  <div>
+									<h4>SF</h4>
+								  </div>
+								</div>
+								<div class="designDiv">
+								  <div>
+									<img title="FiltraFast" class="passDiv" src="images/unitop_svg/media_Filter.svg">
+								  </div>
+								  <div>
+									<h4>FF</h4>
+								  </div>
+								</div>
+						</div>
+						<!-- Ion -->
+							<div id="Ion" class="tab-pane fade">
+								<!-- <div class="designDiv">
+								  <div>
+									<img title="Condensate Polisher" class="passDiv" src="images/unitop_svg/Ion_Exchange_01.svg">
+								  </div>
+								  <div>
+									<h4>CP</h4>
+								  </div>
+								</div> -->
+								<div class="designDiv">
+								  <div>
+									<img title="Mixed Bed" class="passDiv" src="images/unitop_svg/Ion_Exchange_01.svg">
+								  </div>
+								  <div>
+									<h4>MB</h4>
+								  </div>
+								</div>
+								<!-- <div class="designDiv">
+								  <div>
+									<img title="SAC" class="passDiv" src="images/unitop_svg/Ion_Exchange_01.svg">
+								  </div>
+								  <div>
+									<h4>SAC</h4>
+								  </div>
+								</div>
+								<div class="designDiv">
+								  <div>
+									<img title="WAC" class="passDiv" src="images/unitop_svg/Ion_Exchange_01.svg">
+								  </div>
+								  <div>
+									<h4>WAC</h4>
+								  </div>
+								</div> -->
+						</div>
+						<!-- membrane -->
+							<div id="membrane" class="tab-pane fade">
+								<!-- <div class="designDiv">
+								  <div>
+									<img title="NF" class="passDiv" src="images/unitop_svg/Membrane_Filtration_01.svg">
+								  </div>
+								  <div>
+									<h4>NF</h4>
+								  </div>
+								</div> -->
+								<div class="designDiv">
+								  <div>
+									<img title="RO" class="passDiv" src="images/unitop_svg/Membrane_Filtration_01.svg">
+								  </div>
+								  <div>
+									<h4>RO</h4>
+								  </div>
+								</div>
+								<!-- <div class="designDiv">
+								  <div>
+									<img title="UF-Generic" class="passDiv" src="images/unitop_svg/Membrane_Filtration_0022.svg">
+								  </div>
+								  <div>
+									<h4>UF</h4>
+								  </div>
+								</div> -->
+						</div>
+						<!-- Stripper -->
+							<div id="Stripper" class="tab-pane fade">
+								<div class="designDiv">
+								  <div>
+									<img title="CO2 Stripper" class="passDiv" src="images/unitop_svg/stripper_scrubber.svg">
+								  </div>
+								  <div>
+									<h4>CO2</h4>
+								  </div>
+								</div>
+								<div class="designDiv">
+								  <div>
+									<img title="O2 Stripper" class="passDiv" src="images/unitop_svg/stripper_scrubber.svg">
+								  </div>
+								  <div>
+									<h4>O2</h4>
+								  </div>
+								</div>
+						</div>
+						<!-- Generic -->
+							<div id="Generic" class="tab-pane fade">
+								<!-- <div class="designDiv">
+								  <div>
+									<img title="Generation-O3" class="passDiv" src="images/biological_unitop.png">
+								  </div>
+								  <div>
+									<h4>Gen-O3</h4>
+								  </div>
+								</div> -->
+								<!-- <div class="designDiv subCategory">
+								  <div>
+									<img title="Remineralization" class="passDiv"src="images/Remineralization.png">
+								  </div>
+								  <div>
+									<h4>Remin</h4>
+								  </div>
+								</div> -->
+								<!-- <div class="designDiv">
+								  <div>
+									<img title="Softener-Cold Lime(CLS)" class="passDiv"src="images/DAF.png">
+								  </div>
+								  <div>
+									<h4>CLS</h4>
+								  </div>
+								</div>
+								<div class="designDiv">
+								  <div>
+									<img title="UV" class="passDiv"src="images/unitop_svg/Generic_UV.svg">
+								  </div>
+								  <div>
+									<h4>UV</h4>
+								  </div>
+								</div>
+								<div class="designDiv">
+								  <div>
+									<img title="Pumps" class="passDiv"src="images/biological_unitop.png">
+								  </div>
+								  <div>
+									<h4>Pumps</h4>
+								  </div>
+								</div>
+								<div class="designDiv">
+								  <div>
+									<img title="Tank(w/ mixer block properties)" class="passDiv"src="images/unitop_svg/Generic_01.svg">
+								  </div>
+								  <div>
+									<h4>Tank</h4>
+								  </div>
+								</div> -->
+								<div class="designDiv">
+								  <div>
+									<img title="Feed Water" class="passDiv"src="images/unitop_svg/Generic_01.svg">
+								  </div>
+								  <div>
+									<h4>Feed</h4>
+								  </div>
+								</div>
+								
+								<div class="designDiv">
+								  <div>
+									<img title="WasteOut" class="passDiv"src="images/unitop_svg/Generic_01.svg">
+								  </div>
+								  <div>
+									<h4>WasteOut</h4>
+								  </div>
+								</div>
+								<div class="designDiv">
+								  <div>
+									<img title="ProductOut" class="passDiv"src="images/unitop_svg/Generic_01.svg">
+								  </div>
+								  <div>
+									<h4>ProductOut</h4>
+								  </div>
+								</div>
+								
+								
+								<!-- <div class="subSubCategory">
+									<div class="closeSubCategory">
+										<a class="">
+											<span class="closeIcon">X</span>
+											<span class="">Close</span>
+										</a>
+									</div>
+									<div class="navsContainer"> -->
+										
+										<div id="ED" class="tab-pane fade">
+											<div class="designDiv">
+											  <div>
+												<img title="EDI" class="passDiv" src="images/Remineralization.png">
+											  </div>
+											  <div>
+												<h4>EDI</h4>
+											  </div>
+											</div>
+											<div class="designDiv">
+											  <div>
+												<img title="EDR" class="passDiv" src="images/Remineralization.png">
+											  </div>
+											  <div>
+												<h4>EDR</h4>
+											  </div>
+											</div>
+										</div>
+									<!-- </div>
+								</div> -->
+						</div>
+						
+						<!-- ED -->
+						<div id="eD" class="tab-pane fade">
+							<div class="designDiv">
+							  <div>
+								<img title="Electrodeionization" class="passDiv"src="images/unitop_svg/ED_Process_01.svg">
+							  </div>
+							  <div>
+								<h4>EDI</h4>
+							  </div>
+							</div>
+						</div>
+						
+						<!-- Remin -->
+						<div id="Remin" class="tab-pane fade">
+							<div class="designDiv">
+							  <div>
+								<img title="Hydratedlime" class="passDiv" src="images/unitop_svg/Remirilisation.svg">
+							  </div>
+							  <div>
+								<h4>Hydratedlime</h4>
+							  </div>
+							</div>
+							<div class="designDiv">
+							  <div>
+								<img title="Limestone" class="passDiv" src="images/unitop_svg/Remirilisation.svg">
+							  </div>
+							  <div>
+								<h4>Limestone</h4>
+							  </div>
+							</div>
+						</div>
+						<!-- Mixer -->
+						<div id="Mixer" class="tab-pane fade">
+							<div class="designDiv">
+							  <div>
+								<img title="Mixer" class="passDiv" src="images/unitop_svg/Mixer.svg">
+							  </div>
+							  <div>
+								<h4>Mixer</h4>
+							  </div>
+							</div>
+							<div class="designDiv">
+							  <div>
+								<img title="Splitter" class="passDiv" src="images/unitop_svg/Splitter.svg">
+							  </div>
+							  <div>
+								<h4>Splitter</h4>
+							  </div>
+							</div>
+							<div class="designDiv">
+							  <div>
+								<img title="Tank-Mixer" class="passDiv" src="images/unitop_svg/Generic_01.svg">
+							  </div>
+							  <div>
+								<h4>Tank-Mixer</h4>
+							  </div>
+							</div>
+							<div class="designDiv">
+							  <div>
+								<img title="Tank-Splitter" class="passDiv" src="images/unitop_svg/Generic_01.svg">
+							  </div>
+							  <div>
+								<h4>Tank-Splitter</h4>
+							  </div>
+							</div>
+						</div>
+
+						<div id="EDI" class="tab-pane fade">
+							<div class="designDiv">
+							  <div>
+								<!-- <img title="EDI" class="passDiv" src="images/Remarilisation.png"> -->
+							  </div>
+							  <div>
+								<h4>EDI</h4>
+							  </div>
+							</div>
+							<div class="designDiv">
+							  <div>
+								<!-- <img title="EDR" class="passDiv" src="images/Remineralization.png"> -->
+							  </div>
+							  <div>
+								<h4>EDR</h4>
+							  </div>
+							</div>
+						</div>
+
+					<!-- <div class="reset">
+						<div class="pull-right designDiv" id="pdfReport">
+						  <div>
+							<img title="Download Flowsheet as XLS" class="passDiv"src="images/xls_download.png">
+						  </div>
+						  <div>
+							<h4>Excel</h4>
+						  </div>
+						</div>
+						<div class="pull-right designDiv" id="settings">
+						  <div>
+							<img title="Settings" class="passDiv"src="images/settings.png">
+						  </div>
+						  <div>
+							<h4>Settings</h4>
+						  </div>
+						</div>
+						<div class="pull-right designDiv" id="refresh">
+						  <div>
+							<img title="Reset" class="passDiv"src="images/refresh.png">
+						  </div>
+						  <div>
+							<h4>Reset Design</h4>
+						  </div>
+						</div>
+						<div class="pull-right designDiv">
+							<div>
+								<img title="Save Design" class="passDiv"src="images/refresh.png" id="savediv">
+								<a type="hidden" id="save" ></a>
+							</div>
+							<div>
+								<h4>Save Design</h4>
+							</div>
+						</div>
+						<div class="pull-right designDiv" id="loaddiv">
+							<div>
+								<label for="load">
+									<img title="Load Design" class="passDiv"src="images/refresh.png">
+								</label>
+								<input type="file" name="files" id="load" class="dispNone" />
+							</div>
+							<div>
+								<h4>Load Design</h4>
+							</div>
+						</div>
+						<div class="pull-right designDiv">
+						  <div>
+							<img title="Zoom In" class="passDiv"  src="images/Zoom-In-icon.png">
+						  </div>
+						  <div>
+							<h4>Zoom In</h4>
+						  </div>
+						</div>
+						<div class="pull-right designDiv">
+						  <div>
+							<img title="Zoom Out" class="passDiv"  src="images/Zoom-Out-icon.png">
+						  </div>
+						  <div>
+							<h4>Zoom Out</h4>
+						  </div>
+						</div>
+						<div class="pull-right designDiv">
+						  <div>
+							<img title="Reset Zoom" class="passDiv"  src="images/refresh.png">
+						  </div>
+						  <div>
+							<h4>Reset Zoom</h4>
+						  </div>
+						</div>
+						
+					</div> -->
+				</div>
+			</div>
+			<div class="canvasContainer_scroll">
+				<div id="main" class="canvasContainer mainContentArea">
+					<div class="demo statemachine-demo" id="statemachine-demo">
+						<div class="permeate dispNone" id="permeate" style="width:10px;height:10px;position: absolute;"></div>
+						<div class="rejection dispNone" id="rejection" style="width:10px;height:10px;position: absolute;"></div>
+						<div class="blank dispNone" id="blank1" style="width:10px;height:10px;position: absolute;"></div>
+						
+						<div class="connectorEmptyError"></div>
+						<div class="labelError"></div>
+					</div>
+				</div>
+				<div id="calculate" class="mainContentArea">
+					
+				</div>
+			</div>
+		</div>
+		<!-- <div class="pageTabs">
+			<ul class="list-inline">
+				<li><a href="#" id="" class="active canvas_Link">Canvas</a></li>
+				<li><a href="#" id="" class="massBalance_link">Mass Balance</a></li>
+				<li><a href="#" id="" class="unitOfDesign_link">Unit of Design</a></li>
+			</ul>
+		</div> -->
+	</div>
+
+	<!-- Zoom in / out bar -->
+	<div class="zoombar">
+		<div class="dottedBorder"></div>
+		<div class="zoomBarLinks">
+			<a href="#" id="zoomIn"><span class="glyphicon glyphicon-plus-sign"></span></a>
+		</div>
+		<div class="zoomBarLinks">
+			<a href="#" id="zoomOut"><span class="glyphicon glyphicon-minus-sign"></span></a>
+		</div>
+		<div class="zoomBarLinks">
+			<a href="#" id="zoomOff"><span class="glyphicon glyphicon-refresh"></span></a>
+		</div>
+		<div class="zoomBarLinks">
+			<a href="#"><span class="glyphicon glyphicon-move"></span></a>
+		</div>
+	</div>
+</div>
+<!-- 	</div>
+</div> -->
+
+<!-- Calculation Iterations table starts -->
+	<!-- <div class="col-md-12 col-sm-12 calcIterationDiv">
+		<div class="accordion" id="accordion">
+		   <div class="accordion-group">
+			  <div class="accordion-heading">
+				 <a>
+				 <i class="icon-chevron-right dispNone"></i>Mass Balance:<span> (Click here to check data)</span>
+				 </a>
+			  </div>
+			  <div id="collapseTable">
+				 <div class="accordion-inner">
+					<table class="table table-bordered" cellpadding="2">
+					   <thead>
+						  <tr>
+							 <th></th>
+							 <th colspan="5">Flowrates</th>
+							 <th colspan="5">Concentrations</th>
+						  </tr>
+						  <tr>
+							 <th>Iteration No.</th>
+							 <th>Feed</th>
+							 <th>Perm</th>
+							 <th>Conc</th>
+							 <th>Conc Recycle</th>
+							 <th>Conc Out</th>
+							 <th>Total Feed</th>
+							 <th>Mass Imbalance %</th>
+							 <th>RO Feed TDS</th>
+							 <th>Perm TDS</th>
+							 <th>Conc TDS</th>
+						  </tr>
+					   </thead>
+					   <tbody>
+						  <tr>
+							 <td>0.00</td>
+							 <td>0.00</td>
+							 <td>0.00</td>
+							 <td>0.00</td>
+							 <td>0.00</td>
+							 <td>0.00</td>
+							 <td>0.00</td>
+							 <td>0.00</td>
+							 <td>0.00</td>
+							 <td>0.00</td>
+							 <td>0.00</td>
+						  </tr>						  
+					   </tbody>
+					</table>
+				 </div>
+			  </div>
+		   </div>
+		</div>
+	 </div> -->
+	 <!-- Calculation Iterations table ends-->
+</div>
+<div class="footeriFSD">
+	<a href="https://www.suezwatertechnologies.com" target="_blank" class="pull-left">www.suezwatertechnologies.com</a>
+	<span class="pull-right">2018 &copy;  copyrightSUEZ</span>
+</div>
+<!-- <div class="roRecovery" class="dispNone" style="position:absolute; right: 25px; bottom: 88px;font-weight: bold">Final Recovery: <span>0.0</span> %</div> -->
+<!-- overlay -->
+<div class="overlay"></div>
+<div class="overlayPopup"></div>
+<div class="newOverlayLoader" style="z-index: 9999; display: none;"></div>
+
+<!-- feed popup ends -->
+
+
+
+
+
+
+<!-- Error alert starts-->
+      <div class="compareAlertpopUp">
+         <div class="moreInfocompareAlert">
+            <div class="headingAlert">
+               <h3>Alert</h3>
+               <i class="pull-right">X</i>
+            </div>
+            <div class="contentAlert">
+            </div>
+         </div>
+      </div>
+      <!-- Error alert ends -->
+
+<!--C02 popup starts-->
+<div id="loadC02"></div>
+
+<!--O2 popup starts-->
+<div id="load02"></div>
+
+<!-- Remin Hydratedlime popup starts-->
+<div id="loadRremin_Hydratedlime"></div>
+
+<!-- Remin Hydratedlime popup starts-->
+<div id="loadRemin_Limestone"></div>
+
+<!-- Clarifier Lamella popup starts-->
+<div id="loadClarifier_Lamella"></div>
+<div id="loadFilters"></div>
+<div id="loadEdi"></div>
+<div id="loadRo"></div>
+<div id="loadCf"></div>
+<div id="loadSf"></div>
+<div id="loadSplitter"></div>
+<div id="loadIXM"></div>
+<div id="loadFeed"></div>
+<div id="loadDd"></div>
+<div id="loadTankSplitter"></div>
+<div id="loadSettings_MB"></div>
+<div id="loadSettings_TI"></div>
+<div id="loadSettings_RM"></div>
+<div id="loadFiltraFast"></div>
+
+
+
+<div class="welcomeScreen">
+	<div class="welContainer">
+		<div class="row">
+			<div class="col-md-6 rightBorder">
+				<div class="topEmptySpace"></div>
+				<div class="suezNewlogo">
+					<img src="images/suez_logo.png"/>
+				</div>
+				<div class="tabLine">
+					<h2>Ready for the resource revolution</h2>
+					<a>www.suezwatertechnologies.com</a>
+				</div>
+				<div class="bottomEmptySpace"></div>
+			</div>
+			<div class="col-md-6 firstScreenRight">
+				<div class="topEmptySpace"></div>
+				<h1>iFSD:A Flowsheet Design Software</h1>
+				<div>
+					<button class="btn btn-default newFile" id="newFileBtn">NEW FILE</button>
+				</div>
+				<div>
+					<button class="btn btn-default openFile" id="openFileBtn">OPEN FILE</button>
+				</div>				
+				<div class="bottomEmptySpace"></div>
+				<div class="copyFirstscreen">
+					<div>Version:0.1-alpha</div>
+					<div>2018 &copy; CpopyrightSUEZ</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="newFileScreen" style="display:none;">
+	<div class="nScreenTitle">
+		<div class="row">
+			<div class="col-md-6">
+				Project Information
+			</div>
+			<div class="col-md-6">
+				<a href="#" class="pull-right" id="closeNewFilePopBtn">X</a>
+			</div>
+		</div>		
+	</div>
+	<div class="formContainer">
+		<div class="row">
+			<div class="col-md-6 newSForm formDividerBorder">
+				<div class="row">
+					<div class="col-md-2 newSForm_label">Project:</div>
+					<div class="col-md-10 newSForm_input"><input id="project" type="text" ></div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 newSForm_label">Customer:</div>
+					<div class="col-md-10 newSForm_input"><input id="customer" type="text" ></div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 newSForm_label">Location:</div>
+					<div class="col-md-10 newSForm_input"><input id="location" type="text" ></div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 newSForm_label">Date:</div>
+					<div class="col-md-10 newSForm_input"><input type="date" class="calenderIcon" id="calenderIcon"></div>
+				</div>
+			</div>
+			<div class="col-md-6 newSForm pB0">
+				<div class="row">
+					<div class="col-md-3 newSForm_label">Unit Selection:</div>
+					<div class="col-md-9 newSForm_input">
+						<select id="unitDropdown">
+							<option value="">Select</option>
+							<option value="SI Units">SI Units</option>
+							<option value="US Units">US Units</option>
+							<!-- <option value="Custom Units">Custom Units</option> -->
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 unitList">
+						<h2>Units Selected: </h2>
+						<div class="parametersCont">
+							<table id="parametersTable" class="table">
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="buttonsCont">
+			<button class="btn btn-default newform_btn" id="newFileOKBtn">Ok</button>
+			<button class="btn btn-default newform_btn" id="newFileCancelBtn">Close</button>
+			<button class="btn btn-default newform_btn" id="newFileBackBtn">Back</button>
+		</div>
+	</div>
+	
+</div>
+<div id="progress" class="progressBar" style="display:none;">
+	<div class="nScreenTitle">
+		<div class="row">
+			<div class="col-md-6">
+				Please wait calculations are in progress
+			</div>
+			<div class="col-md-6">
+				
+			</div>
+		</div>		
+	</div>
+	<div class="p170">
+		<div class="progress">
+		  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+			<span class="sr-only">20% Complete</span>
+		  </div>
+		</div>
+		<div class="text-center">
+			<span class="label label-success pSuccess"></span>
+			<span class="label label-danger pfail"></span>
+		</div>
+		<div class="text-center mT7">
+			<button id="pOK">OK</button>
+		</div>
+	</div>
+</div>
+
+
+<script src="scripts/lib/jquery-1.9.0-min.js"></script>
+<script src="scripts/lib/jquery-ui-1.9.2.min.js"></script>
+<!-- jQuery Custom Scroller CDN -->
+<script src="scripts/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="scripts/lib/jquery.ui.touch-punch-0.2.2.min.js"></script>
+<!-- Rotate library -->
+<!-- <script src="https://www.jqueryscript.net/demo/CSS3-Rotatable-jQuery-UI/jquery.ui.rotatable.js"></script> -->
+<script src="scripts/lib/bootstrap.min.js"></script>
+<script src="scripts/lib/jsBezier-0.6-min.js"></script>
+<script src="scripts/lib/mottle-0.5.js"></script>
+<script src="scripts/lib/biltong-0.2.js"></script>
+<script src="scripts/src/util.js"></script>
+<script src="scripts/src/browser-util.js"></script>
+<script src="scripts/src/dom-adapter.js"></script>
+<script src="scripts/src/jsPlumb.js"></script>
+<script src="scripts/src/overlay-component.js"></script>
+<script src="scripts/src/endpoint.js"></script>
+<script src="scripts/src/connection.js"></script>
+<script src="scripts/src/anchors.js"></script>
+<script src="scripts/src/defaults.js"></script>
+<script src="scripts/src/connectors-bezier.js"></script>
+<script src="scripts/src/connectors-statemachine.js"></script>
+<script src="scripts/src/connectors-flowchart.js"></script>
+<script src="scripts/src/connector-editors.js"></script>
+<script src="scripts/src/renderers-svg.js"></script>
+<script src="scripts/src/renderers-vml.js"></script>
+<script src="scripts/src/base-library-adapter.js"></script>
+<script src="scripts/src/jquery.jsPlumb.js"></script>
+<script src="scripts/src/jsPDF.js"></script>
+<script src="scripts/src/html2canvas.js"></script>
+<script src="scripts/src/rgbcolor.js"></script>
+<script src="scripts/src/canvg.js"></script>
+<script src="scripts/beans/FeedBean.js"></script>
+<script src="scripts/beans/PumpBean.js"></script>
+<script src="scripts/beans/UFBean.js"></script>
+<script src="scripts/beans/ROBean.js"></script>
+<script src="scripts/beans/MixerBean.js"></script>
+<script src="scripts/beans/SplitterBean.js"></script>
+<script src="scripts/beans/ProductBean.js"></script>
+<script src="scripts/beans/RejectBean.js"></script>
+<script src="scripts/beans/CFBean.js"></script>
+<script src="scripts/beans/MMFBean.js"></script>
+<script src="scripts/xlsx.core.min.js"></script>  
+<script src="scripts/xls.core.min.js"></script>
+<script src="scripts/beans/testBean.js"></script>
+<script src="scripts/beans/BAFBean.js"></script>
+<script src="scripts/beans/IFASBean.js"></script>
+<script src="scripts/beans/MBBRBean.js"></script>
+<script src="scripts/beans/MBRBean.js"></script>
+<script src="scripts/common.js"></script> 
+<script src="scripts/fsd.js"></script> 
+<script src="scripts/forms/co2.js"></script>
+<script src="scripts/forms/o2.js"></script>
+<script src="scripts/forms/filters.js"></script>
+<script src="scripts/forms/edi.js"></script>
+<script src="scripts/forms/remin_Hydratedlime.js"></script>
+<script src="scripts/forms/remin_Limestone.js"></script>
+<script src="scripts/forms/clarifier_Lamella.js"></script>
+<script src="scripts/forms/splitter.js"></script>
+<script src="scripts/forms/cf.js"></script>
+<script src="scripts/forms/strainer.js"></script>
+<script src="scripts/forms/ro.js"></script>
+<script src="scripts/loadUnit.js"></script>
+<script src="scripts/forms/ixmMixedBed.js"></script>
+<script src="scripts/feedForm.js"></script>
+<script src="scripts/settings.js"></script>
+<script src="scripts/forms/dd.js"></script>
+<script src="scripts/forms/tank-splitter.js"></script>
+<script src="scripts/forms/filtraFast.js"></script>
+
+<script>
+    window.resizeTo(window.screen.width, window.screen.height);
+	var projectDetailsFlag = false;
+	document.getElementById('progress').style.display = 'none';
+	document.getElementsByClassName('newFileScreen')[0].style.display = 'none';
+	var newFileFromApp = false;
+	$(document).ready(function () {
+		$('#progress').hide();
+		$('.newFileScreen').hide();
+		//Set Default date
+		function formatDate(date) {
+			var d = new Date(date),
+				month = '' + (d.getMonth() + 1),
+				day = '' + d.getDate(),
+				year = d.getFullYear();
+
+			if (month.length < 2) month = '0' + month;
+			if (day.length < 2) day = '0' + day;
+
+			return [year, month, day].join('-');
+		}
+		$('#calenderIcon').val(formatDate(new Date()));
+
+		$("#sidebar").mCustomScrollbar({
+			theme: "minimal"
+		});
+		$('#sidebarCollapse, .slideMenu').on('click', function () {
+			$('#sidebar, #content').toggleClass('active');
+			$('.collapse.in').toggleClass('in');
+			$('a[aria-expanded=true]').attr('aria-expanded', 'false');
+			var sidebarState = $( "#sidebar" ).hasClass( "active" ).toString();
+			if(sidebarState == "true"){
+				$("#sidebarCollapse i").toggleClass('glyphicon-chevron-left glyphicon-chevron-right');
+				$("#sidebarCollapse").css('left','0px');
+			}else{
+				$("#sidebarCollapse i").toggleClass('glyphicon-chevron-right glyphicon-chevron-left');
+				$("#sidebarCollapse").css('left','175px');
+			}
+		});
+		$( ".zoombar" ).draggable();
+		$('#calculate').hide();
+		$('.canvas_Link').on('click', function(){
+			$('#main').show();
+			$('#calculate').hide();
+			$('.pageTabs ul li a').removeClass('activeTab');
+			$(this).addClass('activeTab');
+			$('.zoombar').show();
+		});		
+		$('.massBalance_link').on('click', function(){
+			$('#calculate').show();
+			$('#main').hide();
+			$('.pageTabs ul li a').removeClass('activeTab');
+			$(this).addClass('activeTab');
+			$('.zoombar').hide();
+		});
+		/*show NewFile popup*/
+		$('#newFileBtn').on('click', function(){
+			$('.welcomeScreen').hide();
+			$('.newFileScreen').show();
+		});
+		
+		
+		$('#newFileBackBtn, #closeNewFilePopBtn').on('click', function(){
+			if(projectDetailsFlag == false){
+				$('.welcomeScreen').show();
+				$('.newFileScreen').hide();
+			}else{
+				$('.overlay').hide();
+				$('.newFileScreen').hide();
+			}
+			if(newFileFromApp == true){
+				$('.welcomeScreen').hide();
+			}
+		});
+
+		$('#newFileOKBtn').on('click', function(){
+			if(selectedUnit){
+				$('.newFileScreen').hide();
+				$('.welcomeScreen').hide();
+				$('.overlay').hide();
+				
+				var getUnit = $('#parametersTable tr:has(td)').map(function(i, v) {
+				if(selectedUnit == 'SI Units' || selectedUnit == 'US Units'){
+					var $td =  $('td', this);
+					var getText = $td.eq(1).find('select').find(":selected").text();
+					if(getText == ""){
+						getText = $td.eq(1).text();
+					}
+					return {
+							 id: ++i,
+							 unitType: $td.eq(0).text(),
+							 unit: getText
+						   }
+				}/*else{
+					var $td =  $('td', this);
+					return {
+							 id: ++i,
+							 unitType: $td.eq(0).text(),
+							 unit: $td.eq(1).text()
+						   }
+				}*/
+				}).get();
+
+				localStorage.setItem('SelectedUnits', JSON.stringify(getUnit));
+				
+			}else{
+				alert('Please select Unit');
+			}
+		});
+		$('#openFileBtn').on('click', function(){
+			//$('#openFileInput').click();
+			$('#load').click();
+			$('.welcomeScreen').hide();
+			$('.newFileScreen').hide();
+			$('.overlay').hide();
+		});
+
+		$('#newFileCancelBtn').on('click', function(){
+			var gui = require('nw.gui');
+			var win = gui.Window.get();
+			win.close();
+		});
+		
+		$('.projectDetails').on('click', function(){
+			projectDetailsFlag = true;
+			$('.overlay').show();
+			$('.newFileScreen').show();
+			
+			if(localStorage.getItem('fileData')){
+				var getFileDetails = JSON.parse(localStorage.getItem('fileData'));
+				$('#unitDropdown').val(getFileDetails.selectedUnit);
+				selectedUnit = getFileDetails.selectedUnit;
+				$('#project').val(getFileDetails.projectName);
+				$('#customer').val(getFileDetails.customerName);
+				$('#location').val(getFileDetails.locationName);
+				$('#calenderIcon').val(getFileDetails.calenderIcon);
+			}
+			$('#unitDropdown').attr('disabled', true);
+		});
+
+	});
+	var win = require('nw.gui').Window.get();
+	function windowCloseConfirm() {
+		var r = confirm("Are you sure you want to close this window?");
+		if (r == true) {
+			win.close(true);
+		}
+		document.getElementById("demo").innerHTML = txt;
+	}
+	win.on("close",function(){
+		windowCloseConfirm();		
+    });
+	
+</script>
+</body>
+</html>

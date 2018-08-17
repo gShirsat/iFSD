@@ -1,0 +1,1056 @@
+<!-- Ro Pop Up -->
+<div class="ddPopUp popUp" id="ddPopupId" style="display:none;">
+    <div class="header col-md-12 col-sm-12 col-xs-12">
+        <h3 class="pull-left popTitle"></h3>
+        <i class="pull-right">X</i>
+    </div>
+    <div class="body col-md-12 col-sm-12 col-xs-12 tableScroller">
+        <ul class="nav nav-tabs col-md-12 col-sm-12 col-xs-12 iFSDTab margin0">
+            <li class="active">
+                <a href="#">Input</a>
+            </li>
+            <li>
+                <a href="#">Output</a>
+            </li>
+            <li>
+                <a href="#">Note</a>
+            </li>
+            <li>
+                <a href="#">Documentation</a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="Input tabDiv genericSrollBox">
+			<div class="panel-group" id="accordiondd" role="tablist" aria-multiselectable="true">
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="dd1">
+				  <h4 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordiondd" href="#collapsedd1" aria-expanded="true" aria-controls="collapsedd1">
+					Project & Flow Information
+					</a>
+				  </h4>
+				</div>
+				<div id="collapsedd1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="dd1">
+				  <div class="panel-body">
+					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+						<tbody>
+							<!--tr unitType="Volume Flow">
+								<td width="25%">Feed Flow Rate</td>
+								<td align="left">
+									<input type="number" name="roFeedFlowRate" value="">
+								</td>
+								<td>m3/hr</td>
+							</tr-->
+							<tr unitType="Volume Flow">
+								<td width="25%">Peak Flow</td>
+								<td>
+									<input type="number" name="ddPf" value="">
+								</td>
+								<td id="ddPf1">MGD</td>
+							</tr>
+							<tr>
+								<td width="25%">Application</td>
+								<td>
+									<select name="ddApplication" id="ddApplicationid" class="w100">
+										<option value="Clarification">Clarification</option>
+										<option value="Softening">Softening</option>
+									</select>
+								</td>
+								<td id="ddApplication1"></td>
+							</tr>
+							<tr>
+								<td width="45%">No. Of Units</td>
+								<td>
+									<input type="text" name="ddNou" value="">
+								</td>
+								<td id="ddNou1"></td>
+							</tr>
+							<tr>
+								<td width="25%" >Model Selection</td>
+								<td>
+									<select name="ddMs" id="ddMsid" class="w100">
+										<option value="#1">#1</option>
+										<option value="#2">#2</option>
+										<option value="#3">#3</option>
+										<option value="#4">#4</option>
+										<option value="#5">#5</option>
+										<option value="#6">#6</option>
+										<option value="#7">#7</option>
+										<option value="#8">#8</option>
+										<option value="#9">#9</option>
+										<option value="#10">#10</option>
+										<option value="#11">#11</option>
+										<option value="#12">#12</option>
+										<option value="#13">#13</option>
+										<option value="#14">#14</option>
+										<option value="#15">#15</option>
+										<option value="#16">#16</option>
+										<option value="#17">#17</option>
+										<option value="#18">#18</option>
+										<option value="#19">#19</option>
+										<option value="#20">#20</option>
+										<option value="#21">#21</option>
+										<option value="#22">#22</option>
+										<option value="#23">#23</option>
+										<option value="#24">#24</option>
+										<option value="#25">#25</option>
+										<option value="#26">#26</option>
+									</select>
+								</td>
+								<td id="ddMs1"></td>
+							</tr>							
+						</tbody>
+					</table>
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="dd2">
+				  <h4 class="panel-title">
+					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordiondd" href="#collapsedd2" aria-expanded="false" aria-controls="collapsedd2">
+					Sludge Production
+					</a>
+				  </h4>
+				</div>
+				<div id="collapsedd2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="dd2">
+				  <div class="panel-body">
+					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+						<tr>
+							<td>Flow Rate Selection</td>
+							<td width="25%">
+								<select name="ddFrs" id="ddFrsid" class="w100">
+									<option value="Design">Design</option>
+									<option value="Peak">Peak</option>
+								</select>
+							</td>
+							<td id="ddFrs1"></td>
+						</tr>
+						<tr>
+							<td>Hours of Operation per day</td>
+							<td width="25%">
+								<input type="text" name="ddHoa" value=""></input>
+							</td>
+							<td id="ddHoa1">hrs/day</td>
+						</tr>
+						<tr>
+							<td>Effluent TSS</td>
+							<td width="25%">
+								<input type="number" name="ddEtss" value=""></input>
+							</td>
+							<td id="ddEtss1">ppm</td>
+						</tr>
+						<tr>
+							<td>Coagulant Selection</td>
+							<td width="25%">
+								<select name="ddCs" id="ddCsid" class="w100">
+									<option value="Ferric Chloride">Ferric Chloride</option>
+									<option value="Aluminum Sulfate">Aluminum Sulfate</option>
+								</select>
+							</td>
+							<td id="ddCs1"></td>
+						</tr>
+						<tr>
+							<td>Coagulant Dose</td>
+							<td width="25%">
+								<input type="text" name="ddScd" value=""></input>
+							</td>
+							<td id="ddScd1">ppm</td>
+						</tr>
+						<tr>
+							<td>Effluent Sludge Concentration</td>
+							<td width="25%">
+								<input type="text" name="ddEsc" value=""></input>
+							</td>
+							<td id="ddEsc1">%</td>
+						</tr>						
+						</tbody>
+					</table>
+				  </div>
+				</div>
+			</div>
+				
+
+
+			<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="dd3">
+					  <h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordiondd" href="#collapsedd3" aria-expanded="false" aria-controls="collapsedd3">
+						OPTIONS
+						</a>
+					  </h4>
+					</div>
+					<div id="collapsedd3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="dd3">
+					  <div class="panel-body">
+						<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+							<tr>
+								<td>Steel Tank</td>
+								<td width="25%">
+									<select name="ddSt" id="ddStid" class="w100">
+										<option value="No">No</option>
+										<option value="Yes">Yes</option>
+									</select>	
+								</td>
+								<td id="ddSt1" width="8%"></td>
+							</tr>
+							<tr class="steelTankNo">
+								<td>Steel Tank MOC</td>
+								<td width="25%">
+									<select name="ddStmoc" id="ddStmocid" class="w100">
+										<option value="CS">CS</option>
+										<option value="304SS">304SS</option>
+										<option value="316SS">316SS</option>
+									</select>
+								</td>
+								<td id="ddStmoc1"></td>
+							</tr>
+							<tr class="steelTankNo">
+								<td>Steel Tank Prep</td>
+								<td width="25%">
+									<select name="ddStp" id="ddStpid" class="w100">
+										<option value="SP-6 + Prime">SP-6 + Prime</option>
+										<option value="SP-10 + Prime">SP-10 + Prime</option>
+									</select>
+								</td>
+								<td id="ddStp1"></td>
+							</tr>
+							<tr class="steelTankNo">
+								<td>Steel Tank Finish (inside)</td>
+								<td width="25%">
+									<select name="ddStfi" id="ddStfiid" class="w100">
+										<option value="By Contractor" >By Contractor</option>
+										<option value="Epoxy (7-10mil)">Epoxy (7-10mil)</option>
+										<option value="Rubber Coated">Rubber Coated</option>
+									</select>
+								</td>
+								<td id="ddStfi1"></td>
+							</tr>
+							<tr class="steelTankNo">
+								<td>Steel Tank Finish (outside) (#1-5)</td>
+								<td width="25%">
+									<select name="ddStfo" id="ddStfoid" class="w100">
+										<option value="By Contractor" >By Contractor</option>
+										<option value="Epoxy (7-10mil)">Epoxy (7-10mil)</option>
+									</select>
+								</td>
+								<td id="ddStfo1"></td>
+							</tr>
+							<tr class="steelTankNo">
+								<td>Steel Tank Bottom</td>
+								<td width="25%">
+									<select name="ddStb" id="ddStbid" class="w100">
+										<option value="By Contractor">By Contractor</option>
+										<option value="Epoxy (7-10mil)">Epoxy (7-10mil)</option>
+									</select>
+								</td>
+								<td id="ddStb1"></td>
+							</tr>
+							<tr class="steelTankNo">
+								<td>Steel Tank Legs (#1-5 only)</td>
+								<td width="25%">
+									<select name="ddStl" id="ddStlid" class="w100">
+										<option value="No" >No</option>
+										<option value="Yes">Yes</option>
+									</select>
+								</td>
+								<td id="ddStl1"></td>
+							</tr>
+							<tr>
+								<td>Internal Steel MOC?</td>
+								<td width="25%">
+									<select name="ddIsm" id="ddIsmid" class="w100">
+										<option value="CS" >CS</option>
+										<option value="304SS">304SS</option>
+										<option value="316SS">316SS</option>
+									</select>
+								</td>
+								<td id="ddIsm1"></td>
+							</tr>
+							<tr>
+								<td>Internal Steel Prep</td>
+								<td width="25%">
+									<select name="ddIsp" id="ddIspid" class="w100">
+										<option value="SP-10 + Prime">SP-10 + Prime</option>
+										<option value="SP-6 + Prime">SP-6 + Prime</option>
+									</select>
+								</td>
+								<td id="ddIsp1"></td>
+							</tr>
+							<tr>
+								<td>Internal Steel Finish</td>
+								<td width="25%">
+									<select name="ddIsf" id="ddIsfid" class="w100">
+										<option value="By Contractor">By Contractor</option>
+										<option value="Epoxy (7-10mil)">Epoxy (7-10mil)</option>
+										<option value="Rubber Coated">Rubber Coated</option>
+									</select>
+								</td>
+								<td id="ddIsf1"></td>
+							</tr>
+							<tr>
+								<td>Troughs MOC?</td>
+								<td width="25%">
+									<select name="ddTmoc" id="ddTmocid" class="w100">
+										<option value="CS">CS</option>
+										<option value="304SS">304SS</option>
+										<option value="316SS">316SS</option>
+										<option value="FRP">FRP</option>
+									</select>
+								</td>
+								<td id="ddTmoc1"></td>
+							</tr>
+							<tr>
+								<td>Local Control Panel By SUEZ?</td>
+								<td width="25%">
+									<select name="ddLcp" id="ddLcpid" class="w100">
+										<option value="Yes">Yes</option>
+										<option value="No">No</option>									
+									</select>
+								</td>
+								<td id="ddLcp1"></td>
+							</tr>
+							<tr>
+								<td>No. Of Units Per Panel?</td>
+								<td width="25%">
+									<select name="ddNoupp" id="ddNouppid" class="w100">
+										<option value="1" >1</option>
+										<option value="2">2</option>
+									</select>
+								</td>
+								<td id="ddNoupp1"></td>
+							</tr>
+							<tr>
+								<td>Level Of Controls?</td>
+								<td width="25%">
+									<select name="ddLoc" id="ddLocid" class="w100">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+									</select>
+								</td>
+								<td id="ddLoc1"></td>
+							</tr>
+							<tr>
+								<td>Skid Mount Pumps?</td>
+								<td width="25%">
+									<select name="ddSmp" id="ddSmpid" class="w100">
+										<option value="No">No</option>
+										<option value="Yes">Yes</option>
+									</select>
+								</td>
+								<td id="ddSmp1"></td>
+							</tr>
+							<tr class="steelTankNo">
+								<td>Skid Piping MOC</td>
+								<td width="25%">
+									<select name="ddSpm" id="ddSpmid" class="w100">
+										<option value="CS">CS</option>
+										<option value="304SS">304SS</option>
+										<option value="316SS">316SS</option>
+										<option value="Galvanized">Galvanized</option>
+										<option value="FRP">FRP</option>
+									</select>
+								</td>
+								<td id="ddSpm1"></td>
+							</tr>
+							<tr>
+								<td>Total No. Of Recycle Pumps?</td>
+								<td width="25%">
+									<select name="ddTnorp" id="ddTnorp" class="w100">
+										<option value="0" selected="selected">0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+										<option value="13">13</option>
+										<option value="14">14</option>
+										<option value="15">15</option>
+										<option value="16">16</option>
+										<option value="17">17</option>
+										<option value="18">18</option>
+										<option value="19">19</option>
+										<option value="20">20</option>
+									</select>
+								</td>
+								<td id="ddTnorp1"></td>
+							</tr>
+							<tr>
+								<td>Total No. Of Sludge Pumps?</td>
+								<td width="25%">
+									<select name="ddTnosp" id="ddTnospid" class="w100">
+										<option value="0" selected="selected">0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+										<option value="13">13</option>
+										<option value="14">14</option>
+										<option value="15">15</option>
+										<option value="16">16</option>
+										<option value="17">17</option>
+										<option value="18">18</option>
+										<option value="19">19</option>
+										<option value="20">20</option>
+									</select>
+								</td>
+								<td id="ddTnosp1"></td>
+							</tr>
+							<tr>
+								<td>Motor Voltage</td>
+								<td width="25%">
+									<select name="ddMv" id="ddMvid" class="w100">
+										<option value="480">480</option>
+										<option value="575">575</option>
+									</select>
+								</td>
+								<td id="ddMv1"></td>
+							</tr>
+							<tr>
+								<td>Motor Phase</td>								
+									<td width="25%">
+										<input type="text" name="ddMp" value=""></input>
+									</td>								
+								<td id="ddMp1"></td>
+							</tr>
+							<tr>
+								<td>Motor Freq.</td>
+								<td width="25%">
+									<select name="ddMf" id="ddMfid" class="w100">
+										<option value="60">60</option>
+										<option value="50">50</option>
+									</select>
+								</td>
+								<td id="ddMf1"></td>
+							</tr>
+							<tr>
+								<td>VFDs By SUEZ?</td>
+								<td width="25%">
+									<select name="ddVfd" id="ddVfdid" class="w100">
+										<option value="No">No</option>
+										<option value="Yes">Yes</option>
+									</select>
+								</td>
+								<td id="ddVfd1"></td>
+							</tr>							
+							</tbody>
+						</table>
+					  </div>
+					</div>
+			  </div>
+
+
+			  <div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="dd4">
+					  <h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordiondd" href="#collapsedd4" aria-expanded="false" aria-controls="collapsedd4">
+							Rapid Mix
+						</a>
+					  </h4>
+					</div>
+					<div id="collapsedd4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="dd4">
+					  <div class="panel-body">
+						<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+							<tr><td colspan="3"><b>Mixer Information</b></td></tr>
+							<tr>
+								<td>Include in our scope?</td>
+								<td width="25%">
+									<select name="ddIios" id="ddIiosid" class="w100">
+										<option value="Yes">Yes</option>
+										<option value="No">No</option>
+									</select>	
+								</td>
+								<td id="ddIios1"></td>
+							</tr>
+							<tr>
+								<td>Energy Gradient:</td>
+								<td width="25%">
+									<select name="ddEg" id="ddEgid" class="w100">
+										<option value="100">100</option>
+										<option value="150">150</option>
+										<option value="200">200</option>
+										<option value="250">250</option>
+										<option value="300">300</option>
+										<option value="500">500</option>
+										<option value="1000">1000</option>
+									</select>	
+								</td>
+								<td id="ddEg1">G</td>
+							</tr>
+							<tr>
+								<td>Type of Motor:</td>
+								<td width="25%">
+									<select name="ddTom" id="ddTomid" class="w100">
+										<option value="TEFC" >TEFC</option>
+										<option value="ODP">ODP</option>
+									</select>	
+								</td>
+								<td id="ddTom1"></td>
+							</tr>
+							<tr>
+								<td>Wetted MOC:</td>
+								<td width="25%">
+									<select name="ddWmoc" id="ddWmocid" class="w100">
+										<option value="CS">CS</option>
+										<option value="304SS">304SS</option>
+										<option value="316 SS">316 SS</option>
+										<option value="Rubber Lined - CS">Rubber Lined - CS</option>
+										<option value="Rubber Lined - SS">Rubber Lined - SS</option>
+									</select>	
+								</td>
+								<td id="ddWmoc1"></td>
+							</tr>
+							<tr>
+								<td>Type of Drive:</td>
+								<td width="25%">
+									<select name="ddTod" id="ddTodid" class="w100">
+										<option value="VFD">VFD</option>
+										<option value="Constant Speed">Constant Speed</option>
+									</select>	
+								</td>
+								<td id="ddTod1"></td>
+							</tr>
+							<tr>
+								<td>Operating Station Enclosure:</td>
+								<td width="25%">
+									<select name="ddOse" id="ddOseid" class="w100">
+										<option value="NEMA 4X" >NEMA 4X</option>
+										<option value="NEMA 4">NEMA 4</option>
+										<option value="NEMA 12">NEMA 12</option>
+									</select>
+								</td>
+								<td id="ddOse1"></td>
+							</tr>
+							<tr>
+								<td>Mixer Manufacturers:</td>
+								<td width="25%">
+									<select name="ddMm" id="ddMmid" class="w100">
+										<option value="Lightnin">Lightnin</option>
+										<option value="Philadelphia">Philadelphia</option>
+										<option value="Chemineer">Chemineer</option>
+										<option value="Sharpe">Sharpe</option>
+									</select>
+								</td>
+								<td id="ddMm1"></td>
+							</tr>
+							<tr><td colspan="3"><b>Transfer Pipe Size</b></td></tr>
+							<tr>
+								<td>Transfer Pipe Diameter (FINAL)</td>
+								<td width="25%">
+									<select name="ddTps" id="ddTpsid" class="w100">
+										<option value="6">6</option>
+										<option value="8">8</option>
+										<option value="10">10</option>
+										<option value="12">12</option>
+										<option value="14">14</option>
+										<option value="16">16</option>
+										<option value="18">18</option>
+										<option value="20">20</option>
+										<option value="24">24</option>
+										<option value="30">30</option>
+										<option value="36">36</option>
+										<option value="42">42</option>
+										<option value="48">48</option>
+										<option value="54">54</option>
+										<option value="60">60</option>
+									</select>		
+								</td>
+								<td id="ddTps1">in</td>
+							</tr>
+							<tr><td colspan="3"><b>Effluent Pipe Size</b></td></tr>
+							<tr>
+								<td>Effluent Pipe Diameter</td>
+								<td width="25%">
+										<select name="ddEpd" id="ddEpdid" class="w100">
+											<option value="6">6</option>
+											<option value="8">8</option>
+											<option value="10">10</option>
+											<option value="12">12</option>
+											<option value="14">14</option>
+											<option value="16">16</option>
+											<option value="18">18</option>
+											<option value="20">20</option>
+											<option value="24">24</option>
+											<option value="30">30</option>
+											<option value="36">36</option>
+											<option value="42">42</option>
+											<option value="48">48</option>
+											<option value="54">54</option>
+											<option value="60">60</option>
+										</select>		
+								</td>
+								<td id="ddEpd1">in</td>
+							</tr>
+
+							<tr class="steelTankYes"><td colspan="3"><b>Rapid Mixer (concrete)</b></td></tr>
+							<tr class="steelTankYes">
+								<td>Basis of Sizing</td>
+								<td width="25%">
+									<select name="ddBos" id="ddBosid" class="w100">
+										<option value="Peak">Peak</option>
+										<option value="Design">Design</option>
+									</select>	
+								</td>
+								<td id="ddBos1"></td>
+							</tr>
+							<tr class="steelTankYes">
+								<td>Single or Common Rapid Mixer?</td>
+								<td width="25%">
+									<select name="ddSocrm" id="ddSocrmid" class="w100">
+										<option value="Single">Single</option>
+										<option value="Common">Common</option>
+									</select>	
+								</td>
+								<td id="ddSocrm1"></td>
+							</tr>
+							<tr class="steelTankYes">
+								<td>RM Detention Time?</td>
+								<td width="25%">
+									<select name="ddCrmdt" id="ddCrmdtid" class="w100">
+										<option value="2.00">2.00</option>
+										<option value="3.00">3.00</option>			
+									</select>				
+								</td>
+								<td id="ddCrmdt1">min</td>
+							</tr>
+							<tr class="steelTankYes">
+								<td>RM Inlet Pipe Diameter?</td>
+								<td width="25%">
+									<select name="ddCrmipd" id="ddCrmipdid" class="w100">
+										<option value="6">6</option>
+										<option value="8">8</option>
+										<option value="10">10</option>
+										<option value="12">12</option>
+										<option value="14">14</option>
+										<option value="16">16</option>
+										<option value="18">18</option>
+										<option value="20">20</option>
+										<option value="24">24</option>
+										<option value="30">30</option>
+										<option value="36">36</option>
+										<option value="42">42</option>
+										<option value="48">48</option>
+										<option value="54">54</option>
+										<option value="60">60</option>				
+									</select>					
+								</td>
+								<td id="ddCrmipd1">in</td>
+							</tr>
+							<tr unitType="Length" class="steelTankYes socrmSingle">
+								<td>Flow Split Length (D)</td>
+								<td width="25%">
+									<input type="text" name="ddFsld" value=""></input>
+								</td>
+								<td id="ddFsld1">ft</td>
+							</tr>
+							<tr class="steelTankNo"><td colspan="3"><b>Rapid Mixer (steel)</b></td></tr>
+							<tr class="steelTankNo">
+								<td>RM Detention Time?</td>
+								<td width="25%">
+									<select name="ddSrmdt" id="ddSrmdtid" class="w100">
+										<option value="2.00">2.00</option>
+										<option value="3.00">3.00</option>
+									</select>			
+								</td>
+								<td id="ddSrmdt1">min</td>
+							</tr>
+							<tr class="steelTankNo">
+								<td>RM Inlet Pipe Diameter?</td>
+								<td width="25%">
+									<select name="ddSrmipd" id="ddSrmipdid" class="w100">
+										<option value="6">6</option>
+										<option value="8">8</option>
+										<option value="10">10</option>
+										<option value="12">12</option>
+										<option value="14">14</option>
+										<option value="16">16</option>
+										<option value="18">18</option>
+										<option value="20">20</option>
+										<option value="24">24</option>
+										<option value="30">30</option>
+										<option value="36">36</option>
+										<option value="42">42</option>
+										<option value="48">48</option>
+										<option value="54">54</option>
+										<option value="60">60</option>
+									</select>			
+								</td>
+								<td id="ddSrmipd1">in</td>
+							</tr>
+							</tbody>
+						</table>
+					  </div>
+					</div>
+			  </div>
+
+			  <div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="dd5">
+					  <h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordiondd" href="#collapsedd5" aria-expanded="false" aria-controls="collapsedd5">
+							Reactor 
+						</a>
+					  </h4>
+					</div>
+					<div id="collapsedd5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="dd5">
+					  <div class="panel-body">
+						<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+							<tr>
+								<td>Reactor Model Override</td>
+								<td>
+									<select name="ddRmo" id="ddRmoid" class="w100">
+										<option value="#1">#1</option>
+										<option value="#2">#2</option>
+										<option value="#3">#3</option>
+										<option value="#4">#4</option>
+										<option value="#5">#5</option>
+										<option value="#6">#6</option>
+										<option value="#7">#7</option>
+										<option value="#8">#8</option>
+										<option value="#9">#9</option>
+										<option value="#10">#10</option>
+										<option value="#11">#11</option>
+										<option value="#12">#12</option>
+										<option value="#13">#13</option>
+										<option value="#14">#14</option>
+										<option value="#15">#15</option>
+										<option value="#16">#16</option>
+										<option value="#17">#17</option>
+										<option value="#18">#18</option>
+										<option value="#19">#19</option>
+										<option value="#20">#20</option>
+										<option value="#21">#21</option>
+										<option value="#22">#22</option>
+										<option value="#23">#23</option>
+										<option value="#24">#24</option>
+										<option value="#25">#25</option>
+										<option value="#26">#26</option>
+									</select>
+								</td>
+								<td id="ddRmo1" width="8%"></td>
+							</tr>
+							<tr><td colspan="3"><b>Recycle Pump</b></td></tr>
+							<tr>
+								<td>Pump Type</td>
+								<td width="25%">
+									<select name="ddPt" id="ddPtid" class="w100">
+										<option value="Progressive Cavity">Progressive Cavity</option>
+										<option value="Rotary Lobe">Rotary Lobe</option>
+									</select>	
+								</td>
+								<td id="ddPt1"></td>
+							</tr>
+							<tr>
+								<td>Application</td>
+								<td width="25%">
+									<select name="ddA" id="ddAid" class="w100">
+										<option value="Municipal">Municipal</option>
+										<option value="Industrial">Industrial</option>
+										<option value="FGD">FGD</option>
+									</select>	
+								</td>
+								<td id="ddA1"></td>
+							</tr>
+							<tr>
+								<td>Recycle %</td>
+								<td width="25%">
+									<select name="ddR" id="ddRid" class="w100">
+										<option value="4.00">4.00</option>
+										<option value="5.00">5.00</option>
+										<option value="6.00">6.00</option>
+									</select>	
+								</td>
+								<td id="ddR1"></td>
+							</tr>							
+							</tbody>
+						</table>
+					  </div>
+					</div>	
+
+			  </div>
+
+			  <div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="dd6">
+					  <h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordiondd" href="#collapsedd6" aria-expanded="false" aria-controls="collapsedd6">
+							Clarifier 
+						</a>
+					  </h4>
+					</div>
+					<div id="collapsedd6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="dd6">
+					  <div class="panel-body">
+						<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+							<tr unitType="Length">
+								<td>Unit Freeboard</td>
+								<td width="25%">
+									<input type="text" name="ddUf" value=""></input>
+								</td>
+								<td id="ddUf1">ft</td>
+							</tr>							
+							<tr unitType="Length">
+								<td>Tube Height</td>
+								<td width="25%">
+									<input type="text" name="ddTh" value=""></input>
+								</td>
+								<td id="ddTh1">ft</td>
+							</tr>							
+							</tbody>
+						</table>
+					  </div>
+					</div>
+			  </div>
+			  <div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="dd7">
+					  <h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordiondd" href="#collapsedd7" aria-expanded="false" aria-controls="collapsedd7">
+							Concrete Estimate
+						</a>
+					  </h4>
+					</div>
+					<div id="collapsedd7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="dd7">
+					  <div class="panel-body">
+						<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+								<tr><td colspan="3"><b>Clarifier</b></td></tr>
+							<tr>
+								<td>Outlet Trough Sides</td>
+								<td>
+									<select name="ddOts" id="ddOtsid" class="w100">
+										<option value="6">6</option>
+										<option value="8">8</option>
+										<option value="10">10</option>
+										<option value="12">12</option>
+										<option value="15">15</option>
+										<option value="18">18</option>
+									</select>
+								</td>
+								<td id="ddOts1"></td>
+							</tr>
+							</tbody>
+						</table>
+					  </div>
+					</div>
+			  </div>
+			</div>
+    </div>
+
+    <div class="Output tabDiv dispNone genericSrollBox">
+        <div class="panel-group" id="accordionDD_out" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="dd_One">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordionDD_out" href="#dd_collapseOne" aria-expanded="true" aria-controls="dd_One">
+                            System Design
+                        </a>
+                    </h4>
+                </div>
+                <div id="dd_collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="dd_One">
+                    <div class="panel-body">
+                        <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                            <tbody>
+                                <tr>
+                                    <td>Application</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Basin Type</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td unitType="Volume Flow">Peak Flow</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td unitType="Volume Flow">Design Flow</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>No. of Units</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td unitType="Volume Flow">Peak Capacity Per Unit</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td unitType="Volume Flow">Design Flow Per Unit</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td></td>
+                                </tr>
+								<tr>
+                                    <td >Model </td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td></td>
+                                </tr>
+								<tr>
+                                    <td unitType="Flux">Clarifier Loading Rate (Peak) </td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td></td>
+                                </tr>
+								<tr>
+                                    <td unitType="Flux">Clarifier Loading Rate (Design) </td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td></td>
+                                </tr>
+								<tr>
+                                    <td unitType="Volume Flow">Max Recycle Rate </td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="dd_Two">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse"  data-parent="#accordionDD_out" href="#dd_collapseTwo" aria-expanded="false" aria-controls="dd_Two">
+                            Influent Water Quality
+                        </a>
+                    </h4>
+                </div>
+                <div id="dd_collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="dd_Two">
+                    <div class="panel-body">
+                        <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                            <tbody>
+                                <tr>
+                                    <td>Influent Alkalinity </td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td >ppm</td>
+                                </tr>
+                                <tr>
+                                    <td >Influent TSS</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td>ppm</td>
+                                </tr>
+								<tr>
+                                    <td >pH</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+			<div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="dd_Three">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse"  data-parent="#accordionDD_out" href="#dd_collapseThree" aria-expanded="false" aria-controls="dd_Three">
+                            Effluent Water Quality
+                        </a>
+                    </h4>
+                </div>
+                <div id="dd_collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="dd_Three">
+                    <div class="panel-body">
+                        <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                            <tbody>
+                                <tr>
+                                    <td>Effluent TSS </td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td >ppm</td>
+                                </tr>
+                                <tr>
+                                    <td unitType="Volume Flow">Effluent Flow Rate</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td>ppm</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+			<div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="dd_Four">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionDD_out" href="#dd_collapseFour" aria-expanded="false" aria-controls="dd_Four">
+                            Sludge Production
+                        </a>
+                    </h4>
+                </div>
+                <div id="dd_collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="dd_Four">
+                    <div class="panel-body">
+                        <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+                            <tbody>
+                                <tr>
+                                    <td>Flow Rate Selection </td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td ></td>
+                                </tr>
+                                <tr>
+                                    <td unitType="Time">Hours of Operation per day</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td></td>
+                                </tr>
+								<tr>
+                                    <td>Coagulant Selection </td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td ></td>
+                                </tr>
+								<tr>
+                                    <td>Coagulant Dose</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td >ppm</td>
+                                </tr>
+								<tr>
+                                    <td>Effluent Sludge Concentration</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td ></td>
+                                </tr>
+								<tr>
+                                    <td unitType="Volume Flow">Sludge Production</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td ></td>
+                                </tr>
+								<tr>
+                                    <td >Percent Waste</td>
+                                    <td width="25%" contenteditable="false"></td>
+                                    <td >%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+            <div class="Note tabDiv dispNone genericSrollBox">
+                <p class="mB5">
+                    <strong>Please add Note:</strong>
+                </p>
+                <textarea class="ro_Note" rows="4" cols="50" name="ro_Note"></textarea>
+            </div>
+            <div class="Documentation tabDiv dispNone genericSrollBox">
+				
+
+            </div>
+
+
+            <div class="footer col-md-12 col-sm-12 col-xs-12">
+                <div class="popUpTabError"></div>
+                <button type="button" class="btn updateBtn" id="blueButton">Update</button>
+                <button type="button" class="btn cancelBtn" id="blueButton">Cancel</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>

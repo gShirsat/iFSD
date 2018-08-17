@@ -1,0 +1,426 @@
+<div class="o2Popup popUp" style="display:none;">
+	<div class="header col-md-12 col-sm-12 col-xs-12"><h3 class="pull-left popTitle"></h3><i class="pull-right">X</i></div>
+	<div class="body col-md-12 col-sm-12 col-xs-12 tableScroller">
+		<ul class="nav nav-tabs col-md-12 col-sm-12 col-xs-12 iFSDTab margin0">
+			<li class="active"><a href="#">Input</a></li>
+			<li><a href="#">Output</a></li>
+			<li><a href="#">Note</a></li>
+			<li><a href="#">Calculation</a></li>
+		</ul>
+		<div class="clearfix"></div>
+		<div class="Input tabDiv genericSrollBox">
+			<div class="panel-group" id="accordionB" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="o2One">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordionB" href="#o2_collapseOne" aria-expanded="true" aria-controls="o2_collapseOne">
+							  Process Parameters
+							</a>
+						</h4>
+					</div>
+					<div id="o2_collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="o2One">
+						<div class="panel-body">
+							<table class="table table-bordered inputUnit">
+								<tbody>
+									<!-- <tr><td width="50%" unitType="Volume Flow">Flow Rate</td><td width="30%"><input type="number" name="flowRate" value="" min="1" max="500" class="maxNumber" /></td><td id="flowRate1" width="20%">(gpm)</td></tr> 
+									<tr><td unitType="Length" width="50%">Tower Diameter</td><td width="30%"><input type="number" name="diameter" value="" /></td><td id="diameter1">C</td></tr> -->
+									<tr><td>Inlet O2 Stage 1</td><td><input type="number" name="inletO2" value="" class="twoDecimal" /></td><td id="inletO21">ppm</td></tr>
+									<tr><td >Inlet N2 Stage 1</td><td><input type="number" name="inletN2" value="" class="twoDecimal" /></td><td id="inletN21">ppm</td></tr>
+									<!-- <tr><td unitType="-">Inlet CO2 Stage 1 </td><td><input type="number" name="inletCO2" value="" /></td><td id="inletCO21">ppm</td></tr> -->
+									<tr><td>Outlet O2 Stage 2</td><td><input type="number" name="outletO2Stage2" min="0.007" value="" class="twoDecimal"/></td><td id="outletO2Stage21">ppm</td></tr>
+									<!-- <tr><td unitType="Temperature">Temperature</td><td><input type="number" name="temperature" value=""/></td><td>C</td></tr> -->
+									<!-- <tr><td>Density </td><td><input type="number" name="density" value=""/></td><td>C</td></tr>
+									<tr><td>Viscosity </td><td><input type="number" name="viscosity" value="" /></td><td>kg/m3</td></tr>
+									<tr><td>Diff. Coef. O2 </td><td><input type="number" name="diffCoefO2" value=""/></td><td></td></tr>
+									<tr><td>Diff. Coef. N2 </td><td><input type="number" name="diffCoefN2 " value=""/></td><td></td></tr>
+									<tr><td>H O2 </td><td><input type="number" name="hO2" value=""/></td><td> </td></tr>
+									<tr><td>H N2</td><td><input type="number" name="hN2" value=""/></td><td> </td></tr>
+									<tr><td>P H2O </td><td><input type="number" name="pH2O" value=""/></td><td></td></tr> -->
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="o2_Two">
+						<h4 class="panel-title">
+							<a class="collapsed" data-toggle="collapse" data-parent="#accordionB" href="#o2_collapseTwo" aria-expanded="false" aria-controls="o2_collapseTwo">
+							  Degasifier Tower Sizing
+							</a>
+						</h4>
+					</div>
+					<div id="o2_collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="o2_Two">
+						<div class="panel-body">
+							<table class="table table-bordered inputUnit">
+								<tbody>
+									<tr><td unitType="Length" width="50%">Tower Diameter</td><td width="30%"><input type="number" name="diameter" value="" class="twoDecimal" /></td><td id="diameter1">C</td></tr>
+									<!-- <tr><td width="50%"><strong>1st Stage</strong> </td><td width="30%"> </td><td width="20%"> </td></tr> -->
+									<tr><td unitType="Length">Stage-1 - Tower Packing Depth</td><td><input type="number" name="towerPackingDepth" value="" class="twoDecimal"/></td><td id="towerPackingDepth1">C</td></tr>
+									<tr><td unitType="Length">Stage-1 - Inlet to Packing Height </td><td><input type="number" name="inletToPackingHeight" value="" class="twoDecimal"/></td><td id="inletToPackingHeight1">ppm</td></tr>
+									<tr><td unitType="Length">Stage-1 - Inlet to Upper Head T.L. </td><td><input type="number" name="inletToUpperHeadTL" value="" class="twoDecimal"/></td><td id="inletToUpperHeadTL1">C</td></tr>
+									<!-- <tr><td><strong>2nd Stage</strong> </td><td></td><td></td></tr> -->
+									<tr><td unitType="Length">Stage-2-Tower Packing Depth</td><td><input type="number" name="towerPackingDepth2" value="" class="twoDecimal" /></td><td id="towerPackingDepth21">ppm</td></tr>
+									<tr><td unitType="Length">Stage-2-Loop Seal Height</td><td><input type="number" name="loopSealHeight" value="" class="twoDecimal"/></td><td id="loopSealHeight1">C</td></tr>
+									<!-- <tr><td><strong>Degasifier Clearwell Sizing:</strong> </td><td></td><td></td></tr> -->
+									<tr><td unitType="Time">Clearwell Retention Time </td><td><input type="number" name="clearwellRetentionTime" value="" class="twoDecimal"/></td><td id="clearwellRetentionTime1">ppm</td></tr>
+									<tr><td unitType="Length">Clearwell Straight Side Height </td><td><input type="number" name="clearwellStraightSideHeight" value="" class="twoDecimal"/></td><td id="clearwellStraightSideHeight1">C</td></tr>
+									<tr><td width="50%" unitType="Length">Pump Outlet Diameter</td><td width="30%"><input type="number" name="pumpOutletDiameter" value="" class="twoDecimal"/></td><td  id="pumpOutletDiameter1" width="20%">C</td></tr>
+									<tr><td unitType="Length">Low-Low Level alarm</td><td><input type="number" name="low_LowLevelalarm" value="" class="twoDecimal"/></td><td id="low_LowLevelalarm1">C</td></tr>
+									<tr><td unitType="Length">Low Level alarm</td><td><input type="number" name="lowLevelalarm" value="" class="twoDecimal"/></td><td id="lowLevelalarm1">ppm</td></tr>
+									<tr><td unitType="Length">High Level alarm</td><td><input type="number" name="highLevelalarm" value="" class="twoDecimal" /></td><td id="highLevelalarm1">C</td></tr>
+									<tr><td unitType="Length">Inlet Diameter</td><td><input type="number" name="inletDiameter" value="" class="twoDecimal"/></td><td id="inletDiameter1">ppm</td></tr>
+									<tr><td unitType="Length">Overflow</td><td><input type="number" name="overflow" value="" class="twoDecimal"/></td><td id="overflow1">F</td></tr>
+									<tr><td unitType="Length">Skirt Straight Side Height</td><td><input type="number" name="skirtStraightSideHeight" value="" class="twoDecimal"/></td><td id="skirtStraightSideHeight1">ppm</td></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="o2_Three">
+						<h4 class="panel-title">
+							<a class="collapsed" data-toggle="collapse" data-parent="#accordionB" href="#o2_collapseThree" aria-expanded="false" aria-controls="o2_collapseThree">
+								Unusable Tank Height:
+							</a>
+						</h4>
+					</div>
+					<div id="o2_collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="o2_Three">
+						<div class="panel-body">
+							<table class="table table-bordered inputUnit">
+								<tbody>									
+									
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div> -->
+			</div>
+			<!-- <table class="table table-bordered margin0 tableScroller" id="Input">
+				<tbody>
+					<tr>
+						<td width="50%">							
+						</td>
+						<td width="50%">							
+						</td>
+						</td>
+					</tr>
+				</tbody>
+			</table> -->
+		</div>
+		<div class="Output tabDiv dispNone genericSrollBox">
+			<div class="panel-group" id="accordionBOut" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="o2OneA">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordionBOut" href="#o2_collapseOneA" aria-expanded="true" aria-controls="o2_collapseOneA">
+							  Output
+							</a>
+						</h4>
+					</div>
+					<div id="o2_collapseOneA" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="o2OneA">
+						<div class="panel-body">
+							<table class="table table-bordered margin0 tableScroller outputUnit" id="Input">
+								<tbody>
+									<tr><td width="30%" unitType="Volume Flow">Flow Rate</td><td width="20%"><span class="output_FlowRate twoDecimalOut"></span></td><td width="20%"></td></tr>
+									<tr><td unitType="Flux">Flux</td><td><span class="output_Flux twoDecimalOut"></span></td><td></td></tr>
+
+									<tr><td>Inlet O2 Stage 1</td><td><span class="output_InletO2_stage1 twoDecimalOut"></span></td></td><td width="10%">ppm</td></tr>
+									<tr><td >Inlet N2 Stage 1</td><td><span class="output_InletN2_stage1 twoDecimalOut"></span></td></span></td><td width="10%">ppm</td></tr>
+									<tr><td >Outlet O2 Stage 1 </td><td><span class="output_OutletO2_stage1 twoDecimalOut"></span></td><td width="10%">ppm</td></tr>
+									<tr><td >Outlet N2 Stage 1</td><td><span class="output_OutletN2_stage1 twoDecimalOut"></span></td><td width="10%">ppm</td></tr>
+									<tr><td >Outlet O2 Stage 2</td><td><span class="output_OutletO2_stage2 twoDecimalOut"></span></td><td width="10%">ppm</td></tr>
+									<tr><td >Outlet N2 Stage 2</td><td><span class="output_OutletN2_stage2 twoDecimalOut"></span></td><td width="10%">ppm</td></tr>
+									<tr><td unitType="Mass Flow">NCG Load Stage 1</td><td><span class="output_NCGLoad_stage1 twoDecimalOut"></span></td><td width="10%">lb/hr</td></tr>
+									<tr><td unitType="Mass Flow">H2O Load Stage 1</td><td><span class="output_H2OLoad_stage1 twoDecimalOut"></span></td><td width="10%">lb/hr</td></tr>
+									<tr><td unitType="Volume Flow">Volume Flow Stage 1</td><td><span class="output_Flow_stage1 twoDecimalOut"></span></td><td width="10%">lb/hr</td></tr>
+									<tr><td unitType="Pressure">Vacuum Stage 1</td><td><span class="output_Vacuum_stage1 twoDecimalOut"></span></td><td width="10%">lb/hr</td></tr>
+									<tr><td unitType="Mass Flow">NCG Load Stage 2</td><td><span class="output_NCGLoad_stage2 twoDecimalOut"></span></td><td width="10%">lb/hr</td></tr>
+									<tr><td unitType="Mass Flow">H2O Load Stage 2</td><td><span class="output_H2OLoad_stage2 twoDecimalOut"></span></td><td width="10%">lb/hr</td></tr>
+									<tr><td unitType="Volume Flow">Volume Flow Stage 2</td><td><span class="output_Flow_stage2 twoDecimalOut"></span></td><td width="10%">lb/hr</td></tr>
+									<tr><td unitType="Pressure">Vacuum Stage 2</td><td><span class="output_Vacuum_stage2 twoDecimalOut"></span></td><td width="10%">lb/hr</td></tr>									
+									<!-- <tr><td unitType="Length">Tower Packing Depth</td><td><span class="output_ClearwellDiameter twoDecimalOut"></span></td><td width="10%"></td></tr> -->
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="o2_TwoA">
+						<h4 class="panel-title">
+							<a class="collapsed" data-toggle="collapse" data-parent="#accordionBOut" href="#o2_collapseTwoA" aria-expanded="false" aria-controls="o2_collapseTwoA">
+							  Vessel Data
+							</a>
+						</h4>
+					</div>
+					<div id="o2_collapseTwoA" class="panel-collapse collapse" role="tabpanel" aria-labelledby="o2_TwoA">
+						<div class="panel-body">
+							<table class="table table-bordered margin0 tableScroller outputUnit" id="Input">
+								<tbody>									
+									<tr><td width="30%"><strong> Vessel Data</strong></td><td width="20%"><span class="output_TowerPackingDepth"></span></td><td width="20%"></td></tr>
+									
+									<tr><td unitType="Length">Tower Diameter </td><td><span class="output_TowerDiameter twoDecimalOut"></span></td><td width="10%"></td></tr>
+									<tr><td unitType="Length">Clearwell Diameter </td><td><span class="output_ClearwellDiameter twoDecimalOut"></span></td><td width="10%"></td></tr>
+									<tr><td unitType="Volume">Clearwell Volume</td><td><span class="output_ClearwellDiameter twoDecimalOut"></span></td><td width="10%"></td></tr>
+									<tr><td unitType="Length">Straight Side Height Excluding Skirt</td><td><span class="output_ClearwellDiameter twoDecimalOut"></span></td><td width="10%"></td></tr>
+									<tr><td unitType="Length">Straight Side Height Including Skirt</td><td><span class="output_ClearwellDiameter twoDecimalOut"></span></td><td width="10%"></td></tr>
+									<tr><td unitType="Length">Stage-1 Tower Packing Depth</td><td><span class="output_ClearwellDiameter twoDecimalOut"></span></td><td width="10%"></td></tr>
+									<tr><td unitType="Length">Stage-2 Tower Packing Depth</td><td><span class="output_ClearwellDiameter twoDecimalOut"></span></td><td width="10%"></td></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="Note tabDiv dispNone genericSrollBox">
+			<p class="mB5"><strong>Please add Note:</strong></p>
+			<textarea class="co2_Note" rows="4" cols="50" name="co2_Note"></textarea>
+		</div>
+		<div class="Calculation tabDiv dispNone genericSrollBox">
+			<div class="panel-group" id="accordionD1O2" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingOne1O2">
+						 <h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordionD1O2" href="#collapseOne1O2" aria-expanded="true" aria-controls="collapseOne1O2">
+							  Calculations
+							</a>
+						  </h4>
+					</div>
+					<div id="collapseOne1O2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne1O2">
+						<div class="panel-body">
+						
+							Number of streams required to execute the unitop<br>
+							Input-   1 Stream<br>
+							Output - 1 Stream<br>
+							<br><br>
+							
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<td>Flux = Flow Rate / (pi/4*(Diameter/12)^2)</td>
+										<td>(gpm/ft2)</td>
+									</tr>
+									<tr>
+										<td>Based on Temperature select Density, Viscosity, Diffusion Coefficient O2, Diffusion Coefficient N2,H O2, H N2, PH2O </td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Mass Velocity = (((Flow Rate/4.4029)/3600)*Density) / (pi/4*(Diameter*0.0254)^2)</td>
+										<td>(kg/m2-s)</td>
+									</tr>
+									<tr>
+										<td>Packing Height =   ((Tower Packing Depth Stage 1 + Tower Packing Depth Stage 2)/2)*0.3048</td>
+										<td>Average height per stage (m)</td>
+									</tr>
+									<tr>
+										<td>HTU O2 = ((Mass Velocity / Viscosity)^0.22)*((Viscosity/(Diffusion Coefficient O2*1000))^0.5)/430</td>
+										<td>(m)</td>
+									</tr>
+									<tr>
+										<td>HTU N2 = ((Mass Velocity / Viscosity)^0.22)*((Viscosity/(Diffusion Coefficient N2*1000))^0.5)/430</td>
+										<td>(m)</td>
+									</tr>
+									<tr>
+										<td>B O2 = Packing Height / (HTU O2 * 2.30259)</td>
+										<td>non-dimensional unit <br> related to packing depth</td>
+									</tr>
+									<tr>
+										<td>B N2 = Packing Height / (HTU N2 * 2.30259) </td>
+										<td>non-dimensional unit <br> related to packing depth</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingTwo2O2">
+						 <h4 class="panel-title">
+							<a class="collapsed" data-toggle="collapse" data-parent="#accordionD1O2" href="#collapseTwo2O2" aria-expanded="false" aria-controls="collapseTwo2O2">
+							  Stage 1
+							</a>
+						  </h4>
+					</div>
+					<div id="collapseTwo2O2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo2O2">
+						<div class="panel-body"> 
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<td>Outlet O2 Stage 1 = (Inlet O2*Outlet O2 Stage2)^0.5 </td>
+										<td>(ppm)</td>
+									</tr>
+									<tr>
+										<td>Xe1 = ((10^B O2)* Outlet O2 Stage 1 - Inlet O2 )/((10^B O2)-1)</td>
+										<td>non-dimensional unit <br> related to vacuum tower <br> packing depth and inlet/outlet CO2 levels </td>
+									</tr>
+									<tr>
+										<td>Outlet N2 Stage 1 = Inlet N2*(8*(HO2*Xe1/HN2)*((10^BN2)-1)+7*(Inlet O2 - Outlet O2 <br> Stage1))/(8*(HO2*Xe1/HN2)*((10^BN2)-1)+7*(10^BN2)*(Inlet O2 - Outlet O2 Stage1))</td>
+										<td>(ppm)</td>
+									</tr>
+									<tr>
+										<td>O2 Flow Rate = (Flow Rate/4.4029)*(Inlet O2 - Outlet O2 Stage 1 )/32</td>
+										<td>(mol/hr)</td>
+									</tr>
+									<tr>
+										<td>N2 Flow Rate = (Flow Rate/4.4029)*(Inlet N2 - Outlet N2 Stage 1 )/28</td>
+										<td>(mol/hr)</td>
+									</tr>
+									<tr>
+										<td>CO2 Flow Rate =  (Flow Rate/4.4029)*(Inlet CO2 -(Inlet CO2^0.5))/44</td>
+										<td>(mol/hr)</td>
+									</tr>
+									<tr>
+										<td>O2 Moles = O2 Flow Rate / (O2 Flow Rate + N2 Flow Rate + CO2 Flow Rate)</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Pressure Air = H O2 * Xe1/ O2 Moles</td>
+										<td>(mm Hg) pressure (a function of <br> vacuum tower packing depth)</td>
+									</tr>
+									<tr>
+										<td>Pressure Total = Pressure H2O  + Pressure Air</td>
+										<td>(mm Hg) pressure (a function of <br> vacuum tower packing depth)</td>
+									</tr>
+									<tr>
+										<td>Gas mass flow rate air = Flow Rate O2 + Flow Rate N2 + Flow Rate CO2 </td>
+										<td>(mol/hr) quantity of gas (PV value), a mass flow rate</td>
+									</tr>
+									<tr>
+										<td>Gas mass flow rate H2O = Pressure H2O* Gas mass flow rate air / Pressure Air</td>
+										<td>(mol/hr)</td>
+									</tr>
+									<tr>
+										<td>Gas mass flow rate air infiltrating the system = 2.1 </td>
+										<td>(mol/hr)</td>
+									</tr>
+									<tr>
+										<td>Gas mass flow rate H2O infiltrating the system 
+        = Pressure H2O* Gas mass flow rate air infiltrating the system / Pressure Air </td>
+										<td>(mol/hr)</td>
+									</tr>
+									<tr>
+										<td>Volume Flow Rate Total = 0.3097*(Gas mass flow rate air + Gas mass flow rate H2O + Gas mass flow rate air infiltrating the system + Gas mass flow rate H2O infiltrating the system) / Pressure Total </td>
+										<td>(m3/min)</td>
+									</tr>
+									<tr>
+										<td>Non-Condensable Gas Load = (29/454) *(Gas mass flow rate air + Gas mass flow rate air infiltrating the system) </td>
+										<td>(lb/hr)</td>
+									</tr>
+									<tr>
+										<td>H2O Load = (18/454)*(Gas mass flow rate H2O + Gas mass flow rate H2O infiltrating the system) </td>
+										<td>(lb/hr)</td>
+									</tr>
+									<tr>
+										<td>Flow = Volume Flow Rate Total*35.314/0.85 </td>
+										<td>(acfm)</td>
+									</tr>
+									<tr>
+										<td>Vacuum = 0.95*Pressure Total </td>
+										<td>(mm Hg)</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingThree2O2">
+						 <h4 class="panel-title">
+							<a class="collapsed" data-toggle="collapse" data-parent="#accordionD1O2" href="#collapseThree2O2" aria-expanded="false" aria-controls="collapseThree2O2">
+							  Stage 2
+							</a>
+						  </h4>
+					</div>
+					<div id="collapseThree2O2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree2O2">
+						<div class="panel-body"> 
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<td>Xe2 = ((10^B O2)*Outlet O2 Stage 2 - Outlet O2 Stage 1)/((10^B O2)-1) </td>
+										<td>non-dimensional unit related <br>to vacuum  tower packing <br>depth and inlet/outlet <br>CO2 levels </td>
+									</tr>
+									<tr>
+										<td>Outlet N2 Stage 2 = Outlet N2 Stage 1*(8*(HO2*Xe2/HN2)*((10^BN2)-1)+7*(Outlet O2 Stage 2 - Outlet O2 Stage 1 ))/(8*(HO2*Xe2/HN2)*((10^BN2)-1)+7*(10^BN2)*(Outlet O2 Stage 2 - Outlet O2 Stage 1))    	
+</td>
+										<td>(ppm)</td>
+									</tr>
+									<tr>
+										<td>O2 Flow Rate = (Flow Rate/4.4029)*(Outlet O2 Stage 1 - Outlet O2 Stage 2)/32 </td>
+										<td>(mol/hr)</td>
+									</tr>
+									<tr>
+										<td>N2 Flow Rate = (Flow Rate/4.4029)*(Outlet N2 Stage 1 - Outlet N2 Stage 2)/28 </td>
+										<td>(mol/hr)</td>
+									</tr>
+									<tr>
+										<td>CO2 Flow Rate =  (Flow Rate/4.4029)*((Inlet CO2^0.5)-1)/44 </td>
+										<td>(mol/hr)</td>
+									</tr>
+									<tr>
+										<td>O2 Moles = O2 Flow Rate / (O2 Flow Rate + N2 Flow Rate + CO2 Flow Rate)</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Pressure Air = H O2 * Xe2/ O2 Moles</td>
+										<td>(mm Hg) pressure (a function of vacuum tower packing depth)</td>
+									</tr>
+									<tr>
+										<td>Pressure Total = Pressure H2O  + Pressure Air </td>
+										<td>(mm Hg) pressure (a function of vacuum tower packing depth)</td>
+									</tr>
+									<tr>
+										<td>Gas mass flow rate air = Flow Rate O2 + Flow Rate N2 + Flow Rate CO2 </td>
+										<td>(mol/hr) quantity of gas (PV value), a mass flow rate</td>
+									</tr>
+								</tbody>
+							</table>
+							<strong>Vessel Sizing:</strong>
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<td><strong>Degasifier Tower Sizing</strong></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Tower straight side height = (packing depth stage1*12.0) + (inlet to packing height*12.0) + inlet to upperhead TL+ (packing depth stage2*12.0) + (loop seal height*12.0)</td>
+										<td>(inch)</td>
+									</tr>
+									<tr>
+										<td><strong>Degasifier Tower Sizing</strong></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Clearwell Volume Required = Flow Rate*Clearwell Retention Time </td>
+										<td>(gal)</td>
+									</tr>
+									<tr>
+										<td>Clearwell Volume Calculated = 3.14159*(clearwell diameter/24.0)**2*((clearwell straight side height - (lll alarm + ll alarm + hl alarm + inlet diameter + overflow diameter)-((flange diameter – pump outlet diameter)/2))/12)*7.5 </td>
+										<td>(gal)</td>
+									</tr>
+									<tr>
+										<td>Clearwell Volume Calculated must be always greater than Clearwell Volume Required </td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Straight side height excluding skirt = Tower Straight Height + Clearwell Straight Height </td>
+										<td>(inch)</td>
+									</tr>
+									<tr>
+										<td>Straight side height Including skirt = Tower Straight Height + Clearwell Straight + Skirt Straight Height </td>
+										<td>(inch)</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer col-md-12 col-sm-12 col-xs-12">
+		<div class="popUpTabError"></div>
+		<button type="button" class="btn updateBtn" id="blueButton">Update</button>
+		<button type="button" class="btn cancelBtn" id="blueButton">Cancel</button>
+	</div>
+</div>

@@ -1,0 +1,364 @@
+<div class="FeedPopUp popUp col-md-12 col-sm-12 col-xs-12" style="display:none;" id="feedPopUp">
+ <div class="header col-md-12 col-sm-12 col-xs-12 topic">
+	<h3 class="pull-left"><img src="images/popup_water.png">Water Type</h3>
+	<i class="pull-right">X</i>
+ </div>
+ <div class="controls col-md-9 col-sm-9 col-xs-9">
+	<div>
+	   <div class="col-md-12 col-sm-12 col-xs-12 feedWater">
+		  <h3>Feed Water Analysis</h3>
+	   </div>
+	   <div class="col-md-12 col-sm-12 col-xs-12 feedwaterbody">
+		  <!-- <div class="col-md-12 col-sm-12 col-xs-12 dropdown">
+			 <div class="dropdown1 col-md-6 col-sm-6 col-xs-6">
+				<label class="" for="sel1">Water Source</label>
+				<select class="" id="sel1"><option value="1">RO Permeate</option><option value="2">Brackish Wellwater</option><option value="3">Brackish Surfacewater (MF/UF)</option><option value="4">Brackish Surfacewater (Conventional)</option><option value="5">Sea Wellwater</option><option value="6">Surface Seawater (MF/UF)</option><option value="7">Surface Seawater (Conventional)</option><option value="8">Tertiary Treated Wastewater (MF/UF)</option><option value="9">Tertiary Treated Wastewater (Conventional)</option><option value="10">MBR Permeate</option><option value="11">HERO (City/Well)</option><option value="12">HERO Wastewater</option><option value="13">HERO 2nd Pass</option></select>
+			 </div>
+			 <div class="dropdown2 col-md-6 col-sm-6 col-xs-6">
+				<label for="sel2">Water Type</label>
+				<select class="" id="sel2"><option value="0">User Defined </option><option value="1">Sea Water</option><option value="2">Surface Water</option><option value="5">Sweet Water</option><option value="6">Sour Water</option><option value="9">Brackish Water</option><option value="10">Well Water</option><option value="15">EDI</option></select>
+			 </div>
+		  </div> -->
+		  <!--<div class="col-md-12 col-sm-12 col-xs-12 buttons">			
+			  <button type="button disabled" class="btn pull-right balanceBtn" disabled="disabled">Balance</button> 
+			 <button type="button" class="btn pull-right disabled" id="chlorideBtn" disabled="disabled">Add Chloride</button>
+			 <button type="button" class="btn pull-right disabled" id="sodiumBtn" disabled="disabled">Add Sodium</button>
+		  </div> -->
+		  <div class="col-md-12 col-sm-12 col-xs-12 feedtable tableScroller">
+			 <table class="table table-hover" cellpadding="2" id="feedTableNew">
+				<thead>
+				   <tr>
+					  <th>Ion</th>
+					  <th>mg/l</th>
+					  <th>meq/l</th>
+					  <th>ppm as CaCO3</th>
+				   </tr>
+				</thead>
+				<tbody>
+					<tr><td>Calcium</td><td><input class="feedInput" type="number" name="calcium_Feed" value="0"/></td><td class="mgI">0.0000</td><td class="meqI">0.00</td></tr>
+					<tr><td>Magnesium</td><td><input class="feedInput" type="number" name="magnesium_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr><td>Sodium</td><td><input class="feedInput" type="number" name="Sodium_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr><td>Potassium</td><td><input class="feedInput" type="number" name="Potassium_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr><td>Ammonium</td><td><input class="feedInput" type="number" name="Ammonia_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr><td>Barium</td><td><input class="feedInput" type="number" name="Barium_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr><td>Strontium</td><td><input class="feedInput" type="number" name="Strontium_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr><td>Iron</td><td><input class="feedInput" type="number" name="Iron_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr><td>Manganese</td><td><input class="feedInput" type="number" name="Maganese_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr class="clearVal"><td>Total Cations</td><td><input class="totalCations feedInput" name="totalCations_Feed" disabled type="number" value=""/></td><td class="totalCations_meqI">0.0000</td><td class="totalCations_ppm">0.00</td></tr>
+					<tr><td>Sulfate</td><td><input class="feedInput" type="number" name="Sulfate_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr><td>Chloride</td><td><input class="feedInput" type="number" name="Chloride_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr><td>Fluoride</td><td><input class="feedInput" type="number" name="Fluoride_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr><td>Nitrate</td><td><input class="feedInput" type="number" name="Nitrate_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr><td>Bromide</td><td><input class="feedInput" type="number" name="Bromide_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr><td>Phosphate</td><td><input class="feedInput" type="number" name="Phosphate_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr><td>Boron</td><td><input class="feedInput" type="number" name="Boron_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr><td>Silica</td><td><input class="feedInput" type="number" name="Silica_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr><td>Hydrogen Sulphide</td><td><input class="feedInput" type="number" name="hydrogenSulphide_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr><td>Bicarbonate</td><td><input class="feedInput" disabled type="number" name="Bicarbonate_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr><td>Carbon Dioxide</td><td><input class="feedInput" disabled type="number" name="carbonDiOxide_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr><td>Carbonate</td><td><input class="feedInput" disabled type="number" name="carbonate_Feed" value="0"/></td><td>0.0000</td><td >0.00</td></tr>
+					<tr class="clearVal"><td>Total Anions</td><td><input class="totalAnions feedInput" disabled name="totalAnions_Feed" type="number" value="0"/></td><td class="totalAnions_meqI">0.0000</td><td class="totalAnions_ppm">0.00</td></tr>
+				</tbody>
+			 </table>
+		  </div>
+		  <div class="clearfix"></div>
+		  <div class="col-md-12 col-sm-12 col-xs-12 buttons1">
+			 <!-- <div>
+				<p><b>Note: </b>Alkalinity is user-input.</p>
+				<p>&nbsp;Execute 'Balance' button first. If required,Click on 'Add Sodium/Chloride'</p>
+			 </div> -->
+			 <button type="button" class="btn pull-left dispNone">Multiple Feed</button>
+			 <!-- <button type="button" class="btn pull-left designGuideBtn">Design Guidelines</button> -->
+		  </div>
+		  <div class="clearfix"></div>
+	   </div>
+	</div>
+ </div>
+ <div class="col-md-3 col-sm-3 col-xs-3" id="in-form">
+	<div class="col-md-12 col-sm-12 col-xs-12">
+	   <div class="col-md-12 col-sm-12 col-xs-12">
+		  <h3>Parameters</h3>
+		  <form class="col-md-12 col-sm-12 col-xs-12 form-horizontal">
+			<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+				<tbody>
+					<tr>
+						<td width="50%">Flow </td>
+						<td width="25%">
+							<input class="form-control feedparam" type="number" name="feed_flow" value="" />
+						</td>
+						<td width="20%" >
+							<span id="feed_TDS1" class="tempUnit" unitType="Volume Flow">(gpm)</span>
+						</td>
+					</tr>
+					<tr>
+						<td width="50%">Temperature </td>
+						<td width="25%">
+							<input class="form-control tempVal feedparam" type="number" name="feed_Temperature" value="" />
+						</td>
+						<td width="20%">
+							<span id="feed_Temperature1" class="tempUnit" unitType="Temperature">C</span>
+						</td>
+					</tr>
+					<tr>
+						<td width="50%">Pressure </td>
+						<td width="25%">
+							<input class="form-control tempVal feedparam" type="number" name="feed_Pressure" value="" >
+						</td>
+						<td width="20%">
+							<span id="feed_Pressure1" class="tempUnit" unitType="Pressure">C</span>
+						</td>
+					</tr>
+					<tr>
+						<td width="50%">Total Akalinity </td>
+						<td width="25%">
+							<input class="form-control negative" type="number" name="feed_Total_Akalinity" value="">
+						</td>
+						<td width="20%">
+							<span id="feed_Total_Akalinity1" class="">ppm CaCO3</span>
+						</td>
+					</tr>
+					<tr>
+						<td width="50%">pH </td>
+						<td width="25%">
+							<input class="form-control feedparam" type="number" name="feed_pH" value="" />
+						</td>
+						<td width="20%">
+							<span id="feed_pH1" ></span>
+						</td>
+					</tr>
+					<tr>
+						<td width="50%">TSS </td>
+						<td width="25%">
+							<input class="form-control feedparam" type="number" name="feed_TSS" value="12">
+						</td>
+						<td width="20%">
+							<span id="feed_TSS1" class="">mg/l</span>
+						</td>
+					</tr>
+					<tr>
+						<td width="50%">TOC </td>
+						<td width="25%">
+							<input class="form-control feedparam" type="number" name="feed_TOC" value="14">
+						</td>
+						<td width="20%">
+							<span id="feed_TOC1" class="">mg/l</span>
+						</td>
+					</tr>
+					<tr>
+						<td width="50%">DOC </td>
+						<td width="25%">
+							<input class="form-control feedparam" type="number" name="feed_DOC" value="14">
+						</td>
+						<td width="20%">
+							<span id="feed_DOC1" class="">mg/l</span>
+						</td>
+					</tr>
+					<tr>
+						<td width="50%">TKN </td>
+						<td width="25%">
+							<input class="form-control feedparam" type="number" name="feed_TKN" value="132">
+						</td>
+						<td width="20%">
+							<span id="feed_TKN1" class="">mg/l</span>
+						</td>
+					</tr>
+					<tr>
+						<td width="50%">Turbidity </td>
+						<td width="25%">
+							<input class="form-control feedparam" type="number" name="feed_Turbidity" value="12">
+						</td>
+						<td width="20%">
+							<span id="feed_Turbidity1" class="">NTU</span>
+						</td>
+					</tr>
+					<tr>
+						<td width="50%">Color </td>
+						<td width="25%">
+							<input class="form-control feedparam" type="number" name="feed_Color" value="12">
+						</td>
+						<td width="20%">
+							<span id= "feed_Color1" class="">cu</span>
+						</td>
+					</tr>
+					<tr>
+						<td width="50%">TDS </td>
+						<td width="25%">
+							<input class="form-control tdsTotal" type="number" disabled name="feed_TDS">
+						</td>
+						<td width="20%">
+							<span id="feed_TDS_unit" class="col-md-2">mg/l</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		    <!-- <div class="form-group">
+				<label class="control-label unitConversion col-md-3">Flow  </label>
+				<div class="col-md-3">
+				   <input class="form-control feedparam" type="number" name="feed_flow" value="100" />
+				</div>
+				<div class="col-md-2">
+					<span id="feed_TDS1" class="tempUnit" unitType="Volume Flow">(gpm)</span>
+				</div>
+			 </div>
+			 <div class="form-group">
+				<label class="control-label unitConversion col-md-3">Temperature </label>
+				<div class="col-md-3">
+				   <input class="form-control tempVal feedparam" type="number" name="feed_Temperature" value="32" />
+				</div>
+				<div class="col-md-2"><span id="feed_Temperature1" class="tempUnit" unitType="Temperature">C</span></div>
+			 </div> 
+			 <div class="form-group">
+				<label class="control-label unitConversion col-md-3">Pressure </label>
+				<div class="col-md-3">
+				   <input class="form-control tempVal feedparam" type="number" name="feed_Pressure" value="2" >
+				</div>
+				<div class="col-md-2"><span id="feed_Pressure1" class="tempUnit" unitType="Pressure">C</span></div>
+			 </div> 
+			 <div class="form-group">
+				<label class="control-label col-md-3">Total Akalinity </label>
+				<div class="col-md-3">
+				   <input class="form-control negative" type="number" name="feed_Total_Akalinity" value="120">
+				</div>
+				<div id="feed_Total_Akalinity1" class="col-md-2">ppm CaCO3</div>
+			 </div> 
+			 <div class="form-group">
+				<label class="control-label col-md-3">PH </label>
+				<div class="col-md-3">
+				   <input class="form-control feedparam" type="number" name="feed_pH" value="7" />
+				</div>
+				<div id="feed_pH1" class="col-md-2"></div>
+			 </div> 
+			 <div class="form-group">
+				<label class="control-label col-md-3">TSS  </label>
+				<div class="col-md-3">
+				   <input class="form-control feedparam" type="number" name="feed_TSS" value="12">
+				</div>
+				<div id="feed_TSS1" class="col-md-2">mg/l</div>
+			 </div> 
+			 <div class="form-group">
+				<label class="control-label col-md-3">TOC  </label>
+				<div class="col-md-3">
+				   <input class="form-control feedparam" type="number" name="feed_TOC" value="14">
+				</div>
+				<div id="feed_TOC1" class="col-md-2">mg/l</div>
+			 </div> 
+			 <div class="form-group">
+				<label class="control-label col-md-3">DOC </label>
+				<div class="col-md-3">
+				   <input class="form-control feedparam" type="number" name="feed_DOC" value="14">
+				</div>
+				<div id="feed_DOC1" class="col-md-2">mg/l</div>
+			 </div> 
+			 <div class="form-group">
+				<label class="control-label col-md-3">TKN  </label>
+				<div class="col-md-3">
+				   <input class="form-control feedparam" type="number" name="feed_TKN" value="132">
+				</div>
+				<div id="feed_TKN1" class="col-md-2">mg/l</div>
+			 </div> 
+			 <div class="form-group">
+				<label class="control-label col-md-3">Turbidity  </label>
+				<div class="col-md-3">
+				   <input class="form-control feedparam" type="number" name="feed_Turbidity" value="12">
+				</div>
+				<div id="feed_Turbidity1" class="col-md-2">NTU</div>
+			 </div> 
+			 <div class="form-group">
+				<label class="control-label col-md-3">Color  </label>
+				<div class="col-md-3">
+				   <input class="form-control feedparam" type="number" name="feed_Color" value="12">
+				</div>
+				<div id= "feed_Color1" class="col-md-2">cu</div>
+			 </div> 
+			 <div class="form-group">
+				<label class="control-label col-md-3">TDS </label>
+				<div class="col-md-3">
+				   <input class="form-control tdsTotal" type="number" name="feed_TDS">
+				</div>
+				<div id="feed_TDS1" class="col-md-2">mg/l</div>
+			 </div>-->
+			 
+			 
+			 <!-- <div class="form-group">
+				<label class="control-label">SDI </label>
+				<div>
+				   <input class="form-control" data-attr="SDI" onfocus="this.select()" onmouseup="return false" pattern="[0-9]+([.][0-9]+)?">
+				</div>
+			 </div> -->
+		  </form>
+	   </div>
+	</div>
+	<!-- <div class="col-md-12 col-sm-12 col-xs-12 Saturation">
+	    <div class="col-md-12 co-sm-12 col-xs-12">
+		  <h3 class="col-md-12 co-sm-12 col-xs-12">Saturation Data (Feed Water)</h3>
+		  <div>
+			 <table class="col-md-12 co-sm-12 col-xs-12">
+				<tbody><tr>
+				   <td align="left" class="bold">BaSO4</td>
+				   <td align="right" data-attr="BaSo4" class="bold">0.00 %</td>
+				</tr>
+				<tr>
+				   <td align="left">CaF2</td>
+				   <td align="right" data-attr="CaF2">0.00 %</td>
+				</tr>
+				<tr>
+				   <td align="left">CaSO4</td>
+				   <td align="right" data-attr="CaSO4">0.00 %</td>
+				</tr>
+				<tr>
+				   <td align="left">SiO2</td>
+				   <td align="right" data-attr="SiO2">0.00 %</td>
+				</tr>
+				<tr>
+				   <td align="left">SrSO4</td>
+				   <td align="right" data-attr="SrSO4">0.00 %</td>
+				</tr>
+				<tr>
+				   <td align="left">Struvite</td>
+				   <td align="right" data-attr="Struvite">0.00 %</td>
+				</tr>
+				<tr>
+				   <td align="left">LSI</td>
+				   <td align="right" data-attr="LSI">0.00 </td>
+				</tr>
+				<tr>
+				   <td align="left">Stiff-Davis index</td>
+				   <td align="right" data-attr="StiffDavisIndex">0.00</td>
+				</tr>
+				<tr>
+				   <td align="left">Osmotic Pressure</td>
+				   <td align="right" data-attr="OsmoticPressure"><span class="pressText" original="0.00">0.00</span><span class="pressUnit"> psi</span></td>
+				</tr>
+				<tr>
+				   <td align="left">Conductivity at 25C</td>
+				   <td align="right" data-attr="Conductivity">0.0 &mu;S/cm</td>
+				</tr>
+				<tr>
+				   <td align="left">Density</td>
+				   <td align="right" data-attr="Density">0.00 kg/m3</td>
+				</tr>
+			 </tbody></table>
+		  </div>
+	   </div> 
+	</div>-->
+ </div>
+<div class="col-md-12 col-sm-12 col-xs-12">
+	<div class="popUpTabError"></div>
+</div>
+ <div class="col-md-12 col-sm-12 col-xs-12 footer">
+	<!-- <div class="col-md-9 col-sm-9 col-xs-9 left-btn">
+	   <button type="button" class="btn exportBtn">Export</button>
+	   <button type="button" class="btn importBtn">Import</button>
+	   <div style="visibility: hidden;height: 0px;margin: 0px;padding: 0px;">
+		  <input type="file" accept=".csv" onfocus="this.select()" onmouseup="return false" pattern="[0-9]+([.][0-9]+)?">
+	   </div>
+	</div> 
+	<div class="col-md-3 col-sm-3 col-xs-3 right-btn">-->
+		
+		<button type="button" class="btn clrBtn" id="blueButton">Clear Values</button>
+		<button type="button" class="btn updateBtn" id="blueButton">Update</button>
+	   <button type="button" class="btn cancelBtn" id="blueButton">Cancel</button>
+	   <!-- <button type="button" class="btn pull-right okBtn disabled" disabled="disabled">OK</button> -->
+	<!-- </div> -->
+ </div>
+</div>
