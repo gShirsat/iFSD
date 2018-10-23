@@ -3,7 +3,7 @@ var unitConverionDone=false;
 
 $('body').on('click', '.filters', function () {
 	var id = $(this).attr('id');
-	console.log('here');
+	inputErrorRemove('filterspopUp');
 	$('.filterspopUp').removeClass('dispNone');
 	$('.filterspopUp #filterType').val("Vertical Multimedia Filter");
 	//$('.filterspopUp #filterType').trigger("change");
@@ -65,7 +65,7 @@ $('body').on('click', '.filters', function () {
     $(".filterspopUp input[name=maxFlowRate]").val(getSavedData_filters.maxFlowRate);
     $(".filterspopUp input[name=installedUnits]").val(getSavedData_filters.installedUnits);
     $(".filterspopUp input[name=unitsInService]").val(getSavedData_filters.unitsInService);
-    $(".filterspopUp input[name=inletSolids]").val(getSavedData_filters.inletSolids);
+    //$(".filterspopUp input[name=inletSolids]").val(getSavedData_filters.inletSolids);
     $(".filterspopUp input[name=loadingRate]").val(getSavedData_filters.loadingRate);
     $(".filterspopUp input[select=airScourId]").val(getSavedData_filters.airScourId);
     $(".filterspopUp input[select=subSurfaceWashId]").val(getSavedData_filters.subSurfaceWashId);
@@ -140,12 +140,12 @@ $('body').on('click', '.filters', function () {
 	$('#sandDepthFilter').show();
     $('#anthraDepthFilter').show();
     $('#garnetDepthFilter').show();
-	$('#filterType').val('Vertical Multimedia Filter');
+	$('#filterType').val('Select');
     $(".filterspopUp input[name=designFlowRate]").val('');
     $(".filterspopUp input[name=maxFlowRate]").val('');
     $(".filterspopUp input[name=installedUnits]").val(1);
     $(".filterspopUp input[name=unitsInService]").val(1);
-    $(".filterspopUp input[name=inletSolids]").val('');
+    //$(".filterspopUp input[name=inletSolids]").val('');
     $(".filterspopUp input[name=loadingRate]").val(2);
     $(".filterspopUp select[select=airScourId]").val('Yes');
     $(".filterspopUp select[select=subSurfaceWashId]").val('Yes');
@@ -155,23 +155,23 @@ $('body').on('click', '.filters', function () {
 
     $(".filterspopUp input[name=inletTotalCarbon]").val('');
     $(".filterspopUp input[name=inletChlorine]").val('');
-    $(".filterspopUp input[name=mediaBed]").val('');
+    $(".filterspopUp input[name=mediaBed]").val(30);
     $(".filterspopUp input[name=backWashTemphigh]").val('');
     $(".filterspopUp input[name=backWashTempLow]").val('');
     $(".filterspopUp select[name=postBackWash]").val('Yes');
     $(".filterspopUp input[name=designPressure]").val('');
     $(".filterspopUp input[name=corrosionAllowance]").val(0);
-    $(".filterspopUp select[name=choiceLining]").val('Plasite');
+    $(".filterspopUp select[name=choiceLining]").val('Select');
     $(".filterspopUp input[name=outerDia]").val('');
     $(".filterspopUp input[name=tanLength]").val('');
-    $(".filterspopUp select[name=headType]").val('ASME F&D');
+    $(".filterspopUp select[name=headType]").val('Select');
     $(".filterspopUp input[name=sandDepthId]").val(0.3048);
     $(".filterspopUp input[name=anthraId]").val(0.4572);
     $(".filterspopUp input[name=garnetId]").val(0.2286);
     $(".filterspopUp input[name=greenSandLoad]").val(0.2286);
-    $(".filterspopUp select[name=subFillTypeId]").val('Carbon');
+    $(".filterspopUp select[name=subFillTypeId]").val('Select');
     $(".filterspopUp select[name=anthraciteCapId]").val('Yes');
-    //$(".filterspopUp input[name=anthraciteCarbonVolume]").val('');
+    //$(".filterspopUp input[name=anthraciteCarbonVolume]").val(''); 
     //$(".filterspopUp input[name=subFill]").val('');
     $(".filterspopUp input[name=anthraciteDepCap]").val('');
     $(".filterspopUp input[name=shellJointEfficiency]").val(0.85);
@@ -191,10 +191,10 @@ $('body').on('click', '.filters', function () {
 			if ($tds.eq(1).find('input').val() != '' && $tds.eq(1).find('input').val() != undefined) {
 				var value2 = $tds.eq(2).text();
 				var value1 = $tds.eq(1).find('input').val();
-				console.log(value2+'Unit');
+				//console.log(value2+'Unit');
 				if (value2 != '' && value2 != undefined && value1 != '' && value1 != undefined && getUnitType != '-'
 				&& getUnitType != '' && getUnitType != undefined) {
-				  console.log($tds.eq(1).find('input').attr('name'));
+				  //console.log($tds.eq(1).find('input').attr('name'));
 
 				var m;
 				try {
@@ -230,7 +230,7 @@ $('body').on('click', '.filterspopUp .updateBtn', function (e) {
   $(".filterspopUp input[name=maxFlowRate]").css('border', '1px solid #e1e2e5');
   $(".filterspopUp input[name=installedUnits]").css('border', '1px solid #e1e2e5');
   $(".filterspopUp input[name=unitsInService]").css('border', '1px solid #e1e2e5');
-  $(".filterspopUp input[name=inletSolids]").css('border', '1px solid #e1e2e5');
+  //$(".filterspopUp input[name=inletSolids]").css('border', '1px solid #e1e2e5');
   $(".filterspopUp input[name=inletTotalCarbon]").css('border', '1px solid #e1e2e5');
   $(".filterspopUp input[name=inletChlorine]").css('border', '1px solid #e1e2e5');
   $(".filterspopUp input[name=loadingRate]").css('border', '1px solid #e1e2e5');
@@ -262,15 +262,28 @@ $('body').on('click', '.filterspopUp .updateBtn', function (e) {
   $(".filterspopUp input[name=refillTime]").css('border', '1px solid #e1e2e5');
   $(".filterspopUp input[name=rinseTime]").css('border', '1px solid #e1e2e5');
   $(".filterspopUp input[name=surfaceWashTime]").css('border', '1px solid #e1e2e5');
+  $('#filterType').css('border', '1px solid #e1e2e5');
+  $(".filterspopUp select[name=choiceLining]").css('border', '1px solid #e1e2e5');
+  $(".filterspopUp select[name=subFillTypeId]").css('border', '1px solid #e1e2e5');
+  
+if($('#filterType').val() == "Select"){
+	validFlag = 1;
+	$('#filterType').css('border', '1px solid red');
+}
+if($(".filterspopUp select[name=headType]").val() == "Select"){
+	validFlag = 1;
+	$(".filterspopUp select[name=headType]").css('border', '1px solid red');
+}
+
 
 if ($(".filterspopUp input[name=loadingRate]").val() == "") {
 	validFlag = 1;
 	$(".filterspopUp input[name=loadingRate]").css('border', '1px solid red');
 }
-if ($(".filterspopUp input[name=inletSolids]").val() == "") {
+/* if ($(".filterspopUp input[name=inletSolids]").val() == "") {
 	validFlag = 1;
 	$(".filterspopUp input[name=inletSolids]").css('border', '1px solid red');
-}
+} */
 if($('#filterType').val() == "Greensand Filter"){
 	if ($(".filterspopUp input[name=greenSandLoadId]").val() == "" || ($(".filterspopUp input[name=greenSandLoadId]").val() < "0" || $(".filterspopUp input[name=greenSandLoadId]").val() > "15")) {
 		validFlag = 1;
@@ -305,7 +318,7 @@ if($('#filterType').val() == "Greensand Filter"){
     validFlag = 1;
     $(".filterspopUp input[name=designPressure]").css('border', '1px solid red');
   }
-  if ($(".filterspopUp select[name=choiceLining]").val() == "") {
+  if ($(".filterspopUp select[name=choiceLining]").val() == "Select") {
     validFlag = 1;
     $(".filterspopUp select[name=choiceLining]").css('border', '1px solid red');
   }
@@ -371,6 +384,13 @@ if($('#filterType').val() == "Greensand Filter"){
     validFlag = 1;
     $(".filterspopUp input[name=unitsInService]").css('border', '1px solid red');
   }
+  if($('#filterType').val() == 'Activated Carbon Filter'){
+	  
+	  if ($(".filterspopUp select[name=subFillTypeId]").val() == "Select") {
+		validFlag = 1;
+		$(".filterspopUp select[name=subFillTypeId]").css('border', '1px solid red');
+	  }
+  }
 
 
   //if (validFlag == 0) {
@@ -378,7 +398,7 @@ if($('#filterType').val() == "Greensand Filter"){
     inputData.maxFlowRate = $(".filterspopUp input[name=maxFlowRate]").val();
     inputData.installedUnits = $(".filterspopUp input[name=installedUnits]").val();
     inputData.unitsInService = $(".filterspopUp input[name=unitsInService]").val();
-    inputData.inletSolids = $(".filterspopUp input[name=inletSolids]").val();
+    //inputData.inletSolids = $(".filterspopUp input[name=inletSolids]").val();
     
     inputData.mediaBed = $(".filterspopUp input[name=mediaBed]").val();
     inputData.backWashTemphigh = $(".filterspopUp input[name=backWashTemphigh]").val();
@@ -403,7 +423,7 @@ if($('#filterType').val() == "Greensand Filter"){
 		inputData.airScourId = "";
 		inputData.subSurfaceWashId = "";
 	}else{
-		inputData.subFillTypeId = "";
+		inputData.subFillTypeId = "Select";
 		inputData.airScourId = $(".filterspopUp select[name=airScourId]").val();
 		inputData.subSurfaceWashId = $(".filterspopUp select[name=subSurfaceWashId]").val();
 		inputData.inletTotalCarbon = "";
@@ -413,7 +433,7 @@ if($('#filterType').val() == "Greensand Filter"){
 		inputData.anthraciteCapId = $(".filterspopUp select[name=anthraciteCapId]").val();
 		inputData.greenSandLoadId =$(".filterspopUp input[name=greenSandLoadId]").val();
 	}else{
-		inputData.anthraciteCapId = "";
+		inputData.anthraciteCapId = "Yes";
 		inputData.greenSandLoadId = "";
 	}
 	if($('#filterType').val() == 'Vertical Multimedia Filter' || $('#filterType').val() == 'Horizontal Multimedia Filter'){
@@ -619,7 +639,18 @@ $(document).on('change', '.filterspopUp input', function () {
     }
     $(this).val(val);
 });
-//End hide show filter parameters
+
+//on Enter press next input 
+$(document).on('keypress', '.filterspopUp input,.filterspopUp select', function (e) {
+    if (e.which == 13) {
+        e.preventDefault();
+        // Get all focusable elements on the page
+        var $canfocus = $(':focusable');
+        var index = $canfocus.index(document.activeElement) + 1;
+        if (index >= $canfocus.length) index = 0;
+        $canfocus.eq(index).focus();
+    }
+});
 
 
 

@@ -1,5 +1,6 @@
 $('body').on('click', '.Tank-Splitter', function(){
 	var id=$(this).attr('id');
+	inputErrorRemove('tankSplitterPopup');
 	$('.tankSplitterPopup').removeClass('dispNone');
 	$('.tankSplitterPopup').show();
 	$('.popUpTabError').text('');

@@ -1,5 +1,6 @@
 $('body').on('click', '.CO2', function(){
 	var id=$(this).attr('id');
+	inputErrorRemove('co2Popup');
 	$('.co2Popup').removeClass('dispNone');
 	$('.co2Popup').show();
 	$('.popUpTabError').text('');
@@ -273,5 +274,16 @@ $(document).on('change', '.co2Popup .fiveDecimal', function () {
 	var thisVal = $(this).val();
 	var values = parseFloat(thisVal).toFixed(5);
 	$(this).val(values);
+});
+//on Enter press next input 
+$(document).on('keypress', '.co2Popup input,.co2Popup select', function (e) {
+    if (e.which == 13) {
+        e.preventDefault();
+        // Get all focusable elements on the page
+        var $canfocus = $(':focusable');
+        var index = $canfocus.index(document.activeElement) + 1;
+        if (index >= $canfocus.length) index = 0;
+        $canfocus.eq(index).focus();
+    }
 });
 

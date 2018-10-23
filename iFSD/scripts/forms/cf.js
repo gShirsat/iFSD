@@ -3,6 +3,8 @@ var unitConverionDone=false;
 $('body').on('click', '.CF', function () {	
 	//$('.popUp :input[type="number"]').attr('step','any');
     var id = $(this).attr('id');
+	//input Number error
+	inputErrorRemove('cfPopUp');
     $('.cfPopUp').removeClass('dispNone');
     $('.cfPopUp').show();
 	$('.cfPopUp .body ul.nav li').removeClass('active');
@@ -65,7 +67,7 @@ $('body').on('click', '.CF', function () {
        // $(".cfPopUp textarea[name=cf_Note]").val(getSavedData_cf.cf_Note);
     }else{
 		$(".cfPopUp input[name=cfflowTieId]").val('');
-		$("select[name=cffilterTypeOptions]").val('RO.Zs 01-20');
+		$("select[name=cffilterTypeOptions]").val('Select');
 	}
 });
 
@@ -75,6 +77,7 @@ $('body').on('click', '.cfPopUp .updateBtn', function () {
     var validFlag = 0;
     $(".cfPopUp input[name=cftotalFeedFlowId]").css('border', '1px solid #e1e2e5');
     $(".cfPopUp input[name=cfflowTieId]").css('border', '1px solid #e1e2e5');
+    $("#cffilterTypeOptions").css('border', '1px solid #e1e2e5');
     
 
     if ($(".cfPopUp input[name=cftotalFeedFlowId]").val() == "") {
@@ -83,8 +86,11 @@ $('body').on('click', '.cfPopUp .updateBtn', function () {
     }
     if ($(".cfPopUp input[name=cfflowTieId]").val() == "" ) {
         validFlag = 1;
-        $(".cfPopUp input[name=cfflowTieId]").css('border', '1px solid red');
-      
+        $(".cfPopUp input[name=cfflowTieId]").css('border', '1px solid red');      
+    }
+	if ($("#cffilterTypeOptions").val() == "Select" ) {
+        validFlag = 1;
+        $("#cffilterTypeOptions").css('border', '1px solid red');      
     }
     //if (validFlag == 0) {
         inputData.cftotalFeedFlowId = $(".cfPopUp input[name=cftotalFeedFlowId]").val();
@@ -120,4 +126,15 @@ $(document).on('change', '.cfPopUp input', function () {
 	// If we have no match, value will be empty.
 	this.value = "";
 	}
+});
+//on Enter press next input 
+$(document).on('keypress', '.cfPopUp input,.cfPopUp select', function (e) {
+    if (e.which == 13) {
+        e.preventDefault();
+        // Get all focusable elements on the page
+        var $canfocus = $(':focusable');
+        var index = $canfocus.index(document.activeElement) + 1;
+        if (index >= $canfocus.length) index = 0;
+        $canfocus.eq(index).focus();
+    }
 });

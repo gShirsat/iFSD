@@ -10,29 +10,28 @@
 		<div class="clearfix"></div>
 		<div class="Input tabDiv genericSrollBox">			
 			<table class="table table-bordered margin0 tableScroller" id="Input">
-				<tbody>
+				<tbody>					
 					<tr>
-						<!-- <tr><td width="40%" unitType="Volume Flow">Flow</td><td width="30%"><input type="number" name="flow" value="" min="1" max="500" class="maxNumber" /></td><td width="30%">m3/hr</td></tr>
-						<tr><td unitType="Temperature">Temp</td><td ><input type="number" name="temp" value="" /></td><td>°C</td></tr>
-						<tr><td unitType="-">Na</td><td><input type="number" name="na" value="" /></td><td>ppm </td></tr>
-						<tr><td unitType="-">K </td><td><input type="number" name="k" value=""/></td><td>ppm </td></tr>
-						<tr><td unitType="-">Ca </td><td><input type="number" name="ca" value=""/></td><td>ppm </td></tr>
-						<tr><td unitType="-">Mg </td><td><input type="number" name="mg" value=""/></td><td>ppm </td></tr>
-						<tr><td unitType="-">HCO3 </td><td><input type="number" name="hCO3" value=""/></td><td>ppm </td></tr>
-						<tr><td unitType="-">CO3 </td><td><input type="number" name="cO3" value=""/></td><td>ppm </td></tr>
-						<tr><td unitType="-">CO2 </td><td><input type="number" name="c2" value=""/></td><td>ppm </td></tr>
-						<tr><td unitType="-">Cl </td><td><input type="number" name="cl" value=""/></td><td>ppm </td></tr>
-						<tr><td unitType="-">SO4 </td><td><input type="number" name="sO4" value=""/></td><td>ppm </td></tr>
-						<tr><td unitType="-">B </td><td><input type="number" name="b" value=""/></td><td>ppm </td></tr> -->					
-						<tr><td><strong>Dosage</strong></td><td></td><td></td></tr>
-						<tr><td width="40%">CO2 addition </td><td width="30%"><input type="number" name="cO2" class="twoDecimal" value=""/></td><td id="cO21" width="30%">ppm </td></tr>
-						<tr><td >Ca(OH)2 </td><td><input type="number" name="caOH2" class="twoDecimal" value=""/></td id="caOH21"><td>ppm </td></tr>
-						<tr><td >NaOH </td><td><input type="number" name="naOH" class="twoDecimal" value=""/></td><td id="naOH1">ppm </td></tr>
+						<td><strong>Dosage</strong></td><td></td><td></td>
+					</tr>
+					<tr>
+						<td width="40%">CO2 addition <span class="requiredInp">*</span></td>
+						<td width="30%"><input type="number" name="cO2" class="twoDecimal" value=""/></td>
+						<td id="cO21" width="30%">ppm </td>
+					</tr>
+					<tr>
+						<td >Ca(OH)2 <span class="requiredInp">*</span></td>
+						<td><input type="number" name="caOH2" class="twoDecimal" value=""/></td>
+						<td id="caOH21">ppm </td>
+					</tr>
+					<tr>
+						<td >NaOH <span class="requiredInp">*</span></td>
+						<td><input type="number" name="naOH" class="twoDecimal" value=""/></td>
+						<td id="naOH1">ppm </td>
 					</tr>
 				</tbody>
 			</table>
-						
-			
+			<div class="note" style="background:none;">All  <span class="requiredInp">*</span> marked fields are mandatory <span class="clearfix"></span></div>			
 		</div>
 		<div class="Output tabDiv dispNone genericSrollBox">
 			<table class="table table-bordered margin0 tableScroller" id="Input">
@@ -59,10 +58,6 @@
 					<tr><td unitType="Mass Flow">CO2 Flow Rate</td><td><span class="output_SO4 twoDecimalOut"></span></td><td>ppm</td><td></td><td></td></tr>
 					<tr><td unitType="Mass Flow">Ca(OH)2 Flow Rate</td><td><span class="output_SO4 twoDecimalOut"></span></td><td>ppm</td><td></td><td></td></tr>
 					<tr><td unitType="Mass Flow">NaOH Flow Rate</td><td><span class="output_SO4 twoDecimalOut"></span></td><td>ppm</td><td></td><td></td></tr>
-					<!-- <tr><td>Dosage</td><td></td><td></td><td></td><td></td></tr>
-					<tr><td>CO2</td><td><span class="output_dosage_CO2_1"></span></td><td>ppm</td><td><span class="output_dosage_CO2_2"></span></td><td>kg/hr</td></tr>
-					<tr><td>Ca(OH)2</td><td><span class="output_dosage_CaOH2_1"></span></td><td>ppm</td><td><span class="output_dosage_CaOH2_2" value=""/></td><td>kg/hr</td></tr>
-					<tr><td>NaOH</td><td><span class="output_dosage_NaOH_1"></span></td><td>ppm</td><td><span class="output_dosage_NaOH_2"></span></td><td>kg/hr</td></tr> -->
 				</tbody>
 			</table>
 		</div>
@@ -73,43 +68,41 @@
 		<div class="Calculation tabDiv dispNone genericSrollBox">
 			<p>
 			Number of streams required to execute the unitop<br>
-							Input-   1 Stream<br>
-							Output - 1 Stream<br>
-							<br>
-			<strong>Calculations: Reaction: 2CO2 + Ca(OH)2 = Ca(HCO3)2</strong></p>
-
-<strong>Stream 1:</strong>
-<p>
-Total Hardness, Alkalinity<br>
-pH = 6.3+LOG10(HCO3*0.82/CO2)<br>
-LSI = (pH+LOG10(Ca/40000)+LOG10(HCO3*0.82/50000)-2.514+ <br> Temperature *0.0193 (2.5*SQRT(TDS*0.000025)/ <br> (1+5.3*SQRT(TDS*0.000025)+5.5*TDS*0.000025)))
-</p>
-<strong>Stream 2 (CO2 Addition):</strong>
-<p>
-CO2 stream 2 = CO2 stream 1 + CO2 added<br>
-Total Hardness, Alkalinity, pH, LSI<br>
-</p>
-<strong>Stream 3 (Ca(OH)2 addition):</strong>
-<p>
-Ca stream 3 = Ca stream 2 + Ca(OH)2*40/70<br>
-HCO3 stream 3 = HCO3 stream2 + Ca(OH)2*61/74<br>
-CO2 stream 3 = CO2 stream 2 - Ca(OH)2*44/74<br>
-Total Hardness, Alkalinity, pH, LSI
-</p> 
-<strong>Stream 4 (NaOH) addition:</strong>
-<p>
-Na stream 4 = Na stream 3 + NaOH*23/40<br>
-HCO3 stream 4 = HCO3 stream 3 + NaOH*61/40<br>
-CO2 stream 4 = CO2 stream 3 - NaOH*44/40<br>
-Total Hardness, Alkalinity, pH, LSI </p>
-
-<p><strong>Calculations: </strong></p>
-<ul>
-	<li>CO2 Consumption = Flow Rate * CO2/1000</li>
-	<li>CaOH2 Consumption = Flow Rate * Ca(OH)2/1000</li>
-	<li>NaOH Consumption = Flow Rate * NaOH/1000</li>
-</ul>
-
+			Input-   1 Stream<br>
+			Output - 1 Stream<br> <br>
+			<strong>Calculations: Reaction: 2CO2 + Ca(OH)2 = Ca(HCO3)2</strong>
+			</p>
+			<strong>Stream 1:</strong>
+			<p>
+			Total Hardness, Alkalinity<br>
+			pH = 6.3+LOG10(HCO3*0.82/CO2)<br>
+			LSI = (pH+LOG10(Ca/40000)+LOG10(HCO3*0.82/50000)-2.514+ <br> Temperature *0.0193 (2.5*SQRT(TDS*0.000025)/ <br> (1+5.3*SQRT(TDS*0.000025)+5.5*TDS*0.000025)))
+			</p>
+			<strong>Stream 2 (CO2 Addition):</strong>
+			<p>
+			CO2 stream 2 = CO2 stream 1 + CO2 added<br>
+			Total Hardness, Alkalinity, pH, LSI<br>
+			</p>
+			<strong>Stream 3 (Ca(OH)2 addition):</strong>
+			<p>
+			Ca stream 3 = Ca stream 2 + Ca(OH)2*40/70<br>
+			HCO3 stream 3 = HCO3 stream2 + Ca(OH)2*61/74<br>
+			CO2 stream 3 = CO2 stream 2 - Ca(OH)2*44/74<br>
+			Total Hardness, Alkalinity, pH, LSI
+			</p> 
+			<strong>Stream 4 (NaOH) addition:</strong>
+			<p>
+			Na stream 4 = Na stream 3 + NaOH*23/40<br>
+			HCO3 stream 4 = HCO3 stream 3 + NaOH*61/40<br>
+			CO2 stream 4 = CO2 stream 3 - NaOH*44/40<br>
+			Total Hardness, Alkalinity, pH, LSI 
+			</p>
+			<p><strong>Calculations: </strong></p>
+			<ul>
+				<li>CO2 Consumption = Flow Rate * CO2/1000</li>
+				<li>CaOH2 Consumption = Flow Rate * Ca(OH)2/1000</li>
+				<li>NaOH Consumption = Flow Rate * NaOH/1000</li>
+			</ul>
 		</div>
 	</div>
 	<div class="footer col-md-12 col-sm-12 col-xs-12">

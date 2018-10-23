@@ -1,6 +1,7 @@
 //EDI
 $('body').on('click', '.SF', function () {
     var id = $(this).attr('id');
+	inputErrorRemove('strainerPopUp');
     $('.strainerPopUp').removeClass('dispNone');
     $('.strainerPopUp').show();
 	$('.strainerPopUp .body ul.nav li').removeClass('active');
@@ -51,8 +52,8 @@ $('body').on('click', '.SF', function () {
     }else{
 		$(".strainerPopUp input[name=recoveryId]").val('');
 		$('#feedwaterFilter').show();
-		$('#applicationId').val('Non MBR');
-		$('#feedWaterId').val('Surface Water');
+		$('#applicationId').val('Select');
+		$('#feedWaterId').val('Select');
 	}
 });
 
@@ -61,9 +62,17 @@ $('body').on('click', '.strainerPopUp .updateBtn', function (e) {
     var inputData = {};
     var validFlag = 0;
     $(".strainerPopUp input[name=recoveryId]").css('border', '1px solid #e1e2e5');
-    
-    
-
+    $("#applicationId").css('border', '1px solid #e1e2e5');
+    $("#feedWaterId").css('border', '1px solid #e1e2e5');
+	
+    if($("#applicationId").val() == "Select" ){
+        validFlag = 1;
+        $("#applicationId").css('border', '1px solid red');
+    }
+	if($("#feedWaterId").val() == "Select" ){
+        validFlag = 1;
+        $("#feedWaterId").css('border', '1px solid red');
+    }
     if ($(".strainerPopUp input[name=recoveryId]").val() == "" || $(".strainerPopUp input[name=recoveryId]").val()<0 || $(".strainerPopUp input[name=recoveryId]").val()>100) {
         validFlag = 1;
         $(".strainerPopUp input[name=recoveryId]").css('border', '1px solid red');
@@ -113,4 +122,16 @@ $(document).on('change', '.strainerPopUp input', function () {
 	// If we have no match, value will be empty.
 	this.value = "";
 	}
+});
+
+//on Enter press next input 
+$(document).on('keypress', '.strainerPopUp input,.strainerPopUp select', function (e) {
+    if (e.which == 13) {
+        e.preventDefault();
+        // Get all focusable elements on the page
+        var $canfocus = $(':focusable');
+        var index = $canfocus.index(document.activeElement) + 1;
+        if (index >= $canfocus.length) index = 0;
+        $canfocus.eq(index).focus();
+    }
 });

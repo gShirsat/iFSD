@@ -3,6 +3,11 @@ var executionFlag = false;
 $(document).ready(function () {
 	
 	$('.overlay').show();
+	
+	$('#dataSheetExcel').removeAttr("href", "#");
+	$('#dataSheetPDF').removeAttr("href", "#");
+	$('#massBalncePdf').removeAttr("href", "#");
+	$('#massBalanceExcel').removeAttr("href", "#");
 
 	loadPopUpDetails();
 
@@ -32,6 +37,7 @@ $(document).ready(function () {
 	$("#loadSettings_RM").load('forms/settings/Settings_RM.html');
 	$("#loadFiltraFast").load('forms/filtraFast.html');
 	//$("#loadEdr").load('forms/edr.html');
+	
 
 	//make Draggable
 	$('#loadC02').draggable();
@@ -50,6 +56,10 @@ $(document).ready(function () {
 	$("#loadDd").draggable();
 	$("#loadEdr").draggable();
 	$("#loadFiltraFast").draggable();
+	
+	$(".demo").draggable({
+	  containment: "parent"
+	});
 
 	exeRunningFirst();
 
@@ -100,7 +110,6 @@ $(document).ready(function () {
 
 	}
 
-
 	$("#security").dialog({
 		autoOpen: false,
 		maxWidth: 400,
@@ -147,6 +156,8 @@ $(document).ready(function () {
 
 	//Unit Operation add here
 	$('body').on('click', '#sub-menu-bar .designDiv:not(".pull-right")', function () {
+		var streamCounter = 0;
+		unitOpsLeftPos = unitOpsLeftPos + 70;
 		var isUnitSelected = localStorage.getItem('SelectedUnits');
 		//if(isUnitSelected){
 		//var name=$(this).find('h4').text().replace(' ','_');
@@ -156,7 +167,7 @@ $(document).ready(function () {
 		} else {
 			if(isUnitSelected){
 				var name = $(this).find('h4').text().replace(' ', '_').replace(')', '_').replace('(', '_');
-				if (newCountJson[name]) {
+				if (newCountJson[name] && ($('.'+name+'').length > 0)) {
 					newCountJson[name] = newCountJson[name] + 1;
 				} else {
 					newCountJson[name] = 1;
@@ -166,14 +177,16 @@ $(document).ready(function () {
 
 				var html;
 				var classname;
+				var anchorNameSource;
+				var anchorNameTarget;
 				if ($(this).parent().attr('id') == 'Filters' && (name == 'MF'))
 					classname = name + ' filters';
 
 				if (name == 'EDI' || name == 'MF' || name == 'SF' || name == 'FF') {
 					if (classname != undefined)
-						html = '<div class="w join testClass ' + classname + '" maxIn="1" maxOut="2" id="' + id + '" style="left: 7px; top: 31px;" title="'+name+'">';
+						html = '<div class="w join testClass ' + classname + '" maxIn="1" maxOut="2" id="' + id + '" style="left: '+unitOpsLeftPos+'px; top: 31px;" title="'+name+'">';
 					else
-						html = '<div class="w join testClass ' + name + '" maxIn="1" maxOut="2" id="' + id + '" style="left: 7px; top: 31px;" title="'+name+'">';
+						html = '<div class="w join testClass ' + name + '" maxIn="1" maxOut="2" id="' + id + '" style="left: '+unitOpsLeftPos+'px; top: 31px;" title="'+name+'">';
 					html = html + '<p class="txt-elipse" >' + name + '</p>' +
 						'<img style="width: 34px;height: 34px;" src="' + $(this).find('img').attr('src') + '">' +
 						'<div class="ep blue_Anchor" title="Product Stream"></div>' +
@@ -183,8 +196,10 @@ $(document).ready(function () {
 						'<span class="dl">x</span>' +
 						'<input type="text" class="edit" value="' + id + '" id="span' + id + '" maxlength="15" >' +
 						'</div>';
+						anchorNameSource = ["Right", "Bottom"];
+						anchorNameTarget = ["Left"];
 				} else if (name == 'Feed') {
-					html = '<div class="w join testClass ' + name + '" maxIn="0" maxOut="1" id="' + id + '" style="left: 7px; top: 31px;" title="'+name+'">' +
+					html = '<div class="w join testClass ' + name + '" maxIn="0" maxOut="1" id="' + id + '" style="left: '+unitOpsLeftPos+'px; top: 31px;" title="'+name+'">' +
 						'<p class="txt-elipse" >' + name + '</p>' +
 						'<img style="width: 34px;height: 34px;" src="' + $(this).find('img').attr('src') + '">' +
 						'<div class="ep blue_Anchor" title="Product Stream"></div>' +
@@ -194,8 +209,10 @@ $(document).ready(function () {
 						'<span class="dl">x</span>' +
 						'<input type="text" class="edit" value="' + id + '" id="span' + id + '" maxlength="15" >' +
 						'</div>';
+						anchorNameSource = ["Right"];
+						anchorNameTarget = ["Left"];
 				} else if (name == 'RO') {
-					html = '<div class="w join testClass ' + name + '" maxIn="1" maxOut="2" id="' + id + '" style="left: 7px; top: 31px;" title="'+name+'">' +
+					html = '<div class="w join testClass ' + name + '" maxIn="1" maxOut="2" id="' + id + '" style="left: '+unitOpsLeftPos+'px; top: 31px;" title="'+name+'">' +
 						'<p class="txt-elipse" >' + name + '</p>' +
 						'<img style="width: 34px;height: 34px;" src="' + $(this).find('img').attr('src') + '">' +
 						'<div class="ep blue_Anchor" title="Product Stream"></div>' +
@@ -205,8 +222,10 @@ $(document).ready(function () {
 						'<span class="dl">x</span>' +
 						'<input type="text" class="edit" value="' + id + '" id="span' + id + '" maxlength="15" >' +
 						'</div>';
+						anchorNameSource = ["Right", "Bottom"];
+						anchorNameTarget = ["Left"];
 				} else if (name == 'MB') {
-					html = '<div class="w join testClass ' + name + '" maxIn="1" maxOut="1" id="' + id + '" style="left: 7px; top: 31px;" title="'+name+'">' +
+					html = '<div class="w join testClass ' + name + '" maxIn="1" maxOut="1" id="' + id + '" style="left: '+unitOpsLeftPos+'px; top: 31px;" title="'+name+'">' +
 						'<p class="txt-elipse" >' + name + '</p>' +
 						'<img style="width: 34px;height: 34px;" src="' + $(this).find('img').attr('src') + '">' +
 						'<div class="ep blue_Anchor" title="Product Stream"></div>' +
@@ -216,8 +235,10 @@ $(document).ready(function () {
 						'<span class="dl">x</span>' +
 						'<input type="text" class="edit" value="' + id + '" id="span' + id + '" maxlength="15" >' +
 						'</div>';
+						anchorNameSource = ["Right"];
+						anchorNameTarget = ["Left"];
 				} else if (name == 'CO2' || name == 'O2' || name == 'Hydratedlime' || name == 'Limestone' || name == 'CF') {
-					html = '<div class="w join testClass ' + name + '" maxIn="1" maxOut="1" id="' + id + '" style="left: 7px; top: 31px;" title="'+name+'">' +
+					html = '<div class="w join testClass ' + name + '" maxIn="1" maxOut="1" id="' + id + '" style="left: '+unitOpsLeftPos+'px; top: 31px;" title="'+name+'">' +
 						'<p class="txt-elipse" >' + name + '</p>' +
 						'<img style="width: 34px;height: 34px;" src="' + $(this).find('img').attr('src') + '">' +
 						'<div class="ep blue_Anchor" title="Product Stream"></div>' +
@@ -227,8 +248,10 @@ $(document).ready(function () {
 						'<span class="dl">x</span>' +
 						'<input type="text" class="edit" value="' + id + '" id="span' + id + '" maxlength="15" >' +
 						'</div>';
+						anchorNameSource = ["Right"];
+						anchorNameTarget = ["Left"];
 				} else if (name == 'Mixer' || name == 'Tank-Mixer') {
-					html = '<div class="w join ' + name + '" maxIn="4" maxOut="1" id="' + id + '" style="left: 7px; top: 31px;" title="'+name+'">' +
+					html = '<div class="w join ' + name + '" maxIn="4" maxOut="1" id="' + id + '" style="left: '+unitOpsLeftPos+'px; top: 31px;" title="'+name+'">' +
 						'<p class="txt-elipse" >' + name + '</p>' +
 						'<img style="width: 34px;height: 34px;" src="' + $(this).find('img').attr('src') + '">' +
 						'<div class="ep blue_Anchor" title="Product Stream"></div>' +
@@ -238,8 +261,10 @@ $(document).ready(function () {
 						'<span class="dl">x</span>' +
 						'<input type="text" class="edit" value="' + id + '" id="span' + id + '" maxlength="15" >' +
 						'</div>';
+						anchorNameSource = ["Right"];
+						anchorNameTarget = ["Left"];
 				} else if (name == 'Splitter' || name == 'Tank-Splitter') {
-					html = '<div class="w join testClass ' + name + '" maxIn="1" maxOut="4" id="' + id + '" style="left: 7px; top: 31px;" title="'+name+'">' +
+					html = '<div class="w join testClass ' + name + '" maxIn="1" maxOut="4" id="' + id + '" style="left: '+unitOpsLeftPos+'px; top: 31px;" title="'+name+'">' +
 						'<p class="txt-elipse" >' + name + '</p>' +
 						'<img style="width: 34px;height: 34px;" src="' + $(this).find('img').attr('src') + '">' +
 						'<div class="ep blue_Anchor" title="Product Stream"></div>' +
@@ -249,11 +274,13 @@ $(document).ready(function () {
 						'<span class="dl">x</span>' +
 						'<input type="text" class="edit" value="' + id + '" id="span' + id + '" maxlength="15" >' +
 						'</div>';
-				} else if (name == 'Lamella') {
+						anchorNameSource = ["Right"];
+						anchorNameTarget = ["Left"];
+				} else if (name == 'Lamella' || name == 'DensaDeg') {
 					if (classname != undefined)
-						html = '<div class="w join testClass ' + classname + '" maxIn="1" maxOut="2" id="' + id + '" style="left: 7px; top: 31px;" title="'+name+'">';
+						html = '<div class="w join testClass ' + classname + '" maxIn="1" maxOut="2" id="' + id + '" style="left: '+unitOpsLeftPos+'px; top: 31px;" title="'+name+'">';
 					else
-						html = '<div class="w join testClass ' + name + '" maxIn="1" maxOut="2" id="' + id + '" style="left: 7px; top: 31px;" title="'+name+'">';
+						html = '<div class="w join testClass ' + name + '" maxIn="1" maxOut="2" id="' + id + '" style="left: '+unitOpsLeftPos+'px; top: 31px;" title="'+name+'">';
 
 					html = html + '<p class="txt-elipse" >' + name + '</p>' +
 						'<img style="width: 34px;height: 34px;" src="' + $(this).find('img').attr('src') + '">' +
@@ -264,7 +291,9 @@ $(document).ready(function () {
 						'<span class="dl">x</span>' +
 						'<input type="text" class="edit" value="' + id + '" id="span' + id + '" maxlength="15" >' +
 						'</div>';
-				} else if (name == 'DensaDeg') {
+						anchorNameSource = ["Right", "Bottom"];
+						anchorNameTarget = ["Left"];
+				}/* else if (name == 'DensaDeg') {
 					if (classname != undefined)
 						html = '<div class="w join testClass ' + classname + '" maxIn="3" maxOut="3" id="' + id + '" style="left: 7px; top: 31px;" title="'+name+'">';
 					else
@@ -279,22 +308,26 @@ $(document).ready(function () {
 						'<span class="dl">x</span>' +
 						'<input type="text" class="edit" value="' + id + '" id="span' + id + '" maxlength="15" >' +
 						'</div>';
-				} else if(name == 'ProductOut' || name == 'WasteOut'){
-					html = '<div class="w join ' + name + '" maxIn="1" maxOut="0" id="' + id + '" style="left: 7px; top: 31px;" title="'+name+'">' +
+						anchorNameSource = ["Right", "Bottom"];
+						anchorNameTarget = ["Left"];
+				} */else if(name == 'ProductOut' || name == 'WasteOut'){
+					html = '<div class="w join ' + name + '" maxIn="1" maxOut="0" id="' + id + '" style="left: '+unitOpsLeftPos+'px; top: 31px;" title="'+name+'">' +
 						'<p class="txt-elipse">' + name + '</p>' +
 						'<img style="width: 34px;height: 34px;" src="' + $(this).find('img').attr('src') + '">' +
-						'<div class="ep" title=""></div>' +
+						//'<div class="ep" title=""></div>' +
 						//'<div class="ep1"></div>'+
-						//'<div class="ep2" title=""></div>'+
-						//'<div class="ep3 red_Anchor" title="Waste Stream"></div>'+
+						'<div class="ep2" title=""></div>'+
+						//'<div class="ep3" title="Waste Stream"></div>'+
 						'<span class="dl">x</span>' +
 						'<input type="text" class="edit" value="' + id + '" id="span' + id + '" maxlength="15" >' +
 						'</div>';
+						anchorNameSource = ["Top"];
+						anchorNameTarget = ["Left"];
 				}else {
 					if (classname != undefined)
-						html = '<div class="w join testClass ' + classname + '" maxIn="2" maxOut="2" id="' + id + '" style="left: 7px; top: 31px;" title="'+name+'">';
+						html = '<div class="w join testClass ' + classname + '" maxIn="2" maxOut="2" id="' + id + '" style="left: '+unitOpsLeftPos+'px; top: 31px;" title="'+name+'">';
 					else
-						html = '<div class="w join testClass ' + name + '" maxIn="2" maxOut="2" id="' + id + '" style="left: 7px; top: 31px;" title="'+name+'">';
+						html = '<div class="w join testClass ' + name + '" maxIn="2" maxOut="2" id="' + id + '" style="left: '+unitOpsLeftPos+'px; top: 31px;" title="'+name+'">';
 
 					html = html + '<p class="txt-elipse" >' + name + '</p>' +
 						'<img style="width: 34px;height: 34px;" src="' + $(this).find('img').attr('src') + '">' +
@@ -305,11 +338,17 @@ $(document).ready(function () {
 						'<span class="dl">x</span>' +
 						'<input type="text" class="edit" value="' + id + '" id="span' + id + '" maxlength="15" >' +
 						'</div>';
+						anchorNameSource = ["Right"];
+						anchorNameTarget = ["Left"];
 				}
 				$('.canvasContainer .demo').append(html);
 				addObject(id);
-				makeDraggable('#' + id);
-				console.log(draggedArray);
+				if(name == 'EDI' || name == 'MF' || name == 'SF' || name == 'FF' || name == 'RO' || name == 'Lamella' || name == 'DensaDeg'){
+					makeDraggableThree('#' + id, anchorNameSource, anchorNameTarget);
+				}else{
+					makeDraggable('#' + id, anchorNameSource, anchorNameTarget);
+				}
+				//console.log(draggedArray);
 			}else{
 				alert('Please select Unit.');
 			}
@@ -320,6 +359,7 @@ $(document).ready(function () {
 	$('body').on('click', '.w .dl', function (e) {
 		var r = confirm("Are you sure, you want to delete?");
 		if (r == true) {
+			
 			var id = $(this).parent().attr('id');
 			jsPlumb.removeAllEndpoints(jsPlumb.getSelector('#' + id));
 			jsPlumb.detachAllConnections(jsPlumb.getSelector('#' + id));
@@ -330,8 +370,14 @@ $(document).ready(function () {
 				localStorage.removeItem(id);
 			}
 			
-			//Remove item form forms array
+			//Remove item form json count
 			var idWihoutNum = id.replace(/[0-9]/g, '');
+			/* if (newCountJson[idWihoutNum]) {
+				newCountJson[idWihoutNum] = newCountJson[idWihoutNum] - 1;
+			} else {
+				newCountJson[idWihoutNum] = 1;
+			} */
+			//Remove item form forms array	
 			if(idWihoutNum == 'CF'){
 				var CF_i = cfFormArray.indexOf(id);
 				if (CF_i != -1) {
@@ -565,11 +611,15 @@ $(document).ready(function () {
 				draggedArray.splice(i, 1);
 			}
 			deleteObject(id);
+			if(draggedArray){
+				unitOpsLeftPos = -70;
+			}
 			e.stopImmediatePropagation();
 			return false;
 		}else{
 			return false;
 		}
+		
 
 	});
 
@@ -812,6 +862,16 @@ $(document).ready(function () {
 								temp.push(obj);
 								return temp;
 							}),
+							anchors: $.map(connection.endpoints, function(endpoint) {
+								return [[endpoint.anchor.x, 
+								endpoint.anchor.y, 
+								endpoint.anchor.getOrientation()[0], 
+								endpoint.anchor.getOrientation()[1],
+								endpoint.anchor.offsets[0],
+								endpoint.anchor.offsets[1]
+								]];
+										
+							  })
 						}]
 
 					});
@@ -824,7 +884,17 @@ $(document).ready(function () {
 							label: $('#' + connection.targetId + ' p')[0].innerHTML, image: $('#' + connection.targetId + ' img').attr('src'), position: $('#' + connection.targetId).attr('style'),
 							class: $('#' + connection.targetId).attr('class'),
 							sourceId: connection.targetId,
-							sourceHeaderText: $('input#span' + connection.targetId).val()
+							sourceHeaderText: $('input#span' + connection.targetId).val(),
+							anchors: $.map(connection.endpoints, function(endpoint) {
+								return [[endpoint.anchor.x, 
+								endpoint.anchor.y, 
+								endpoint.anchor.getOrientation()[0], 
+								endpoint.anchor.getOrientation()[1],
+								endpoint.anchor.offsets[0],
+								endpoint.anchor.offsets[1]
+								]];
+										
+							  })
 						}],
 					});
 				}
@@ -1025,7 +1095,8 @@ $(document).ready(function () {
 				var targetId;
 				var connectionIdsLoaded = "";
 				$.each(jsonData, function (index, elem) {
-					if (elem.connections != undefined)
+					//if (elem.connections != undefined) // made change here for type
+					if (elem.properties != undefined)
 						type = elem.properties[0].label.replace(/[0-9]/g, '');
 
 					//Source
@@ -1119,18 +1190,36 @@ $(document).ready(function () {
 					}
 				});
 
-
-
-
 				$.each(jsonData, function (index1, elem1) {
 					if (elem1.connections != undefined) {
+						/* var name = elem1.properties[0].label;
+						var getSourceID = "#"+elem1.connections[0].sourceId+"" ;
+						var getTargetID = elem1.connections[0].targetId ;
+						var targetIdWNo = getTargetID.replace(/[0-9]/g, '');
+						var	anchorNameSource1, anchorNameTarget1;
+
+						if(name == 'EDI' || name == 'MF' || name == 'SF' || name == 'FF' || name == 'RO' || name == 'Lamella' || name == 'DensaDeg'){
+						if(targetIdWNo == "WasteOut" || targetIdWNo == "Tank-Splitter"){
+							anchorNameSource1 = ["Bottom"];
+						}else{
+							anchorNameSource1 = ["Right"];
+						}
+						anchorNameTarget1 = ["Left"];
+						//makeDraggableThree('#' + getID, anchorNameSource1, anchorNameTarget1);
+						 makeSourceForLoad(getSourceID, anchorNameSource1);
+						}
+						else{
+							anchorNameSource1 = ["Right"];
+							anchorNameTarget1 = ["Left"];
+							//makeDraggable('#' + getID, anchorNameSource1, anchorNameTarget1);
+						} */
+						
 						connection1 = jsPlumb.connect({
 							source: elem1.connections[0].sourceId,
 							target: elem1.connections[0].targetId,
-							filter: ".ep,.ep1,.ep2,.ep3",
-							anchor: "Continuous",
-							connector: ["Flowchart", { stub: [40, 60], gap: 10, cornerRadius: 5, alwaysRespectStubs: false }],
-							connectorStyle: { strokeStyle: "blue", lineWidth: 1.5, outlineColor: "transparent", outlineWidth: 2 },
+							anchors: elem1.connections[0].anchors,
+							//connector: ["Flowchart", { stub: [40, 60], gap: 10, cornerRadius: 5, alwaysRespectStubs: false }],
+							//connectorStyle: { strokeStyle: "blue", lineWidth: 1.5, outlineColor: "transparent", outlineWidth: 2 },
 							overlays: [["Arrow", { width: 10, length: 14, location: 1, foldback: 0.8, id: "arrow" }],
 							["Custom", {
 								create: function (component) {
@@ -1141,10 +1230,11 @@ $(document).ready(function () {
 								id: "customOverlay"
 							}]
 							],
+							
 							endpoint: ["Dot", { radius: 2 }]
 						});
+						
 					}
-
 				});
 				//load Unit in Table ;
 				var getSelectedUnits = JSON.parse(localStorage.getItem('SelectedUnits'));
@@ -1157,73 +1247,68 @@ $(document).ready(function () {
 				$('#parametersTable').append(tdata);
 				
 				//populate selected unit in table coulmn
-				/* var unitConverionDone = false;
-				var table = $("table.inputTable tbody");
-				if(unitConverionDone==false){
-					table.find('tr').each(function (i) {
-						var $tds = $(this).find('td'),
-						getUnitType = $tds.eq(0).attr('unitType');
-						if (getUnitType != '-') {
-							getSavedUnit = JSON.parse(localStorage.getItem('SelectedUnits'));
-							for (var j = 0; j < getSavedUnit.length; j++) {
-								if (getUnitType == getSavedUnit[j].unitType) {
-								  $tds.eq(2).text(getSavedUnit[j].unit);
-								}
-							}
-						} else {
-							$tds.eq(2).text('-');
-						}
-
-					});
-					//unitConverionDone	=	true;
-				} */
-				//Trigger click all input forms
-				$(".CF").trigger( "click" );
-				$(".Lamella").trigger( "click" );
-				$(".CO2").trigger( "click" );
-				$(".EDI").trigger( "click" );
-				$(".filters").trigger( "click" );
-				$(".MB").trigger( "click" );
-				$(".O2").trigger( "click" );
-				$(".Hydratedlime").trigger( "click" );
-				$(".Limestone").trigger( "click" );
-				$(".RO").trigger( "click" );
-				$(".Splitter").trigger( "click" );
-				$(".Tank-Splitter").trigger( "click" );
-				$(".SF").trigger( "click" );
-				$(".Feed").trigger( "click" );
-				$(".DensaDeg").trigger( "click" );
-				$(".FF").trigger( "click" );
-				$('.popUp').hide();
 				
-				//empty all form array
-				cfFormArray = [];
-				lamellaFormArray = [];
-				co2FormArrya = [];
-				o2FormArrya = [];
-				hydratedlimeFormArray = [];
-				limeStoneFormArray = [];
-				ixmMixedBedArray = [];
-				rofFormArray = [];
-				feedFormArray = []; 
-				ediFormArray = [];
-				mmfFormArray = [];
-				sfFormArrya = [];
-				splitterFormArray = [];
-				tank_splitterFormArray = [];
-				ddFormArray = [];
-				ffFormArray = [];
+
+				//Max streamNumber 
+				var streamNumberArray = $('._jsPlumb_overlay').get().map(function(el) { return el.value });
+				var max = Math.max(...streamNumberArray);
+				streamvaluecount = max + 1;
+				
 			});
 
 		}
+
+		//Trigger click all input forms
+		$(".CF").trigger( "click" );
+		$(".Lamella").trigger( "click" );
+		$(".CO2").trigger( "click" );
+		$(".EDI").trigger( "click" );
+		$(".filters").trigger( "click" );
+		$(".MB").trigger( "click" );
+		$(".O2").trigger( "click" );
+		$(".Hydratedlime").trigger( "click" );
+		$(".Limestone").trigger( "click" );
+		$(".RO").trigger( "click" );
+		$(".Splitter").trigger( "click" );
+		$(".Tank-Splitter").trigger( "click" );
+		$(".SF").trigger( "click" );
+		$(".Feed").trigger( "click" );
+		$(".DensaDeg").trigger( "click" );
+		$(".FF").trigger( "click" );
+		$('.popUp').hide();
+		
+		//empty all form array
+		cfFormArray = [];
+		lamellaFormArray = [];
+		co2FormArrya = [];
+		o2FormArrya = [];
+		hydratedlimeFormArray = [];
+		limeStoneFormArray = [];
+		ixmMixedBedArray = [];
+		rofFormArray = [];
+		feedFormArray = []; 
+		ediFormArray = [];
+		mmfFormArray = [];
+		sfFormArrya = [];
+		splitterFormArray = [];
+		tank_splitterFormArray = [];
+		ddFormArray = [];
+		ffFormArray = [];
 
 	});
 
 	
 
 	function loadSavedCanvas(id, src, type, maxin, maxout, style, className, sourceHeaderText) {
-
-		var classname = "'" + className.split(" ")[0] + " " + className.split(" ")[1] + " " + className.split(" ")[2] + " " + className.split(" ")[3] +  "'";
+		var classname;
+		//resting Canvas
+		canvasReset();
+		
+		if(type == "MF"){ 
+			classname = "'" + className.split(" ")[0] + " " + className.split(" ")[1] + " " + className.split(" ")[2] + " " + className.split(" ")[3] +  " " + className.split(" ")[4] +  " '";
+		}else{
+			classname = "'" + className.split(" ")[0] + " " + className.split(" ")[1] + " " + className.split(" ")[2] + " " + className.split(" ")[3] +  "'";
+		}
 		if(className.indexOf("testClass") != -1){
 			var tt = classname.slice(0, -1);
 			classname =  tt + " testClass'";
@@ -1241,7 +1326,8 @@ $(document).ready(function () {
 			if (id.indexOf('CO2') >= 0)
 				name = 'CO2';
 		}
-
+		var anchorNameSource;
+		var anchorNameTarget;
 		if (name == 'EDI' || name == 'MF' || name == 'SF' || name == 'FF') {
 			if (classname != undefined)
 				html = '<div class=' + classname + ' maxIn="1" maxOut="2" id="' + id + '" style="' + style + '">';
@@ -1255,6 +1341,8 @@ $(document).ready(function () {
 				'<span class="dl">x</span>' +
 				'<input type="text" class="edit" id="span' + id + '" maxlength="15" value="' + sourceHeaderText + '">' +
 				'</div>';
+				anchorNameSource = ["Right", "Bottom"];
+				anchorNameTarget = ["Left"];
 		} else if (name == 'Feed') {
 			html = '<div class=' + classname + ' maxIn="0" maxOut="1" id="' + id + '" style="' + style + '">' +
 				'<p class="txt-elipse">' + name + '</p>' +
@@ -1266,6 +1354,8 @@ $(document).ready(function () {
 				'<span class="dl">x</span>' +
 				'<input type="text" class="edit" value="' + sourceHeaderText + '" id="span' + id + '" maxlength="15" >' +
 				'</div>';
+				anchorNameSource = ["Right"];
+				anchorNameTarget = ["Left"];
 		} else if (name == 'RO') {
 			html = '<div class=' + classname + ' maxIn="1" maxOut="2" id="' + id + '" style="' + style + '">' +
 				'<p class="txt-elipse">' + name + '</p>' +
@@ -1277,6 +1367,8 @@ $(document).ready(function () {
 				'<span class="dl">x</span>' +
 				'<input type="text" class="edit" value="' + sourceHeaderText + '" id="span' + id + '" maxlength="15" >' +
 				'</div>';
+				anchorNameSource = ["Right", "Bottom"];
+				anchorNameTarget = ["Left"];
 		} else if (name == 'MB') {
 			html = '<div class=' + classname + ' maxIn="1" maxOut="1" id="' + id + '" style="' + style + '">' +
 				'<p class="txt-elipse">' + name + '</p>' +
@@ -1288,6 +1380,8 @@ $(document).ready(function () {
 				'<span class="dl">x</span>' +
 				'<input type="text" class="edit" value="' + sourceHeaderText + '" id="span' + id + '" maxlength="15" >' +
 				'</div>';
+				anchorNameSource = ["Right"];
+				anchorNameTarget = ["Left"];
 		} else if (name == 'CO2' || name == 'O2' || name == 'Hydratedlime' || name == 'Limestone' || name == 'CF') {
 			html = '<div class=' + classname + ' maxIn="1" maxOut="1" id="' + id + '" style="' + style + '">' +
 				'<p class="txt-elipse">' + name + '</p>' +
@@ -1299,6 +1393,8 @@ $(document).ready(function () {
 				'<span class="dl">x</span>' +
 				'<input type="text" class="edit" value="' + sourceHeaderText + '" id="span' + id + '" maxlength="15" >' +
 				'</div>';
+				anchorNameSource = ["Right"];
+				anchorNameTarget = ["Left"];
 		} else if (name == 'Mixer' || name == 'Tank-Mixer') {
 			html = '<div class=' + classname + ' maxIn="4" maxOut="1" id="' + id + '" style="' + style + '">' +
 				'<p class="txt-elipse">' + name + '</p>' +
@@ -1310,6 +1406,8 @@ $(document).ready(function () {
 				'<span class="dl">x</span>' +
 				'<input type="text" class="edit" value="' + sourceHeaderText + '" id="span' + id + '" maxlength="15" >' +
 				'</div>';
+				anchorNameSource = ["Right"];
+				anchorNameTarget = ["Left"];
 		} else if (name == 'Splitter' || name == 'Tank-Splitter') {
 			html = '<div class=' + classname + ' maxIn="1" maxOut="4" id="' + id + '" style="' + style + '">' +
 				'<p class="txt-elipse">' + name + '</p>' +
@@ -1321,7 +1419,9 @@ $(document).ready(function () {
 				'<span class="dl">x</span>' +
 				'<input type="text" class="edit" value="' + sourceHeaderText + '" id="span' + id + '" maxlength="15" >' +
 				'</div>';
-		} else if (name == 'Lamella') {
+				anchorNameSource = ["Right"];
+				anchorNameTarget = ["Left"];
+		} else if (name == 'Lamella' || name == 'DensaDeg') {
 			if (classname != undefined)
 				html = '<div class=' + classname + '  maxIn="1" maxOut="2" id="' + id + '" style="' + style + '">';
 			else
@@ -1336,7 +1436,9 @@ $(document).ready(function () {
 				'<span class="dl">x</span>' +
 				'<input type="text" class="edit" value="' + sourceHeaderText + '" id="span' + id + '" maxlength="15" >' +
 				'</div>';
-		} else if (name == 'DensaDeg') {
+				anchorNameSource = ["Right", "Bottom"];
+				anchorNameTarget = ["Left"];
+		} /*else if (name == 'DensaDeg') {
 			if (classname != undefined)
 				html = '<div class=' + classname + '  maxIn="3" maxOut="3" id="' + id + '" style="' + style + '">';
 			else
@@ -1351,19 +1453,17 @@ $(document).ready(function () {
 				'<span class="dl">x</span>' +
 				'<input type="text" class="edit" value="' + sourceHeaderText + '" id="span' + id + '" maxlength="15" >' +
 				'</div>';
-		}
-		/* else if(name == 'ProductOut' || name == 'WasteOut'){
-			html = '<div class="w join ' + name + '" maxIn="1" maxOut="1" id="' + id + '" style="left: 7px; top: 31px;" title="'+name+'">' +
+		} */ else if(name == 'ProductOut' || name == 'WasteOut'){
+			html = '<div class=' + classname + ' maxIn="1" maxOut="0" id="' + id + '" style="' + style + '">' +
 				'<p class="txt-elipse">' + name + '</p>' +
-				'<img style="width: 34px;height: 34px;" src="' + $(this).find('img').attr('src') + '">' +
-				'<div class="ep" title=""></div>' +
-				//'<div class="ep1"></div>'+
-				//'<div class="ep2" title=""></div>'+
-				//'<div class="ep3 red_Anchor" title="Waste Stream"></div>'+
+				'<img style="width: 34px;height: 34px;" src="' + src + '">' +
+				'<div class="ep2" title=""></div>' +
 				'<span class="dl">x</span>' +
-				'<input type="text" class="edit" value="' + id + '" id="span' + id + '" maxlength="15" >' +
+				'<input type="text" class="edit" value="' + sourceHeaderText + '" id="span' + id + '" maxlength="15" >' +
 				'</div>';
-		} */else {
+				anchorNameSource = ["Top"];
+				anchorNameTarget = ["Left"];
+		}else {
 			if (classname != undefined)
 				html = '<div class=' + classname + '  maxIn="2" maxOut="2" id="' + id + '" style="' + style + '">';
 			else
@@ -1378,12 +1478,19 @@ $(document).ready(function () {
 				'<span class="dl">x</span>' +
 				'<input type="text" class="edit" value="' + sourceHeaderText + '" id="span' + id + '" maxlength="15" >' +
 				'</div>';
+				anchorNameSource = ["Right"];
+				anchorNameTarget = ["Left"];
 		}
 
 		$('.canvasContainer .demo').append(html);
 
 		addObject(id);
-		makeDraggable('#' + id);
+		//makeDraggable('#' + id);
+		if(name == 'EDI' || name == 'MF' || name == 'SF' || name == 'FF' || name == 'RO' || name == 'Lamella' || name == 'DensaDeg'){
+			makeDraggableThree('#' + id, anchorNameSource, anchorNameTarget);
+		}else{
+			makeDraggable('#' + id, anchorNameSource, anchorNameTarget);
+		}
 	}
 
 
@@ -1589,6 +1696,8 @@ $(document).ready(function () {
 	
 	$('body').on('click', '#executeBtn', function () {
 		
+		$('.settings_MB .updateBtn').trigger('click');
+		
 		var inValidOpsCount = $('.testClass').length;
 		if(inValidOpsCount>0){
 			console.log("Please fill all data");
@@ -1739,18 +1848,20 @@ $(document).ready(function () {
 				if(ut == 'Feed'){
 					if(ps.length == 0){
 						flag=false;
-						wrongUnitOps.push(un);
+						wrongUnitOps.push(un);						
 					}
 				}else if(ut == 'RO' || ut == 'MF' || ut == 'SF' || ut == 'FF' || ut == 'EDI' || ut == 'Lamella' || ut == 'DensaDeg'){
+					var con1_valid = false, con2_valid = false, con3_valid = false;
 					if(fs.length == 0 || ps.length == 0 || w_s.length == 0){
 						flag=false;
 						wrongUnitOps.push(un);
 					}
-				}else if(ut == 'MB' || ut == 'CO2' || ut == 'CF' || ut == 'O2' || ut == 'Hydratedlime' || ut == 'Limestone' || ut == 'Mixer' || ut == 'Splitter' || ut == "Tank-Mixer" || ut == "Tank-Splitter"){
-					if(fs.length == 0 || ps.length == 0 ){
-						flag=false;
-						wrongUnitOps.push(un);
-					}
+				}else if(ut == 'MB' || ut == 'CO2' || ut == 'CF' || ut == 'O2' || ut == 'Hydratedlime' || ut == 'Limestone'){
+						var con1_valid_1 = false, con2_valid_1 = false;
+						if(fs.length == 0 || ps.length == 0 ){
+							flag=false;
+							wrongUnitOps.push(un);
+						}
 				}
 			}
 		}
@@ -1758,8 +1869,7 @@ $(document).ready(function () {
 
 	if(flag==true){
 			$('#progress').show();
-			$('.overlay').show();
-			
+			$('.overlay').show();		
 		/* ------------- For unit Conversions ---------*/
 
 		var colNum1 = 15;
@@ -1961,33 +2071,23 @@ $(document).ready(function () {
 			var curentId = feedFormArray[i];
 			var labelId = $('#' + curentId).find('.edit').val();
 
-			var inputunitnames = ["unitop Name", "Unitop Type", "Feed Stream", "Product Stream", "Waste Stream", "Flow",
-				"Temperature", "Pressure", "Calcium", "Magnesium", "Sodium", "Potassium", "Ammonia",
-				"Barium", "Strontium", "Iron", "Maganese", "Sulfate", "Chloride",
-				"Fluoride", "Nitrate", "Bromide", "Phosphate", "Boron", "Silica",
-				"Hydrogen Sulfide", "Bicarbonate", "Carbon Dioxide", "Carbonate", "TSS", "TOC",
-				"DOC", "TKN", "TDS", "Turbidity", "Color", "M-Alkalinity", "pH"];
+			var inputunitnames = ["unitop Name", "Unitop Type", "Feed Stream", "Product Stream", "Waste Stream", "Flow", "Temperature", "Pressure", "Calcium", "Magnesium", "Sodium", "Potassium", "Ammonia", "Barium", "Strontium", "Iron", "Maganese", "Sulfate", "Chloride", "Fluoride", "Nitrate", "Bromide", "Phosphate", "Boron", "Silica", "Hydrogen Sulfide", "Bicarbonate", "Carbon Dioxide", "Carbonate", "TSS", "TOC", "DOC", "COD", "TKN", "TDS", "Turbidity", "Color", "M-Alkalinity", "pH"];
 
 			var inputnametops = ["name", "unitop", "feed", "product", "waste",
 				"flow", "temp", "press", "ca", "mg", "na", "k", "nh4",
 				"ba", "sr", "fe", "mn", "so4", "cl",
 				"f", "no3", "br", "po4", "b", "si",
 				"h2s", "hco3", "co2", "co3", "tss", "toc",
-				"doc", "tkn", "tds", "turbidity", "color", "malk", "ph"];
+				"doc", "cod", "tkn", "tds", "turbidity", "color", "malk", "ph"];
 
 			var co2FormUnitValues = ["feed_flow", "feed_Temperature", "feed_Pressure", "calcium_Feed", "magnesium_Feed", "Sodium_Feed", "Potassium_Feed", "Ammonia_Feed", "Barium_Feed",
 				"Strontium_Feed", "Iron_Feed", "Maganese_Feed",
 				"Sulfate_Feed", "Chloride_Feed", "Fluoride_Feed", "Nitrate_Feed",
 				"Bromide_Feed", "Phosphate_Feed", "Boron_Feed", "Silica_Feed", "hydrogenSulphide_Feed",
-				"Bicarbonate_Feed", "carbonDiOxide_Feed", "carbonate_Feed", "feed_TSS", "feed_TOC", "feed_DOC", "feed_TKN", "feed_TDS",
+				"Bicarbonate_Feed", "carbonDiOxide_Feed", "carbonate_Feed", "feed_TSS", "feed_TOC", "feed_DOC", "feed_COD", "feed_TKN", "feed_TDS",
 				"feed_Turbidity", "feed_Color", "feed_Total_Akalinity", "feed_pH"];
 
-			var co2FormUnitData = ["feed_TDS1", "feed_Temperature1", "feed_Pressure1", "calciumfeed1", "magfeed1", "sodfeed1", "potfeedpotfeed1", "ammonfeed1", "barfeed1",
-				"stornfeed1", "ironfeed1", "magnesefeed1",
-				"sulfatefeed1", "chlfeed1", "flufeed1", "nitrateefeed1",
-				"bromfeed1", "phosfeed1", "boronnfeed1", "silfeed1", "hydrogenfeed1",
-				"bicarfeed1", "corfeed1", "corbonatfeed1", "feed_TSS1", "feed_TOC1", "feed_DOC1", "feed_TKN1", "feed_TDS_unit",
-				"feed_Turbidity1", "feed_Color1", "feed_Total_Akalinity1", "feed_pH1"];
+			var co2FormUnitData = ["feed_TDS1", "feed_Temperature1", "feed_Pressure1", "calciumfeed1", "magfeed1", "sodfeed1", "potfeedpotfeed1", "ammonfeed1", "barfeed1", "stornfeed1", "ironfeed1", "magnesefeed1", "sulfatefeed1", "chlfeed1", "flufeed1", "nitrateefeed1", "bromfeed1", "phosfeed1", "boronnfeed1", "silfeed1", "hydrogenfeed1", "bicarfeed1", "corfeed1", "corbonatfeed1", "feed_TSS1", "feed_TOC1", "feed_DOC1", "feed_COD1", "feed_TKN1", "feed_TDS_unit", "feed_Turbidity1", "feed_Color1", "feed_Total_Akalinity1", "feed_pH1"];
 
 			var inputdata = getFormUnitConversionDetails(co2FormUnitValues, co2FormUnitData, curentId);
 			var inputdataValues = inputdata[0];
@@ -2474,18 +2574,15 @@ $(document).ready(function () {
 			var curentId = ediFormArray[i];
 			var labelId = $('#' + curentId).find('.edit').val();
 
-			var inputunitnames = ["unitop Name", "Unitop Type", "Feed Stream", "Product Stream", "Waste Stream", "Model Type", "Co- Current Flow", "RO permeate softening", "3X-HH Stack", "Target Resistivity", "Flow per stack", "Temperature", "Target Silica", "Rectifier efficiency", "Recifier DC output", "Feed Pressure"];
+			var inputunitnames = ["unitop Name", "Unitop Type", "Feed Stream", "Product Stream", "Waste Stream", "Model Type", "Co- Current Flow", "RO permeate softening", "Target Resistivity", "Flow per stack", "Target Silica", "Rectifier efficiency", "Recifier DC output"];
 
-			var inputnametops = ["name", "unitop", "feed", "product", "waste", "model_type", "co_current", "ro_perm_soft", "hhard", "target_resistivity", "flowperstack", "feed_temp", "target_silica", "rect_eff", "rect_dc_volt", "feed_pressure"];
+			var inputnametops = ["name", "unitop", "feed", "product", "waste", "model_type", "co_current", "ro_perm_soft", "target_resistivity", "flowperstack", "target_silica", "rect_eff", "rect_dc_volt"];
 
+			var co2FormUnitValues = ["edimodeltype", "coCurrentY", "roPerY", "stargetSenId",
+				"sFlowPerStackId", "stargetSilicaId", "srectifierEffId", "srectifierDCId"];
 
-			var co2FormUnitValues = ["edimodeltype", "coCurrentY", "roPerY", "hhstack", "stargetSenId",
-				"sFlowPerStackId", "stempId", "stargetSilicaId",
-				"srectifierEffId", "srectifierDCId", "sFeedpressureId"];
-
-			var co2FormUnitData = ["edimodeltype1", "coCurrentY1", "roPerY1", "hhstack1", "stargetSenId1",
-				"sFlowPerStackId1", "stempId1", "stargetSilicaId1",
-				"srectifierEffId1", "srectifierDCId1", "sFeedpressureId1"];
+			var co2FormUnitData = ["edimodeltype1", "coCurrentY1", "roPerY1", "stargetSenId1",
+				"sFlowPerStackId1", "stargetSilicaId1", "srectifierEffId1", "srectifierDCId1"];
 
 			var inputdata = getFormUnitConversionDetails(co2FormUnitValues, co2FormUnitData, curentId);
 			var inputdataValues = inputdata[0];
@@ -2612,16 +2709,16 @@ $(document).ready(function () {
 			var curentId = mmfFormArray[i];
 			var labelId = $('#' + curentId).find('.edit').val();
 
-			var inputunitnames = ["unitop Name", "Unitop Type", "Feed Stream", "Product Stream", "Waste Stream", "Filter Type", "Total Design Flow rate", "Total Maximum Flow rate", "Total number of installed unit(s)", "Unit(s) in service, normally", "Loading Rate", "Inlet Total Suspended Solids", "Inlet Total Organic Carbon, Optional", "Inlet Chlorine, Optional", "Media Bed Freeboard", "Back wash Temp, High", "Back wash Temp, Low", "Post back wash rinse", "Air Scour", "Sub surface wash", "Design Pressure", "Corrosion allowance (Optional)", "Choice of lining", "Outer Diameter", "Tan length", "Head Type", "Sand Depth", "Anthracite Depth",
+			var inputunitnames = ["unitop Name", "Unitop Type", "Feed Stream", "Product Stream", "Waste Stream", "Filter Type", "Total Design Flow rate", "Total Maximum Flow rate", "Total number of installed unit(s)", "Unit(s) in service, normally", "Loading Rate", "Inlet Total Organic Carbon, Optional", "Inlet Chlorine, Optional", "Media Bed Freeboard", "Back wash Temp, High", "Back wash Temp, Low", "Post back wash rinse", "Air Scour", "Sub surface wash", "Design Pressure", "Corrosion allowance (Optional)", "Choice of lining", "Outer Diameter", "Tan length", "Head Type", "Sand Depth", "Anthracite Depth",
 				"Garnet Depth", "Sub Fill Type", "Green Sand Load", "Anthracite Cap", "Shell Joint efficiency", "Head Joint efficiency", "Backwash Time (Optional)", "Drain Time (Optional)", "Refill Time (Optional)", "Rinse Time (Optional)", "Subsurface Wash Time (Optional)","Air Scour Time (Optional)", "Rinse flow to be maintained same as service flow", "Rinse water recycled to feed"];
 
-			var inputnametops = ["name", "unitop", "feed", "product", "waste", "filter_type", "tot_design_flow", "tot_max_flow", "tot_units", "service_units", "loading_rate", "inlet_tss", "inlet_toc", "inlet_chlorine", "free_board", "bw_temp_high", "bw_temp_low", "post_bw_rinse", "airscour", "ssw", "design_pressure", "corr_allowance", "lining_type", "outer_dia",
+			var inputnametops = ["name", "unitop", "feed", "product", "waste", "filter_type", "tot_design_flow", "tot_max_flow", "tot_units", "service_units", "loading_rate", "inlet_toc", "inlet_chlorine", "free_board", "bw_temp_high", "bw_temp_low", "post_bw_rinse", "airscour", "ssw", "design_pressure", "corr_allowance", "lining_type", "outer_dia",
 				"tan_length", "head_type", "sand_depth", "anthracite_depth",
 				"garnet_depth", "subfill_type", "greensand_load", "anthracite_cap", "shelljoint_eff", "headjoint_eff", "backwash_time", "drain_time", "refill_time", "rinse_time", "ssw_time", "air_scour_time", "rinse_serviceflow", "rinse_feed"];
 
-			var co2FormUnitValues = ["filterType", "designFlowRate", "maxFlowRate", "installedUnits", "unitsInService", "loadingRate", "inletSolids", "inletTotalCarbon", "inletChlorine", "mediaBed", "backWashTemphigh", "backWashTempLow", "postBackWash", "airScourId", "subSurfaceWashId", "designPressure", "corrosionAllowance", "choiceLining", "outerDia", "tanLength", "headType", "sandDepthId", "anthraId", "garnetId", "subFillTypeId", "greenSandLoadId", "anthraciteCapId", "shellJointEfficiency", "headJointEfficiency", "backWashTime", "drainTime", "refillTime", "rinseTime", "surfaceWashTime","airScourTime", "rinseServiceFlow", "rinseFeedRecycle"];
+			var co2FormUnitValues = ["filterType", "designFlowRate", "maxFlowRate", "installedUnits", "unitsInService", "loadingRate", "inletTotalCarbon", "inletChlorine", "mediaBed", "backWashTemphigh", "backWashTempLow", "postBackWash", "airScourId", "subSurfaceWashId", "designPressure", "corrosionAllowance", "choiceLining", "outerDia", "tanLength", "headType", "sandDepthId", "anthraId", "garnetId", "subFillTypeId", "greenSandLoadId", "anthraciteCapId", "shellJointEfficiency", "headJointEfficiency", "backWashTime", "drainTime", "refillTime", "rinseTime", "surfaceWashTime","airScourTime", "rinseServiceFlow", "rinseFeedRecycle"];
 
-			var co2FormUnitData = ["filterType1","designFlowRate1", "maxFlowRate1", "installedUnits1", "unitsInService1", "loadingRate1", "inletSolids1", "inletTotalCarbon1", "inletChlorine1", "mediaBed1", "backWashTemphigh1", "backWashTempLow1", "postBackWash1", "airScourId1", "subSurfaceWashId1", "designPressure1", "corrosionAllowance1", "choiceLining1", "outerDia1", "tanLength1", "headType1", "sandDepthId1", "anthraId1", "garnetId1", "subFillTypeId1", "greenSandLoadId1", "anthraciteCapId1", "shellJointEfficiency1", "headJointEfficiency1", "backWashTime1", "drainTime1", "refillTime1", "rinseTime1", "surfaceWashTime1", "airScourTime1", "rinseServiceFlow1", "rinseFeedRecycle1"];
+			var co2FormUnitData = ["filterType1","designFlowRate1", "maxFlowRate1", "installedUnits1", "unitsInService1", "loadingRate1", "inletTotalCarbon1", "inletChlorine1", "mediaBed1", "backWashTemphigh1", "backWashTempLow1", "postBackWash1", "airScourId1", "subSurfaceWashId1", "designPressure1", "corrosionAllowance1", "choiceLining1", "outerDia1", "tanLength1", "headType1", "sandDepthId1", "anthraId1", "garnetId1", "subFillTypeId1", "greenSandLoadId1", "anthraciteCapId1", "shellJointEfficiency1", "headJointEfficiency1", "backWashTime1", "drainTime1", "refillTime1", "rinseTime1", "surfaceWashTime1", "airScourTime1", "rinseServiceFlow1", "rinseFeedRecycle1"];
 
 			var inputdata = getFormUnitConversionDetails(co2FormUnitValues, co2FormUnitData, curentId);
 			var inputdataValues = inputdata[0];
@@ -2685,7 +2782,7 @@ $(document).ready(function () {
 				"SAC unit Leakage", "SBA unit Leakage", "Cation Excahnge Capacity", "Anion Exchange Capacity",
 				"Acid Dosage", "Caustic Dosage",
 				"Acid type", "Acid Concentration", "Acid Step1", "Acid Step2", "Conc. Caustic", "Dilute Caustic",
-				"Normal Flow Rate", "Run Length", "Use Gross Flow",
+				"Run Length", "Use Gross Flow",
 				"Recycle Mix Bed", "Inert Resins", "Ambersep Resins", "Back Wash Source", "Heated Caustic", "Underdrain Type", "Lining Thickness",
 				"Force Bed Depth Cation", "Force Bed Depth Anion",
 				"MB Diameter", "MB Freeboard", "Design Pressure",
@@ -2694,27 +2791,27 @@ $(document).ready(function () {
 				"Use Service Flow for Rines"];
 
 			var inputnametops = ["name", "unitop", "feed", "product", "waste",
-				"cation", "anion", "inert",
-				"sac_unit_leakage", "sba_unit_leakage", "cation_excahnge_capacity", "anion_excahnge_capacity",
+				"cation_res", "anion_res", "inert_res",
+				"sac_unit_leakage", "sba_unit_leakage", "sac_kgr_per_ft3", "sba_kgr_per_ft3",
 				"acid_dosage", "caustic_dosage",
-				"acidtype", "acid_concentration", "acidstep1", "acidstep2", "conc_caustic", "dilute_caustic",
-				"normalflowrate", "runlength", "usegrossflow",
-				"recyclemixbed", "inert_resins", "ambersep_resins", "backwashsource",
-				"heatedcaustic", "underdraintype", "lining_thickness",
-				"forcebed_depthcation", "forcebed_depthanion",
-				"mbdiameter", "mbfreeboard", "designpressure",
-				"resinhigh_temperature", "regen_temp", "a", "b", "c", "d", "slowBW", "slow_classifyBW",
-				"acid_injection_flow", "caustic_injection_flow", "useserviceflow"];
+				"acid_type", "acid_concetration", "acid_step_1", "acid_step_2", "conc_caustic", "dilute_caustic",
+				"run_length", "use_gross_flow_as_serviceflow",
+				"recycle_mixed_bed", "inert_resins", "ambersep_resins", "backwash_source",
+				"heated_caustic", "underdrain_type", "lining_thickness",
+				"force_bed_depth_cation", "force_bed_depth_anion",
+				"mb_diameter", "mb_freeboard", "design_pressure",
+				"resin_high_temperature", "regen_temperature", "a", "b", "c", "d", "slow_with_classify", "slow_without_classify_and_classify_backwash",
+				"acid_injection_flow_rate_per_volume", "caustic_injection_flow_rate_per_volume", "use_service_flow_for_rinse"];
 
 			var co2FormUnitValues = ["ixmhcation", "ixmhcanion", "ixminert",
 				"ixmSAC", "ixmSBA", "ixmCatEx", "ixmAnEx",
 				"ixmAcid", "ixmCaustic",
 				"ixm_acidType", "ixmAcidCon", "ixmStep1", "ixmStep2", "ixmConcCaustic", "ixmDiluteCaustic",
-				"imxflowRate", "ixmRunLength", "ixmGrossFlow",
+				"ixmRunLength", "ixmGrossFlow",
 				"ixmRecycleMixBed", "ixmInsertResins", "ixmAmberstepResins", "ixmBackwashSource",
 				"ixmHeatedCaustics", "ixmUnderdrainType", "ixmLiningThickness",
 				"ixmForceBedDepth", "ixmForceBedAnion",
-				"ixmMBDiameter", "ixmMBFreeboard", "ixmMBDesignPressure",
+				"ixmMBDiameter", "ixmMBFreeboard", "ixmDesignPressure",
 				"ixmResinHighTemp", "ixmRegenHighTemp", "ixmbackWashA", "ixmbackWashB", "ixmbackWashC", "ixmbackWashD", "ixmSlowBW", "ixmSlowWO",
 				"ixmAcidInjectionflow", "ixmCausticInjection", "ixmServiceFlowRinse"];
 
@@ -2722,11 +2819,11 @@ $(document).ready(function () {
 				"ixmSAC1", "ixmSBA1", "ixmCatEx1", "ixmAnEx1",
 				"ixmAcid1", "ixmCaustic1",
 				"ixm_acidType1", "ixmAcidCon1", "ixmStep11", "ixmStep21", "ixmConcCaustic1", "ixmDiluteCaustic1",
-				"imxflowRate1", "ixmRunLength1", "ixmGrossFlow1",
+				"ixmRunLength1", "ixmGrossFlow1",
 				"ixmRecycleMixBed1", "ixmInsertResins1", "ixmAmberstepResins1", "ixmBackwashSource1",
 				"ixmHeatedCaustics1", "ixmUnderdrainType1", "ixmLiningThickness1",
 				"ixmForceBedDepth1", "ixmForceBedAnion1",
-				"ixmMBDiameter1", "ixmMBFreeboard1", "ixmMBDesignPressure1",
+				"ixmMBDiameter1", "ixmMBFreeboard1", "ixmDesignPressure1",
 				"ixmResinHighTemp1", "ixmRegenHighTemp1", "ixmbackWashA1", "ixmbackWashB1", "ixmbackWashC1", "ixmbackWashD1", "ixmSlowBW1", "ixmSlowWO1",
 				"ixmAcidInjectionflow1", "ixmCausticInjection1", "ixmServiceFlowRinse1"];
 
@@ -2786,27 +2883,17 @@ $(document).ready(function () {
 			var curentId = rofFormArray[i];
 			var labelId = $('#' + curentId).find('.edit').val();
 
-			var inputunitnames = ["unitop Name", "Unitop Type", "Feed Stream", "Product Stream", "Waste Stream", "System Recovery", "Element Type", "Elements per vessel", "Average Flux", "Elements Area", "Elements Age", "Flux Annual Percentage change", "Salt passage", "Pump efficiency",
-				"Ca", "Mg", "Na", "K",
-				"NH4", "Ba", "Sr", "Fe",
-				"Mn", "SO4", "CI", "F", "NO3", "Br",
-				"Po4", "B", "Silica", "H2S", "HCO3", "CO2", "CO3"];
+			var inputunitnames = ["unitop Name", "Unitop Type", "Feed Stream", "Product Stream", "Waste Stream", "System Recovery", "Element Type", "Elements per vessel", "Average Flux", "Elements Area", "Elements Age", "Flux Annual Percentage change", "Salt passage", "Pump efficiency", "Ca", "Mg", "Na", "K", "NH4", "Ba", "Sr", "Fe", "Mn", "SO4", "CI", "F", "NO3", "Br", "Po4", "B", "Silica", "H2S", "HCO3", "CO2", "CO3"];
 
 			var inputnametops = ["name", "unitop", "feed", "product", "waste",
-				"recovery_stg1", "element_type", "elementspervessel", "avg_flux_stg1", "membrane_area", "element_age",
-				"flux_change", "saltpassage_change", "pump_eff",
-				"ca_rej", "mg_rej", "na_rej", "k_rej", "nh4_rej", "ba_rej", "sr_rej", "fe_rej", "mn_rej", "so4_rej", "cl_rej", "f_rej", "no3_rej", "br_rej", "po4_rej", "b_rej", "sio2_rej", "h2s_rej", "hco3_rej", "co2_rej", "co3_rej"];
+				"recovery_stg1", "element_type", "elementspervessel", "avg_flux_stg1", "membrane_area", "element_age", "flux_change", "saltpassage_change", "pump_eff", "ca_rej", "mg_rej", "na_rej", "k_rej", "nh4_rej", "ba_rej", "sr_rej", "fe_rej", "mn_rej", "so4_rej", "cl_rej", "f_rej", "no3_rej", "br_rej", "po4_rej", "b_rej", "sio2_rej", "h2s_rej", "hco3_rej", "co2_rej", "co3_rej"];
 
 			var co2FormUnitValues = ["roRecovery", "elementType", "roElementsPerVessel", "roFlux", "roElemArea", "roElemAge", "roFluxChange", "saltPassage", "pumpEfficiency",
-				"rocaid", "romgid", "ronaid", "rokid", "ronhid",
-				"robaid", "rosrId", "roFeId", "roMnId",
-				"rosoId", "roclId", "rofId", "ronoId", "roBrId", "roPoId",
-				"roBId", "roSilicaId", "rohsid", "rohcoId", "rohcotId", "rohcothId"];
+				"rocaid", "romgid", "ronaid", "rokid", "ronhid", "robaid", "rosrId", "roFeId", "roMnId",
+				"rosoId", "roclId", "rofId", "ronoId", "roBrId", "roPoId", "roBId", "roSilicaId", "rohsid", "rohcoId", "rohcotId", "rohcothId"];
 
 			var co2FormUnitData = ["roRecovery1", "elementType1", "roElementsPerVessel1", "roFlux1", "roElemArea1", "roElemAge1", "roFluxChange1", "saltPassage1", "pumpEfficiency1",
-				"rocaid1", "romgid1", "ronaid1", "rokid1", "ronhid1",
-				"robaid1", "rosrId1", "roFeId1", "roMnId1",
-				"rosoId1", "roclId1", "rofId1", "ronoId1", "roBrId1", "roPoId1",
+				"rocaid1", "romgid1", "ronaid1", "rokid1", "ronhid1", "robaid1", "rosrId1", "roFeId1", "roMnId1", "rosoId1", "roclId1", "rofId1", "ronoId1", "roBrId1", "roPoId1",
 				"roBId1", "roSilicaId1", "rohsid1", "rohcoId1", "rohcotId1", "rohcothId1"];
 
 			var inputdata = getFormUnitConversionDetails(co2FormUnitValues, co2FormUnitData, curentId);
@@ -2911,6 +2998,70 @@ $(document).ready(function () {
 			colNum1 = colNum1 + 4;
 		}
 		/* ---------------- For unit DensaDeg inputs ---------------- */
+		
+		/* ---------------- For unit FF FiltraFast inputs ---------------- */
+
+		//var ro_length = rofFormArray.length;
+		var ff_length;
+		ff_length = ffFormArray.length;
+		if(ff_length == 0){
+			if(localStorage.getItem('ffFormCount')){
+				ffFormArray = JSON.parse(localStorage.getItem('ffFormCount'));
+				ff_length = ffFormArray.length;
+			}
+		}
+
+		for (var i = 0; i < ff_length; i++) {
+
+			var curentId = ffFormArray[i];
+			var labelId = $('#' + curentId).find('.edit').val();
+
+			var inputunitnames = ["unitop Name", "Unitop Type", "Feed Stream", "Product Stream", "Waste Stream", "Filter Type", "Filter Cell Size", "No: of Filter Units", "Common Filter Unit Inlet Velocity (Optional)", "Filter Cell Inlet Velocity (Optional)", "Filter Cell Effluent Velocity (Optional)", "Common Filter Unit Effluent Velocity (Optional)", "Filter to Waste Cell Velocity (Optional)", "Backwash Supply Velocity (Optional)", "Backwash Waste Velocity Max (Optional)", "Air Scour Velocity (Optional)", "Filter Cell Media Compression (Optional)", "No: of filter cells out of service during cleaning", "Air Scour rate, Media Uncompression", "Air Scour Rate, Backwash", "Backwash Rate", "Air Scour  +Water Duration (Media Uncompression)", "Air Scour + Water Duration ( Backwash)", "Water Only Duration", "Purge Duration"];
+
+			var inputnametops = ["name", "unitop", "feed", "product", "waste",
+				"filter_type", "filter_size", "filter_units", "unit_inlet_flow_vel", "cell_inlet_flow_vel", "cell_effluent_flow_vel", "unit_effluent_flow_vel", "filtertowaste_cell_flow_vel", "backwash_flow_vel", "backwash_waste_vel", "airscour_flow_vel", "med_comp_vel",  "filtercell_outservice", "airscour_rate_uncomp", "airscour_rate_backwash", "backwash_rate", "airscour_water_uncomp_time", "airscour_water_bw_time", "wateronly_time", "purge_time"];
+
+			var co2FormUnitValues = ["filterType", "filterCellSize", "NoOfFilterUnits", "cFUIV", "fCIV", "fCEV", "cFUEV", "ftoWCV", "bSV", "bWVM", "aSV", "fCM",  "nOfFCOofSDC", "aSRMC", "aSR", "bR", "aSWDMU", "aSWDB", "wOD", "pD"];
+
+			var co2FormUnitData = ["filterType1", "filterCellSize1", "NoOfFilterUnits1", "cFUIV1", "fCIV1", "fCEV1", "cFUEV1", "ftoWCV1", "bSV1", "bWVM1", "aSV1", "fCM1", "nOfFCOofSDC1", "aSRMC1", "aSR1", "bR1", "aSWDMU1", "aSWDB1", "wOD1", "pD1"];
+
+			var inputdata = getFormUnitConversionDetails(co2FormUnitValues, co2FormUnitData, curentId);
+			var inputdataValues = inputdata[0];
+
+			for (var index1 = 0; index1 < unitValues.length; index1++) {
+
+				if (index1 == 0) {
+				} else {
+					if (unitValues[index1].UnitName == labelId) {
+						wsinput.cell(1, colNum1 + 2).string(unitValues[index1].UnitName);
+						wsinput.cell(2, colNum1 + 2).string(unitValues[index1].UnitType);
+						wsinput.cell(3, colNum1 + 2).string(unitValues[index1].FeedStream);
+						wsinput.cell(4, colNum1 + 2).string(unitValues[index1].ProductStream);
+						wsinput.cell(5, colNum1 + 2).string(unitValues[index1].WasteStream);
+					}
+				}
+			}
+
+			for (var index = 0; index < inputunitnames.length; index++) {
+
+				var colNo = colNum1 + index;
+				if (index == 0) {
+
+					for (var k = 0; k < inputunitnames.length; k++) {
+						wsinput.cell(rowNo + k, colNo).string(inputunitnames[k]);
+						wsinput.cell(rowNo + k, colNo + 1).string(inputnametops[k]);
+						if (inputdataValues[k]) {
+							wsinput.cell(rowNo + 5 + k, colNo + 2).string(inputdataValues[k]);
+						} else {
+							wsinput.cell(rowNo + 5 + k, colNo + 2).string("");
+						}
+
+					}
+				}
+			}
+			colNum1 = colNum1 + 4;
+		}
+		/* ---------------- For unit FF FiltraFast inputs ---------------- */
 
 
 		/* ---------------- For remaining components (Waste Out) ---------------- */
@@ -3108,16 +3259,27 @@ $(document).ready(function () {
 				$('.progress-bar').css('width', 100 + '%').attr('aria-valuenow', 100);
 				$('.pSuccess').html("Simulation Completed Successfully");
 
+				executionFlag = true;
+				$('#dataSheetExcel').attr("href", "#");
+				$('#dataSheetPDF').attr("href", "#");
+				$('#massBalncePdf').attr("href", "#");
+				$('#massBalanceExcel').attr("href", "#");
 			} else {
 				//progressbarvalue.progressbar("value", 100);
 				//$('.pfail').text("Simulation failed");
 				$('.pfail').html("Simulation failed");
 				setTimeout(function () { readErrorFromExcel(); }, 500);
+				executionFlag = false;
+				$('#dataSheetExcel').removeAttr("href", "#");
+				$('#dataSheetPDF').removeAttr("href", "#");
+				$('#massBalncePdf').removeAttr("href", "#");
+				$('#massBalanceExcel').removeAttr("href", "#");
 			}
+
 			progress = 10;
 
 		});
-		executionFlag = true;
+		
 	}
 	
 	function readErrorFromExcel(){
@@ -3376,6 +3538,7 @@ var currZoom = $("#main").css("zoom");
 if (currZoom == 'normal') currZoom = 1;
 
 $("#zoomIn").click(function () {
+	canvasMode = 'ZoomIn';
 	currZoom *= 1.2;
 	$("#main").css("zoom", currZoom);
 	$("main").css("-moz-transform", "Scale(" + currZoom + ")");
@@ -3383,6 +3546,7 @@ $("#zoomIn").click(function () {
 });
 
 $("#zoomOff").click(function () {
+	canvasMode = 'ZoomOff';
 	currZoom = 1;
 	$("#main").css("zoom", 1);
 	$("#main").css("-moz-transform", "Scale(" + currZoom + ")");
@@ -3390,6 +3554,7 @@ $("#zoomOff").click(function () {
 });
 
 $("#zoomOut").click(function () {
+	canvasMode = 'ZoomOut';
 	currZoom *= .8;
 	$("#main").css("zoom", currZoom);
 	$("#main").css("-moz-transform", "Scale(" + currZoom + ")");
@@ -3595,6 +3760,7 @@ function loadOutputFromFile(name) {
 	var reader = new FileReader();
 
 	var workbook = XLSX.readFile('C:/iFSD/Data/iFSDSheet.xlsx', { sheetStubs: true });
+	//var workbook = XLSX.readFile('C:/iFSD/Data/iFSDSheet-feed_sf_cf_ro_31July-Before.xlsx', { sheetStubs: true });
 
 	var sheet_name_list = workbook.SheetNames;
 
@@ -3618,6 +3784,7 @@ function loadOutputFromFile(name) {
 	}
 
 	var prevSearchText = '';
+	var countLamella = 0;
 
 	for (var i = 0; i < excelData.length; i++) {
 
@@ -3636,9 +3803,14 @@ function loadOutputFromFile(name) {
 			}
 
 			searchText = obj1[key1];
-			if (parseFloat(obj1[key1]) >= 0 && !isNaN(obj1[key1]))
-				obj1[key1] = parseFloat(obj1[key1]).toFixed(2);
-
+			if (parseFloat(obj1[key1]) >= 0 && !isNaN(obj1[key1])){
+				
+				if(obj1["Unitop Name_2"] == "RW Clarifier Blowdown Flowrate" || obj1["Unitop Name_2"] == "Dosage"){
+					obj1[key1] = parseFloat(obj1[key1]).toFixed(6);
+				}else{
+					obj1[key1] = parseFloat(obj1[key1]).toFixed(2);
+				}
+			}
 
 			if (indexAndUnitOpMap[k] != undefined) {
 				
@@ -3673,18 +3845,20 @@ function loadOutputFromFile(name) {
 							}
 
 						}
+						
+						if (indexAndUnitOpMap[k].indexOf('Lamella') >= 0 && prevSearchText.toLowerCase().replace(/ /g, '').indexOf('dosage') >= 0 && $(this).text().toLowerCase().replace(/ /g, '').indexOf('dosage') >= 0 ) {
+							
+							if(countLamella == 0){
+								countLamella++;
+								$(this).closest('td').next('td').find('span').text(obj1[key1]);
 
-						if (indexAndUnitOpMap[k].indexOf('Lamella') >= 0 && prevSearchText.toLowerCase().replace(/ /g, '').indexOf('dosage') >= 0 &&
+								$(this).closest('td').next('td').find('span').html(obj1[key1]);
 
-							$(this).text().toLowerCase().replace(/ /g, '').indexOf('dosage') >= 0) {
+								$(this).closest('td').next('td').text(obj1[key1]);
 
-							$(this).closest('td').next('td').find('span').text(obj1[key1]);
-
-							$(this).closest('td').next('td').find('span').html(obj1[key1]);
-
-							$(this).closest('td').next('td').text(obj1[key1]);
-
-							$(this).closest('td').next('td').html(obj1[key1]);
+								$(this).closest('td').next('td').html(obj1[key1]);
+								
+							}
 						}
 
 					});
@@ -3694,6 +3868,7 @@ function loadOutputFromFile(name) {
 		}
 	}
 }
+
 
 $('.massBalance_link').click(function (e) {
 	if (executionFlag == true) {
@@ -3724,14 +3899,18 @@ $('.massBalance_link').click(function (e) {
 
 			for (var key1 in obj1) {
 				if (index == 0)
-					htmlText = htmlText + '<td width="25%">';
+					htmlText = htmlText + '<td width="10%">';
 				else
 					htmlText = htmlText + '<td>';
 
-				if (parseFloat(obj1[key1]) >= 0 && !isNaN(obj1[key1]) && i!=0)
-					textData = parseFloat(obj1[key1]).toFixed(1);
-				else
+				if (parseFloat(obj1[key1]) >= 0 && !isNaN(obj1[key1]) && i!=0){
+					if(i == 1)
+						textData = parseFloat(obj1[key1]).toFixed(6);
+					else
+						textData = parseFloat(obj1[key1]).toFixed(2);
+				}else{
 					textData = obj1[key1];
+				}
 				htmlText = htmlText + textData + '</td>';
 				index++;
 			}
@@ -3754,6 +3933,8 @@ $('#newFileBtnFromApp').on('click', function(){
 	$('.newFileScreen').show();
 	$('#parametersTable tr').remove();
 	$('#newFileBackBtn').hide();
+	//resting Canvas
+	canvasReset();
 	
 	cfFormArray = [];
 	lamellaFormArray = [];
@@ -3777,7 +3958,7 @@ $('#newFileBtnFromApp').on('click', function(){
 	draggedArray = [];
 	newCountJson = {};
 	
-	//
+	//Existing connection remove
 	for(var g=0; g<15;g++){
 		jsPlumb.remove('CF'+g+'');
 		jsPlumb.remove('EDI'+g+'');
@@ -3819,6 +4000,18 @@ $('#newFileBtnFromApp').on('click', function(){
 		return [year, month, day].join('-');
 	}
 	$('#calenderIcon').val(formatDate(new Date()));
+	
+	//Stream Count reset
+	streamvaluecount = 1;
+	
+	//Reset Unit opration left position
+	unitOpsLeftPos = -70;
+	
+	//Reset last selected unit
+	selectedUnit = "";
+	
+	//Default file name
+	document.title = 'iFSD - New' ;
 	
 });
 

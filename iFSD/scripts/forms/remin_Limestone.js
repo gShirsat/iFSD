@@ -1,5 +1,6 @@
 $('body').on('click', '.Limestone', function(){
 	var id=$(this).attr('id');
+	inputErrorRemove('rLimestonePopup');
 	$('.popUpTabError').text('');
 	$('.rLimestonePopup').removeClass('dispNone');
 	$('.rLimestonePopup').show();
@@ -18,22 +19,11 @@ $('body').on('click', '.Limestone', function(){
 	else
 	$('.rLimestonePopup div .popTitle').text(gateTitle);
 	$('.rLimestonePopup').attr("myId", id);
-	$('#remineralizationType').val("Gravity");
+	//$('#remineralizationType').val("Select");
+	//$('#Gravity, #Pressure').hide();
 	if(localStorage.getItem(id) !== null){
 		var getSavedData_rLimestone = JSON.parse(localStorage.getItem(''+id+''));
-		//console.log("id" + JSON.stringify(getStoredData));
-		/* $(".rLimestonePopup input[name=flow]").val(getSavedData_rLimestone.flow);
-		$(".rLimestonePopup input[name=temp]").val(getSavedData_rLimestone.temp);
-		$(".rLimestonePopup input[name=na]").val(getSavedData_rLimestone.na);
-		$(".rLimestonePopup input[name=k]").val(getSavedData_rLimestone.k);
-		$(".rLimestonePopup input[name=ca]").val(getSavedData_rLimestone.ca);
-		$(".rLimestonePopup input[name=mg]").val(getSavedData_rLimestone.mg);
-		$(".rLimestonePopup input[name=hCO3]").val(getSavedData_rLimestone.hCO3);
-		$(".rLimestonePopup input[name=cO3]").val(getSavedData_rLimestone.cO3);
-		$(".rLimestonePopup input[name=co2]").val(getSavedData_rLimestone.co2);
-		$(".rLimestonePopup input[name=cl]").val(getSavedData_rLimestone.cl);
-		$(".rLimestonePopup input[name=sO4]").val(getSavedData_rLimestone.sO4);
-		$(".rLimestonePopup input[name=b]").val(getSavedData_rLimestone.b); */
+
 		$(".rLimestonePopup input[name=remineralizationBypass]").val(getSavedData_rLimestone.remineralizationBypass);
 		$(".rLimestonePopup input[name=reactiveCO2_H2SO4]").val(getSavedData_rLimestone.reactiveCO2_H2SO4);
 		$(".rLimestonePopup input[name=cO2Stream1A]").val(getSavedData_rLimestone.cO2Stream1A);
@@ -41,7 +31,9 @@ $('body').on('click', '.Limestone', function(){
 		$(".rLimestonePopup input[name=naOH]").val(getSavedData_rLimestone.naOH);
 		$(".rLimestonePopup input[name=h2SO4]").val(getSavedData_rLimestone.h2SO4);
 		$("#remineralizationType").val(getSavedData_rLimestone.remineralizationType);
+		
 		if(getSavedData_rLimestone.remineralizationType == "Gravity"){
+			$('#Gravity').show();
 			$(".rLimestonePopup input[name=reactorLength]").val(getSavedData_rLimestone.reactorLength);
 			$(".rLimestonePopup input[name=reactorWidth]").val(getSavedData_rLimestone.reactorWidth);
 			$(".rLimestonePopup input[name=assumedBeddepth]").val(getSavedData_rLimestone.assumedBeddepth);
@@ -62,6 +54,7 @@ $('body').on('click', '.Limestone', function(){
 
 		}
 		if( getSavedData_rLimestone.remineralizationType == "Pressure"){
+			$('#Pressure').show();
 			$(".rLimestonePopup input[name=pR_vesselDiameter]").val(getSavedData_rLimestone.pR_vesselDiameter);
 			$(".rLimestonePopup input[name=pR_assumedTotalBedDepth]").val(getSavedData_rLimestone.pR_assumedTotalBedDepth);
 			$(".rLimestonePopup input[name=pR_reductionInFinshedBedDepth]").val(getSavedData_rLimestone.pR_reductionInFinshedBedDepth);
@@ -82,18 +75,7 @@ $('body').on('click', '.Limestone', function(){
 		}
 		
 	}else{
-		/* $(".rLimestonePopup input[name=flow]").val('');
-		$(".rLimestonePopup input[name=temp]").val('');
-		$(".rLimestonePopup input[name=na]").val('');
-		$(".rLimestonePopup input[name=k]").val('');
-		$(".rLimestonePopup input[name=ca]").val('');
-		$(".rLimestonePopup input[name=mg]").val('');
-		$(".rLimestonePopup input[name=hCO3]").val('');
-		$(".rLimestonePopup input[name=cO3]").val('');
-		$(".rLimestonePopup input[name=co2]").val('');
-		$(".rLimestonePopup input[name=cl]").val('');
-		$(".rLimestonePopup input[name=sO4]").val('');remineralizationType
-		$(".rLimestonePopup input[name=b]").val(''); */
+
 		$(".rLimestonePopup input[name=remineralizationBypass]").val('');
 		$(".rLimestonePopup input[name=reactiveCO2_H2SO4]").val('');
 		$(".rLimestonePopup input[name=cO2Stream1A]").val('');
@@ -117,6 +99,8 @@ $('body').on('click', '.Limestone', function(){
 		$(".rLimestonePopup input[name=pR_assumedCaCO3Purity]").val('');
 		$(".rLimestonePopup input[name=pR_specificCaCO3100Consumption]").val('');
 		$(".rLimestonePopup input[name=pR_AssumedCaCO3SpecificGravity]").val('');
+		$("#remineralizationType").val('Select');
+		$('#Gravity, #Pressure').hide();
 	}
 	//Unit type Set
 	var table = $("table tbody");
@@ -150,18 +134,7 @@ $('body').on('click', '.Limestone', function(){
 $('body').on('click','.rLimestonePopup .updateBtn', function(e){
 	var validFlag = 0;
 	$('.popUpTabError').text('');
-	/* $(".rLimestonePopup input[name=flow]").css('border','1px solid #e1e2e5');
-	$(".rLimestonePopup input[name=temp]").css('border','1px solid #e1e2e5');
-	$(".rLimestonePopup input[name=na]").css('border','1px solid #e1e2e5');
-	$(".rLimestonePopup input[name=k]").css('border','1px solid #e1e2e5');
-	$(".rLimestonePopup input[name=ca]").css('border','1px solid #e1e2e5');
-	$(".rLimestonePopup input[name=mg]").css('border','1px solid #e1e2e5');
-	$(".rLimestonePopup input[name=hCO3]").css('border','1px solid #e1e2e5');
-	$(".rLimestonePopup input[name=cO3]").css('border','1px solid #e1e2e5');
-	$(".rLimestonePopup input[name=co2]").css('border','1px solid #e1e2e5');
-	$(".rLimestonePopup input[name=cl]").css('border','1px solid #e1e2e5');
-	$(".rLimestonePopup input[name=sO4]").css('border','1px solid #e1e2e5');
-	$(".rLimestonePopup input[name=b]").css('border','1px solid #e1e2e5'); */
+
 	$(".rLimestonePopup input[name=remineralizationBypass]").css('border','1px solid #e1e2e5');
 	$(".rLimestonePopup input[name=reactiveCO2_H2SO4]").css('border','1px solid #e1e2e5');
 	$(".rLimestonePopup input[name=cO2Stream1A]").css('border','1px solid #e1e2e5');
@@ -185,55 +158,9 @@ $('body').on('click','.rLimestonePopup .updateBtn', function(e){
 	$(".rLimestonePopup input[name=pR_assumedCaCO3Purity]").css('border','1px solid #e1e2e5');
 	$(".rLimestonePopup input[name=pR_specificCaCO3100Consumption]").css('border','1px solid #e1e2e5');
 	$(".rLimestonePopup input[name=pR_AssumedCaCO3SpecificGravity]").css('border','1px solid #e1e2e5');
+	$("#remineralizationType").css('border','1px solid #e1e2e5');
 	
-	/* if($(".rLimestonePopup input[name=flow]").val() == ""){
-		validFlag = 1;
-		$(".rLimestonePopup input[name=flow]").css('border','1px solid red');
-	}
-	if($(".rLimestonePopup input[name=temp]").val() == ""){
-		validFlag = 1;
-		$(".rLimestonePopup input[name=temp]").css('border','1px solid red');
-	}
-	if($(".rLimestonePopup input[name=na]").val() == ""){
-		validFlag = 1;
-		$(".rLimestonePopup input[name=na]").css('border','1px solid red');
-	}
-	if($(".rLimestonePopup input[name=k]").val() == ""){
-		validFlag = 1;
-		$(".rLimestonePopup input[name=k]").css('border','1px solid red');
-	}
-	if($(".rLimestonePopup input[name=ca]").val() == ""){
-		validFlag = 1;
-		$(".rLimestonePopup input[name=ca]").css('border','1px solid red');
-	}
-	if($(".rLimestonePopup input[name=mg]").val() == ""){
-		validFlag = 1;
-		$(".rLimestonePopup input[name=mg]").css('border','1px solid red');
-	}
-	if($(".rLimestonePopup input[name=hCO3]").val() == ""){
-		validFlag = 1;
-		$(".rLimestonePopup input[name=hCO3]").css('border','1px solid red');
-	}
-	if($(".rLimestonePopup input[name=cO3]").val() == ""){
-		validFlag = 1;
-		$(".rLimestonePopup input[name=cO3]").css('border','1px solid red');
-	}
-	if($(".rLimestonePopup input[name=co2]").val() == ""){
-		validFlag = 1;
-		$(".rLimestonePopup input[name=co2]").css('border','1px solid red');
-	}
-	if($(".rLimestonePopup input[name=cl]").val() == ""){
-		validFlag = 1;
-		$(".rLimestonePopup input[name=cl]").css('border','1px solid red');
-	}
-	if($(".rLimestonePopup input[name=sO4]").val() == ""){
-		validFlag = 1;
-		$(".rLimestonePopup input[name=sO4]").css('border','1px solid red');
-	}
-	if($(".rLimestonePopup input[name=b]").val() == ""){
-		validFlag = 1;
-		$(".rLimestonePopup input[name=b]").css('border','1px solid red');
-	} */
+
 	if($(".rLimestonePopup input[name=remineralizationBypass]").val() == ""){
 		validFlag = 1;
 		$(".rLimestonePopup input[name=remineralizationBypass]").css('border','1px solid red');
@@ -335,18 +262,7 @@ $('body').on('click','.rLimestonePopup .updateBtn', function(e){
 	//if(validFlag == 0){
 		var popUpId = $(this).parent().parent().attr('myId');
 		var inputData = {};
-		/* inputData.flow = $(".rLimestonePopup input[name=flow]").val();
-		inputData.temp = $(".rLimestonePopup input[name=temp]").val();
-		inputData.na = $(".rLimestonePopup input[name=na]").val();
-		inputData.k = $(".rLimestonePopup input[name=k]").val();
-		inputData.ca = $(".rLimestonePopup input[name=ca]").val();
-		inputData.mg = $(".rLimestonePopup input[name=mg]").val();
-		inputData.hCO3 = $(".rLimestonePopup input[name=hCO3]").val();
-		inputData.cO3 = $(".rLimestonePopup input[name=cO3]").val();
-		inputData.co2 = $(".rLimestonePopup input[name=co2]").val();
-		inputData.cl = $(".rLimestonePopup input[name=cl]").val();
-		inputData.sO4 = $(".rLimestonePopup input[name=sO4]").val();
-		inputData.b = $(".rLimestonePopup input[name=b]").val(); */
+
 		inputData.remineralizationBypass = $(".rLimestonePopup input[name=remineralizationBypass]").val();
 		inputData.reactiveCO2_H2SO4 = $(".rLimestonePopup input[name=reactiveCO2_H2SO4]").val();
 		inputData.cO2Stream1A = $(".rLimestonePopup input[name=cO2Stream1A]").val();
@@ -417,4 +333,16 @@ $(document).on('change', '.rLimestonePopup :input[type="number"]',function(){
 	var thisVal = $(this).val();
 	var values = parseFloat(thisVal).toFixed(2);
 	$(this).val(values);
+});
+
+//on Enter press next input 
+$(document).on('keypress', '.rLimestonePopup input,.rLimestonePopup select', function (e) {
+    if (e.which == 13) {
+        e.preventDefault();
+        // Get all focusable elements on the page
+        var $canfocus = $(':focusable');
+        var index = $canfocus.index(document.activeElement) + 1;
+        if (index >= $canfocus.length) index = 0;
+        $canfocus.eq(index).focus();
+    }
 });

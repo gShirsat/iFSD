@@ -1,6 +1,7 @@
 //EDI
 $('body').on('click', '.EDR', function () {
     var id = $(this).attr('id');
+	inputErrorRemove('EDRPopUp');
     $('.EDRPopUp').removeClass('dispNone');
     $('.EDRPopUp').show();
 	$('.EDRPopUp .body ul.nav li').removeClass('active');
@@ -14,10 +15,6 @@ $('body').on('click', '.EDR', function () {
     var table = $("table.inputTable tbody");
     $('.EDRPopUp #elemType').trigger('change');
 	$('.popUpTabError').text('');
-    
-
-
- 
 });
 
 $('body').on('click', '.edrPopUp .updateBtn', function (e) {

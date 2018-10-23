@@ -22,20 +22,21 @@
 						<div class="panel-body">
 							<table class="table table-bordered inputUnit">
 								<tbody>
-									<!-- <tr><td width="50%" unitType="Volume Flow">Flow Rate</td><td width="30%"><input type="number" name="flowRate" value="" min="1" max="500" class="maxNumber" /></td><td id="flowRate1" width="20%">(gpm)</td></tr> 
-									<tr><td unitType="Length" width="50%">Tower Diameter</td><td width="30%"><input type="number" name="diameter" value="" /></td><td id="diameter1">C</td></tr> -->
-									<tr><td>Inlet O2 Stage 1</td><td><input type="number" name="inletO2" value="" class="twoDecimal" /></td><td id="inletO21">ppm</td></tr>
-									<tr><td >Inlet N2 Stage 1</td><td><input type="number" name="inletN2" value="" class="twoDecimal" /></td><td id="inletN21">ppm</td></tr>
-									<!-- <tr><td unitType="-">Inlet CO2 Stage 1 </td><td><input type="number" name="inletCO2" value="" /></td><td id="inletCO21">ppm</td></tr> -->
-									<tr><td>Outlet O2 Stage 2</td><td><input type="number" name="outletO2Stage2" min="0.007" value="" class="twoDecimal"/></td><td id="outletO2Stage21">ppm</td></tr>
-									<!-- <tr><td unitType="Temperature">Temperature</td><td><input type="number" name="temperature" value=""/></td><td>C</td></tr> -->
-									<!-- <tr><td>Density </td><td><input type="number" name="density" value=""/></td><td>C</td></tr>
-									<tr><td>Viscosity </td><td><input type="number" name="viscosity" value="" /></td><td>kg/m3</td></tr>
-									<tr><td>Diff. Coef. O2 </td><td><input type="number" name="diffCoefO2" value=""/></td><td></td></tr>
-									<tr><td>Diff. Coef. N2 </td><td><input type="number" name="diffCoefN2 " value=""/></td><td></td></tr>
-									<tr><td>H O2 </td><td><input type="number" name="hO2" value=""/></td><td> </td></tr>
-									<tr><td>H N2</td><td><input type="number" name="hN2" value=""/></td><td> </td></tr>
-									<tr><td>P H2O </td><td><input type="number" name="pH2O" value=""/></td><td></td></tr> -->
+									<tr>
+										<td>Inlet O2 Stage 1 <span class="requiredInp">*</span></td>
+										<td><input type="number" name="inletO2" value="" class="twoDecimal" /></td>
+										<td id="inletO21">ppm</td>
+									</tr>
+									<tr>
+										<td >Inlet N2 Stage 1 <span class="requiredInp">*</span></td>
+										<td><input type="number" name="inletN2" value="" class="twoDecimal" /></td>
+										<td id="inletN21">ppm</td>
+									</tr>
+									<tr>
+										<td>Outlet O2 Stage 2 <span class="requiredInp">*</span></td>
+										<td><input type="number" name="outletO2Stage2" min="0.007" value="" class="twoDecimal"/></td>
+										<td id="outletO2Stage21">ppm</td>
+									</tr>
 								</tbody>
 							</table>
 						</div>
@@ -53,59 +54,90 @@
 						<div class="panel-body">
 							<table class="table table-bordered inputUnit">
 								<tbody>
-									<tr><td unitType="Length" width="50%">Tower Diameter</td><td width="30%"><input type="number" name="diameter" value="" class="twoDecimal" /></td><td id="diameter1">C</td></tr>
-									<!-- <tr><td width="50%"><strong>1st Stage</strong> </td><td width="30%"> </td><td width="20%"> </td></tr> -->
-									<tr><td unitType="Length">Stage-1 - Tower Packing Depth</td><td><input type="number" name="towerPackingDepth" value="" class="twoDecimal"/></td><td id="towerPackingDepth1">C</td></tr>
-									<tr><td unitType="Length">Stage-1 - Inlet to Packing Height </td><td><input type="number" name="inletToPackingHeight" value="" class="twoDecimal"/></td><td id="inletToPackingHeight1">ppm</td></tr>
-									<tr><td unitType="Length">Stage-1 - Inlet to Upper Head T.L. </td><td><input type="number" name="inletToUpperHeadTL" value="" class="twoDecimal"/></td><td id="inletToUpperHeadTL1">C</td></tr>
-									<!-- <tr><td><strong>2nd Stage</strong> </td><td></td><td></td></tr> -->
-									<tr><td unitType="Length">Stage-2-Tower Packing Depth</td><td><input type="number" name="towerPackingDepth2" value="" class="twoDecimal" /></td><td id="towerPackingDepth21">ppm</td></tr>
-									<tr><td unitType="Length">Stage-2-Loop Seal Height</td><td><input type="number" name="loopSealHeight" value="" class="twoDecimal"/></td><td id="loopSealHeight1">C</td></tr>
-									<!-- <tr><td><strong>Degasifier Clearwell Sizing:</strong> </td><td></td><td></td></tr> -->
-									<tr><td unitType="Time">Clearwell Retention Time </td><td><input type="number" name="clearwellRetentionTime" value="" class="twoDecimal"/></td><td id="clearwellRetentionTime1">ppm</td></tr>
-									<tr><td unitType="Length">Clearwell Straight Side Height </td><td><input type="number" name="clearwellStraightSideHeight" value="" class="twoDecimal"/></td><td id="clearwellStraightSideHeight1">C</td></tr>
-									<tr><td width="50%" unitType="Length">Pump Outlet Diameter</td><td width="30%"><input type="number" name="pumpOutletDiameter" value="" class="twoDecimal"/></td><td  id="pumpOutletDiameter1" width="20%">C</td></tr>
-									<tr><td unitType="Length">Low-Low Level alarm</td><td><input type="number" name="low_LowLevelalarm" value="" class="twoDecimal"/></td><td id="low_LowLevelalarm1">C</td></tr>
-									<tr><td unitType="Length">Low Level alarm</td><td><input type="number" name="lowLevelalarm" value="" class="twoDecimal"/></td><td id="lowLevelalarm1">ppm</td></tr>
-									<tr><td unitType="Length">High Level alarm</td><td><input type="number" name="highLevelalarm" value="" class="twoDecimal" /></td><td id="highLevelalarm1">C</td></tr>
-									<tr><td unitType="Length">Inlet Diameter</td><td><input type="number" name="inletDiameter" value="" class="twoDecimal"/></td><td id="inletDiameter1">ppm</td></tr>
-									<tr><td unitType="Length">Overflow</td><td><input type="number" name="overflow" value="" class="twoDecimal"/></td><td id="overflow1">F</td></tr>
-									<tr><td unitType="Length">Skirt Straight Side Height</td><td><input type="number" name="skirtStraightSideHeight" value="" class="twoDecimal"/></td><td id="skirtStraightSideHeight1">ppm</td></tr>
+									<tr>
+										<td unitType="Length" width="50%">Tower Diameter <span class="requiredInp">*</span></td>
+										<td width="30%"><input type="number" name="diameter" value="" class="twoDecimal" /></td>
+										<td id="diameter1">C</td>
+									</tr>
+									<tr>
+										<td unitType="Length">Stage-1 - Tower Packing Depth <span class="requiredInp">*</span></td>
+										<td><input type="number" name="towerPackingDepth" value="" class="twoDecimal"/></td>
+										<td id="towerPackingDepth1">C</td>
+									</tr>
+									<tr>
+										<td unitType="Length">Stage-1 - Inlet to Packing Height <span class="requiredInp">*</span></td>
+										<td><input type="number" name="inletToPackingHeight" value="" class="twoDecimal"/></td>
+										<td id="inletToPackingHeight1">ppm</td>
+									</tr>
+									<tr>
+										<td unitType="Length">Stage-1 - Inlet to Upper Head T.L. <span class="requiredInp">*</span></td>
+										<td><input type="number" name="inletToUpperHeadTL" value="" class="twoDecimal"/></td>
+										<td id="inletToUpperHeadTL1">C</td>
+									</tr>
+									<tr>
+										<td unitType="Length">Stage-2-Tower Packing Depth <span class="requiredInp">*</span></td>
+										<td><input type="number" name="towerPackingDepth2" value="" class="twoDecimal" /></td>
+										<td id="towerPackingDepth21">ppm</td>
+									</tr>
+									<tr>
+										<td unitType="Length">Stage-2-Loop Seal Height <span class="requiredInp">*</span></td>
+										<td><input type="number" name="loopSealHeight" value="" class="twoDecimal"/></td>
+										<td id="loopSealHeight1">C</td>
+									</tr>
+									<tr>
+										<td unitType="Time">Clearwell Retention Time <span class="requiredInp">*</span></td>
+										<td><input type="number" name="clearwellRetentionTime" value="" class="twoDecimal"/></td>
+										<td id="clearwellRetentionTime1">ppm</td>
+									</tr>
+									<tr>
+										<td unitType="Length">Clearwell Straight Side Height <span class="requiredInp">*</span></td>
+										<td><input type="number" name="clearwellStraightSideHeight" value="" class="twoDecimal"/></td>
+										<td id="clearwellStraightSideHeight1">C</td>
+									</tr>
+									<tr>
+										<td width="50%" unitType="Length">Pump Outlet Diameter <span class="requiredInp">*</span></td>
+										<td width="30%"><input type="number" name="pumpOutletDiameter" value="" class="twoDecimal"/></td>
+										<td  id="pumpOutletDiameter1" width="20%">C</td>
+									</tr>
+									<tr>
+										<td unitType="Length">Low-Low Level alarm <span class="requiredInp">*</span></td>
+										<td><input type="number" name="low_LowLevelalarm" value="" class="twoDecimal"/></td>
+										<td id="low_LowLevelalarm1">C</td>
+									</tr>
+									<tr>
+										<td unitType="Length">Low Level alarm <span class="requiredInp">*</span></td>
+										<td><input type="number" name="lowLevelalarm" value="" class="twoDecimal"/></td>
+										<td id="lowLevelalarm1">ppm</td>
+									</tr>
+									<tr>
+										<td unitType="Length">High Level alarm <span class="requiredInp">*</span></td>
+										<td><input type="number" name="highLevelalarm" value="" class="twoDecimal" /></td>
+										<td id="highLevelalarm1">C</td>
+									</tr>
+									<tr>
+										<td unitType="Length">Inlet Diameter <span class="requiredInp">*</span></td>
+										<td><input type="number" name="inletDiameter" value="" class="twoDecimal"/></td>
+										<td id="inletDiameter1">ppm</td>
+									</tr>
+									<tr>
+										<td unitType="Length">Overflow <span class="requiredInp">*</span></td>
+										<td><input type="number" name="overflow" value="" class="twoDecimal"/></td>
+										<td id="overflow1">F</td>
+									</tr>
+									<tr>
+										<td unitType="Length">Skirt Straight Side Height <span class="requiredInp">*</span></td>
+										<td><input type="number" name="skirtStraightSideHeight" value="" class="twoDecimal"/></td>
+										<td id="skirtStraightSideHeight1">ppm</td>
+									</tr>
 								</tbody>
 							</table>
 						</div>
 					</div>
 				</div>
-				<!-- <div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="o2_Three">
-						<h4 class="panel-title">
-							<a class="collapsed" data-toggle="collapse" data-parent="#accordionB" href="#o2_collapseThree" aria-expanded="false" aria-controls="o2_collapseThree">
-								Unusable Tank Height:
-							</a>
-						</h4>
-					</div>
-					<div id="o2_collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="o2_Three">
-						<div class="panel-body">
-							<table class="table table-bordered inputUnit">
-								<tbody>									
-									
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div> -->
+
 			</div>
-			<!-- <table class="table table-bordered margin0 tableScroller" id="Input">
-				<tbody>
-					<tr>
-						<td width="50%">							
-						</td>
-						<td width="50%">							
-						</td>
-						</td>
-					</tr>
-				</tbody>
-			</table> -->
+			<div class="note" style="background:none;">All  <span class="requiredInp">*</span> marked fields are mandatory <span class="clearfix"></span></div>
+
 		</div>
 		<div class="Output tabDiv dispNone genericSrollBox">
 			<div class="panel-group" id="accordionBOut" role="tablist" aria-multiselectable="true">
@@ -137,8 +169,7 @@
 									<tr><td unitType="Mass Flow">NCG Load Stage 2</td><td><span class="output_NCGLoad_stage2 twoDecimalOut"></span></td><td width="10%">lb/hr</td></tr>
 									<tr><td unitType="Mass Flow">H2O Load Stage 2</td><td><span class="output_H2OLoad_stage2 twoDecimalOut"></span></td><td width="10%">lb/hr</td></tr>
 									<tr><td unitType="Volume Flow">Volume Flow Stage 2</td><td><span class="output_Flow_stage2 twoDecimalOut"></span></td><td width="10%">lb/hr</td></tr>
-									<tr><td unitType="Pressure">Vacuum Stage 2</td><td><span class="output_Vacuum_stage2 twoDecimalOut"></span></td><td width="10%">lb/hr</td></tr>									
-									<!-- <tr><td unitType="Length">Tower Packing Depth</td><td><span class="output_ClearwellDiameter twoDecimalOut"></span></td><td width="10%"></td></tr> -->
+									<tr><td unitType="Pressure">Vacuum Stage 2</td><td><span class="output_Vacuum_stage2 twoDecimalOut"></span></td><td width="10%">lb/hr</td></tr>
 								</tbody>
 							</table>
 						</div>
@@ -157,7 +188,6 @@
 							<table class="table table-bordered margin0 tableScroller outputUnit" id="Input">
 								<tbody>									
 									<tr><td width="30%"><strong> Vessel Data</strong></td><td width="20%"><span class="output_TowerPackingDepth"></span></td><td width="20%"></td></tr>
-									
 									<tr><td unitType="Length">Tower Diameter </td><td><span class="output_TowerDiameter twoDecimalOut"></span></td><td width="10%"></td></tr>
 									<tr><td unitType="Length">Clearwell Diameter </td><td><span class="output_ClearwellDiameter twoDecimalOut"></span></td><td width="10%"></td></tr>
 									<tr><td unitType="Volume">Clearwell Volume</td><td><span class="output_ClearwellDiameter twoDecimalOut"></span></td><td width="10%"></td></tr>
@@ -188,13 +218,11 @@
 						  </h4>
 					</div>
 					<div id="collapseOne1O2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne1O2">
-						<div class="panel-body">
-						
+						<div class="panel-body">						
 							Number of streams required to execute the unitop<br>
 							Input-   1 Stream<br>
 							Output - 1 Stream<br>
-							<br><br>
-							
+							<br><br>							
 							<table class="table table-bordered">
 								<tbody>
 									<tr>

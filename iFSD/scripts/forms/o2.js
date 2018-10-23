@@ -1,5 +1,6 @@
 $('body').on('click', '.O2', function(){
 	var id=$(this).attr('id');
+	inputErrorRemove('o2Popup');
 	$('.popUpTabError').text('');
 	$('.o2Popup').removeClass('dispNone');
 	$('.o2Popup').show();
@@ -320,4 +321,16 @@ $(document).on('change', '.o2Popup .twoDecimal', function () {
 	var thisVal = $(this).val();
 	var values = parseFloat(thisVal).toFixed(2);
 	$(this).val(values);
+});
+
+//on Enter press next input 
+$(document).on('keypress', '.o2Popup input,.o2Popup select', function (e) {
+    if (e.which == 13) {
+        e.preventDefault();
+        // Get all focusable elements on the page
+        var $canfocus = $(':focusable');
+        var index = $canfocus.index(document.activeElement) + 1;
+        if (index >= $canfocus.length) index = 0;
+        $canfocus.eq(index).focus();
+    }
 });

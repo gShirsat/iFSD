@@ -1,5 +1,7 @@
 <div class="co2Popup popUp" style="display:none;">
-	<div class="header col-md-12 col-sm-12 col-xs-12"><h3 class="pull-left popTitle"></h3><i class="pull-right">X</i></div>
+	<div class="header col-md-12 col-sm-12 col-xs-12">
+		<h3 class="pull-left popTitle"></h3><i class="pull-right">X</i>
+	</div>
 	<div class="body col-md-12 col-sm-12 col-xs-12 tableScroller">
 		<ul class="nav nav-tabs col-md-12 col-sm-12 col-xs-12 iFSDTab margin0">
 			<li class="active"><a href="#">Input</a></li>
@@ -22,14 +24,30 @@
 						<div class="panel-body">
 							<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 								<tbody>
-									<!-- <tr><td width="50%" unitType="Volume Flow">Design Flow Rate </td><td width="25%"><input type="number" name="designFlowRate" value="1200" /></td><td width="20%" id="designFlowRate1">gal/sec</td></tr> -->
-									<tr><td unitType="Volume Flow">Normal Flow Rate</td><td ><input type="number" name="normalFlowRate" class="twoDecimal" /></td><td id="normalFlowRate1">gal/min</td></tr>
-									<!-- <tr><td >CO2 Concentration In</td><td><input type="number" name="cO2ConcentrationIn" value="40" class="twoDecimal" /></td><td id="cO2ConcentrationIn1">ppm as CO2</td></tr> -->
-									<tr><td>CO2 Concentration Out </td><td><input type="number" name="cO2ConcentrationOut" value="5" class="twoDecimal"/></td><td id="cO2ConcentrationOut1">ppm as CO2</td></tr>
-									<!-- <tr><td unitType="Temperature">Water min Temperature </td><td><input type="number" name="waterMinTemperature" value="1.7" /></td> <td id="waterMinTemperature1">C</td></tr> -->
-									<tr><td unitType="Flux">Liquid Loading Rate </td><td><input type="number" name="liquidLoadingRate" value="36" class="fiveDecimal"/></td><td id="liquidLoadingRate1">gal/sqft-min</td></tr>
-									<tr><td unitType="Time">Clearwell Retention Time </td><td><input type="number" name="clearwellRetentionTime" value="3" class="twoDecimal" /></td><td id="clearwellRetentionTime1">C</td></tr>
-									<tr><td unitType="-">Turndown Ratio</td><td><input type="number" name="turndownRatio" value="5"/></td><td id="turndownRatio1">C</td></tr>
+									<tr>
+										<td unitType="Volume Flow">Normal Flow Rate <span class="requiredInp">*</span></td>
+										<td ><input type="number" name="normalFlowRate" class="twoDecimal" /></td>
+										<td id="normalFlowRate1">gal/min</td>
+									</tr>
+									<tr>
+										<td>CO2 Concentration Out <span class="requiredInp">*</span></td>
+										<td><input type="number" name="cO2ConcentrationOut" value="5" class="twoDecimal"/></td>
+										<td id="cO2ConcentrationOut1">ppm as CO2</td>
+									</tr>
+									<tr>
+										<td unitType="Flux">Liquid Loading Rate <span class="requiredInp">*</span></td>
+										<td><input type="number" name="liquidLoadingRate" value="36" class="fiveDecimal"/></td>
+										<td id="liquidLoadingRate1">gal/sqft-min</td></tr>
+									<tr>
+										<td unitType="Time">Clearwell Retention Time <span class="requiredInp">*</span></td>
+										<td><input type="number" name="clearwellRetentionTime" value="3" class="twoDecimal" /></td>
+										<td id="clearwellRetentionTime1">C</td>
+									</tr>
+									<tr>
+										<td unitType="-">Turndown Ratio <span class="requiredInp">*</span></td>
+										<td><input type="number" name="turndownRatio" value="5"/></td>
+										<td id="turndownRatio1">C</td>
+									</tr>
 								</tbody>
 							</table>
 						</div>
@@ -47,14 +65,41 @@
 						<div class="panel-body">
 							<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 								<tbody>
-									<tr><td unitType="Length" width="50%">Tower Height </td><td width="25%"><input type="number" name="towerHeight" value="" class="twoDecimal" /></td><td id="towerHeight1">C</td></tr>
-									<tr><td unitType="Length">Clearwell Height </td><td><input type="number" name="clearwellHeight" value="" class="twoDecimal" /></td><td id="clearwellHeight1">C</td></tr>
-									<tr><td unitType="Length">Packing Support Grating Height </td><td><input type="number" name="packingSupportGratingHeight" value="" class="twoDecimal" /></td><td id="packingSupportGratingHeight1">C</td></tr>
-									<tr><td unitType="Length">Overflow Nozzle Diameter </td><td><input type="number" name="overflowNozzleDiameter" value="" class="twoDecimal"/></td><td id="overflowNozzleDiameter1">C</td></tr>
-									<!-- <tr><td>Demister Height </td><td><input type="number" name="demisterHeight" value="0.7"/></td><td id="demisterHeight1">C</td></tr> -->
-									<tr><td unitType="Length">Inlet Header Distributor Size </td><td><input type="number" name="inletHeaderDistributorSize" value="" class="twoDecimal"/></td><td id="inletHeaderDistributorSize1">C</td></tr>
-									<tr><td unitType="Length">Spray Nozzle Height </td><td><input type="number" name="sprayNozzleHeight" value="" class="twoDecimal"/></td><td id="sprayNozzleHeight1">C</td></tr>
-									<tr><td>Fan Size </td><td><input type="number" name="fanSize" value="" class="twoDecimal"/></td><td id="fanSize1">(cuft/min)/(gal/min)</td></tr>
+									<tr>
+										<td unitType="Length" width="50%">Tower Height <span class="requiredInp">*</span></td>
+										<td width="25%"><input type="number" name="towerHeight" value="" class="twoDecimal" /></td>
+										<td id="towerHeight1">C</td>
+									</tr>
+									<tr>
+										<td unitType="Length">Clearwell Height <span class="requiredInp">*</span></td>
+										<td><input type="number" name="clearwellHeight" value="" class="twoDecimal" /></td>
+										<td id="clearwellHeight1">C</td>
+									</tr>
+									<tr>
+										<td unitType="Length">Packing Support Grating Height <span class="requiredInp">*</span></td>
+										<td><input type="number" name="packingSupportGratingHeight" value="" class="twoDecimal" /></td>
+										<td id="packingSupportGratingHeight1">C</td>
+									</tr>
+									<tr>
+										<td unitType="Length">Overflow Nozzle Diameter <span class="requiredInp">*</span></td>
+										<td><input type="number" name="overflowNozzleDiameter" value="" class="twoDecimal"/></td>
+										<td id="overflowNozzleDiameter1">C</td>
+									</tr>
+									<tr>
+										<td unitType="Length">Inlet Header Distributor Size <span class="requiredInp">*</span></td>
+										<td><input type="number" name="inletHeaderDistributorSize" value="" class="twoDecimal"/></td>
+										<td id="inletHeaderDistributorSize1">C</td>
+									</tr>
+									<tr>
+										<td unitType="Length">Spray Nozzle Height <span class="requiredInp">*</span></td>
+										<td><input type="number" name="sprayNozzleHeight" value="" class="twoDecimal"/></td>
+										<td id="sprayNozzleHeight1">C</td>
+									</tr>
+									<tr>
+										<td>Fan Size <span class="requiredInp">*</span></td>
+										<td><input type="number" name="fanSize" value="" class="twoDecimal"/></td>
+										<td id="fanSize1">(cuft/min)/(gal/min)</td>
+									</tr>
 								</tbody>
 							</table>
 						</div>
@@ -72,19 +117,38 @@
 						<div class="panel-body">
 							<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 								<tbody>
-									<!-- <tr><td ><strong>4th degree polynomial coefficient  (Jaeger Tri-Packs)</strong></td><td width="25%"></td><td></td></tr> -->
-									<tr><td unitType="-" width="50%">a </td><td width="25%"><input type="number" name="a" value="26.92" class="sixDecimal" /></td><td id="a1">C</td></tr>
-									<tr><td unitType="-">b </td><td><input type="number" name="b" value="-0.61" class="sixDecimal" /></td><td id="b1">C</td></tr>
-									<tr><td unitType="-">c </td><td><input type="number" name="c" value="0.029" class="sixDecimal" /></td><td id="c1">C</td></tr>
-									<tr><td unitType="-">d </td><td><input type="number" name="d" value="-0.0008" class="sixDecimal"/></td><td id="d1">C</td></tr>
-									<tr><td unitType="-">e </td><td><input type="number" name="e" value="0.000008" class="sixDecimal" /></td><td id="e1">C</td></tr>
+									<tr>
+										<td unitType="-" width="50%">a <span class="requiredInp">*</span></td>
+										<td width="25%"><input type="number" name="a" value="26.92" class="sixDecimal" /></td>
+										<td id="a1">C</td>
+									</tr>
+									<tr>
+										<td unitType="-">b <span class="requiredInp">*</span></td>
+										<td><input type="number" name="b" value="-0.61" class="sixDecimal" /></td>
+										<td id="b1">C</td>
+									</tr>
+									<tr>
+										<td unitType="-">c <span class="requiredInp">*</span></td>
+										<td><input type="number" name="c" value="0.029" class="sixDecimal" /></td>
+										<td id="c1">C</td>
+									</tr>
+									<tr>
+										<td unitType="-">d <span class="requiredInp">*</span></td>
+										<td><input type="number" name="d" value="-0.0008" class="sixDecimal"/></td>
+										<td id="d1">C</td>
+									</tr>
+									<tr>
+										<td unitType="-">e <span class="requiredInp">*</span></td>
+										<td><input type="number" name="e" value="0.000008" class="sixDecimal" /></td>
+										<td id="e1">C</td>
+									</tr>
 								</tbody>
 							</table>
 						</div>
 					</div>
-				</div>
-				
+				</div>				
 			</div>
+			<div class="note" style="background:none;">All  <span class="requiredInp">*</span> marked fields are mandatory <span class="clearfix"></span></div>
 		</div>
 		<div class="Output tabDiv dispNone genericSrollBox">
 			

@@ -42,14 +42,14 @@
 								<td>m3/hr</td>
 							</tr-->
 							<tr unitType="Volume Flow">
-								<td width="25%">Peak Flow</td>
+								<td width="25%">Peak Flow <span class="requiredInp">*</span></td>
 								<td>
 									<input type="number" name="ddPf" value="">
 								</td>
 								<td id="ddPf1">MGD</td>
 							</tr>
 							<tr>
-								<td width="25%">Application</td>
+								<td width="25%">Application <span class="requiredInp">*</span></td>
 								<td>
 									<select name="ddApplication" id="ddApplicationid" class="w100">
 										<option value="Clarification">Clarification</option>
@@ -59,14 +59,14 @@
 								<td id="ddApplication1"></td>
 							</tr>
 							<tr>
-								<td width="45%">No. Of Units</td>
+								<td width="45%">No. Of Units <span class="requiredInp">*</span></td>
 								<td>
 									<input type="text" name="ddNou" value="">
 								</td>
 								<td id="ddNou1"></td>
 							</tr>
 							<tr>
-								<td width="25%" >Model Selection</td>
+								<td width="25%" >Model Selection <span class="requiredInp">*</span></td>
 								<td>
 									<select name="ddMs" id="ddMsid" class="w100">
 										<option value="#1">#1</option>
@@ -116,7 +116,7 @@
 				  <div class="panel-body">
 					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 						<tr>
-							<td>Flow Rate Selection</td>
+							<td>Flow Rate Selection <span class="requiredInp">*</span></td>
 							<td width="25%">
 								<select name="ddFrs" id="ddFrsid" class="w100">
 									<option value="Design">Design</option>
@@ -126,21 +126,21 @@
 							<td id="ddFrs1"></td>
 						</tr>
 						<tr>
-							<td>Hours of Operation per day</td>
+							<td>Hours of Operation per day <span class="requiredInp">*</span></td>
 							<td width="25%">
-								<input type="text" name="ddHoa" value=""></input>
+								<input type="text" name="ddHoa" value="">
 							</td>
 							<td id="ddHoa1">hrs/day</td>
 						</tr>
 						<tr>
-							<td>Effluent TSS</td>
+							<td>Effluent TSS <span class="requiredInp">*</span></td>
 							<td width="25%">
-								<input type="number" name="ddEtss" value=""></input>
+								<input type="number" name="ddEtss" value="">
 							</td>
 							<td id="ddEtss1">ppm</td>
 						</tr>
 						<tr>
-							<td>Coagulant Selection</td>
+							<td>Coagulant Selection <span class="requiredInp">*</span></td>
 							<td width="25%">
 								<select name="ddCs" id="ddCsid" class="w100">
 									<option value="Ferric Chloride">Ferric Chloride</option>
@@ -150,16 +150,16 @@
 							<td id="ddCs1"></td>
 						</tr>
 						<tr>
-							<td>Coagulant Dose</td>
+							<td>Coagulant Dose <span class="requiredInp">*</span></td>
 							<td width="25%">
-								<input type="text" name="ddScd" value=""></input>
+								<input type="text" name="ddScd" value="">
 							</td>
 							<td id="ddScd1">ppm</td>
 						</tr>
 						<tr>
-							<td>Effluent Sludge Concentration</td>
+							<td>Effluent Sludge Concentration <span class="requiredInp">*</span></td>
 							<td width="25%">
-								<input type="text" name="ddEsc" value=""></input>
+								<input type="text" name="ddEsc" value="">
 							</td>
 							<td id="ddEsc1">%</td>
 						</tr>						
@@ -183,7 +183,7 @@
 					  <div class="panel-body">
 						<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 							<tr>
-								<td>Steel Tank</td>
+								<td>Steel Tank <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddSt" id="ddStid" class="w100">
 										<option value="No">No</option>
@@ -193,7 +193,7 @@
 								<td id="ddSt1" width="8%"></td>
 							</tr>
 							<tr class="steelTankNo">
-								<td>Steel Tank MOC</td>
+								<td>Steel Tank MOC <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddStmoc" id="ddStmocid" class="w100">
 										<option value="CS">CS</option>
@@ -204,7 +204,7 @@
 								<td id="ddStmoc1"></td>
 							</tr>
 							<tr class="steelTankNo">
-								<td>Steel Tank Prep</td>
+								<td>Steel Tank Prep <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddStp" id="ddStpid" class="w100">
 										<option value="SP-6 + Prime">SP-6 + Prime</option>
@@ -214,7 +214,7 @@
 								<td id="ddStp1"></td>
 							</tr>
 							<tr class="steelTankNo">
-								<td>Steel Tank Finish (inside)</td>
+								<td>Steel Tank Finish (inside) <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddStfi" id="ddStfiid" class="w100">
 										<option value="By Contractor" >By Contractor</option>
@@ -225,7 +225,7 @@
 								<td id="ddStfi1"></td>
 							</tr>
 							<tr class="steelTankNo">
-								<td>Steel Tank Finish (outside) (#1-5)</td>
+								<td>Steel Tank Finish (outside) (#1-5) <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddStfo" id="ddStfoid" class="w100">
 										<option value="By Contractor" >By Contractor</option>
@@ -235,7 +235,7 @@
 								<td id="ddStfo1"></td>
 							</tr>
 							<tr class="steelTankNo">
-								<td>Steel Tank Bottom</td>
+								<td>Steel Tank Bottom <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddStb" id="ddStbid" class="w100">
 										<option value="By Contractor">By Contractor</option>
@@ -245,7 +245,7 @@
 								<td id="ddStb1"></td>
 							</tr>
 							<tr class="steelTankNo">
-								<td>Steel Tank Legs (#1-5 only)</td>
+								<td>Steel Tank Legs (#1-5 only) <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddStl" id="ddStlid" class="w100">
 										<option value="No" >No</option>
@@ -255,7 +255,7 @@
 								<td id="ddStl1"></td>
 							</tr>
 							<tr>
-								<td>Internal Steel MOC?</td>
+								<td>Internal Steel MOC? <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddIsm" id="ddIsmid" class="w100">
 										<option value="CS" >CS</option>
@@ -266,7 +266,7 @@
 								<td id="ddIsm1"></td>
 							</tr>
 							<tr>
-								<td>Internal Steel Prep</td>
+								<td>Internal Steel Prep <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddIsp" id="ddIspid" class="w100">
 										<option value="SP-10 + Prime">SP-10 + Prime</option>
@@ -276,7 +276,7 @@
 								<td id="ddIsp1"></td>
 							</tr>
 							<tr>
-								<td>Internal Steel Finish</td>
+								<td>Internal Steel Finish <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddIsf" id="ddIsfid" class="w100">
 										<option value="By Contractor">By Contractor</option>
@@ -287,7 +287,7 @@
 								<td id="ddIsf1"></td>
 							</tr>
 							<tr>
-								<td>Troughs MOC?</td>
+								<td>Troughs MOC? <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddTmoc" id="ddTmocid" class="w100">
 										<option value="CS">CS</option>
@@ -299,7 +299,7 @@
 								<td id="ddTmoc1"></td>
 							</tr>
 							<tr>
-								<td>Local Control Panel By SUEZ?</td>
+								<td>Local Control Panel By SUEZ? <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddLcp" id="ddLcpid" class="w100">
 										<option value="Yes">Yes</option>
@@ -309,7 +309,7 @@
 								<td id="ddLcp1"></td>
 							</tr>
 							<tr>
-								<td>No. Of Units Per Panel?</td>
+								<td>No. Of Units Per Panel? <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddNoupp" id="ddNouppid" class="w100">
 										<option value="1" >1</option>
@@ -319,7 +319,7 @@
 								<td id="ddNoupp1"></td>
 							</tr>
 							<tr>
-								<td>Level Of Controls?</td>
+								<td>Level Of Controls? <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddLoc" id="ddLocid" class="w100">
 										<option value="1">1</option>
@@ -330,7 +330,7 @@
 								<td id="ddLoc1"></td>
 							</tr>
 							<tr>
-								<td>Skid Mount Pumps?</td>
+								<td>Skid Mount Pumps? <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddSmp" id="ddSmpid" class="w100">
 										<option value="No">No</option>
@@ -340,7 +340,7 @@
 								<td id="ddSmp1"></td>
 							</tr>
 							<tr class="steelTankNo">
-								<td>Skid Piping MOC</td>
+								<td>Skid Piping MOC <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddSpm" id="ddSpmid" class="w100">
 										<option value="CS">CS</option>
@@ -353,7 +353,7 @@
 								<td id="ddSpm1"></td>
 							</tr>
 							<tr>
-								<td>Total No. Of Recycle Pumps?</td>
+								<td>Total No. Of Recycle Pumps? <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddTnorp" id="ddTnorp" class="w100">
 										<option value="0" selected="selected">0</option>
@@ -382,7 +382,7 @@
 								<td id="ddTnorp1"></td>
 							</tr>
 							<tr>
-								<td>Total No. Of Sludge Pumps?</td>
+								<td>Total No. Of Sludge Pumps? <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddTnosp" id="ddTnospid" class="w100">
 										<option value="0" selected="selected">0</option>
@@ -411,7 +411,7 @@
 								<td id="ddTnosp1"></td>
 							</tr>
 							<tr>
-								<td>Motor Voltage</td>
+								<td>Motor Voltage <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddMv" id="ddMvid" class="w100">
 										<option value="480">480</option>
@@ -421,14 +421,14 @@
 								<td id="ddMv1"></td>
 							</tr>
 							<tr>
-								<td>Motor Phase</td>								
+								<td>Motor Phase <span class="requiredInp">*</span></td>								
 									<td width="25%">
-										<input type="text" name="ddMp" value=""></input>
+										<input type="text" name="ddMp" value="">
 									</td>								
 								<td id="ddMp1"></td>
 							</tr>
 							<tr>
-								<td>Motor Freq.</td>
+								<td>Motor Freq. <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddMf" id="ddMfid" class="w100">
 										<option value="60">60</option>
@@ -438,7 +438,7 @@
 								<td id="ddMf1"></td>
 							</tr>
 							<tr>
-								<td>VFDs By SUEZ?</td>
+								<td>VFDs By SUEZ? <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddVfd" id="ddVfdid" class="w100">
 										<option value="No">No</option>
@@ -467,7 +467,7 @@
 						<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 							<tr><td colspan="3"><b>Mixer Information</b></td></tr>
 							<tr>
-								<td>Include in our scope?</td>
+								<td>Include in our scope? <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddIios" id="ddIiosid" class="w100">
 										<option value="Yes">Yes</option>
@@ -477,7 +477,7 @@
 								<td id="ddIios1"></td>
 							</tr>
 							<tr>
-								<td>Energy Gradient:</td>
+								<td>Energy Gradient <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddEg" id="ddEgid" class="w100">
 										<option value="100">100</option>
@@ -492,7 +492,7 @@
 								<td id="ddEg1">G</td>
 							</tr>
 							<tr>
-								<td>Type of Motor:</td>
+								<td>Type of Motor <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddTom" id="ddTomid" class="w100">
 										<option value="TEFC" >TEFC</option>
@@ -502,7 +502,7 @@
 								<td id="ddTom1"></td>
 							</tr>
 							<tr>
-								<td>Wetted MOC:</td>
+								<td>Wetted MOC <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddWmoc" id="ddWmocid" class="w100">
 										<option value="CS">CS</option>
@@ -515,7 +515,7 @@
 								<td id="ddWmoc1"></td>
 							</tr>
 							<tr>
-								<td>Type of Drive:</td>
+								<td>Type of Drive <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddTod" id="ddTodid" class="w100">
 										<option value="VFD">VFD</option>
@@ -525,7 +525,7 @@
 								<td id="ddTod1"></td>
 							</tr>
 							<tr>
-								<td>Operating Station Enclosure:</td>
+								<td>Operating Station Enclosure <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddOse" id="ddOseid" class="w100">
 										<option value="NEMA 4X" >NEMA 4X</option>
@@ -536,7 +536,7 @@
 								<td id="ddOse1"></td>
 							</tr>
 							<tr>
-								<td>Mixer Manufacturers:</td>
+								<td>Mixer Manufacturers <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddMm" id="ddMmid" class="w100">
 										<option value="Lightnin">Lightnin</option>
@@ -549,7 +549,7 @@
 							</tr>
 							<tr><td colspan="3"><b>Transfer Pipe Size</b></td></tr>
 							<tr>
-								<td>Transfer Pipe Diameter (FINAL)</td>
+								<td>Transfer Pipe Diameter (FINAL) <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddTps" id="ddTpsid" class="w100">
 										<option value="6">6</option>
@@ -573,7 +573,7 @@
 							</tr>
 							<tr><td colspan="3"><b>Effluent Pipe Size</b></td></tr>
 							<tr>
-								<td>Effluent Pipe Diameter</td>
+								<td>Effluent Pipe Diameter <span class="requiredInp">*</span></td>
 								<td width="25%">
 										<select name="ddEpd" id="ddEpdid" class="w100">
 											<option value="6">6</option>
@@ -598,7 +598,7 @@
 
 							<tr class="steelTankYes"><td colspan="3"><b>Rapid Mixer (concrete)</b></td></tr>
 							<tr class="steelTankYes">
-								<td>Basis of Sizing</td>
+								<td>Basis of Sizing <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddBos" id="ddBosid" class="w100">
 										<option value="Peak">Peak</option>
@@ -608,7 +608,7 @@
 								<td id="ddBos1"></td>
 							</tr>
 							<tr class="steelTankYes">
-								<td>Single or Common Rapid Mixer?</td>
+								<td>Single or Common Rapid Mixer? <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddSocrm" id="ddSocrmid" class="w100">
 										<option value="Single">Single</option>
@@ -618,7 +618,7 @@
 								<td id="ddSocrm1"></td>
 							</tr>
 							<tr class="steelTankYes">
-								<td>RM Detention Time?</td>
+								<td>RM Detention Time? <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddCrmdt" id="ddCrmdtid" class="w100">
 										<option value="2.00">2.00</option>
@@ -628,7 +628,7 @@
 								<td id="ddCrmdt1">min</td>
 							</tr>
 							<tr class="steelTankYes">
-								<td>RM Inlet Pipe Diameter?</td>
+								<td>RM Inlet Pipe Diameter? <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddCrmipd" id="ddCrmipdid" class="w100">
 										<option value="6">6</option>
@@ -651,15 +651,15 @@
 								<td id="ddCrmipd1">in</td>
 							</tr>
 							<tr unitType="Length" class="steelTankYes socrmSingle">
-								<td>Flow Split Length (D)</td>
+								<td>Flow Split Length (D) <span class="requiredInp">*</span></td>
 								<td width="25%">
-									<input type="text" name="ddFsld" value=""></input>
+									<input type="text" name="ddFsld" value="">
 								</td>
 								<td id="ddFsld1">ft</td>
 							</tr>
 							<tr class="steelTankNo"><td colspan="3"><b>Rapid Mixer (steel)</b></td></tr>
 							<tr class="steelTankNo">
-								<td>RM Detention Time?</td>
+								<td>RM Detention Time? <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddSrmdt" id="ddSrmdtid" class="w100">
 										<option value="2.00">2.00</option>
@@ -669,7 +669,7 @@
 								<td id="ddSrmdt1">min</td>
 							</tr>
 							<tr class="steelTankNo">
-								<td>RM Inlet Pipe Diameter?</td>
+								<td>RM Inlet Pipe Diameter? <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddSrmipd" id="ddSrmipdid" class="w100">
 										<option value="6">6</option>
@@ -709,7 +709,7 @@
 					  <div class="panel-body">
 						<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 							<tr>
-								<td>Reactor Model Override</td>
+								<td>Reactor Model Override <span class="requiredInp">*</span></td>
 								<td>
 									<select name="ddRmo" id="ddRmoid" class="w100">
 										<option value="#1">#1</option>
@@ -744,7 +744,7 @@
 							</tr>
 							<tr><td colspan="3"><b>Recycle Pump</b></td></tr>
 							<tr>
-								<td>Pump Type</td>
+								<td>Pump Type <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddPt" id="ddPtid" class="w100">
 										<option value="Progressive Cavity">Progressive Cavity</option>
@@ -754,7 +754,7 @@
 								<td id="ddPt1"></td>
 							</tr>
 							<tr>
-								<td>Application</td>
+								<td>Application <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddA" id="ddAid" class="w100">
 										<option value="Municipal">Municipal</option>
@@ -765,7 +765,7 @@
 								<td id="ddA1"></td>
 							</tr>
 							<tr>
-								<td>Recycle %</td>
+								<td>Recycle % <span class="requiredInp">*</span></td>
 								<td width="25%">
 									<select name="ddR" id="ddRid" class="w100">
 										<option value="4.00">4.00</option>
@@ -794,16 +794,16 @@
 					  <div class="panel-body">
 						<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 							<tr unitType="Length">
-								<td>Unit Freeboard</td>
+								<td>Unit Freeboard <span class="requiredInp">*</span></td>
 								<td width="25%">
-									<input type="text" name="ddUf" value=""></input>
+									<input type="text" name="ddUf" value="">
 								</td>
 								<td id="ddUf1">ft</td>
 							</tr>							
 							<tr unitType="Length">
-								<td>Tube Height</td>
+								<td>Tube Height <span class="requiredInp">*</span></td>
 								<td width="25%">
-									<input type="text" name="ddTh" value=""></input>
+									<input type="text" name="ddTh" value="">
 								</td>
 								<td id="ddTh1">ft</td>
 							</tr>							
@@ -825,7 +825,7 @@
 						<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 								<tr><td colspan="3"><b>Clarifier</b></td></tr>
 							<tr>
-								<td>Outlet Trough Sides</td>
+								<td>Outlet Trough Sides <span class="requiredInp">*</span></td>
 								<td>
 									<select name="ddOts" id="ddOtsid" class="w100">
 										<option value="6">6</option>
@@ -844,6 +844,8 @@
 					</div>
 			  </div>
 			</div>
+			<div class="note" style="background:none;">All  <span class="requiredInp">*</span> marked fields are mandatory <span class="clearfix"></span></div>
+			<div class="note" style="background:none;">Feed TSS should be non zero</div>
     </div>
 
     <div class="Output tabDiv dispNone genericSrollBox">
@@ -861,7 +863,7 @@
                         <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
                             <tbody>
                                 <tr>
-                                    <td>Application</td>
+                                    <td>Aapplication  </td>
                                     <td width="25%" contenteditable="false"></td>
                                     <td></td>
                                 </tr>
@@ -881,12 +883,12 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td>No. of Units</td>
+                                    <td>No of Units</td>
                                     <td width="25%" contenteditable="false"></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td unitType="Volume Flow">Peak Capacity Per Unit</td>
+                                    <td unitType="Volume Flow">Peak Flow Per Unit</td>
                                     <td width="25%" contenteditable="false"></td>
                                     <td></td>
                                 </tr>
@@ -896,22 +898,22 @@
                                     <td></td>
                                 </tr>
 								<tr>
-                                    <td >Model </td>
+                                    <td >Model Selection </td>
                                     <td width="25%" contenteditable="false"></td>
                                     <td></td>
                                 </tr>
 								<tr>
-                                    <td unitType="Flux">Clarifier Loading Rate (Peak) </td>
+                                    <td unitType="Flux">DDEG Clarifier Loading Rate Peak </td>
                                     <td width="25%" contenteditable="false"></td>
                                     <td></td>
                                 </tr>
 								<tr>
-                                    <td unitType="Flux">Clarifier Loading Rate (Design) </td>
+                                    <td unitType="Flux">DDEG Clarifier Loading Rate Design </td>
                                     <td width="25%" contenteditable="false"></td>
                                     <td></td>
                                 </tr>
 								<tr>
-                                    <td unitType="Volume Flow">Max Recycle Rate </td>
+                                    <td unitType="Volume Flow">Required Recycle Flow Peak </td>
                                     <td width="25%" contenteditable="false"></td>
                                     <td></td>
                                 </tr>
@@ -933,7 +935,7 @@
                         <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
                             <tbody>
                                 <tr>
-                                    <td>Influent Alkalinity </td>
+                                    <td>Influent Alkalanity </td>
                                     <td width="25%" contenteditable="false"></td>
                                     <td >ppm</td>
                                 </tr>
@@ -943,7 +945,7 @@
                                     <td>ppm</td>
                                 </tr>
 								<tr>
-                                    <td >pH</td>
+                                    <td >Influent pH</td>
                                     <td width="25%" contenteditable="false"></td>
                                     <td></td>
                                 </tr>
@@ -970,7 +972,7 @@
                                     <td >ppm</td>
                                 </tr>
                                 <tr>
-                                    <td unitType="Volume Flow">Effluent Flow Rate</td>
+                                    <td unitType="Volume Flow">Product Flow</td>
                                     <td width="25%" contenteditable="false"></td>
                                     <td>ppm</td>
                                 </tr>
@@ -991,7 +993,7 @@
                     <div class="panel-body">
                         <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
                             <tbody>
-                                <tr>
+                                <!----<tr>
                                     <td>Flow Rate Selection </td>
                                     <td width="25%" contenteditable="false"></td>
                                     <td ></td>
@@ -1000,7 +1002,7 @@
                                     <td unitType="Time">Hours of Operation per day</td>
                                     <td width="25%" contenteditable="false"></td>
                                     <td></td>
-                                </tr>
+                                </tr> -->
 								<tr>
                                     <td>Coagulant Selection </td>
                                     <td width="25%" contenteditable="false"></td>
@@ -1017,7 +1019,7 @@
                                     <td ></td>
                                 </tr>
 								<tr>
-                                    <td unitType="Volume Flow">Sludge Production</td>
+                                    <td unitType="Volume Flow">Daily Sludge Production</td>
                                     <td width="25%" contenteditable="false"></td>
                                     <td ></td>
                                 </tr>
@@ -1042,7 +1044,14 @@
                 <textarea class="ro_Note" rows="4" cols="50" name="ro_Note"></textarea>
             </div>
             <div class="Documentation tabDiv dispNone genericSrollBox">
-				
+				<p class="text-justify">
+				Number of streams required to execute the unitop<br>				
+				Input-   1 Stream<br>
+				Output - 2 Stream<br>
+				<br><br>
+				More details are available at below link:
+				<a target="_blank" href="http://www.degremont-technologies.com/DensaDeg-R">http://www.degremont-technologies.com/DensaDeg-R</a>
+				</p>
 
             </div>
 

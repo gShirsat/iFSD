@@ -36,13 +36,13 @@
                         </td>
                     </tr-->
                     <tr>
-                        <td width="25%">Filter Type</td>
+                        <td width="25%">Filter Type <span class="requiredInp">*</span></td>
                         <td align="left" width="20%">
-                            <select name="cffilterTypeOptions">
+                            <select name="cffilterTypeOptions" id="cffilterTypeOptions">
+								<option>Select</option>
                                 <option >RO.Zs 01-20</option>
                                 <option >RO.Zs 01-30</option>
                                 <option >RO.Zs 01-40</option>
-
                                 <option >RO.Zs 01-50</option>
                                 <option >RO.Zs 01-60</option>
                                 <option >RO.Zs 01-70</option>
@@ -89,7 +89,7 @@
                         <td id="cffilterTypeOptions1"></td>
                     </tr>
                     <tr>
-                        <td width="25%" unitType="Volume Flow">Flow per TIE</td>
+                        <td width="25%" unitType="Volume Flow">Flow per TIE <span class="requiredInp">*</span></td>
                         <td>
                             <input type="number" id="cfflowTieId" name="cfflowTieId" value=""></input>
                         </td>
@@ -99,7 +99,7 @@
                     </tr>
                 </tbody>
             </table>
-
+			<div class="note" style="background:none;">All  <span class="requiredInp">*</span> marked fields are mandatory <span class="clearfix"></span></div>
         </div>
     </div>
 

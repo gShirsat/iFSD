@@ -9,32 +9,70 @@
 		</ul>
 		<div class="clearfix"></div>
 		<div class="Input tabDiv genericSrollBox">
-
 			<table class="table table-bordered margin0 tableScroller" id="Input">
 				<tbody>
-					<!-- <tr><td unitType="Volume Flow" width="50%">Clarifier Product Flow Rate</td><td width="25%"><input type="number" name="clarifierProductFlowRate" value="" /></td><td id="clarifierProductFlowRate1" width="20%">m3/hr</td></tr> -->
-					<tr><td width="50%">Clarifier Sludge Blowdown </td><td width="25%"><input type="number" name="clarifierSludgeBlowdown" value="" /></td><td id="clarifierSludgeBlowdown1" width="20%">%</td></tr>
-					<!-- <tr><td unitType="-">Feed TSS</td><td><input type="number" name="feedTSS" value="" /></td><td id="feedTSS1">ppm </td></tr>
-					<tr><td unitType="-">Color (C.U.) - Estimated value </td><td><input type="number" name="colorCUEstimatedvalue" value=""/></td><td>Color (C.U.) </td></tr> -->
-					<tr><td unitType="-">Chemical Selection </td><td>
-						<select class="w90" name="chemicalSelection" id="chemicalSelection">
-							<option>Al2(SO4)3</option>
-							<option>PAC</option>
-							<option>FeCl3</option>
-							<option>Cationic Polymer</option>
-						</select>
-					</td><td id="chemicalSelection1"> </td>
+					<tr>
+						<td width="50%">Clarifier Sludge Blowdown <span class="requiredInp">*</span></td>
+						<td width="25%"><input type="number" name="clarifierSludgeBlowdown" value="" /></td>
+						<td id="clarifierSludgeBlowdown1" width="20%">%</td>
 					</tr>
-					<tr><td ><span class="pull-left">Kg dry sludge/kg &nbsp;</span> <span class="selectedChemical pull-left">Al2(SO4)3</span> <span class="pull-left">&nbsp; coagulant</span></td><td><input type="number" name="kgDrysludge" value=""/></td><td id="kgDrysludge1">%</td></tr>
-					<tr><td>% of Sludge as fixed soils </td><td><input type="number" name="ofSludgeasfixedsoils" value=""/></td><td id="ofSludgeasfixedsoils1">%</td></tr>
-					<tr><td unitType="-">Fixed Soil Specific Gravity</td><td><input type="number" name="fixedSoilSpecificGravity" value=""/></td><td id="fixedSoilSpecificGravity1">C</td></tr>
-					<tr><td unitType="-">Volatile Soil Specific Gravity</td><td><input type="number" name="volatileSoilSpecificGravity" value=""/></td><td id="volatileSoilSpecificGravity1">C</td></tr>
-					<tr><td unitType="Length">Clarifier Diameter</td><td><input type="number" name="clarifierDiameter" value=""/></td><td id="clarifierDiameter1">ppm</td></tr>
-					<tr><td unitType="Length">Clarifier Active Depth</td><td><input type="number" name="clarifierActiveDepth" value=""/></td><td id="clarifierActiveDepth1">ppm</td></tr>
-					<tr><td >Clarifier Flocculation Zone Area to total Area (%) </td><td><input type="number" name="clarifierFlocculationZoneArea" value=""/></td><td id="clarifierFlocculationZoneArea1">%</td></tr>
+					<tr>
+						<td unitType="-">Chemical Selection <span class="requiredInp">*</span></td>
+						<td>
+							<select class="w90" name="chemicalSelection" id="chemicalSelection">
+								<option>Select</option>
+								<option>Al2(SO4)3</option>
+								<option>PAC</option>
+								<option>FeCl3</option>
+								<option>Cationic Polymer</option>
+							</select>
+						</td>
+						<td id="chemicalSelection1"></td>
+					</tr>
+					<tr>
+						<td >
+							<span class="pull-left">Kg dry sludge/kg &nbsp;</span>
+							<span class="selectedChemical pull-left">Al2(SO4)3</span>
+							<span class="pull-left">&nbsp; coagulant&nbsp; </span>
+							<span class="requiredInp pull-left">*</span>
+						</td>
+						<td><input type="number" name="kgDrysludge" value=""/></td>
+						<td id="kgDrysludge1">%</td>
+					</tr>
+					<tr>
+						<td>% of Sludge as fixed soils <span class="requiredInp">*</span></td>
+						<td><input type="number" name="ofSludgeasfixedsoils" value=""/></td>
+						<td id="ofSludgeasfixedsoils1">%</td>
+					</tr>
+					<tr>
+						<td unitType="-">Fixed Soil Specific Gravity <span class="requiredInp">*</span></td>
+						<td><input type="number" name="fixedSoilSpecificGravity" value=""/></td>
+						<td id="fixedSoilSpecificGravity1">C</td>
+					</tr>
+					<tr>
+						<td unitType="-">Volatile Soil Specific Gravity <span class="requiredInp">*</span></td>
+						<td><input type="number" name="volatileSoilSpecificGravity" value=""/></td>
+						<td id="volatileSoilSpecificGravity1">C</td>
+					</tr>
+					<tr>
+						<td unitType="Length">Clarifier Diameter <span class="requiredInp">*</span></td>
+						<td><input type="number" name="clarifierDiameter" value=""/></td>
+						<td id="clarifierDiameter1">ppm</td>
+					</tr>
+					<tr>
+						<td unitType="Length">Clarifier Active Depth <span class="requiredInp">*</span></td>
+						<td><input type="number" name="clarifierActiveDepth" value=""/></td>
+						<td id="clarifierActiveDepth1">ppm</td>
+					</tr>
+					<tr>
+						<td >Clarifier Flocculation Zone Area to total Area (%) <span class="requiredInp">*</span> </td>
+						<td><input type="number" name="clarifierFlocculationZoneArea" value=""/></td>
+						<td id="clarifierFlocculationZoneArea1">%</td>
+					</tr>
 				</tbody>
 			</table>
-
+			<div class="note" style="background:none;">All  <span class="requiredInp">*</span> marked fields are mandatory <span class="clearfix"></span></div>
+			<div class="note" style="background:none;">Feed TSS should be non zero</div>
 		</div>
 		<div class="Output tabDiv dispNone genericSrollBox">
 			<table class="table table-bordered margin0 tableScroller" id="Input">
@@ -60,8 +98,7 @@
 			<p class="mB5"><strong>Please add Note:</strong></p>
 			<textarea class="co2_Note" rows="4" cols="50" name="co2_Note"></textarea>
 		</div>
-		<div class="Calculation tabDiv dispNone genericSrollBox">
-			
+		<div class="Calculation tabDiv dispNone genericSrollBox">			
 			<div class="panel-group" id="accordionD1" role="tablist" aria-multiselectable="true">
 				<div class="panel panel-default">
 					<div class="panel-heading" role="tab" id="headingOne1">
@@ -87,7 +124,6 @@
 								<li>Clarifier Active Depth</li>
 								<li>Clarifier Flocculation Zone Area to total Area (%)</li>
 							</ul>
-
 						</div>
 					</div>
 				</div>
@@ -185,6 +221,7 @@
 		</div>
 	</div>
 	<div class="footer col-md-12 col-sm-12 col-xs-12">
+		
 		<div class="popUpTabError"></div>
 		<button type="button" class="btn updateBtn" id="blueButton">Update</button>
 		<button type="button" class="btn cancelBtn" id="blueButton">Cancel</button>

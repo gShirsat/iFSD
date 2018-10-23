@@ -3,6 +3,7 @@ var unitConverionDoneEdi=false;
 $('body').on('click', '.DensaDeg', function () {
     //console.log("Inside fucntion");
     var id = $(this).attr('id');
+	inputErrorRemove('ddPopUp');
     $('.ddPopUp').removeClass('dispNone');
     $('.ddPopUp').show();
 	$('.ddPopUp .body ul.nav li').removeClass('active');
@@ -568,5 +569,16 @@ $(document).on('change', '.ddPopUp #ddSocrmid', function () {
     }    
     if (this.value == 'Common') {
         $(".socrmSingle").removeClass('dispNone');      
+    }
+});
+//on Enter press next input 
+$(document).on('keypress', '.ddPopUp input,.ddPopUp select', function (e) {
+    if (e.which == 13) {
+        e.preventDefault();
+        // Get all focusable elements on the page
+        var $canfocus = $(':focusable');
+        var index = $canfocus.index(document.activeElement) + 1;
+        if (index >= $canfocus.length) index = 0;
+        $canfocus.eq(index).focus();
     }
 });

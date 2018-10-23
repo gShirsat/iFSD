@@ -1,5 +1,5 @@
 <div class="rLimestonePopup popUp" style="display:none;">
-<div class="header col-md-12 col-sm-12 col-xs-12"><h3 class="pull-left popTitle"></h3><i class="pull-right">X</i></div>
+	<div class="header col-md-12 col-sm-12 col-xs-12"><h3 class="pull-left popTitle"></h3><i class="pull-right">X</i></div>
 <div class="body col-md-12 col-sm-12 col-xs-12 tableScroller">
 	<ul class="nav nav-tabs col-md-12 col-sm-12 col-xs-12 iFSDTab margin0">
         <li class="active"><a href="#">Input</a></li>
@@ -8,50 +8,125 @@
 		<li><a href="#">Calculation</a></li>
     </ul>
 	<div class="clearfix"></div>
-	<div class="Input tabDiv genericSrollBox">
-		
+	<div class="Input tabDiv genericSrollBox">		
 		<table class="table table-bordered margin0 tableScroller" id="rLimeStoneInput">
 			<tbody>
-				<tr><td width="50%">Remineralization Bypass </td><td width="30%"><input type="number" name="remineralizationBypass" value=""/></td><td id="remineralizationBypass1" width="20%">% </td></tr>
-				<tr><td >Reactive CO2/H2SO4 </td><td><input type="number" name="reactiveCO2_H2SO4" value=""/></td><td id="reactiveCO2_H2SO41">% </td></tr>
-				<!-- <tr><td><strong>Dosage</strong></td><td></td><td></td></tr> -->
-				<tr><td >CO2 Stream 1A </td><td><input type="number" name="cO2Stream1A" value=""/></td><td id="cO2Stream1A1">ppm </td></tr>
-				<tr><td>CO2 Stream 1B </td><td><input type="number" name="cO2Stream1B" value=""/></td><td id="cO2Stream1B1">ppm </td></tr>
-				<tr><td>NaOH </td><td><input type="number" name="naOH" value=""/></td><td id="naOH1">ppm </td></tr>
-				<tr><td >H2SO4 </td><td><input type="number" name="h2SO4" value=""/></td><td id="h2SO41">ppm </td></tr>
-				<tr><td unitType="-">Remineralization Type </td><td>
-					<select class="w90" id="remineralizationType">
+				<tr>
+					<td width="50%">Remineralization Bypass <span class="requiredInp">*</span></td>
+					<td width="30%"><input type="number" name="remineralizationBypass" value=""/></td>
+					<td id="remineralizationBypass1" width="20%">% </td>
+				</tr>
+				<tr>
+					<td >Reactive CO2/H2SO4 <span class="requiredInp">*</span></td>
+					<td><input type="number" name="reactiveCO2_H2SO4" value=""/></td>
+					<td id="reactiveCO2_H2SO41">% </td>
+				</tr>
+				<tr>
+					<td >CO2 Stream 1A <span class="requiredInp">*</span></td>
+					<td><input type="number" name="cO2Stream1A" value=""/></td>
+					<td id="cO2Stream1A1">ppm </td>
+				</tr>
+				<tr>
+					<td>CO2 Stream 1B <span class="requiredInp">*</span></td>
+					<td><input type="number" name="cO2Stream1B" value=""/></td>
+					<td id="cO2Stream1B1">ppm </td>
+				</tr>
+				<tr>
+					<td>NaOH <span class="requiredInp">*</span></td>
+					<td><input type="number" name="naOH" value=""/></td>
+					<td id="naOH1">ppm </td>
+				</tr>
+				<tr>
+					<td >H2SO4 <span class="requiredInp">*</span></td>
+					<td><input type="number" name="h2SO4" value=""/></td>
+					<td id="h2SO41">ppm </td>
+				</tr>
+				<tr>
+					<td unitType="-">Remineralization Type <span class="requiredInp">*</span></td>
+					<td><select class="w90" id="remineralizationType">
+						<option>Select</option>
 						<option value="Gravity">Gravity</option>
 						<option value="Pressure">Pressure</option>
 					</select>
-				</td><td id="remineralizationType1">ppm </td></tr>
+					</td>
+					<td id="remineralizationType1">ppm </td>
+				</tr>
 			</tbody>
 		</table>
-		<table class="table table-bordered margin0 tableScroller rL_design" id="Gravity">
+		<table class="table table-bordered margin0 tableScroller rL_design dispNone" id="Gravity">
 			<tbody>
-				<tr><td width="50%" unitType="Length">Reactor Length</td><td width="30%"><input type="number" name="reactorLength" value="" min="1" max="500" class="maxNumber" /></td><td id="reactorLength1" width="20%">m</td></tr>
-				<tr><td unitType="Length">Reactor Width</td><td ><input type="number" name="reactorWidth" value="" /></td><td id="reactorWidth">m</td></tr>
-				<tr><td unitType="Length">Assumed Bed depth</td><td ><input type="number" name="assumedBeddepth" value="" /></td><td id="assumedBeddepth1">mm</td></tr>
-				<tr><td >Reduction in Finshed bed depth</td><td ><input type="number" name="reductionInFinshedBedDepth" value="" /></td><td id="reductionInFinshedBedDepth1">%</td></tr>
-				<tr><td unitType="-">Number of Spare Units (N + )</td><td ><input type="number" name="numberOfSpareUnitsN" value="" /></td><td id="numberOfSpareUnitsN1">Units</td></tr>
-				<tr><td >Assumed CaCO3 purity</td><td ><input type="number" name="assumedCaCO3Purity" value="" /></td><td id="assumedCaCO3Purity1">%</td></tr>
-				<!-- <tr><td unitType="-">Specific CaCO3 (100%) consumption</td><td ><input type="number" name="specificCaCO3100Consumption" value="" /></td><td>ppm</td></tr> -->
-				<tr><td unitType="Density">Assumed CaCO3 specific gravity</td><td ><input type="number" name="assumedCaCO3SpecificGravity" value="" /></td><td id="assumedCaCO3SpecificGravity1">ppm</td></tr>
+				<tr>
+					<td width="50%" unitType="Length">Reactor Length <span class="requiredInp">*</span></td>
+					<td width="30%"><input type="number" name="reactorLength" value="" min="1" max="500" class="maxNumber" /></td>
+					<td id="reactorLength1" width="20%">m</td>
+				</tr>
+				<tr>
+					<td unitType="Length">Reactor Width <span class="requiredInp">*</span></td>
+					<td ><input type="number" name="reactorWidth" value="" /></td>
+					<td id="reactorWidth">m</td>
+				</tr>
+				<tr>
+					<td unitType="Length">Assumed Bed depth <span class="requiredInp">*</span></td>
+					<td ><input type="number" name="assumedBeddepth" value="" /></td>
+					<td id="assumedBeddepth1">mm</td>
+				</tr>
+				<tr>
+					<td >Reduction in Finshed bed depth <span class="requiredInp">*</span></td>
+					<td ><input type="number" name="reductionInFinshedBedDepth" value="" /></td>
+					<td id="reductionInFinshedBedDepth1">%</td>
+				</tr>
+				<tr>
+					<td unitType="-">Number of Spare Units (N + ) <span class="requiredInp">*</span></td>
+					<td ><input type="number" name="numberOfSpareUnitsN" value="" /></td>
+					<td id="numberOfSpareUnitsN1">Units</td>
+				</tr>
+				<tr>
+					<td >Assumed CaCO3 purity <span class="requiredInp">*</span></td>
+					<td ><input type="number" name="assumedCaCO3Purity" value="" /></td>
+					<td id="assumedCaCO3Purity1">%</td>
+				</tr>
+				<tr>
+					<td unitType="Density">Assumed CaCO3 specific gravity <span class="requiredInp">*</span></td>
+					<td ><input type="number" name="assumedCaCO3SpecificGravity" value="" /></td>
+					<td id="assumedCaCO3SpecificGravity1">ppm</td>
+				</tr>
 			</tbody>
 		</table>
 		<table class="table table-bordered margin0 tableScroller dispNone rL_design" id="Pressure">
 			<tbody>
-				<tr><td width="50%" unitType="Length">Vessel Diameter</td><td width="30%"><input type="number" name="pR_vesselDiameter" value="" min="1" max="500" class="maxNumber" /></td><td width="20%" id="pR_vesselDiameter1">m</td></tr>
-				<tr><td unitType="Length">Assumed Total Bed depth</td><td><input type="number" name="pR_assumedTotalBedDepth" value="" /></td><td id="pR_assumedTotalBedDepth1">mm</td></tr>
-				<tr><td >Reduction in Finshed bed depth</td><td ><input type="number" name="pR_reductionInFinshedBedDepth" value="" /></td><td id="pR_reductionInFinshedBedDepth1">%</td></tr>
-				<tr><td unitType="-">Number of Spare Units</td><td ><input type="number" name="pR_NumberOfSpareUnits" value="" /></td><td id="pR_NumberOfSpareUnits1">Units</td></tr>
-				<!-- <tr><td>Cold water Temperature</td><td ><input type="number" name="pR_coldWaterTemperature" value="" /></td><td>C</td></tr> -->
-				<tr><td>Assumed CaCO3 purity </td><td ><input type="number" name="pR_assumedCaCO3Purity" value="" /></td><td id="pR_assumedCaCO3Purity1">%</td></tr>
-				<!-- <tr><td unitType="-">Specific CaCO3 (100%) consumption </td><td ><input type="number" name="pR_specificCaCO3100Consumption" value="" /></td><td>ppm</td></tr> -->
-				<tr><td unitType="Density">Assumed CaCO3 specific gravity</td><td ><input type="number" name="pR_AssumedCaCO3SpecificGravity" value="" /></td><td id="pR_AssumedCaCO3SpecificGravity1">kg/m3</td></tr>
+				<tr>
+					<td width="50%" unitType="Length">Vessel Diameter <span class="requiredInp">*</span></td>
+					<td width="30%"><input type="number" name="pR_vesselDiameter" value="" min="1" max="500" class="maxNumber" /></td>
+					<td width="20%" id="pR_vesselDiameter1">m</td>
+				</tr>
+				<tr>
+					<td unitType="Length">Assumed Total Bed depth <span class="requiredInp">*</span></td>
+					<td><input type="number" name="pR_assumedTotalBedDepth" value="" /></td>
+					<td id="pR_assumedTotalBedDepth1">mm</td>
+				</tr>
+				<tr>
+					<td >Reduction in Finshed bed depth <span class="requiredInp">*</span></td>
+					<td ><input type="number" name="pR_reductionInFinshedBedDepth" value="" /></td>
+					<td id="pR_reductionInFinshedBedDepth1">%</td>
+				</tr>
+				<tr>
+					<td unitType="-">Number of Spare Units <span class="requiredInp">*</span></td>
+					<td ><input type="number" name="pR_NumberOfSpareUnits" value="" /></td>
+					<td id="pR_NumberOfSpareUnits1">Units</td>
+				</tr>
+				<tr>
+					<td>Assumed CaCO3 purity <span class="requiredInp">*</span></td>
+					<td ><input type="number" name="pR_assumedCaCO3Purity" value="" /></td>
+					<td id="pR_assumedCaCO3Purity1">%</td>
+				</tr>
+				<tr>
+					<td unitType="Density">Assumed CaCO3 specific gravity <span class="requiredInp">*</span></td>
+					<td ><input type="number" name="pR_AssumedCaCO3SpecificGravity" value="" /></td>
+					<td id="pR_AssumedCaCO3SpecificGravity1">kg/m3</td>
+				</tr>
 			</tbody>
 		</table>
-					
+		<div class="note" style="background:none;">All  <span class="requiredInp">*</span> marked fields are mandatory <span class="clearfix"></span></div>
 	</div>
 	<div class="Output tabDiv dispNone genericSrollBox">
 		<div class="panel-group" id="accordionDD" role="tablist" aria-multiselectable="true">

@@ -44,9 +44,11 @@ var ionOffset=23;
 var trackIds="";
 var newCountJson={};
 var draggedArray = [];
-var streamvaluecount = 0;
+var streamvaluecount = 1;
 var connectorInputArray = [];
 var prevOpenFile;
+var canvasMode = 'Normal';
+var unitOpsLeftPos = -70;
 var allUnit = ['BAF','IFAS', 'MBBR', 'MBR', 'DAF', 'Lamella', 'SC', 'SC(XRC)', 'OWS-API', 'Crystallizer', 'Evap(BC)', 'ABW', 'GAC', 'CF', 'DMF', 'FF', 'GSF', 'MMF', 'SF', 'CP', 'MB', 'SAC', 'WAC', 'NF', 'RO', 'UF', 'CO2', 'O2', 'Gen-O3', 'Remin', 'CLS', 'UV', 'Pumps', 'Tank', 'Feed', 'Mixer', 'Splitter'];
 jQuery.fn.center = function() {
 	   this.css({top: ($(window).height() - $(this).outerHeight()) / 2,left: ($(window).width() - $(this).outerWidth()) / 2});
@@ -212,18 +214,41 @@ function setFlowOut(){
   
 }
 
-var lastSource; var lastTarget;
-function makeDraggable(id ){
-	newState=jsPlumb.getSelector(id);
+var lastSource; var lastTarget; 
+function makeSourceForLoad(getSourceID, anchorNameSource1){
+	newState=jsPlumb.getSelector(getSourceID);
 	jsPlumb.makeSource(newState,{
 		filter:".ep,.ep1,.ep2,.ep3",
-		anchor:"Continuous",
+		//filter:not('.blue_Anchor'),
+		anchor:[anchorNameSource1],
 		connector: [ "Flowchart", { stub: [40, 60], gap: 10, cornerRadius: 5, alwaysRespectStubs: false } ],
 		connectorStyle: { strokeStyle: "blue", lineWidth: 1.5, outlineColor: "transparent", outlineWidth: 2 },
 		connectorOverlays:[[ "Arrow", { width:10, length:14, location:1, foldback: 0.8, id:"arrow" } ],
 							["Custom", {
 										create:function(component) {
-											streamvaluecount++;
+											//streamvaluecount++;
+											return $("<input class='customOverlay connectorInput' name='tag' type='text' value='"+streamvaluecount+"' placeholder='No.' style='text-align:center; cursor: pointer; background: white; width:50px;' />");
+										},
+							location:0.5,                              
+							id:"customOverlay"
+							}]						  
+						  ],
+		endpoint: ["Dot", {radius: 2}]
+	});
+}
+function makeDraggable(id, anchorNameSource, anchorNameTarget ){
+	newState=jsPlumb.getSelector(id);	
+
+	jsPlumb.makeSource(newState,{
+		filter:".ep,.ep1,.ep2,.ep3",
+		//filter:not('.blue_Anchor'),
+		anchor:[anchorNameSource],
+		connector: [ "Flowchart", { stub: [40, 60], gap: 10, cornerRadius: 5, alwaysRespectStubs: false } ],
+		connectorStyle: { strokeStyle: "blue", lineWidth: 1.5, outlineColor: "transparent", outlineWidth: 2 },
+		connectorOverlays:[[ "Arrow", { width:10, length:14, location:1, foldback: 0.8, id:"arrow" } ],
+							["Custom", {
+										create:function(component) {
+											//streamvaluecount++;
 											return $("<input class='customOverlay connectorInput' name='tag' type='text' value='"+streamvaluecount+"' placeholder='No.' style='text-align:center; cursor: pointer; background: white; width:50px;' />");
 										},
 							location:0.5,                              
@@ -234,7 +259,7 @@ function makeDraggable(id ){
 	});
 
 	jsPlumb.makeTarget(newState,{
-		anchor:"Continuous",
+		anchor:[anchorNameTarget],
 		endpoint: ["Dot", {radius: 2}]
 	});
 
@@ -248,78 +273,46 @@ function makeDraggable(id ){
 			var r = confirm("Are you sure you want to delete selected stream?");
 			if (r == true) {
 				jsPlumb.detach(c);
+				streamvaluecount--;
+				streamvaluecount++;
 			}
 		}
 		return false;
 		
 	});
 	
-	jsPlumb.bind("beforeDrop", function(connection) {
+	/* jsPlumb.bind("beforeDrop", function(connection) {
 		//console.log("connection", connection);
 		lastSource = connection.sourceId; lastTarget = connection.targetId;
 		//wastNProductOutCheck(lastSource, lastTarget);
 		//testA(lastSource, lastTarget);
-	return connection.sourceId !== connection.targetId && !hasConnection(connection.targetId,connection.sourceId) && isConnectionInLimit(connection.sourceId, connection.targetId) ;//&& wastNProductOutCheck(lastSource, lastTarget)
-  });
+		
+		return connection.sourceId !== connection.targetId && !hasConnection(connection.targetId,connection.sourceId) && isConnectionInLimit(connection.sourceId, connection.targetId) ;//&& wastNProductOutCheck(lastSource, lastTarget)
+	}); */
+	
 	//jsPlumb.draggable(newState);
 	jsPlumb.draggable(newState, {
 		containment: "parent"
 	});
 	
-	/* setTimeout(function(){ 
-		jsPlumb.bind("connection", function(connection) {
-			console.log('done', connection.endpoints[0]._continuousAnchorEdge);
-			//jsPlumb.detach(connection);
-		});
-	}, 2000); */
-	
-	
-	/* jsPlumb.bind("connectionDragStop", function (connection) {
-			console.log('ggg', connection);
-			var getSource = connection.sourceId;
-				getSource = getSource.replace(/[0-9]/g, '');
-			var getTarget = connection.targetId;
-				getTarget = getTarget.replace(/[0-9]/g, '');
-			if(getTarget == "WasteOut"){
-				if(connection.endpoints[0]._continuousAnchorEdge == "bottom" && connection.endpoints[1]._continuousAnchorEdge == "top" ){
-					return true;
-				}else{
-					jsPlumb.detach(connection);
-				}
-			}
-			if(getTarget == "ProductOut"){
-				if(connection.endpoints[0]._continuousAnchorEdge == "right" && connection.endpoints[1]._continuousAnchorEdge == "left"){
-					return true;
-				}else{
-					jsPlumb.detach(connection);
-				}
-			}
-	}); */
-	
-	//wastNProductOutCheck(lastSource, lastTarget);
-	
 }
 
-function testA(){
-	var t = jsPlumb.getAllConnections();
-	console.log("oooo", t);
-}
 
-/*function makeDraggable(id){
+
+function makeDraggableThree(id, anchorNameSource, anchorNameTarget ){
 	newState=jsPlumb.getSelector(id);
+
+
 	jsPlumb.makeSource(newState,{
-		filter:".ep,.ep1,.ep2,.ep3",
-		anchor:"Continuous",
+		filter:".ep3",
+		anchor:["Bottom"],
 		connector: [ "Flowchart", { stub: [40, 60], gap: 10, cornerRadius: 5, alwaysRespectStubs: false } ],
-		connectorStyle: { strokeStyle: "#666", lineWidth: 1.5, outlineColor: "transparent", outlineWidth: 2 },
+		connectorStyle: { strokeStyle: "blue", lineWidth: 1.5, outlineColor: "transparent", outlineWidth: 2 },
 		connectorOverlays:[[ "Arrow", { width:10, length:14, location:1, foldback: 0.8, id:"arrow" } ],
-		                  //[ "Label", {location: 0.5,location:1,id: "label",cssClass: "aLabel",visible:true} ]
 							["Custom", {
 										create:function(component) {
-											var streamlength2 = $('[name=tag]').length+1;
-											streamvaluecount++;
-											// alert("streamlength:::"+streamlength2);
-											return $("<input class='customOverlay' name='tag' type='text' value='"+streamvaluecount+"' onfocusout='changeStreamText("+streamvaluecount+")' placeholder='cold' style='text-align:center; cursor: pointer;  background: white; width:50px;'/>");
+											//streamvaluecount++;
+											return $("<input class='customOverlay connectorInput' name='tag' type='text' value='"+streamvaluecount+"' placeholder='No.' style='text-align:center; cursor: pointer; background: white; width:50px;' />");
 										},
 							location:0.5,                              
 							id:"customOverlay"
@@ -327,23 +320,79 @@ function testA(){
 						  ],
 		endpoint: ["Dot", {radius: 2}]
 	});
-	  
-	jsPlumb.makeTarget(newState,{
-		anchor:"Continuous",
+	
+	jsPlumb.makeSource(newState,{
+		filter:".ep",
+		anchor:["Right"],
+		connector: [ "Flowchart", { stub: [40, 60], gap: 10, cornerRadius: 5, alwaysRespectStubs: false } ],
+		connectorStyle: { strokeStyle: "blue", lineWidth: 1.5, outlineColor: "transparent", outlineWidth: 2 },
+		connectorOverlays:[[ "Arrow", { width:10, length:14, location:1, foldback: 0.8, id:"arrow" } ],
+							["Custom", {
+										create:function(component) {
+											//streamvaluecount++;
+											return $("<input class='customOverlay connectorInput' name='tag' type='text' value='"+streamvaluecount+"' placeholder='No.' style='text-align:center; cursor: pointer; background: white; width:50px;' />");
+										},
+							location:0.5,                              
+							id:"customOverlay"
+							}]						  
+						  ],
 		endpoint: ["Dot", {radius: 2}]
 	});
-	
-	jsPlumb.bind("click", function (c) {
-			jsPlumb.detach(c);
+
+	jsPlumb.makeTarget(newState,{
+		anchor:[anchorNameTarget],
+		endpoint: ["Dot", {radius: 2}]
 	});
-        
-	jsPlumb.bind("beforeDrop", function(connection) {
-    return connection.sourceId !== connection.targetId &&
-    !hasConnection(connection.targetId,connection.sourceId)
-    && isConnectionInLimit(connection.sourceId, connection.targetId);
-  });
-	jsPlumb.draggable(newState);
-}*/
+
+	jsPlumb.bind("dblclick", function (c) {
+		var count = 0;
+		count++;
+		if(count==1){
+/* 			var cSource = c.sourceId;
+			var cTarget = c.targetId;
+			count++; */
+			var r = confirm("Are you sure you want to delete selected stream?");
+			if (r == true) {
+				jsPlumb.detach(c);
+				streamvaluecount--;
+				streamvaluecount++;
+			}
+		}
+		return false;
+		
+	});
+	
+
+	/* jsPlumb.bind("beforeDrop", function(connection) {
+
+		//console.log("connection", connection);
+		lastSource = connection.sourceId; lastTarget = connection.targetId;
+		//wastNProductOutCheck(lastSource, lastTarget);
+		//testA(lastSource, lastTarget);
+
+		return connection.sourceId !== connection.targetId && !hasConnection(connection.targetId,connection.sourceId) && isConnectionInLimit(connection.sourceId, connection.targetId) ;//&& wastNProductOutCheck(lastSource, lastTarget)
+	}); */
+	
+	//jsPlumb.draggable(newState);
+	jsPlumb.draggable(newState, {
+		containment: "parent"
+	});
+	
+}
+
+//Remove this function outside drag-gable due to multiple time calling
+jsPlumb.bind("beforeDrop", function(connection) {
+	streamvaluecount++;
+	/* lastSource = connection.sourceId; lastTarget = connection.targetId;
+	sourceType = lastSource.replace(/[0-9]/g, '');
+	targetType = lastTarget.replace(/[0-9]/g, '');
+	connectionFrom = connection.dropEndpoint.anchor.anchors[0].anchors[0].type;
+	if(sourceType == "RO" && targetType == "ProductOut" && connectionFrom == "Left"){
+		return false;
+	}else{ */
+		return connection.sourceId !== connection.targetId && !hasConnection(connection.targetId,connection.sourceId) && isConnectionInLimit(connection.sourceId, connection.targetId);
+	//}
+});
 
 function wastNProductOutCheck(lastSource, lastTarget){
 	var tmpConn = getConnection(lastSource, lastTarget);
@@ -2269,7 +2318,29 @@ function getCanvasData33(){
 		 var getUnitType = source.replace(/[0-9]/g, '');
 		 var streamType = "";
 		 var isWasteStream = con[i].endpoints;
-		if(isWasteStream[0]._continuousAnchorEdge == "bottom"){
+		/* if(isWasteStream[0]._continuousAnchorEdge == "bottom"){
+			streamType = "Waste Stream";
+		} */
+		/* if(isWasteStream[0].anchor.anchors[0].type == "Bottom"){
+			streamType = "Waste Stream";
+			console.log("1 ", isWasteStream[0].anchor.x);
+		}
+		if(isWasteStream[0].anchor.anchors[0].type == undefined){
+			if(isWasteStream[0].anchor.anchors[0].anchors.length == 1){
+				if(isWasteStream[0].anchor.anchors[0].anchors[0].type == "Bottom"){
+					streamType = "Waste Stream";
+					console.log("2 ", isWasteStream[0].anchor.x);
+				}
+			}
+			if(isWasteStream[0].anchor.anchors[0].anchors.length == 2){
+				if(isWasteStream[0].anchor.anchors[0].anchors[1].type == "Bottom"){
+					streamType = "Waste Stream";
+					console.log("3 ", isWasteStream[0].anchor.x);
+				}
+			}
+		} */
+		
+		if(isWasteStream[0].anchor.x == 0.5 && isWasteStream[0].anchor.y == 1){
 			streamType = "Waste Stream";
 		}
 
@@ -2352,8 +2423,7 @@ $('body').on('keyup','.edit',function(){
 		$(this).css({'width': valLenth.length * 7});
 	}else{
 		$(this).css({'width': '200px'});
-	}
-	
+	}	
 });
 $('body').on('click','.edit',function(){
 	return false;
@@ -2445,3 +2515,83 @@ $('.ep').click(function(){
 	thisCount = thisCount + 1;
 	$(this).attr('clickCount', thisCount);
 });
+
+function getCommandLine() {
+   switch (process.platform) { 
+      case 'darwin' : return 'open';
+      case 'win32' : return 'start';
+      case 'win64' : return 'start';
+      default : return 'xdg-open';
+   }
+}
+
+function openSheetExcel(pdfCateory){
+	if(executionFlag){
+		var sys = require('sys');
+		var exec = require('child_process').exec;
+		if(pdfCateory == 'MassBalance')
+		exec(getCommandLine() + ' ' + 'C:\\iFSD\\Data\\MassBalance.xlsx');
+		else if(pdfCateory == 'DataSheets')
+		exec(getCommandLine() + ' ' + 'C:\\iFSD\\Data\\datasheets_template.xlsx');
+	}
+}
+
+/*function exceltoPdf(excelCategory){
+	if(executionFlag){
+		$('.overlay').show();
+		$('.newOverlayLoader').show();
+		const toPdf = require('mso-pdf');
+		var source, destination;
+		if(excelCategory == 'DataSheets'){
+			source 		= "C:\\iFSD\\Data\\datasheet.xlsx";
+			destination	= "C:\\iFSD\\Data\\datasheet.pdf";
+		}else if(excelCategory == 'MassBalance'){
+			source 		= "C:\\iFSD\\Data\\MassBalance.xlsx";
+			destination	= "C:\\iFSD\\Data\\MassBalance.pdf";
+		}
+		toPdf.convert(source,destination,function(errors){
+			if(errors) console.log(errors)
+			console.log(destination + " converted");
+			$('.overlay').hide();
+			$('.newOverlayLoader').hide();
+			if(executionFlag){
+				var sys = require('sys');
+				var exec = require('child_process').exec;
+				exec(getCommandLine() + ' ' + destination);
+			}
+		});
+	}
+}*/
+
+//on Enter press next input 
+jQuery.extend(jQuery.expr[':'], {
+    focusable: function (el, index, selector) {
+        return $(el).is('button, :input, [tabindex]');
+    }
+});
+
+// Mouse over resting Canvas
+$('body').on('mouseover', '.w', function () {
+	if(canvasMode == 'ZoomIn' || canvasMode == 'ZoomOut'){
+		alert('For connection reseting canvas.');
+		currZoom = 1;
+		$("#main").css("zoom", 1);
+		$("#main").css("-moz-transform", "Scale(" + currZoom + ")");
+		$("#main").css("-moz-transform-origin", "0 0");
+		canvasMode = 'ZoomOff';
+	}
+});
+
+//Resting Canvas
+function canvasReset(){
+	currZoom = 1;	
+	$("#main").css("zoom", 1);
+	$("#main").css("-moz-transform", "Scale(" + currZoom + ")");
+	$("#main").css("-moz-transform-origin", "0 0");
+	canvasMode = 'ZoomOff';
+}
+
+//Input type number Error 'Please enter number beetween range.'
+function inputErrorRemove(id){
+	$('.'+ id + ' input[type="number"]').attr('step','any');
+}

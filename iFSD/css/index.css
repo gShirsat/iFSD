@@ -203,7 +203,7 @@ path {cursor: pointer;}
 .dl{position: absolute;top: 0;right: 0;background: #1f1f1f;display: inline-block;color: #fff;
     border-radius: 8px;padding: 2px 4px 4px 4px;cursor: pointer;vertical-align: top;
     margin: -3px -5px 0 0;font-size: 12px;line-height: 7px;}
-.demo{position:relative;height: 502px; /* background:url(../images/suez.png) no-repeat; background-size: 150px 50px; background-position: right top; */ overflow:auto;}
+.demo{position:relative; min-height: 600px; /* background:url(../images/suez.png) no-repeat; background-size: 150px 50px; background-position: right top; */ overflow:auto;}
 /* .canvasContainer {height: 400px;} */
 /*iteration calculation table starts*/
 body .calcIterationDiv {padding: 15px 40px 2px 40px;}
@@ -258,7 +258,7 @@ div.General,div.Composition,div.Input,div.Output,div.Design,div.Rejection,div.Ou
 .FeedPopUp  ul,.pumpPopUp  ul,.roPopUp  ul,.mmfPopUp ul,.cfPopUp ul{/* background-color: #DFEBF6; }*/
 div.header>i {padding: 4px 7px 2px 6px;border-radius: 50%;border: 2px solid #FFFFFF;overflow: hidden;color: #FFFFFF;text-align: center;margin-top: 3px;font-size: 11px;cursor:pointer;}
 .footer {text-align: center;padding: 8px;}
-#blueButton,#blueButton:hover,#blueButton:focus{ width: 99px;
+#blueButton,#blueButton:hover,#blueButton:focus, #feedOutput,#feedOutput:hover,#feedOutput:focus, #backToInput,#backToInput:hover,#backToInput:focus{ width: 99px;
     height: 26px; background-color: rgb(148,148,148); color: #fff;margin-right: 4px;margin-left: 0px !important;font-size: 13px; line-height: 13px;}
 .ufPopUp div.body table{background-color: white;}
 .roPopUp .checkboxdiv{background-color: white;}
@@ -284,7 +284,7 @@ div.header>i {padding: 4px 7px 2px 6px;border-radius: 50%;border: 2px solid #FFF
 .cfPopUp .checkboxdiv div input[type="text"]{width: 112px;}
 .cfPopUp .checkboxdiv div input[type="radio"]{margin-top:4px !important;}
 .cfPopUp .checkboxdiv div label{margin-right: 12px;font-weight: normal;}
-.heading h3 {font-size: 14px;font-weight: font-size: 14px;font-weight: bold;}
+.heading h3 {font-size: 14px; font-weight: font-size:14px; font-weight:bold; }
 /*custom scrollbar starts*/
 .tableScroller::-webkit-scrollbar{width:10px;background-color:#eaeaea;}
 .tableScroller::-webkit-scrollbar-thumb {background-color:#ccc;border-radius:10px;}
@@ -315,9 +315,9 @@ div.w>p {margin: 0px;text-align: center;font-size: 9px;color: black; margin-bott
 /*feed popup of winflows starts*/
 .FeedPopUp div.header >h3>img {margin-right:7px;}
 div.FeedPopUp {padding-left:0px;background-color: rgb(214,214,214);padding-right:0px;position: fixed;z-index: 9999;width: 81%;overflow: auto;padding-bottom: 0;}
-div.FeedPopUp>div>div>div.feedWater {padding-left: 10px;background-color: #3B3E40;color: #F5F5F5;border-top-left-radius: 5px;border-top-right-radius: 5px;}
+div.FeedPopUp>div>div>div>div.feedWater {padding-left: 10px;background-color: #3B3E40;color: #F5F5F5;border-top-left-radius: 5px;border-top-right-radius: 5px;}
 div.FeedPopUp>div>div.topic {padding-left:0px;padding-right:0px}
-div.FeedPopUp>div>div>div.feedWater>h3{font-size: 16px;font-weight: normal;margin: 0;line-height: 30px;padding: 2px 0;}
+div.FeedPopUp>div>div>div>div.feedWater>h3{font-size: 16px;font-weight: normal;margin: 0;line-height: 30px;padding: 2px 0;}
 div>div.dropdown1 {padding: 10px 15px 10px 3px;}
 div>div.dropdown2 {padding: 10px 15px 10px 0px;}
 div>div.dropdown1>label {padding:0px;margin-top: 3px;font-weight: normal;}
@@ -339,10 +339,14 @@ div.feedtable>table th:nth-of-type(1) {width: 25%;}
 div.feedtable>table th:nth-of-type(2),div.feedtable>table th:nth-of-type(3) {width: 20%;}
 div.feedtable>table th:nth-of-type(4) {width: 20%;}
 .FeedPopUp table tbody tr td{width: 27% !important;}
-div#in-form>div>div>h3 {font-size: 16px;background-color: #3B3E40;color: #FFFFFF;font-weight: normal;padding: 2px 0 2px 10px;line-height: 30px;margin: 0;}
+div#in-form>div>div>h3,div.feedOutput>div>h3  {font-size: 16px;background-color: #3B3E40;color: #FFFFFF;font-weight: normal;padding: 2px 0 2px 10px;line-height: 30px;margin: 0;}
+
 div#in-form>div>div>form>div>div>input {padding: 6px 4px;display: inline-block;width: 92px;height: 25px;border-radius: 0%;text-shadow: none;}
 div#in-form>div>div>form>div>label {font-size: 14px;text-align: left;width: 170px;padding-top: 2px;font-weight: normal;}
 div#in-form {padding: 4px 8px 4px 4px;width: 38%;}
+div.feedOutput { display:none; }
+div.feedOutput>div>h3 { border-radius: 5px 5px 0px 0px; }
+div.feedOutput> div{ width: 40%; padding: 2px; margin-left: 9px; }
 /* #in-form table td {font-weight: bold;} */
 div#in-form>div>div>form{margin: 0px;padding: 7px 5px 7px 5px;}
 div#in-form>div>div>form>div{padding:3px 4px;margin: 0px;}
@@ -526,7 +530,7 @@ div.settingsPopUp .body>div span {font-size: 16px;color: green;}
 div.co2Popup, div.o2Popup, div.rHydratedlimePopup, div.rLimestonePopup, div.cLamellaPopup, div.splitterPopup, div.strainerPopUp, div.filterspopUp, div.roPopUp, div.ediPopUp, div.cfPopUp, div.ixMixBedPopUp, div.tankSplitterPopup, div.ddPopUp, div.FiltraFastPopUp {padding-left:0px; background-color: rgb(214,214,214);padding-right:0px;position: absolute; z-index: 9999;width: 100%; border:1px solid rgb(183,183,183);}
 
 .popUp { top:0; left:0; }
-div.o2Popup { width: 70%; left:10%;}
+div.o2Popup { width: 100%; left:10%;}
 .popUp .table > tbody > tr > td { padding:1px;}
 .popUp .table > tbody > tr > td > input, .popUp .table > tbody > tr > td > .w90 { margin-bottom:0px; height: 18px; font-size: 11px; width:90%; color: blue;}
 .popUp .table > tbody > tr > td { height: 20px; font-size: 11px; background:rgb(235,235,235)}
@@ -581,7 +585,7 @@ div.o2Popup { width: 70%; left:10%;}
 .navsContainer { padding: 4px 10px; }
 
 #loadC02, #loadRemin_Limestone, #loadClarifier_Lamella, #loadSplitter, #loadFilters, #loadRo, #load02, #loadEdi, #loadRremin_Hydratedlime, #loadIXM, #loadSf, #loadCf, #loadTankSplitter, #loadDd, #loadFiltraFast { width:450px; top:0px; left:250px; }
-#load02, #loadEdi,#loadCf { width:550px; } 
+#load02, #loadEdi,#loadCf { width:450px; } 
 #loadRremin_Hydratedlime { width:350px; }
 #calculate {height: 500px;padding:5px;}
 
@@ -976,3 +980,12 @@ input:focus:invalid:focus { border:1px solid #e1e2e5; color:#5c5f63;}
 .restClass{
     border: 1px solid green;
 }
+.requiredInp { color:red;}
+.Input table tbody tr td:first-child { width:35%;}
+.Input table tbody tr td:nth-child(2) { width:50%;}
+.Input table tbody tr td:last-child { width:15%;}
+.note { font-size:11px; color:#333;}
+
+#calculate > div > table > tbody > tr > td { padding:3px;}
+#calculate > div.header > h3 { line-height: 20px; font-size: 15px; }
+#feedOutputTable > tbody > tr > td { padding: 0px 2px !important; }

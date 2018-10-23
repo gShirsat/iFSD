@@ -24,9 +24,10 @@
             <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
                 <tbody>
                     <tr>
-                        <td>Filter Type </td>
+                        <td>Filter Type <span class="requiredInp">*</span> </td>
 						<td>
 							<select name="filterType" id="ff_filterType">
+								<option value="Select">Select</option>
 								<option value="Single Cell">Single Cell</option>
 								<option value="Double Cell">Double Cell</option>
 								<option value="Triple Cell">Triple Cell</option>
@@ -36,9 +37,10 @@
 						<td id="filterType1"></td>
                     </tr>
 					<tr>
-                        <td>Filter Cell Size</td>
+                        <td>Filter Cell Size <span class="requiredInp">*</span> </td>
 						<td>
 							<select name="filterCellSize" id="filterCellSize">
+								<option value="Select">Select</option>
 								<option value="2 by 4">2 by 4</option>
 								<option value="3 by 4">3 by 4</option>
 								<option value="4 by 4">4 by 4</option>
@@ -54,11 +56,11 @@
 						<td id="filterCellSize1"> </td>
                     </tr>
 					<tr>
-                        <td>No: of Filter Units</td>
+                        <td>No: of Filter Units <span class="requiredInp">*</span></td>
 						<td>
 							<input type="text" name="NoOfFilterUnits" id="NoOfFilterUnits" />
 						</td>
-						<td id="filterCellSize1"></td>
+						<td id="NoOfFilterUnits1"></td>
                     </tr>
                 </tbody>
             </table>
@@ -72,7 +74,7 @@
 							</a>
 						</h4>
 					</div>
-					<div id="FF_collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="FF_one">
+					<div id="FF_collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="FF_one">
 						<div class="panel-body">
 							<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 								<tbody>
@@ -132,6 +134,13 @@
 										</td>
 										<td id="aSV1"></td>
 									</tr>
+									<tr>
+										<td unitType="Velocity">Filter Cell Media Compression (Optional)</td>
+										<td>
+											<input type="number" name="fCM" value="">
+										</td>
+										<td id="fCM1"></td>
+									</tr>
 								</tbody>
 							</table>
 						</div>
@@ -149,7 +158,7 @@
 						<div class="panel-body">
 							<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 								<tbody>
-									<tr>
+									<!-- <tr>
 										<td>Backwash Type</td>
 										<td>
 											<select name="bT" id="bT">
@@ -158,27 +167,62 @@
 											</select>											
 										</td>
 										<td id="bT1" width="10%"></td>
-									</tr>
+									</tr> -->
 									<tr>
-										<td >No: of filter cells out of service during cleaning</td>
+										<td >No: of filter cells out of service during cleaning <span class="requiredInp">*</span></td>
 										<td>
 											<input type="number" name="nOfFCOofSDC" value="">
 										</td>
 										<td id="nOfFCOofSDC1"></td>
 									</tr>
+									<tr>
+										<td >Air Scour rate, Media Uncompression <span class="requiredInp">*</span></td>
+										<td>
+											<input type="number" name="aSRMC" value="">
+										</td>
+										<td id="aSRMC1">scfm/ft2</td>
+									</tr>
 									<tr id="airScourRate">
-										<td >Air Scour Rate</td>
+										<td >Air Scour Rate, Backwash <span class="requiredInp">*</span></td>
 										<td>
 											<input type="number" name="aSR" value="">
 										</td>
 										<td id="aSR1">scfm/ft2</td>
 									</tr>
 									<tr>
-										<td >Backwash Rate</td>
+										<td unitType="Flux">Backwash Rate <span class="requiredInp">*</span></td>
 										<td>
-											<input type="number" name="bR" value="">
+											<input type="number" step="any" name="bR" value="">
 										</td>
 										<td id="bR1"></td>
+									</tr>
+									<tr>
+										<td unitType="Time">Air Scour  +Water Duration (Media Uncompression) <span class="requiredInp">*</span></td>
+										<td>
+											<input type="number" name="aSWDMU" value="">
+										</td>
+										<td id="aSWDMU1"></td>
+									</tr>
+									<tr>
+										<td unitType="Time">Air Scour + Water Duration ( Backwash) <span class="requiredInp">*</span></td>
+										<td>
+											<input type="number" name="aSWDB" value="">
+										</td>
+										<td id="aSWDB1"></td>
+									</tr>
+									<tr>
+										<td unitType="Time">Water Only Duration <span class="requiredInp">*</span></td>
+										<td>
+											<input type="number" name="wOD" value="">
+										</td>
+										<td id="wOD1"></td>
+									</tr>
+									<tr>
+										<td unitType="Time">Purge Duration <span class="requiredInp">*</span></td>
+										<td>
+											<input type="number" name="pD" value="">
+										</td>
+										<td id="pD1"></td>
 									</tr>
 								</tbody>
 							</table>
@@ -186,106 +230,191 @@
 					</div>
 				</div>
 			</div>
+			<div class="note" style="background:none;">All  <span class="requiredInp">*</span> marked fields are mandatory <span class="clearfix"></span></div>
+			<div class="note" style="background:none;">Feed TSS should be non zero</div>
         </div>
         <div class="Output tabDiv dispNone genericSrollBox">
-            <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
-                <tbody>
-                    <tr>
-                        <td width="45%"  unitType="Volume Flow">Product Flow Rate</td>
-                        <td contenteditable="false"></td>
-                        <td width="20%">gpm or m3/hr</td>
-                    </tr>
-                    <tr>
-                        <td width="45%"  unitType="Resistivity">Product Resistivity</td>
-                        <td contenteditable="false"></td>
-                        <td width="25%">Mohm.cm</td>
-                    </tr>
-                    <tr id="oproductSilica">
-                        <td width="45%" >Product Silica guarantee level</td>
-                        <td contenteditable="false"></td>
-                        <TD width="25%">ppb SiO2</TD>
-                    </tr>
-                    <tr id="opredSilica">
-                        <td width="45%">Predicted Silica product</td>
-                        <td contenteditable="false"></td>
-                        <TD width="25%">ppb SiO2</TD>
-                    </tr>
-                    <tr id="opredMaxSodium">
-                        <td width="45%" >Predicted Max product sodium</td>
-                        <td contenteditable="false"></td>
-                        <td width="25%">ppb</td>
-                    </tr>
-                    <tr id="opredMaxprodChloride">
-                        <td width="45%">Predicted Max product chloride</td>
-                        <td contenteditable="false"></td>
-                        <td width="25%">ppb</td>
-                    </tr>
-                    <tr id="opredMaxProdSul">
-                        <td width="45%">Predicted Max product sulfate</td>
-                        <td contenteditable="false"></td>
-                        <td width="25%">ppb</td>
-                    </tr>
-                    <tr id="omaxAlloRecovery">
-                        <td width="45%" >Maximum Allowable Recovery</td>
-                        <td contenteditable="false"></td>
-                        <td>%</td>
-                    </tr>
-                    <tr id="noOfEcellStacks">
-                        <td width="45%">No: of E-cell Stacks</td>
-                        <td contenteditable="false"></td>
-                    </tr>
-                    <tr id="ocurrent">
-                        <td width="45%" unitType="Current">Current</td>
-                        <td contenteditable="false"></td>
-                        <td width="25%">Amps</td>
-                    </tr>
-                    <tr id="ovoltage" >
-                        <td width="45%" unitType="Voltage">Voltage</td>
-                        <td contenteditable="false"></td>
-                        <td width="25%">Volts</td>
-                    </tr>
-                    <tr id="odcPower">
-                        <td width="45%" unitType="DC Power">DC power</td>
-                        <td contenteditable="false"></td>
-                        <td width="25%">kW</td>
-                    </tr>
-                    <tr id="oacPower">
-                        <td width="45%" unitType="AC Power">AC power consumption</td>
-                        <td contenteditable="false"></td>
-                        <td width="25%">kW</td>
-                    </tr>
-                    <tr id="oacEnergy">
-                        <td width="45%" unitType="AC Energy">AC energy</td>
-                        <td contenteditable="false"></td>
-                        <td width="25%">kWh/ 1000 gal or kWh /m3</td>
-                    </tr>
-                    <tr id="ofeedPressure" >
-                        <td width="45%" unitType="Pressure">Feed pressure</td>
-                        <td contenteditable="false"></td>
-                        <td width="25%">bar,psi</td>
-                    </tr>
-                    <tr id="opredProdOutlet">
-                        <td width="45%"  unitType="Pressure">Predicted Product outlet pressure</td>
-                        <td contenteditable="false"></td>
-                        <td width="25%">bar,psi</td>
-                    </tr>
-                    <tr id="orefeedInlet" >
-                        <td width="45%" unitType="Volume Flow" width="25%">Feed Inlet</td>
-                        <td contenteditable="false"></td>
-                        <td width="25%">gpm or m3/hr</td>
-                    </tr>
-                    <tr id="oConcentrateBleed" >
-                        <td width="45%" unitType="Volume Flow">Concentrate Bleed</td>
-                        <td contenteditable="false"></td>
-                        <td width="25%">gpm or m3/hr</td>
-                    </tr>
-                    <tr id="oelectrodeBleed">
-                        <td width="45%" unitType="Volume Flow">Electrode Bleed</td>
-                        <td contenteditable="false"></td>
-                        <td width="25%">gpm or m3/hr</td>
-                    </tr>
-                </tbody>
-            </table>
+			<div class="panel-group" id="accordionFFOut" role="tablist" aria-multiselectable="true">
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="FFOut1">
+				  <h4 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordionFFOut" href="#collapseFFOut1" aria-expanded="true" aria-controls="collapseFFOut1">
+					  Flow Rates and Filter Design
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseFFOut1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="FFOut1">
+				  <div class="panel-body">
+						<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+							<tbody>
+								<tr>
+									<td width="45%" unitType="Volume Flow">Design Flow Per Filter Unit</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Volume Flow">Design Flow Per Filter Cell</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Volume Flow" colspan="2"><Strong>Filter Design</strong></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Length">Filter Cell Unit Width</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Length">Filter Cell Unit Length</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Length">Filter Cell Height</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Area">Filter Cell Area</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Area">Filter Unit Area</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Area">Total Filter Area</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Flux">Filtration Rate (all cells in service)</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" >No. of Filter Cells Out of Service</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Flux">Filtration Rate (filter Cells out of service)</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%">System Recovery</td>
+									<td contenteditable="false"></td>
+									<td width="20%">%</td>
+								</tr>
+							</tbody>
+						</table>
+					</table>
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="FFOut2">
+				  <h4 class="panel-title">
+					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionFFOut" href="#collapseFFOut2" aria-expanded="false" aria-controls="collapseFFOut2">
+					 Filter Pipe Design
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseFFOut2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="FFOut2">
+				  <div class="panel-body">
+						<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
+							<tbody>
+								<tr>
+									<td width="45%" unitType="Length">Common  Filter Unit Inlet</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Length">Filter Cell Inlet</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Length">Filter Cell Effluent</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Length">Common Filter Unit Effluent</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Length">Filter to Waste Cell</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Length">Back Wash Supply</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Length">Back Wash Waste</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Length">Air Scour Pipe </td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Length">Filter Cell Effluent - Media Compression </td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" colspan="2"><strong>Cleaning Details</strong></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Flux">Backwash Rate </td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="Volume Flow">Backwash Flow </td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="scfm/ft2">Air Scour Rate</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="scfm">Air Scour Flow</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" colspan="2"><strong>Power Consumption Details</strong></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="DC Power">Air Scour Blower</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+								<tr>
+									<td width="45%" unitType="DC Power">Back Wash Pump</td>
+									<td contenteditable="false"></td>
+									<td width="20%"></td>
+								</tr>
+							</tbody>
+						</table>
+				  </div>
+				</div>
+			  </div>
+			</div>            
         </div>
     </div>
     <div class="Note tabDiv dispNone genericSrollBox">
@@ -296,16 +425,24 @@
     </div>
     <div class="Documentation tabDiv dispNone genericSrollBox">
         <p class="text-justify">
-		Number of streams required to execute the unitop<br>
-				Input-   1 Stream<br>
+		Number of Streams required to execute the unitop<br>
+				Input - 1 Stream<br>
 				Output - 2 Stream<br>
 				<br><br>
-		EDI module is built on basis of E-cell Process Calculation Spreadsheet (E-Calc 4.0.5d)
+		Input Parameter Range
         </p>
         <ol>
-            <li>The composition of product stream is fixed at the max predicted ion compositions for given resistivity. The predictions
-                are based on guaranteed product water resistivity.</li>
-            <li>Waste stream flow is calculated as sum of concentrate bleed and electrode bleed streams</li>
+            <li>Default value is 0.762 m/sec and user input can range from 0.6096 m/sec to 0.9144 m/sec for following velocities
+Common Filter Unit Inlet Velocity 
+Filter Cell Inlet Velocity 
+Filter Cell Effluent Velocity
+Common Filter Unit Effluent Velocity
+Filter to Waste Cell Velocity
+Backwash Waste Velocity Max</li>
+            <li>Default value is 1.524 m/sec and user input can range from 1.2192 m/sec to 1.8288 m/sec for following velocities
+Backwash Supply Velocity</li>
+			<li>Default value is 21.336 m/sec and user input can range from 18.288 m/sec to 24.384 m/sec for following velocities
+Filter Cell Media Compression Velocity</li>
         </ol>
     </div>
     <div class="footer col-md-12 col-sm-12 col-xs-12">

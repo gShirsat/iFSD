@@ -1,6 +1,9 @@
 //IMX Mix Bed
 $('body').on('click', '.MB', function () {
+	
     var id = $(this).attr('id');
+	//input Number error
+	inputErrorRemove('ixMixBedPopUp');
     $('.ixMixBedPopUp').removeClass('dispNone');
     $('.ixMixBedPopUp').show();
 	$('.popUpTabError').text('');
@@ -38,7 +41,7 @@ $('body').on('click', '.MB', function () {
     $('.ixMixBedPopUp').attr("myId", id);
 
 	
-	$('#ixm_acidType').val('H2SO4');
+	$('#ixm_acidType').val('Select');
 	$(".ixMixBedPopUp select[name=ixminert]").val('No');
 	$(".ixMixBedPopUp select[name=ixmGrossFlow]").val('Yes');
 	$(".ixMixBedPopUp select[name=ixmRecycleMixBed]").val('Yes');
@@ -46,7 +49,7 @@ $('body').on('click', '.MB', function () {
 	$(".ixMixBedPopUp select[name=ixmAmberstepResins]").val('Yes');
 	$(".ixMixBedPopUp select[name=ixmBackwashSource]").val('Influent');
 	$(".ixMixBedPopUp select[name=ixmHeatedCaustics]").val('Yes');
-	$(".ixMixBedPopUp select[name=ixmUnderdrainType]").val('Flat Strainer Plate');
+	$(".ixMixBedPopUp select[name=ixmUnderdrainType]").val('Select');
 	$(".ixMixBedPopUp select[name=ixmServiceFlowRinse]").val('Yes');
 	$('#acidTypeLinked').text('H2SO4');
     $('#linkAcidType2').text('H2SO4');
@@ -117,6 +120,7 @@ $('body').on('click', '.MB', function () {
         $(".ixMixBedPopUp input[name=ixmMBDiameter]").val(getSavedData_ixm.ixmMBDiameter);
         $(".ixMixBedPopUp input[name=ixmMBFreeboard]").val(getSavedData_ixm.ixmMBFreeboard);
         $(".ixMixBedPopUp input[name=ixmResinHighTemp]").val(getSavedData_ixm.ixmResinHighTemp);
+        $(".ixMixBedPopUp input[name=ixmRegenHighTemp]").val(getSavedData_ixm.ixmRegenHighTemp);
         $(".ixMixBedPopUp input[name=ixmbackWashA]").val(getSavedData_ixm.ixmbackWashA);
         $(".ixMixBedPopUp input[name=ixmbackWashB]").val(getSavedData_ixm.ixmbackWashB);
         $(".ixMixBedPopUp input[name=ixmbackWashC]").val(getSavedData_ixm.ixmbackWashC);
@@ -179,10 +183,11 @@ $('body').on('click', '.MB', function () {
         $(".ixMixBedPopUp input[name=ixmMBDiameter]").val('');
         $(".ixMixBedPopUp input[name=ixmMBFreeboard]").val('');
         $(".ixMixBedPopUp input[name=ixmResinHighTemp]").val('');
-/*         $(".ixMixBedPopUp input[name=ixmbackWashA]").val('');
-        $(".ixMixBedPopUp input[name=ixmbackWashB]").val('');
-        $(".ixMixBedPopUp input[name=ixmbackWashC]").val('');
-        $(".ixMixBedPopUp input[name=ixmbackWashD]").val(''); */
+        $(".ixMixBedPopUp input[name=ixmRegenHighTemp]").val('');
+        $(".ixMixBedPopUp input[name=ixmbackWashA]").val(1.23451450);
+        $(".ixMixBedPopUp input[name=ixmbackWashB]").val(0.02608826);
+        $(".ixMixBedPopUp input[name=ixmbackWashC]").val(0.00014142);
+        $(".ixMixBedPopUp input[name=ixmbackWashD]").val(-0.0000000179); 
         $(".ixMixBedPopUp input[name=ixmCausticInjection]").val('');
         //$(".ixMixBedPopUp select[name=ixmServiceFlowRinse]").val('');
         $(".ixMixBedPopUp input[name=ixmSlowBW]").val('');
@@ -268,6 +273,7 @@ $('body').on('click', '.ixMixBedPopUp .updateBtn', function (e) {
     $(".ixMixBedPopUp input[name=ixmSlowBW]").css('border', '1px solid #e1e2e5');
     $(".ixMixBedPopUp input[name=ixmSlowWO]").css('border', '1px solid #e1e2e5');
     $(".ixMixBedPopUp input[name=ixmDesignPressure]").css('border', '1px solid #e1e2e5');
+    $(".ixMixBedPopUp input[name=ixmRegenHighTemp]").css('border', '1px solid #e1e2e5');
 
 
     if ($(".ixMixBedPopUp input[name=ixmcaid]").val() == "") {
@@ -344,7 +350,7 @@ $('body').on('click', '.ixMixBedPopUp .updateBtn', function (e) {
         validFlag = 1;
         $(".ixMixBedPopUp input[name=ixmCaustic]").css('border', '1px solid red');
     }
-    if ($(".ixMixBedPopUp select[name=ixm_acidType]").val() == "") {
+    if ($(".ixMixBedPopUp select[name=ixm_acidType]").val() == "Select") {
         validFlag = 1;
         $(".ixMixBedPopUp select[name=ixm_acidType]").css('border', '1px solid red');
     }
@@ -402,7 +408,7 @@ $('body').on('click', '.ixMixBedPopUp .updateBtn', function (e) {
         validFlag = 1;
         $(".ixMixBedPopUp select[name=ixmAmberstepResins]").css('border', '1px solid red');
     }
-    if ($(".ixMixBedPopUp select[name=ixmUnderdrainType]").val() == "") {
+    if ($(".ixMixBedPopUp select[name=ixmUnderdrainType]").val() == "Select") {
         validFlag = 1;
         $(".ixMixBedPopUp select[name=ixmUnderdrainType]").css('border', '1px solid red');
     }
@@ -442,9 +448,21 @@ $('body').on('click', '.ixMixBedPopUp .updateBtn', function (e) {
         validFlag = 1;
         $(".ixMixBedPopUp input[name=ixmMBDiameter]").css('border', '1px solid red');
     }
+    if ($(".ixMixBedPopUp input[name=ixmMBFreeboard]").val() == "") {
+        validFlag = 1;
+        $(".ixMixBedPopUp input[name=ixmMBFreeboard]").css('border', '1px solid red');
+    }
 	if ($(".ixMixBedPopUp input[name=ixmDesignPressure]").val() == "") {
         validFlag = 1;
         $(".ixMixBedPopUp input[name=ixmDesignPressure]").css('border', '1px solid red');
+    }
+    if ($(".ixMixBedPopUp input[name=ixmResinHighTemp]").val() == "") {
+        validFlag = 1;
+        $(".ixMixBedPopUp input[name=ixmResinHighTemp]").css('border', '1px solid red');
+    }
+    if ($(".ixMixBedPopUp input[name=ixmRegenHighTemp]").val() == "") {
+        validFlag = 1;
+        $(".ixMixBedPopUp input[name=ixmRegenHighTemp]").css('border', '1px solid red');
     }
 	
 
@@ -500,7 +518,8 @@ $('body').on('click', '.ixMixBedPopUp .updateBtn', function (e) {
 		inputData.ixmForceBedAnion = $(".ixMixBedPopUp input[name=ixmForceBedAnion]").val();
 		inputData.ixmMBFreeboard = $(".ixMixBedPopUp input[name=ixmMBFreeboard]").val();
 		inputData.ixmDesignPressure = $(".ixMixBedPopUp input[name=ixmDesignPressure]").val();
-		inputData.ixmResinHighTemp = $(".ixMixBedPopUp input[name=ixmResinHighTemp]").val();
+        inputData.ixmResinHighTemp = $(".ixMixBedPopUp input[name=ixmResinHighTemp]").val();
+        inputData.ixmRegenHighTemp = $(".ixMixBedPopUp input[name=ixmRegenHighTemp]").val();
 		inputData.ixmCausticInjection = $(".ixMixBedPopUp input[name=ixmCausticInjection]").val();
 		inputData.ixmbackWashA = $(".ixMixBedPopUp input[name=ixmbackWashA]").val();
 		inputData.ixmbackWashB = $(".ixMixBedPopUp input[name=ixmbackWashB]").val();
@@ -573,5 +592,17 @@ $(document).on('change', '.ixMixBedPopUp .sixDecimal', function () {
 	var thisVal = $(this).val();
 	var values = parseFloat(thisVal).toFixed(6);
 	$(this).val(values);
+});
+
+//on Enter press next input 
+$(document).on('keypress', '.ixMixBedPopUp input,.ixMixBedPopUp select', function (e) {
+    if (e.which == 13) {
+        e.preventDefault();
+        // Get all focusable elements on the page
+        var $canfocus = $(':focusable');
+        var index = $canfocus.index(document.activeElement) + 1;
+        if (index >= $canfocus.length) index = 0;
+        $canfocus.eq(index).focus();
+    }
 });
 

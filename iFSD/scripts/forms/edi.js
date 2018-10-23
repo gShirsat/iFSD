@@ -2,6 +2,7 @@
 var unitConverionDoneEdi=false;
 $('body').on('click', '.EDI', function () {
     var id = $(this).attr('id');
+	inputErrorRemove('ediPopUp');
     $('.ediPopUp').removeClass('dispNone');
     $('.ediPopUp').show();
 	$('.ediPopUp .body ul.nav li').removeClass('active');
@@ -20,6 +21,7 @@ $('body').on('click', '.EDI', function () {
     $('.ediPopUp').attr("myId", id);
     $(".ediPopUp #modeltype").trigger("change");
 	$('.popUpTabError').text('');
+	$("#stargetSilicaId").val('Select');
     var table = $(".ediPopUp table.inputTable tbody");
 	if(unitConverionDoneEdi==false)
 	{
@@ -42,19 +44,19 @@ $('body').on('click', '.EDI', function () {
     if (localStorage.getItem(id) !== null) {
         getSavedData_edi = JSON.parse(localStorage.getItem('' + id + ''));
         $(".ediPopUp select[name=edimodeltype]").val(getSavedData_edi.edimodeltype);
-		if(getSavedData_edi.edimodeltype == 'E-cell'){
+		/* if(getSavedData_edi.edimodeltype == 'E-cell'){
 			$('#xStackY').show();
 		}else{
 			$('#xStackY').hide();
-		}
+		} */
 		if(getSavedData_edi.edimodeltype == 'MK-3 MiniHT Pharmaceutical' || getSavedData_edi.edimodeltype == 'MK-3PharmaHT'){
-			$('#targetSilicaShow').hide();			
+			$('#targetSilicaShow').hide();		
 		}
         $('#coCurrentY').prop('checked',JSON.parse(getSavedData_edi.coCurrentY));
         //$(".ediPopUp input[name=coCurrentN]").val(getSavedData_edi.coCurrentN);
         $('#roPerY').prop('checked',JSON.parse(getSavedData_edi.roPerY));
         //$(".ediPopUp input[name=roPerN]").val(getSavedData_edi.roPerN); hhstack
-        $('#hhstack').prop('checked',JSON.parse(getSavedData_edi.hhstack));
+        //$('#hhstack').prop('checked',JSON.parse(getSavedData_edi.hhstack));
         //$(".ediPopUp input[name=xStackN]").val(getSavedData_edi.xStackN);
         /*$(".ediPopUp input[name=feedwcaid]").val(getSavedData_edi.feedwcaid);
         $(".ediPopUp input[name=feedwmgid]").val(getSavedData_edi.feedwmgid);
@@ -74,28 +76,32 @@ $('body').on('click', '.EDI', function () {
         $(".ediPopUp input[name=stargetSenId]").val(getSavedData_edi.stargetSenId);
         $(".ediPopUp input[name=sProdFlowId]").val(getSavedData_edi.sProdFlowId);
         $(".ediPopUp input[name=sFlowPerStackId]").val(getSavedData_edi.sFlowPerStackId);
-        $(".ediPopUp input[name=stempId]").val(getSavedData_edi.stempId);
-        $(".ediPopUp select[name=stargetSilicaId]").val(getSavedData_edi.stargetSilicaId);
+        //$(".ediPopUp input[name=stempId]").val(getSavedData_edi.stempId);
+		/* if(getSavedData_edi.stargetSilicaId !== ""){
+			$(".ediPopUp select[name=stargetSilicaId]").val(getSavedData_edi.stargetSilicaId);
+		}else{ */
+			$(".ediPopUp select[name=stargetSilicaId]").val(getSavedData_edi.stargetSilicaId);
+		//}
         $(".ediPopUp input[name=srectifierEffId]").val(getSavedData_edi.srectifierEffId);
         $(".ediPopUp select[name=srectifierDCId]").val(getSavedData_edi.srectifierDCId);
-        $(".ediPopUp input[name=sFeedpressureId]").val(getSavedData_edi.sFeedpressureId);
+        //$(".ediPopUp input[name=sFeedpressureId]").val(getSavedData_edi.sFeedpressureId); 
         $(".ediPopUp textarea[name=edi_Note]").val(getSavedData_edi.edi_Note);
     }else{
-		$(".ediPopUp select[name=edimodeltype]").val('E-cell');
+		$(".ediPopUp select[name=edimodeltype]").val('Select');
 		$('#srectifierDC').children('option[value="400 V"]').show();
         $('#srectifierDC').children('option[value="250 V"]').hide();
         $('#srectifierDC').children('option[value="300 V"]').hide();
         $('#srectifierDC').children('option[value="150 V"]').hide();
         $('#srectifierDC').prop('selectedIndex', 0);
-		$('#xStackY').show();
+		//$('#xStackY').show();
         $('#coCurrentY').prop('checked',false);
         $('#roPerY').prop('checked',false);
-        $('#hhstack').prop('checked',false);
+        //$('#hhstack').prop('checked',false);
 		$(".ediPopUp input[name=stargetSenId]").val('');
 		$(".ediPopUp input[name=sFlowPerStackId]").val('');
-		$(".ediPopUp input[name=stempId]").val('');
-		$(".ediPopUp input[name=sFeedpressureId]").val('');
-		$(".ediPopUp select[name=stargetSilicaId]").val('');
+		//$(".ediPopUp input[name=stempId]").val('');
+		//$(".ediPopUp input[name=sFeedpressureId]").val('');
+		$("#stargetSilicaId").val('Select');
 		
 	}
 });
@@ -128,15 +134,16 @@ $('body').on('click', '.ediPopUp .updateBtn', function (e) {
     $(".ediPopUp input[name=stargetSenId]").css('border', '1px solid #e1e2e5');
     $(".ediPopUp input[name=sProdFlowId]").css('border', '1px solid #e1e2e5');
     $(".ediPopUp input[name=sFlowPerStackId]").css('border', '1px solid #e1e2e5');
-    $(".ediPopUp input[name=stempId]").css('border', '1px solid #e1e2e5');
-    $(".ediPopUp select[name=stargetSilicaId]").css('border', '1px solid #e1e2e5');
+    //$(".ediPopUp input[name=stempId]").css('border', '1px solid #e1e2e5');
+    $("#stargetSilicaId").css('border', '1px solid #e1e2e5');
     $(".ediPopUp input[name=srectifierEffId]").css('border', '1px solid #e1e2e5');
-    $(".ediPopUp input[name=sFeedpressureId]").css('border', '1px solid #e1e2e5');
+    //$(".ediPopUp input[name=sFeedpressureId]").css('border', '1px solid #e1e2e5');
+    $(".ediPopUp select[name=edimodeltype]").css('border', '1px solid #e1e2e5');
 
 
-    if ($(".ediPopUp input[name=modeltype]").val() == "") {
+    if ($(".ediPopUp select[name=edimodeltype]").val() == "Select") {
         validFlag = 1;
-        $(".ediPopUp input[name=modeltype]").css('border', '1px solid red');
+        $(".ediPopUp select[name=edimodeltype]").css('border', '1px solid red');
     }
     if ($(".ediPopUp input[name=coCurrentY]").val() == "" || $(".ediPopUp input[name=coCurrentN]").val()) {
         validFlag = 1;
@@ -223,22 +230,22 @@ $('body').on('click', '.ediPopUp .updateBtn', function (e) {
         validFlag = 1;
         $(".ediPopUp input[name=sFlowPerStackId]").css('border', '1px solid red');
     }
-    if ($(".ediPopUp input[name=stempId]").val() == "") {
+    /* if ($(".ediPopUp input[name=stempId]").val() == "") {
         validFlag = 1;
         $(".ediPopUp input[name=stempId]").css('border', '1px solid red');
-    }
-    if ($(".ediPopUp input[name=stargetSilicaId]").val() == "") {
+    } */
+    if ($("#stargetSilicaId").val() == "Select"){
         validFlag = 1;
-        $(".ediPopUp select[name=stargetSilicaId]").css('border', '1px solid red');
+        $("#stargetSilicaId").css('border', '1px solid red');
     }
     if ($(".ediPopUp input[name=srectifierEffId]").val() == "") {
         validFlag = 1;
         $(".ediPopUp input[name=srectifierEffId]").css('border', '1px solid red');
     }
-    if ($(".ediPopUp input[name=sFeedpressureId]").val() == "") {
+    /* if ($(".ediPopUp input[name=sFeedpressureId]").val() == "") {
         validFlag = 1;
         $(".ediPopUp input[name=sFeedpressureId]").css('border', '1px solid red');
-    }
+    } */
 	/*COnvert To standard Units before comparison*/
 	//UnitConversion
 		var table = $(".ediPopUp table.inputTable tbody");
@@ -359,10 +366,10 @@ $('body').on('click', '.ediPopUp .updateBtn', function (e) {
         $(".ediPopUp input[name=sFlowPerStackId]").css('border', '1px solid red');
     }
 	
-	if ($(".ediPopUp input[name=stempId]").attr('uCVal') < 5 || $(".ediPopUp input[name=stempId]").attr('uCVal') > 38) {
+	/* if ($(".ediPopUp input[name=stempId]").attr('uCVal') < 5 || $(".ediPopUp input[name=stempId]").attr('uCVal') > 38) {
         validFlag = 1;
         $(".ediPopUp input[name=stempId]").css('border', '1px solid red');
-    }
+    } */
     /* if ($(".ediPopUp input[name=stempId]").attr('uCVal') < 5 || $(".ediPopUp input[name=stempId]").attr('uCVal') > 38) {
         validFlag = 1;
         $(".ediPopUp input[name=stempId]").css('border', '1px solid red');
@@ -372,7 +379,7 @@ $('body').on('click', '.ediPopUp .updateBtn', function (e) {
         validFlag = 1;
         $(".ediPopUp input[name=srectifierEffId]").css('border', '1px solid red');
     }
-	if ($('#coCurrentY').is(":checked") == true && $(".ediPopUp input[name=sFeedpressureId]").val() == "") {
+	/* if ($('#coCurrentY').is(":checked") == true && $(".ediPopUp input[name=sFeedpressureId]").val() == "") {
         validFlag = 1;
         $(".ediPopUp input[name=sFeedpressureId]").css('border', '1px solid red');
     }
@@ -385,7 +392,7 @@ $('body').on('click', '.ediPopUp .updateBtn', function (e) {
     if ($('#coCurrentY').is(":checked") == false && ($(".ediPopUp input[name=sFeedpressureId]").attr('uCVal') < 4.1 || $(".ediPopUp input[name=sFeedpressureId]").attr('uCVal') > 6.9)) {
         validFlag = 1;
         $(".ediPopUp input[name=sFeedpressureId]").css('border', '1px solid red');
-    }
+    } */
 		
 	
 
@@ -406,11 +413,11 @@ $('body').on('click', '.ediPopUp .updateBtn', function (e) {
 		}
 		
         //inputData.roPerN = $(".ediPopUp input[name=roPerN]").val();
-		if($("#hhstack").is(':checked')){
+		/* if($("#hhstack").is(':checked')){
 			inputData.hhstack = "true";
 		}else{
 			inputData.hhstack = "false";
-		}
+		} */
         //inputData.xStackN = $(".ediPopUp input[name=xStackN]").val();
         /*inputData.feedwcaid = $(".ediPopUp input[name=feedwcaid]").val();
         inputData.feedwmgid = $(".ediPopUp input[name=feedwmgid]").val();
@@ -430,12 +437,12 @@ $('body').on('click', '.ediPopUp .updateBtn', function (e) {
         inputData.stargetSenId = $(".ediPopUp input[name=stargetSenId]").val();
         inputData.sProdFlowId = $(".ediPopUp input[name=sProdFlowId]").val();
         inputData.sFlowPerStackId = $(".ediPopUp input[name=sFlowPerStackId]").val();
-        inputData.stempId = $(".ediPopUp input[name=stempId]").val();
-		if($(".ediPopUp select[name=edimodeltype]").val() == "E-cell" || $(".ediPopUp select[name=edimodeltype]").val() == "MK-3" || $(".ediPopUp select[name=edimodeltype]").val() == "MK-3 MiniHT Industrial"){
+        //inputData.stempId = $(".ediPopUp input[name=stempId]").val();
+		/* if($(".ediPopUp select[name=edimodeltype]").val() == "E-cell" || $(".ediPopUp select[name=edimodeltype]").val() == "MK-3" || $(".ediPopUp select[name=edimodeltype]").val() == "MK-3 MiniHT Industrial"){ */
 			inputData.stargetSilicaId = $(".ediPopUp select[name=stargetSilicaId]").val();
-		}else{
+		/* }else{
 			inputData.stargetSilicaId = "";
-		}
+		} */
         inputData.srectifierEffId = $(".ediPopUp input[name=srectifierEffId]").val();
         inputData.srectifierDCId = $(".ediPopUp select[name=srectifierDCId]").val();
         inputData.sFeedpressureId = $(".ediPopUp input[name=sFeedpressureId]").val();
@@ -444,7 +451,7 @@ $('body').on('click', '.ediPopUp .updateBtn', function (e) {
 
         localStorage.setItem(popUpId, JSON.stringify(inputData));
 		if(ediFormArray.indexOf(popUpId) === -1) {
-            ediFormArray.push(popUpId);            	
+            ediFormArray.push(popUpId);
 		}
 		if(validFlag==0){
 			$('#'+popUpId).addClass('restClass');
@@ -466,12 +473,12 @@ $('body').on('click', '.ediPopUp .updateBtn', function (e) {
 $('body').on('change', '.ediPopUp #modeltype', function () {
     //console.log('comes in chane');
 	outputHide(this.value);
-    if (this.value == 'E-cell') {
+    /* if (this.value == 'E-cell') {
         $('#xStackY').show();
     }
     else {
         $('#xStackY').hide();
-    }
+    } */
     
 
     if (this.value == 'MK-3PharmaHT') {
@@ -552,7 +559,17 @@ function outputHide(thisVal){
         $('#opredMaxprodChloride').show();
     }	
 }
-
+//on Enter press next input 
+$(document).on('keypress', '.ediPopUp input,.ediPopUp select', function (e) {
+    if (e.which == 13) {
+        e.preventDefault();
+        // Get all focusable elements on the page
+        var $canfocus = $(':focusable');
+        var index = $canfocus.index(document.activeElement) + 1;
+        if (index >= $canfocus.length) index = 0;
+        $canfocus.eq(index).focus();
+    }
+});
 /*
 $(document).on('change', '.ediPopUp input', function () {
 	var num = this.value.match(/^\d+$/);

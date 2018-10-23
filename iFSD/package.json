@@ -38,15 +38,18 @@
     "formidable": "^1.1.1",
     "fs": "0.0.1-security",
     "html2canvas": "^0.5.0-beta4",
+    "mso-pdf": "^1.0.2",
+    "node-msoffice-pdf": "0.0.7",
     "node-progress-3": "^0.4.3",
+    "office-converter": "^1.0.2",
     "requirejs": "^2.3.5",
     "shelljs": "^0.7.8",
     "xlsx": "^0.11.16"
   },
   "webkit": {
     "plugin": true,
-	"nodejs": true,
-	"single-instance": true,
-	"page-cache" : false
+    "nodejs": true,
+    "single-instance": true,
+    "page-cache": false
   }
 }

@@ -34,34 +34,27 @@
 				  <div class="panel-body">
 					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 						<tbody>
-							<!--tr unitType="Volume Flow">
-								<td width="25%">Feed Flow Rate</td>
-								<td align="left">
-									<input type="number" name="roFeedFlowRate" value="">
-								</td>
-								<td>m3/hr</td>
-							</tr-->
 							<tr>
-								<td width="25%">System Recovery</td>
+								<td width="25%">System Recovery <span class="requiredInp">*</span></td>
 								<td>
 									<input type="number" name="roRecovery" value="">
 								</td>
 								<td id="roRecovery1">%</td>
 							</tr>
 							<tr>
-								<td width="25%">Element Type</td>
+								<td width="25%">Element Type <span class="requiredInp">*</span></td>
 								<td>
 									<select name="elementType" id="elemType" class="w100">
+										<option>Select</option>
 										<option value="BWRO">BWRO</option>
 										<option value="NF">NF</option>
 										<option value="SWRO">SWRO</option>
 									</select>
-
 								</td>
 								<td id="elementType1"></td>
 							</tr>
 							<tr>
-								<td width="45%">Elements Per Vessel</td>
+								<td width="45%">Elements Per Vessel <span class="requiredInp">*</span></td>
 								<td>
 									<select name="roElementsPerVessel" class="w100">
 										<option value="1">1</option>
@@ -77,49 +70,47 @@
 								<td id="roElementsPerVessel1"></td>
 							</tr>
 							<tr >
-								<td width="25%" unitType="Flux">Average Flux</td>
+								<td width="25%" unitType="Flux">Average Flux <span class="requiredInp">*</span></td>
 								<td>
-									<input type="number" name="roFlux" value="">
+									<input type="number" step="any" name="roFlux" value="">
 								</td>
-								<td id="roFlux1">lmh</td>
+								<td id="roFlux1"></td>
 							</tr>
-
 							<tr >
-								<td unitType="Area" width="25%">Element Area</td>
+								<td unitType="Area" width="25%">Element Area <span class="requiredInp">*</span></td>
 								<td>
-									<input type="number" name="roElemArea" value="">
+									<input type="number" step="any" name="roElemArea" value="">
 								</td>
-								<td id="roElemArea1">lmh</td>
+								<td id="roElemArea1"></td>
 							</tr>
 							<tr>
-								<td width="25%">Element Age</td>
+								<td width="25%">Element Age <span class="requiredInp">*</span></td>
 								<td>
 									<input type="number" name="roElemAge" value="">
 								</td>
 								<td id="roElemAge1">Years</td>
 							</tr>
 							<tr>
-								<td width="25%">Flux Annual percent change</td>
+								<td width="25%">Flux Annual percent change <span class="requiredInp">*</span></td>
 								<td>
 									<input type="number" name="roFluxChange" value="">
 								</td>
 								<td id="roFluxChange1">%</td>
 							</tr>
 							<tr>
-								<td width="25%">Salt passage Annual percent change</td>
+								<td width="25%">Salt passage Annual percent change <span class="requiredInp">*</span></td>
 								<td>
 									<input type="number" name="saltPassage" value="">
 								</td>
 								<td id="saltPassage1">%</td>
 							</tr>
 							<tr>
-								<td width="25%">Pump Efficiency</td>
+								<td width="25%">Pump Efficiency <span class="requiredInp">*</span></td>
 								<td>
 									<input type="number" name="pumpEfficiency" value="">
 								</td>
 								<td id="pumpEfficiency1">%</td>
-							</tr>
-						   
+							</tr>						   
 						</tbody>
 					</table>
 				  </div>
@@ -289,7 +280,7 @@
 				</div>
 			  </div>
 			</div>
-
+			<div class="note" style="background:none;">All  <span class="requiredInp">*</span> marked fields are mandatory <span class="clearfix"></span></div>
     </div>
 
     <div class="Output tabDiv dispNone genericSrollBox">

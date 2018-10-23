@@ -6,6 +6,9 @@ var totalAnions_meqI = 0;
 var totalAnions_ppm = 0;
 var feedMWArray = [40.078,24.305,22.99,39.098,18.038,137.327,87.62,55.845,1,62.004,96.064,35.453,18.998,62.004,79.904,94.971,10.811,60.084,34.082,61.017,44.01,60.009,1];
 var feedValArray = [2,2,1,1,1,2,2,2,2,0,2,1,1,1,1,3,0,0,0,1,0,2,0];
+var currentFeedId ;
+
+
 function feedCalculation(i, el){
 
 	$('#feedTableNew tr').each(function(index){
@@ -65,6 +68,11 @@ $('body').on('change', '.feedInput', function(){
 	feedParametresCal();
 });
 
+//Feed form input click empty value
+/* $('body').on('click', '.feedInput', function(){
+	this.select();
+}); */
+
 function feedParametresCal(){
 	var tdsTotdal = 0;
 	var feed_flow = $(".FeedPopUp input[name=feed_flow]").val();
@@ -75,6 +83,7 @@ function feedParametresCal(){
 	var feed_TSS = $(".FeedPopUp input[name=feed_TSS]").val();
 	var feed_TOC = $(".FeedPopUp input[name=feed_TOC]").val();
 	var feed_DOC = $(".FeedPopUp input[name=feed_DOC]").val();
+	var feed_COD = $(".FeedPopUp input[name=feed_COD]").val();
 	var feed_TKN = $(".FeedPopUp input[name=feed_TKN]").val();
 	var feed_Turbidity = $(".FeedPopUp input[name=feed_Turbidity]").val();
 	var feed_Color = $(".FeedPopUp input[name=feed_Color]").val();
@@ -87,6 +96,7 @@ $('body').on('change', '.feedparam', function(){
 });
 
 $('body').on('click', '#feedPopUp .clrBtn', function () {
+	
 	$('#feedTableNew tbody tr td input').val(0);
 	total_Cations = 0;
 	total_Anions = 0;
@@ -97,7 +107,12 @@ $('body').on('click', '#feedPopUp .clrBtn', function () {
 
 //Feed Form Validations
 $('body').on('click', '.Feed', function(){
+	$('.feedInputCont').show();
+	$('.feedOutput').hide();
+	$('#feedOutput').hide();
+	$('#backToInput').hide();
 	var id=$(this).attr('id');
+	inputErrorRemove('FeedPopUp');
 	$('.FeedPopUp').removeClass('dispNone');
 	$('.FeedPopUp').show();
 	$('.popUpTabError').text('');
@@ -136,9 +151,9 @@ $('body').on('click', '.Feed', function(){
 		$(".FeedPopUp input[name=Boron_Feed]").val(getSavedData_Feed.Boron_Feed);
 		$(".FeedPopUp input[name=Silica_Feed]").val(getSavedData_Feed.Silica_Feed);
 		$(".FeedPopUp input[name=hydrogenSulphide_Feed]").val(getSavedData_Feed.hydrogenSulphide_Feed);
-		$(".FeedPopUp input[name=Bicarbonate_Feed]").val(getSavedData_Feed.Bicarbonate_Feed);
-		$(".FeedPopUp input[name=carbonDiOxide_Feed]").val(getSavedData_Feed.carbonDiOxide_Feed);
-		$(".FeedPopUp input[name=carbonate_Feed]").val(getSavedData_Feed.carbonate_Feed);
+		$(".FeedPopUp input[name=Bicarbonate_Feed]").val(0);
+		$(".FeedPopUp input[name=carbonDiOxide_Feed]").val(0);
+		$(".FeedPopUp input[name=carbonate_Feed]").val(0);
 		$(".FeedPopUp input[name=totalAnions_Feed]").val(getSavedData_Feed.totalAnions_Feed);
 		$(".FeedPopUp input[name=feed_flow]").val(getSavedData_Feed.feed_flow);
 		$(".FeedPopUp input[name=feed_Temperature]").val(getSavedData_Feed.feed_Temperature);
@@ -148,11 +163,12 @@ $('body').on('click', '.Feed', function(){
 		$(".FeedPopUp input[name=feed_TSS]").val(getSavedData_Feed.feed_TSS);
 		$(".FeedPopUp input[name=feed_TOC]").val(getSavedData_Feed.feed_TOC);
 		$(".FeedPopUp input[name=feed_DOC]").val(getSavedData_Feed.feed_DOC);
+		$(".FeedPopUp input[name=feed_COD]").val(getSavedData_Feed.feed_COD);
 		$(".FeedPopUp input[name=feed_TKN]").val(getSavedData_Feed.feed_TKN);
 		$(".FeedPopUp input[name=feed_Turbidity]").val(getSavedData_Feed.feed_Turbidity);
 		$(".FeedPopUp input[name=feed_Color]").val(getSavedData_Feed.feed_Color);
 		$(".FeedPopUp input[name=feed_TDS]").val(getSavedData_Feed.feed_TDS);
-		//feedParametresCal();
+
 		feedCalculation();
 	}else{
 		$(".FeedPopUp input[name=calcium_Feed]").val(0);
@@ -186,13 +202,30 @@ $('body').on('click', '.Feed', function(){
 		$(".FeedPopUp input[name=feed_TSS]").val(0);
 		$(".FeedPopUp input[name=feed_TOC]").val(0);
 		$(".FeedPopUp input[name=feed_DOC]").val(0);
+		$(".FeedPopUp input[name=feed_COD]").val(0);
 		$(".FeedPopUp input[name=feed_TKN]").val(0);
 		$(".FeedPopUp input[name=feed_Turbidity]").val(0);
 		$(".FeedPopUp input[name=feed_Color]").val(0);
 		$(".FeedPopUp input[name=feed_TDS]").val(0);
+		$('#feedTableNew tbody tr td input').val(0);
+		total_Cations = 0;
+		total_Anions = 0;
+		totalCations_meqI = 0;
+		totalCations_ppm = 0;
+		feedCalculation();
+		$('#feedTableNew .totalAnions_meqI').text('0.00');
+		$('#feedTableNew .totalAnions_ppm').text('0.00');
+	}
+
+	if(executionFlag == true){
+		currentFeedId = id;
+		$('#feedOutput').show();
 		//feedCalculation();
-	}	
+	}else{
+		$('#feedOutput').hide();
+	}
 });
+
 
 $('body').on('click','.FeedPopUp .updateBtn', function(e){
 	var validFlag = 0;
@@ -216,9 +249,9 @@ $('body').on('click','.FeedPopUp .updateBtn', function(e){
 	$(".FeedPopUp input[name=Boron_Feed]").css('border','1px solid #e1e2e5');
 	$(".FeedPopUp input[name=Silica_Feed]").css('border','1px solid #e1e2e5');
 	$(".FeedPopUp input[name=hydrogenSulphide_Feed]").css('border','1px solid #e1e2e5');
-	$(".FeedPopUp input[name=Bicarbonate_Feed]").css('border','1px solid #e1e2e5');
-	$(".FeedPopUp input[name=carbonDiOxide_Feed]").css('border','1px solid #e1e2e5');
-	$(".FeedPopUp input[name=carbonate_Feed]").css('border','1px solid #e1e2e5');
+	//$(".FeedPopUp input[name=Bicarbonate_Feed]").css('border','1px solid #e1e2e5');
+	//$(".FeedPopUp input[name=carbonDiOxide_Feed]").css('border','1px solid #e1e2e5');
+	//$(".FeedPopUp input[name=carbonate_Feed]").css('border','1px solid #e1e2e5');
 	$(".FeedPopUp input[name=totalAnions_Feed]").css('border','1px solid #e1e2e5');
 	$(".FeedPopUp input[name=feed_flow]").css('border','1px solid #e1e2e5');
 	$(".FeedPopUp input[name=feed_Temperature]").css('border','1px solid #e1e2e5');
@@ -228,6 +261,7 @@ $('body').on('click','.FeedPopUp .updateBtn', function(e){
 	$(".FeedPopUp input[name=feed_TSS]").css('border','1px solid #e1e2e5');
 	$(".FeedPopUp input[name=feed_TOC]").css('border','1px solid #e1e2e5');
 	$(".FeedPopUp input[name=feed_DOC]").css('border','1px solid #e1e2e5');
+	$(".FeedPopUp input[name=feed_COD]").css('border','1px solid #e1e2e5');
 	$(".FeedPopUp input[name=feed_TKN]").css('border','1px solid #e1e2e5');
 	$(".FeedPopUp input[name=feed_Turbidity]").css('border','1px solid #e1e2e5');
 	$(".FeedPopUp input[name=feed_Color]").css('border','1px solid #e1e2e5');
@@ -305,7 +339,7 @@ $('body').on('click','.FeedPopUp .updateBtn', function(e){
 		validFlag = 1;
 		$(".FeedPopUp input[name=hydrogenSulphide_Feed]").css('border','1px solid red');
 	}
-	if($(".FeedPopUp input[name=Bicarbonate_Feed]").val() == ""){
+	/* if($(".FeedPopUp input[name=Bicarbonate_Feed]").val() == ""){
 		validFlag = 1;
 		$(".FeedPopUp input[name=Bicarbonate_Feed]").css('border','1px solid red');
 	}
@@ -316,7 +350,7 @@ $('body').on('click','.FeedPopUp .updateBtn', function(e){
 	if($(".FeedPopUp input[name=carbonate_Feed]").val() == ""){
 		validFlag = 1;
 		$(".FeedPopUp input[name=carbonate_Feed]").css('border','1px solid red');
-	}
+	} */
 	if($(".FeedPopUp input[name=totalAnions_Feed]").val() == ""){
 		validFlag = 1;
 		$(".FeedPopUp input[name=totalAnions_Feed]").css('border','1px solid red');
@@ -353,6 +387,10 @@ $('body').on('click','.FeedPopUp .updateBtn', function(e){
 		validFlag = 1;
 		$(".FeedPopUp input[name=feed_DOC]").css('border','1px solid red');
 	}
+	if($(".FeedPopUp input[name=feed_COD]").val() == ""){
+		validFlag = 1;
+		$(".FeedPopUp input[name=feed_COD]").css('border','1px solid red');
+	}
 	if($(".FeedPopUp input[name=feed_TKN]").val() == ""){
 		validFlag = 1;
 		$(".FeedPopUp input[name=feed_TKN]").css('border','1px solid red');
@@ -369,7 +407,6 @@ $('body').on('click','.FeedPopUp .updateBtn', function(e){
 		validFlag = 1;
 		$(".FeedPopUp input[name=feed_TDS]").css('border','1px solid red');
 	}
-	
 	
 	
 	
@@ -395,9 +432,9 @@ $('body').on('click','.FeedPopUp .updateBtn', function(e){
 		inputData.Boron_Feed = $(".FeedPopUp input[name=Boron_Feed]").val();
 		inputData.Silica_Feed = $(".FeedPopUp input[name=Silica_Feed]").val();
 		inputData.hydrogenSulphide_Feed = $(".FeedPopUp input[name=hydrogenSulphide_Feed]").val();
-		inputData.Bicarbonate_Feed = $(".FeedPopUp input[name=Bicarbonate_Feed]").val();
-		inputData.carbonDiOxide_Feed = $(".FeedPopUp input[name=carbonDiOxide_Feed]").val();
-		inputData.carbonate_Feed = $(".FeedPopUp input[name=carbonate_Feed]").val();
+		inputData.Bicarbonate_Feed = "0";
+		inputData.carbonDiOxide_Feed = "0";
+		inputData.carbonate_Feed = "0";
 		inputData.totalAnions_Feed = $(".FeedPopUp input[name=totalAnions_Feed]").val();
 		inputData.feed_flow = $(".FeedPopUp input[name=feed_flow]").val();
 		inputData.feed_Temperature = $(".FeedPopUp input[name=feed_Temperature]").val();
@@ -407,6 +444,7 @@ $('body').on('click','.FeedPopUp .updateBtn', function(e){
 		inputData.feed_TSS = $(".FeedPopUp input[name=feed_TSS]").val();
 		inputData.feed_TOC = $(".FeedPopUp input[name=feed_TOC]").val();
 		inputData.feed_DOC = $(".FeedPopUp input[name=feed_DOC]").val();
+		inputData.feed_COD = $(".FeedPopUp input[name=feed_COD]").val();
 		inputData.feed_TKN = $(".FeedPopUp input[name=feed_TKN]").val();
 		inputData.feed_Turbidity = $(".FeedPopUp input[name=feed_Turbidity]").val();
 		inputData.feed_Color = $(".FeedPopUp input[name=feed_Color]").val();
@@ -435,3 +473,83 @@ $('body').on('click','.FeedPopUp .updateBtn', function(e){
 		e.stopImmediatePropagation();
 	}*/	
 });
+
+//Output
+function getFeedOutputData(name){
+	$('.feedInputCont').hide();
+	$('.feedOutput').show();
+	$('#feedOutputTable tbody').empty();
+	var fs = require('fs');
+	var XLSX = require('xlsx');
+	var reader = new FileReader();
+	var workbook = XLSX.readFile('C:/iFSD/Data/iFSDSheet.xlsx', { sheetStubs: true });
+	//var workbook = XLSX.readFile('C:/iFSD/Data/iFSDSheet-feed_sf_cf_ro_31July-Before.xlsx', { sheetStubs: true });
+	var sheet_name_list = workbook.SheetNames;
+	//read the sheet unitop_output
+	var excelData = XLSX.utils.sheet_to_json(workbook.Sheets["unitop_output"]);
+	var obj = excelData[0];
+	var indexAndUnitOpMap = [];
+	var indexForMap = 0;
+	for (var key in obj) {
+		if (indexForMap % 2 != 0)
+			indexAndUnitOpMap[indexForMap] = key;
+		indexForMap++;
+	}
+
+	var prevSearchText = '';
+	var feedStart = 0;
+	for (var i = 0; i < excelData.length; i++) {
+		var obj1 = excelData[i];
+		for (var key1 in obj1) {
+			var k;
+			for (k = 0; k < indexAndUnitOpMap.length; k++) {
+				if (indexAndUnitOpMap[k] == key1)
+					break;
+			}
+			searchText = obj1[key1];
+			if (parseFloat(obj1[key1]) >= 0 && !isNaN(obj1[key1]))
+				obj1[key1] = parseFloat(obj1[key1]).toFixed(2);
+
+			if (indexAndUnitOpMap[k] != undefined) {
+				if (name == indexAndUnitOpMap[k]) {
+					if(obj1["Unitop Name"] != "Unitop Type"){
+						var tdata = '';
+						tdata += '<tr>'+
+						'<td width="45%">'+obj1["Unitop Name"]+'</td>'+
+						'<td width="25%">'+ obj1[key1] +'</td>'+
+						'<td>mg/l</td>'+
+						'</tr>';
+						$('#feedOutputTable tbody').append(tdata);
+					}					
+					$('#backToInput').show();
+					$('#feedOutput').hide();
+				}
+			}
+		}
+	}
+}
+
+//on Enter press next input 
+$(document).on('keypress', '.FeedPopUp input,.FeedPopUp select', function (e) {
+    if (e.which == 13) {
+        e.preventDefault();
+        // Get all focusable elements on the page
+        var $canfocus = $(':focusable');
+        var index = $canfocus.index(document.activeElement) + 1;
+        if (index >= $canfocus.length) index = 0;
+        $canfocus.eq(index).focus();
+    }
+});
+//Feed output
+$(document).on('click', '#feedOutput', function (e) {
+	if(currentFeedId){
+		getFeedOutputData(currentFeedId);
+	}
+});
+$(document).on('click', '#backToInput', function (e) {
+	$('#backToInput').hide();
+	$('#feedOutput').show();
+	$('.feedInputCont').show();
+	$('.feedOutput').hide();
+});
+

@@ -1,5 +1,6 @@
 $('body').on('click', '.Splitter', function(){
-	var id=$(this).attr('id');	
+	var id=$(this).attr('id');
+	inputErrorRemove('splitterPopup');
 	$('.splitterPopup').removeClass('dispNone');
 	$('.splitterPopup').show();
 	$('.popUpTabError').text('');
@@ -160,4 +161,16 @@ $('body').on("change", ".splitterPopup .splitterStream", function(){
 			}
 		}
 	}
+});
+
+//on Enter press next input 
+$(document).on('keypress', '.splitterPopup input,.splitterPopup select', function (e) {
+    if (e.which == 13) {
+        e.preventDefault();
+        // Get all focusable elements on the page
+        var $canfocus = $(':focusable');
+        var index = $canfocus.index(document.activeElement) + 1;
+        if (index >= $canfocus.length) index = 0;
+        $canfocus.eq(index).focus();
+    }
 });

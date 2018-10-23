@@ -1,5 +1,7 @@
 $('body').on('click', '.Lamella', function(){
 	var id=$(this).attr('id');
+	//input Number error
+	inputErrorRemove('cLamellaPopup');
 	$('.cLamellaPopup').removeClass('dispNone');
 	$('.cLamellaPopup').show();
 	$('.popUpTabError').text('');
@@ -39,7 +41,7 @@ $('body').on('click', '.Lamella', function(){
 		$(".cLamellaPopup input[name=clarifierSludgeBlowdown]").val('');
 		//$(".cLamellaPopup input[name=feedTSS]").val('');
 		//$(".cLamellaPopup input[name=colorCUEstimatedvalue]").val('');
-		$("#chemicalSelection").val();
+		$("#chemicalSelection").val('Select');
 		$(".cLamellaPopup input[name=kgDrysludge]").val('');
 		$(".cLamellaPopup input[name=ofSludgeasfixedsoils]").val('');
 		$(".cLamellaPopup input[name=fixedSoilSpecificGravity]").val('');
@@ -105,7 +107,7 @@ $('body').on('click','.cLamellaPopup .updateBtn', function(e){
 		validFlag = 1;
 		$(".cLamellaPopup input[name=colorCUEstimatedvalue]").css('border','1px solid red');
 	}*/
-	if($("#chemicalSelection").val() == ""){
+	if($("#chemicalSelection").val() == "Select"){
 		validFlag = 1;
 		$("#chemicalSelection").css('border','1px solid red');
 	}
@@ -177,4 +179,16 @@ $('body').on('click','.cLamellaPopup .updateBtn', function(e){
 });
 $(document).on('change', '#chemicalSelection', function(){
 	$('.selectedChemical').text($(this).val());
+});
+
+//on Enter press next input 
+$(document).on('keypress', '.cLamellaPopup input,.cLamellaPopup select', function (e) {
+    if (e.which == 13) {
+        e.preventDefault();
+        // Get all focusable elements on the page
+        var $canfocus = $(':focusable');
+        var index = $canfocus.index(document.activeElement) + 1;
+        if (index >= $canfocus.length) index = 0;
+        $canfocus.eq(index).focus();
+    }
 });

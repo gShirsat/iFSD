@@ -78,7 +78,8 @@ var unitData = [
 				"MSCFD",
 				"SCFD",
 				"SCFM",
-				"CFM"
+				"CFM",
+				"MGD"
 			],
 			"US_Units":[
 				"cuft/sec",
@@ -108,7 +109,8 @@ var unitData = [
 				"MSCFD",
 				"SCFD",
 				"SCFM",
-				"CFM"
+				"CFM",
+				"MGD"
 			]
 		},
 		{
@@ -211,18 +213,18 @@ var unitData = [
 		{
 			"paramName":"Flux",
 			"SI_Units":[
-				"cum/sqm-sec",
+				"l/sqm-hr",
 				"gal/sqft-min",				
 				"cuft/sqft-sec",
 				"gal/sqft-day",
-				"I/sqft-min"
+				"cum/sqm-sec"
 			],
 			"US_Units":[
 				"cuft/sqft-sec",
 				"cum/sqm-sec",
 				"gal/sqft-min",				
 				"gal/sqft-day",
-				"I/sqft-min"
+				"l/sqm-hr"
 			]
 		},
 		{
@@ -389,15 +391,6 @@ var unitData = [
 				"cm/sec",
 				"mm/sec",
 				"in/sec"
-			]
-		},
-		{
-			"paramName":"MGD",
-			"SI_Units":[
-				"MGD"
-			],
-			"US_Units":[
-				"MGD"
 			]
 		}
 		

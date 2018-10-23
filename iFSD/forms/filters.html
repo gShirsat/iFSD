@@ -23,14 +23,17 @@
             <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
                 <tbody>
                     <tr>
-                        <td>Filter Type
-                            <select id="filterType" name="filterType">
+                        <td>Filter Type <span class="requiredInp">*</span></td>
+                        <td>
+							<select id="filterType" name="filterType">
+								<option>Select</option>
                                 <option value="Vertical Multimedia Filter">Vertical Multimedia Filter</option>
                                 <option value="Horizontal Multimedia Filter">Horizontal Multimedia Filter</option>
                                 <option value="Activated Carbon Filter">Activated Carbon Filter</option>
                                 <option value="Greensand Filter">Greensand Filter</option>
                             </select>
                         </td>
+						<td></td>
                     </tr>
                 </tbody>
             </table>
@@ -62,14 +65,14 @@
                                         <td id="maxFlowRate1">gpm</td>
                                     </tr>
                                     <tr>
-                                        <td unitType="-" width="50%">Total number of installed unit(s)</td>
+                                        <td unitType="-" width="50%">Total number of installed unit(s) <span class="requiredInp">*</span></td>
                                         <td>
                                             <input type="text" name="installedUnits" value="1" />
                                         </td>
                                         <td id="installedUnits1"></td>
                                     </tr>
                                     <tr>
-                                        <td width="50%">Unit(s) in service, normally</td>
+                                        <td width="50%">Unit(s) in service, normally <span class="requiredInp">*</span></td>
                                         <td>
                                             <input type="text" name="unitsInService" value="1" />
                                         </td>
@@ -94,7 +97,7 @@
                                 <tbody>
                                     <tr id="loadingRateFilter">
                                         <td unitType="Loading Rate" width="50%">
-										<span class="w80">Loading Rate</span>
+										<span class="w80">Loading Rate <span class="requiredInp">*</span></span>
 										<div class="tooltip_iFSD">
 											<span class="glyphicon glyphicon-info-sign"></span>
 										  <span class="tooltiptext_iFSD">
@@ -107,13 +110,13 @@
                                         </td>
                                         <td id="loadingRate1">mg/L</td>
                                     </tr>
-                                    <tr id="inletSldFilter">
-                                        <td width="50%">Inlet Total Suspended Solids</td>
+                                    <!-- <tr id="inletSldFilter">
+                                        <td width="50%">Inlet Total Suspended Solids <span class="requiredInp">*</span></td>
                                         <td>
                                             <input type="text" name="inletSolids" value="" />
                                         </td>
                                         <td id="inletSolids1">mg/L</td>
-                                    </tr>
+                                    </tr> -->
                                     <tr id="organicCbnFilter">
                                         <td width="50%">Inlet Total Organic Carbon, Optional</td>
                                         <td>
@@ -129,28 +132,28 @@
                                         <td id="inletChlorine1">mg/L</td>
                                     </tr>
                                     <tr>
-                                        <td width="50%">Media Bed Freeboard </td>
+                                        <td width="50%">Media Bed Freeboard <span class="requiredInp">*</span></td>
                                         <td>
                                             <input type="text" name="mediaBed" value="" />
                                         </td>
                                         <td id="mediaBed1">%</td>
                                     </tr>
                                     <tr>
-                                        <td unitType="Temperature" width="50%">Back wash Temp, High </td>
+                                        <td unitType="Temperature" width="50%">Back wash Temp, High <span class="requiredInp">*</span></td>
                                         <td>
                                             <input type="text" name="backWashTemphigh" value="" />
                                         </td>
                                         <td id="backWashTemphigh1">deg F</td>
                                     </tr>
                                     <tr>
-                                        <td unitType="Temperature" width="50%">Back wash Temp, Low </td>
+                                        <td unitType="Temperature" width="50%">Back wash Temp, Low <span class="requiredInp">*</span></td>
                                         <td>
                                             <input type="text" name="backWashTempLow" value="" />
                                         </td>
                                         <td id="backWashTempLow1">deg F</td>
                                     </tr>
                                     <tr>
-                                        <td width="50%">Post back wash rinse </td>
+                                        <td width="50%">Post back wash rinse <span class="requiredInp">*</span></td>
                                         <td>
                                             <select name="postBackWash">
                                                 <option value="Yes">Yes</option>
@@ -160,7 +163,7 @@
                                         <td id="postBackWash1"></td>
                                     </tr>
                                     <tr id="airScourShow">
-                                        <td width="50%">Air Scour </td>
+                                        <td width="50%">Air Scour <span class="requiredInp">*</span></td>
                                         <td>
                                             <select name="airScourId">
                                                 <option value="Yes">Yes</option>
@@ -170,7 +173,7 @@
                                         <td id="airScourId1"></td>
                                     </tr>
                                     <tr id="subSurfaceWashShow">
-                                        <td width="50%">Sub surface wash </td>
+                                        <td width="50%">Sub surface wash <span class="requiredInp">*</span></td>
                                         <td>
                                             <select name="subSurfaceWashId">
                                                 <option value="Yes">Yes</option>
@@ -198,7 +201,7 @@
                             <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
                                 <tbody>
                                     <tr>
-                                        <td unitType="Pressure" width="40%">Design Pressure </td>
+                                        <td unitType="Pressure" width="40%">Design Pressure <span class="requiredInp">*</span> </td>
                                         <td>
                                             <input type="text" name="designPressure" value="" />
                                         </td>
@@ -212,9 +215,10 @@
                                         <td id="corrosionAllowance1">1/16th of an inch</td>
                                     </tr>
                                     <tr>
-                                        <td >Choice of lining </td>
+                                        <td >Choice of lining <span class="requiredInp">*</span> </td>
                                         <td>
                                             <select name="choiceLining" class="w100">
+												<option>Select</option>
                                                 <option value="Plasite">Plasite</option>
                                                 <option value="3/16 Rubber">3/16" Rubber</option>
                                                 <option value="1/4 Rubber">1/4" Rubber</option>
@@ -224,7 +228,7 @@
                                         <td id="choiceLining1"></td>
                                     </tr>
                                     <tr>
-                                        <td unitType="Length" >Outer Diameter </td>
+                                        <td unitType="Length" >Outer Diameter <span class="requiredInp">*</span> </td>
                                         <td>
                                             <input type="text" name="outerDia" value="" />
                                         </td>
@@ -232,7 +236,7 @@
                                     </tr>
 
                                     <tr id="tanLgthFilter">
-                                        <td unitType="Length" >Tan length </td>
+                                        <td unitType="Length" >Tan length <span class="requiredInp">*</span></td>
                                         <td>
                                             <input type="text" name="tanLength" value="" />
                                         </td>
@@ -240,9 +244,10 @@
                                     </tr>
 
                                     <tr>
-                                        <td >Head Type </td>
+                                        <td >Head Type <span class="requiredInp">*</span></td>
                                         <td>
                                             <select name="headType" class="w100">
+												<option>Select</option>
                                                 <option value="ASME F&D">ASME F&D</option>
                                                 <option value="ASME 2:1 Semi - elliptical">ASME 2:1 Semi - elliptical</option>
                                             </select>
@@ -267,30 +272,31 @@
                             <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
                                 <tbody>
                                     <tr id="sandDepthFilter">
-                                        <td width="50%" unitType="Length">Sand Depth </td>
+                                        <td width="50%" unitType="Length">Sand Depth <span class="requiredInp">*</span> </td>
                                         <td>
                                             <input type="text" name="sandDepthId" value="" />
                                         </td>
                                         <td id="sandDepthId1">m</td>
                                     </tr>
                                     <tr id="anthraDepthFilter">
-                                        <td width="50%" unitType="Length">Anthracite Depth </td>
+                                        <td width="50%" unitType="Length">Anthracite Depth <span class="requiredInp">*</span> </td>
                                         <td>
                                             <input type="text" name="anthraId" value="" />
                                         </td>
                                         <td id="anthraId1">m</td>
                                     </tr>
                                     <tr id="garnetDepthFilter">
-                                        <td unitType="Length" width="50%">Garnet Depth </td>
+                                        <td unitType="Length" width="50%">Garnet Depth <span class="requiredInp">*</span> </td>
                                         <td>
                                             <input type="text" name="garnetId" value="" />
                                         </td>
                                         <td id="garnetId1">m</td>
                                     </tr>
                                     <tr id="subFillFilter">
-                                        <td width="50%">Sub Fill Type </td>
+                                        <td width="50%">Sub Fill Type <span class="requiredInp">*</span></td>
                                         <td>
                                             <select name="subFillTypeId">
+												 <option value="Select">Select</option>
                                                 <option value="Carbon">Carbon</option>
                                                 <option value="Sand">Sand</option>
                                             </select>
@@ -298,7 +304,7 @@
                                         <td></td>
                                     </tr>
                                     <tr id="greenSandFilter">
-                                        <td width="50%">Green Sand Load </td>
+                                        <td width="50%">Green Sand Load <span class="requiredInp">*</span></td>
                                         <td>
                                             <input type="text" name="greenSandLoadId" value="" />
                                         </td>
@@ -306,7 +312,7 @@
                                     </tr>
 
                                     <tr id="anthraDepFilter">
-                                        <td width="50%">Anthracite Cap </td>
+                                        <td width="50%">Anthracite Cap <span class="requiredInp">*</span></td>
                                         <td>
                                             <select name="anthraciteCapId">
                                                 <option value="Yes">Yes</option>
@@ -333,14 +339,14 @@
                             <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
                                 <tbody>
                                     <tr>
-                                        <td width="50%">Shell Joint efficiency</td>
+                                        <td width="50%">Shell Joint efficiency <span class="requiredInp">*</span></td>
                                         <td>
                                             <input type="text" name="shellJointEfficiency" value="0.85" class="inputWithDecimal" />
                                         </td>
                                         <td id="shellJointEfficiency1">(0-1)</td>
                                     </tr>
                                     <tr>
-                                        <td width="50%">Head Joint efficiency</td>
+                                        <td width="50%">Head Joint efficiency <span class="requiredInp">*</span></td>
                                         <td>
                                             <input type="text" name="headJointEfficiency" value="1" />
                                         </td>
@@ -352,7 +358,7 @@
                     </div>
                 </div>
             </div>
-            <div class="panel panel-default">
+            <div class="panel panel-default" style="margin-bottom:5px;">
                 <div class="panel-heading" role="tab" id="filters_Six">
                     <h4 class="panel-title">
                         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#filters_collapseSix" aria-expanded="false" aria-controls="filters_collapseSix">
@@ -408,7 +414,7 @@
                                     <td id="airScourTime1" width="20%"></td>
                                 </tr>
                                 <tr>
-                                    <td width="50%">Rinse flow to be maintained as service flow</td>
+                                    <td width="50%">Rinse flow to be maintained as service flow <span class="requiredInp">*</span></td>
                                     <td>
                                         <select name="rinseServiceFlow">
                                             <option value="Yes">Yes</option>
@@ -418,7 +424,7 @@
                                     <td id="rinseServiceFlow1" width="20%"></td>
                                 </tr>
                                 <tr>
-                                    <td width="50%">Rinse water recycled to feed</td>
+                                    <td width="50%">Rinse water recycled to feed <span class="requiredInp">*</span></td>
                                     <td>
                                         <select name="rinseFeedRecycle">
                                             <option value="Yes">Yes</option>
@@ -432,7 +438,10 @@
                     </div>
                 </div>
             </div>
+			<div class="note" style="background:none;">All  <span class="requiredInp">*</span> marked fields are mandatory <span class="clearfix"></span></div>
+			<div class="note" style="background:none;">Feed TSS should be non zero</div>
         </div>
+		
     </div>
     <div class="Output tabDiv dispNone genericSrollBox">
 	<div class="panel-group" id="accordionFO" role="tablist" aria-multiselectable="true">
@@ -576,12 +585,12 @@
                     <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
                         <tbody>
                             <tr>
-                                <td unitType="Volume Flow" width="45%">Maximum Service Flowrate / Unit</td>
+                                <td unitType="Volume Flow" width="45%">Maximum Service Flow Rate per unit</td>
                                 <td name="serviceFlowRate" width="25%"></td>
                                 <td id="serviceFlowRate1">m3/h</td>
                             </tr>
                             <tr>
-                                <td unitType="Volume Flow" width="45%">Design Service Flowrate / Unit</td>
+                                <td unitType="Volume Flow" width="45%">Design Service Flow Rate per unit</td>
                                 <td width="25%"></td>
                                 <td id="serviceFlowRate1">m3/h</td>
                             </tr>

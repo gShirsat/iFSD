@@ -2,6 +2,7 @@
 var unitConverionDoneEdi=false;
 $('body').on('click', '.RO', function () {
     var id = $(this).attr('id');
+	inputErrorRemove('roPopUp');
     $('.roPopUp').removeClass('dispNone');
     $('.roPopUp').show();
 	$('.roPopUp .body ul.nav li').removeClass('active');
@@ -83,8 +84,8 @@ $('body').on('click', '.RO', function () {
         $(".roPopUp input[name=roElemArea]").val(getSavedData_ro.roElemArea);
     }else{
 		$(".roPopUp input[name=roRecovery]").val('');
-		$(".roPopUp select[name=elementType]").val('BWRO');
-        $(".roPopUp select[name=roElementsPerVessel]").val(1);
+		$(".roPopUp select[name=elementType]").val('Select');
+        $(".roPopUp select[name=roElementsPerVessel]").val(6);
 		$(".roPopUp input[name=roFlux]").val(0.008333);
 		$(".roPopUp input[name=roElemArea]").val(37.158784);
 		$(".roPopUp input[name=roElemAge]").val(1);
@@ -121,10 +122,9 @@ $('body').on('click', '.RO', function () {
 				if ($tds.eq(1).find('input').val() != '' && $tds.eq(1).find('input').val() != undefined) {
 					var value2 = $tds.eq(2).text();
 					var value1 = $tds.eq(1).find('input').val();
-					console.log(value2+'Unit');
-					if (value2 != '' && value2 != undefined && value1 != '' && value1 != undefined && getUnitType != '-'
-					&& getUnitType != '' && getUnitType != undefined) {
-					  console.log($tds.eq(1).find('input').attr('name'));
+					//console.log(value2+'Unit');
+					if (value2 != '' && value2 != undefined && value1 != '' && value1 != undefined && getUnitType != '-' && getUnitType != '' && getUnitType != undefined) {
+					  //console.log($tds.eq(1).find('input').attr('name'));
 
 					var m;
 					try {
@@ -182,11 +182,13 @@ $('body').on('click', '.roPopUp .updateBtn', function (e) {
     $(".roPopUp input[name=roBrId]").css('border', '1px solid #e1e2e5');
     $(".roPopUp input[name=roPoId]").css('border', '1px solid #e1e2e5');
     $(".roPopUp input[name=roBId]").css('border', '1px solid #e1e2e5');
+    $(".roPopUp input[name=roSilicaId]").css('border', '1px solid #e1e2e5');
     $(".roPopUp input[name=rohsid]").css('border', '1px solid #e1e2e5');
     $(".roPopUp input[name=rohcoId]").css('border', '1px solid #e1e2e5');
     $(".roPopUp input[name=rohcotId]").css('border', '1px solid #e1e2e5');
     $(".roPopUp input[name=rohcothId]").css('border', '1px solid #e1e2e5');
     $(".roPopUp input[name=roElemArea]").css('border', '1px solid #e1e2e5');
+	$("#elemType").css('border', '1px solid #e1e2e5');
 	
 	/*COnvert To standard Units before comparison*/
 	//UnitConversion
@@ -229,27 +231,22 @@ $('body').on('click', '.roPopUp .updateBtn', function (e) {
     if ($(".roPopUp input[name=roRejection]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=roRejection]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=roFlux]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=roFlux]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=roFluxChange]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=roFluxChange]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=roElemAge]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=roElemAge]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=saltPassage]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=saltPassage]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=pumpEfficiency]").val() == "") {
         validFlag = 1;
@@ -263,123 +260,107 @@ $('body').on('click', '.roPopUp .updateBtn', function (e) {
     if ($(".roPopUp input[name=roPressure]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=roPressure]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=rocaid]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=rocaid]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=romgid]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=romgid]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=ronaid]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=ronaid]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=rokid]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=rokid]").css('border', '1px solid red');
-
+    }
+	if ($(".roPopUp input[name=ronhid]").val() == "") {
+        validFlag = 1;
+        $(".roPopUp input[name=ronhid]").css('border', '1px solid red');
     }
     if ($(".roPopUp input[name=robaid]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=robaid]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=rosrId]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=rosrId]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=roFeId]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=roFeId]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=roMnId]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=roMnId]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=rosoId]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=rosoId]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=roclId]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=roclId]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=rofId]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=rofId]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=rofId]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=rofId]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=ronoId]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=ronoId]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=ronoId]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=ronoId]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=roBrId]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=roBrId]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=roPoId]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=roPoId]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=roBId]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=roBId]").css('border', '1px solid red');
-
+    }	
+	if ($(".roPopUp input[name=roSilicaId]").val() == "") {
+        validFlag = 1;
+        $(".roPopUp input[name=roSilicaId]").css('border', '1px solid red');
     }
     if ($(".roPopUp input[name=rohsid]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=rohsid]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=rohcoId]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=rohcoId]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=rohcotId]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=rohcotId]").css('border', '1px solid red');
-
     }
     if ($(".roPopUp input[name=rohcothId]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=rohcothId]").css('border', '1px solid red');
-
     }
 	if ($(".roPopUp input[name=roElemArea]").val() == "") {
         validFlag = 1;
         $(".roPopUp input[name=roElemArea]").css('border', '1px solid red');
-
     }
-	/* if ($(".roPopUp input[name=roFlux]") == "" ) { 
+	if ($("#elemType").val() == 'Select') {
         validFlag = 1;
-        $(".roPopUp input[name=roFlux]").css('border', '1px solid red');
-
-    } */
+        $("#elemType").css('border', '1px solid red');
+    }
     if ($(".roPopUp #elemType").val() == 'BWRO' && (Number($(".roPopUp input[name=roFlux]").attr('uCVal')) <0.00556 || Number($(".roPopUp input[name=roFlux]").attr('uCVal')) > 0.014583)) {
         validFlag = 1;
         $(".roPopUp input[name=roFlux]").css('border', '1px solid red');
@@ -480,8 +461,6 @@ $('body').on('change', '.roPopUp #elemType', function () {
         $(".roPopUp input[name=rohcothId]").val(99.9);
         $(".roPopUp input[name=roFlux]").val(0.008333);
         $(".roPopUp input[name=roElemArea]").val(37.158784 );
-
-
     }
     if (this.value == 'NF') {
         $(".roPopUp input[name=rocaid]").val(45.58082);
@@ -532,10 +511,7 @@ $('body').on('change', '.roPopUp #elemType', function () {
         $(".roPopUp input[name=rohcothId]").val(99.93);
         $(".roPopUp input[name=roFlux]").val(0.008333);
         $(".roPopUp input[name=roElemArea]").val(37.158784);
-
     }
-
-
 });
 
 $(document).on('change', '.roPopUp input', function () {
@@ -544,4 +520,16 @@ $(document).on('change', '.roPopUp input', function () {
 	// If we have no match, value will be empty.
 	this.value = "";
 	}
+});
+
+//on Enter press next input 
+$(document).on('keypress', '.roPopUp input,.roPopUp select', function (e) {
+    if (e.which == 13) {
+        e.preventDefault();
+        // Get all focusable elements on the page
+        var $canfocus = $(':focusable');
+        var index = $canfocus.index(document.activeElement) + 1;
+        if (index >= $canfocus.length) index = 0;
+        $canfocus.eq(index).focus();
+    }
 });

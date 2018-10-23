@@ -22,64 +22,7 @@
         <div class="clearfix"></div>
         <div class="Input tabDiv genericSrollBox">		
 			<div class="panel-group" id="accordionMix" role="tablist" aria-multiselectable="true">
-			  <!-- <div class="panel panel-default">
-				<div class="panel-heading" role="tab" id="headingOneMix">
-				  <h4 class="panel-title">
-					<a role="button" data-toggle="collapse" data-parent="#accordionMix" href="#collapseOneMix" aria-expanded="true" aria-controls="collapseOneMIx">
-					   Anions
-					</a>
-				  </h4>
-				</div>
-				<div id="collapseOneMix" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOneMix">
-				  <div class="panel-body">
-					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
-						<tr>
-							<td>HCO3</td>
-							<td>
-								<input type="number" name="ixmhco" value="10">
-							</td>
-							<td id="ixmhco1">ppm as CaCO3</td>
-						</tr>
-						<tr>
-							<td>SO4</td>
-							<td>
-								<input type="number" name="ixmso" value="10">
-							</td>
-							<td>ppm as CaCO3</td>
-						</tr>
-						<tr>
-							<td>F</td>
-							<td>
-								<input type="number" name="ixmcl" value="0">
-							</td>
-							<td>ppm as CaCO3</td>
-						</tr>
-						<tr>
-							<td>NO3</td>
-							<td>
-								<input type="number" name="ixmno" value="0">
-							</td>
-							<td>ppm as CaCO3</td>
-						</tr>
-						<tr>
-							<td>CO2</td>
-							<td>
-								<input type="number" name="ixmco" value="10">
-							</td>
-							<td>ppm as CaCO3</td>
-						</tr>
-						<tr>
-							<td>SIO2</td>
-							<td>
-								<input type="number" name="ixmsio" value="10">
-							</td>
-							<td>ppm as CaCO3</td>
-						</tr>
 
-					</table>
-				  </div>
-				</div>
-			  </div> -->
 			  <div class="panel panel-default">
 				<div class="panel-heading" role="tab" id="headingTwoMix">
 				  <h4 class="panel-title">
@@ -92,31 +35,29 @@
 				  <div class="panel-body">
 					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 						<tr>
-							<td>Cation</td>
+							<td>Cation <span class="requiredInp">*</span></td>
 							<td>
 								<input type="text" name="ixmhcation" class="alphaNumTxt" value="">
 							</td>
 							<td id="ixmhcation1"></td>
 						</tr>
-
 						<tr>
-							<td>Anion</td>
+							<td>Anion </td>
 							<td>
 								<input type="text" name="ixmhcanion" class="alphaNumTxt" value="">
 							</td>
 							<td id="ixmhcanion1"></td>
-							</tr>
-								<tr>
-									<td>Inert</td>
-									<td>
-										<select name="ixminert">
-											<option value="Yes">Yes</option>
-											<option value="No">No</option>
-										</select>
-									</td>
-									<td id="ixminert1"></td>
-								</tr>
-
+						</tr>
+						<tr>
+							<td>Inert <span class="requiredInp">*</span></td>
+							<td>
+								<select name="ixminert">
+									<option value="Yes">Yes</option>
+									<option value="No">No</option>
+								</select>
+							</td>
+							<td id="ixminert1"></td>
+						</tr>
 					</table>
 				  </div>
 				</div>
@@ -133,29 +74,28 @@
 				  <div class="panel-body">       
 					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 						<tr>
-							<td>SAC Unit Leakage</td>
+							<td>SAC Unit Leakage <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmSAC" value="">
 							</td>
 							<td id="ixmSAC1">ppm</td>
 						</tr>
 						<tr>
-							<td>SBA Unit Leakage</td>
+							<td>SBA Unit Leakage <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmSBA" value="">
 							</td>
 							<td id="ixmSBA1">ppm</td>
 						</tr>
-
 						<tr>
-							<td>Cation Exchange Capacity</td>
+							<td>Cation Exchange Capacity <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmCatEx" value="">
 							</td>
 							<td id="ixmCatEx1">kgr/ft3</td>
 						</tr>
 						<tr>
-							<td>Anion Exchange Capacity</td>
+							<td>Anion Exchange Capacity <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmAnEx" value="">
 							</td>
@@ -177,14 +117,14 @@
 				  <div class="panel-body">
 				   <table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 						<tr>
-							<td unitType="Loading Rate">Acid dosage</td>
+							<td unitType="Loading Rate">Acid dosage <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmAcid" value="">
 							</td>
 							<td id="ixmAcid1">lb/ft3</td>
 						</tr>
 						<tr>
-							<td unitType="Loading Rate">Caustic dosage</td>
+							<td unitType="Loading Rate">Caustic dosage <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmCaustic" value="">
 							</td>
@@ -206,9 +146,10 @@
 				  <div class="panel-body">
 					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 						<tr>
-							<td>Acid Type</td>
+							<td>Acid Type <span class="requiredInp">*</span></td>
 							<td>
 								<select id="ixm_acidType" name="ixm_acidType">
+									<option>Select</option>
 									<option value="H2SO4">H2SO4</option>
 									<option value="HCl">HCl</option>
 								</select>
@@ -216,42 +157,35 @@
 							<td id="ixm_acidType1"></td>
 						</tr>
 						<tr>
-							<td>Acid Concentration</td>
+							<td>Acid Concentration <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmAcidCon" value="" id="ixmAcidCon">
 							</td>
 							<td id="ixmAcidCon1">%</td>
 						</tr>
-
-
 						<tr>
-							<td>Acid Step1</td>
+							<td>Acid Step1 <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmStep1" value="">
 							</td>
 							<td id="ixmStep11">%</td>
 						</tr>
-
 						<tr>
-							<td>Acid Step2</td>
+							<td>Acid Step2 <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmStep2" value="">
 							</td>
 							<td id="ixmStep21">%</td>
 						</tr>
-
 						<tr>
-							<td>Concentric Caustic</td>
+							<td>Concentric Caustic <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmConcCaustic" value="" id="ixmConcCausticId">
 							</td>
 							<td id="ixmConcCaustic1">%</td>
 						</tr>
-
-						</tr>
-
 						<tr>
-							<td>Dilute Caustic</td>
+							<td>Dilute Caustic <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmDiluteCaustic" value="">
 							</td>
@@ -272,25 +206,23 @@
 				<div id="collapse6Mix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading6Mix">
 				  <div class="panel-body">
 					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
-						<tr>
-							<td unitType="Volume Flow">Normal Flow Rate</td>
+						<!-- <tr>
+							<td unitType="Volume Flow">Normal Flow Rate <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="imxflowRate" value="" id="imxflowRate">
 
 							</td>
 							<td id="imxflowRate1">gpm</td>
-						</tr>
+						</tr> -->
 						<tr>
-							<td unitType="Time">Run Length</td>
+							<td unitType="Time">Run Length <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmRunLength" value="">
 							</td>
 							<td id="ixmRunLength1">hr</td>
 						</tr>
-
-
 						<tr>
-							<td>Use Gross Flow as Service Flow</td>
+							<td>Use Gross Flow as Service Flow <span class="requiredInp">*</span></td>
 							<td>
 								<select name="ixmGrossFlow">
 									<option value="Yes">Yes</option>
@@ -315,7 +247,7 @@
 				  <div class="panel-body">
 					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 						<tr>
-							<td>Recycle Mix Bed</td>
+							<td>Recycle Mix Bed <span class="requiredInp">*</span></td>
 							<td>
 								<select name="ixmRecycleMixBed">
 									<option value="Yes">Yes</option>
@@ -325,7 +257,7 @@
 							<td id="ixmRecycleMixBed1"></td>
 						</tr>
 						<tr>
-							<td>Inert Resins</td>
+							<td>Inert Resins <span class="requiredInp">*</span></td>
 							<td>
 								<select name="ixmInsertResins">
 									<option value="Yes">Yes</option>
@@ -335,7 +267,7 @@
 							<td id="ixmInsertResins1"></td>
 						</tr>
 						<tr>
-							<td>Ambersep Resins</td>
+							<td>Ambersep Resins <span class="requiredInp">*</span></td>
 							<td>
 								<select name="ixmAmberstepResins">
 									<option value="Yes">Yes</option>
@@ -345,7 +277,7 @@
 							<td id="ixmAmberstepResins1"></td>
 						</tr>
 						<tr>
-							<td>Backwash Source</td>
+							<td>Backwash Source <span class="requiredInp">*</span></td>
 							<td>
 								<select name="ixmBackwashSource">
 									<option value="Influent">Influent</option>
@@ -355,7 +287,7 @@
 							<td id="ixmBackwashSource"></td>
 						</tr>
 						<tr>
-							<td>Heated Caustic</td>
+							<td>Heated Caustic <span class="requiredInp">*</span></td>
 							<td>
 								<select name="ixmHeatedCaustics">
 									<option value="Yes">Yes</option>
@@ -365,9 +297,10 @@
 							<td id="ixmHeatedCaustics1"></td>
 						</tr>
 						<tr>
-							<td>Underdrain Type</td>
+							<td>Underdrain Type <span class="requiredInp">*</span></td>
 							<td>
 								<select name="ixmUnderdrainType">
+									<option>Select</option>
 									<option value="Flat Strainer Plate">Flat Strainer Plate</option>
 									<option value="Dished False Bottom">Dished False Bottom</option>
 								</select>
@@ -375,7 +308,7 @@
 							<td></td>
 						</tr>
 						<tr>
-							<td unitType="Length">Lining Thickness</td>
+							<td unitType="Length">Lining Thickness <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmLiningThickness" value="">
 							</td>
@@ -397,15 +330,14 @@
 				  <div class="panel-body">
 					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 						<tr>
-							<td unitType="Length">Force bed depth Cation </td>
-
+							<td unitType="Length">Force bed depth Cation <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmForceBedDepth" value="">
 							</td>
 							<td id="ixmForceBedDepth1">inch</td>
 						</tr>
 						<tr>
-							<td unitType="Length">Force bed depth Anion </td>
+							<td unitType="Length">Force bed depth Anion <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmForceBedAnion" value="">
 							</td>
@@ -427,25 +359,25 @@
 				  <div class="panel-body">
 					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 						<tr>
-							<td unitType="Length">MB Diameter</td>
+							<td unitType="Length">MB Diameter <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmMBDiameter" value="">
 							</td>
 							<td id="ixmMBDiameter1">inch</td>
 						</tr>
 						<tr>
-							<td>MB Freeboard</td>
+							<td>MB Freeboard <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmMBFreeboard" value="">
 							</td>
-							<td>%</td>
+							<td id="ixmMBFreeboard1">%</td>
 						</tr>
 						<tr>
-							<td unitType="Pressure">Design Pressure</td>
+							<td unitType="Pressure">Design Pressure <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmDesignPressure" value="">
 							</td>
-							<td id="ixmMBFreeboard1">psig</td>
+							<td id="ixmDesignPressure1">psi</td>
 						</tr>
 					</table>
 				  </div>
@@ -463,44 +395,44 @@
 				  <div class="panel-body">
 					<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 						<tr>
-							<td unitType="Temperature">Resin high temperature</td>
+							<td unitType="Temperature">Resin high temperature <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmResinHighTemp" value="">
 							</td>
 							<td id="ixmResinHighTemp1">oF</td>
 						</tr>
 						<tr>
-							<td unitType="Temperature">Regen temperature</td>
+							<td unitType="Temperature">Regen temperature <span class="requiredInp">*</span></td>
 							<td>
 								<input type="number" name="ixmRegenHighTemp" value="">
 							</td>
-							<td>oF</td>
+							<td id="ixmRegenHighTemp1">oF</td>
 						</tr>
 						<tr>
 							<td>a</td>
 							<td>
-								<input type="number" name="ixmbackWashA" class="sixDecimal" value="1.23">
+								<input type="number" name="ixmbackWashA" class="alphaNumTxt" value="">
 							</td>
 							<td></td>
 						</tr>
 						<tr>
 							<td>b</td>
 							<td>
-								<input type="number" name="ixmbackWashB" class="sixDecimal" value="0.02">
+								<input type="number" name="ixmbackWashB" class="alphaNumTxt" value="">
 							</td>
 							<td></td>
 						</tr>
 						<tr>
 							<td>c</td>
 							<td>
-								<input type="number" name="ixmbackWashC" class="sixDecimal" value="0.00">
+								<input type="number" name="ixmbackWashC" class="alphaNumTxt" value="">
 							</td>
 							<td></td>
 						</tr>
 						<tr>
 							<td>d</td>
 							<td>
-								<input type="number" name="ixmbackWashD" class="sixDecimal" value="-1.79">
+								<input type="number" name="ixmbackWashD" class="alphaNumTxt" value="">
 							</td>
 							<td></td>
 						</tr>
@@ -563,20 +495,21 @@
 					  <div class="panel-body">
 						<table class="table table-bordered margin0 tableScroller inputTable" id="Input">
 							<tr>
-								<td>Use service flow for rinse ?</td>
+								<td>Use service flow for rinse ? <span class="requiredInp">*</span></td>
 								<td>
 									<select name="ixmServiceFlowRinse">
 										<option value="Yes">Yes</option>
 										<option value="No">No</option>
 									</select>
 								</td>
+								<td></td>
 							</tr>
 						</table>
 					  </div>
 					</div>
 				</div>
 			</div>
-
+			<div class="note" style="background:none;">All  <span class="requiredInp">*</span> marked fields are mandatory <span class="clearfix"></span></div>
 
     </div>
 

@@ -24,18 +24,21 @@
             <table class="table table-bordered margin0 tableScroller" id="Input">
                 <tbody>
                     <tr>
-                        <td width="25%">Application</td>
+                        <td width="25%">Application <span class="requiredInp">*</span></td>
                         <td align="left">
                             <select id="applicationId">
+								<option value="Select">Select</option>
                                 <option value="Non MBR">Non MBR</option>
                                 <option value="MBR">MBR</option>
                             </select>
                         </td>
+						<td ></td>
                     </tr>
                     <tr id="feedwaterFilter">
-                        <td width="25%">Feed Water</td>
+                        <td width="25%">Feed Water <span class="requiredInp">*</span></td>
                         <td>
                             <select id="feedWaterId">
+								<option value="Select">Select</option>
                                 <option value="Surface Water" id="0">Surface Water</option>
                                 <option id="1">Ground Water</option>
                                 <option id="2">Secondary Effluent</option>
@@ -44,9 +47,10 @@
                                 <option id="5">Filtered Water</option>
                             </select>
                         </td>
+						<td ></td>
                     </tr>
                     <tr>
-                        <td width="25%">Recovery</td>
+                        <td width="25%">Recovery <span class="requiredInp">*</span></td>
                         <td align="left">
                             <input type="number" name="recoveryId" />
                         </td>
@@ -54,6 +58,7 @@
                     </tr>
                 </tbody>
             </table>
+			<div class="note" style="background:none;">All  <span class="requiredInp">*</span> marked fields are mandatory <span class="clearfix"></span></div>
         </div>
         </div>
 

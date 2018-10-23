@@ -10,7 +10,30 @@
 <link rel="stylesheet" href="css/settings.css" type="text/css"/>
 <link rel="stylesheet" href="css/sidebar.css" type="text/css"/>
 <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css"/>
+<!-- <style >
+.demo {
+  cursor: url("https://www.google.com/intl/en_ALL/mapfiles/openhand.cur"), all-scroll;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: -o-grab;
+  cursor: -ms-grab;
+  cursor: grab;
+}
+.demo:hover {
 
+}
+.demo:active {
+  cursor: url("https://www.google.com/intl/en_ALL/mapfiles/closedhand.cur"), all-scroll;
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: -o-grabbing;
+  cursor: -ms-grabbing;
+  cursor: grabbing;
+}
+.demo:before {
+  content: '.';
+}
+</style> -->
 <!-- <style>
 .box { background-color:#222; height:200px; width:300px; color:#fff; text-align:center; line-height:200px; margin-top:150px;}
 .ui-rotatable-handle { background-color:red;}
@@ -146,12 +169,13 @@
 			</div>
 			<div class="reports">
 				<div class="icons">
-					<a href="#">
+					<a href="#" id="massBalncePdf" >
+						<!-- onClick="exceltoPdf('MassBalance')" -->
 						<span class="icons_img"><img src="../images/pdf.png" ></span>
 						<span class="iconLinkName">PDF</span>
 						<span class="clearfix"></span>
 					</a>
-					<a href="#">
+					<a href="#" id="massBalanceExcel" onClick="openSheetExcel('MassBalance')">
 						<span class="icons_img"><img src="../images/excel.png" ></span>
 						<span class="iconLinkName">Excel</span>
 						<span class="clearfix"></span>
@@ -162,7 +186,7 @@
 			</div>
 			<div class="reports">
 				<div class="icons">
-					<a href="#">
+					<a href="#" >
 						<span class="icons_img"><img src="../images/pdf.png" ></span>
 						<span class="iconLinkName">PDF</span>
 						<span class="clearfix"></span>
@@ -173,12 +197,13 @@
 			</div>
 			<div class="reports">
 				<div class="icons">
-					<a href="#">
+					<a href="#" id="dataSheetPDF" >
+						<!-- onClick="exceltoPdf('DataSheets')" -->
 						<span class="icons_img"><img src="../images/pdf.png" ></span>
 						<span class="iconLinkName">PDF</span>
 						<span class="clearfix"></span>
 					</a>
-					<a href="#" id="pdfReport">
+					<a href="" id="dataSheetExcel" onClick="openSheetExcel('DataSheets')">
 						<span class="icons_img"><img src="../images/excel.png" ></span>
 						<span class="iconLinkName">Excel</span>
 						<span class="clearfix"></span>
@@ -207,6 +232,16 @@
 				</div>
 				<div class="groupName">Canvas </div>
 			</div>
+<!-- 			<div class="reports">
+				<div class="icons">
+					<a href="#" class="" onClick="exceltoPdf()">
+						<span class="icons_img withoutTxt"><img src="../images/canvas.png" ></span>
+						<span class="clearfix"></span>
+					</a>
+					<div class="clearfix"></div>
+				</div>
+				<div class="groupName">Excel to PDF </div>
+			</div> -->
 		</div>
 	</div>
 	<div class="fixedButtons">
@@ -350,7 +385,7 @@
 				</a>
 			</li>
 		</ul>
-		<span class="versionLabel">Version:0.1-alpha-13/08/2018</span>
+		<span class="versionLabel">Version:0.1-alpha-19/10/2018</span>
 	</nav>
 	<div id="content">
 		<!-- <div id="progress" style="display:none">
@@ -416,7 +451,7 @@
 
 						<div class="designDiv">
 							<div>
-							<img title="DensaDeg" class="passDiv"src="images/unitop_svg/clarifier_Lamella02.svg">
+							<img title="DensaDeg" class="passDiv"src="images/unitop_svg/Densadeg_01.svg">
 							</div>
 							<div>
 							<h4>DensaDeg</h4>
@@ -536,7 +571,7 @@
 								</div>
 								<div class="designDiv">
 								  <div>
-									<img title="FiltraFast" class="passDiv" src="images/unitop_svg/media_Filter.svg">
+									<img title="FiltraFast" class="passDiv" src="images/unitop_svg/Filtrafast_02.svg">
 								  </div>
 								  <div>
 									<h4>FF</h4>
@@ -1122,7 +1157,7 @@
 					<div class="col-md-9 newSForm_input">
 						<select id="unitDropdown">
 							<option value="">Select</option>
-							<option value="SI Units">SI Units</option>
+							<option value="SI Units">Metric Units</option>
 							<option value="US Units">US Units</option>
 							<!-- <option value="Custom Units">Custom Units</option> -->
 						</select>
@@ -1190,6 +1225,8 @@
 <script src="scripts/src/browser-util.js"></script>
 <script src="scripts/src/dom-adapter.js"></script>
 <script src="scripts/src/jsPlumb.js"></script>
+
+
 <script src="scripts/src/overlay-component.js"></script>
 <script src="scripts/src/endpoint.js"></script>
 <script src="scripts/src/connection.js"></script>
@@ -1384,7 +1421,7 @@
 			}
 			$('#unitDropdown').attr('disabled', true);
 		});
-
+		
 	});
 	var win = require('nw.gui').Window.get();
 	function windowCloseConfirm() {
